@@ -1,6 +1,6 @@
 # SSH Config Language
 
-Provides some simple settings and snippets for `~/.ssh/config` files.
+Provides some simple settings and snippets for `~/.ssh/config` and `sshd_config` files.
 
 ## Installation
 
