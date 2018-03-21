@@ -1,5 +1,5 @@
 {
-	"scope": "source.sshconfig",
+	"scope": "text.sshd_config",
 	"completions": [
 		"AcceptEnv",
 		"AddressFamily",

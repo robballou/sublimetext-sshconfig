@@ -7,5 +7,5 @@ Host ${1:hostname}
 
 ]]></content>
 	<tabTrigger>host</tabTrigger>
-	<scope>source.sshconfig</scope>
+	<scope>text.ssh_config</scope>
 </snippet>

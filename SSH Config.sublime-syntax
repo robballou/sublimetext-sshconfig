@@ -1,0 +1,80 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: SSH Config
+file_extensions:
+  - ssh_config
+scope: text.ssh_config
+contexts:
+  main:
+    - include: comments
+    - include: host
+    - include: hostname
+    - include: generic-option
+
+  pop-nl:
+    - match: '\n'
+      pop: true
+
+  host:
+    - match: '(?i)^[ \t]*(host)\b'
+      captures:
+        1: keyword.declaration.host-alias.ssh_config
+      push:
+        - match: '\*|\?'
+          scope: entity.name.label.host-alias.ssh_config constant.language.wildcard.ssh_config
+        - match: '\S+'
+          scope: entity.name.label.host-alias.ssh_config
+        - include: pop-nl
+
+  hostname:
+    - match: '(?i)^[ \t]*(hostname)\b'
+      captures:
+        1: keyword.declaration.host.ssh_config
+      push:
+        - match: |-
+            (?x:
+              (
+                ((?:\d{1,3}\.){3}\d{1,3})|     # simple IPv4
+                ((?:[A-f0-9:]+:+)+[A-f0-9]+)|  # simple IPv6
+                (\S+)                          # anything else
+              )
+              [ \t]*                           # any whitespace
+              (\S*)                            # anything else on the line
+            )
+          captures:
+            1: meta.string.host.ssh_config
+            2: constant.numeric.ip4.ssh_config
+            3: constant.numeric.ip6.ssh_config
+            4: string.unquoted.hostname.ssh_config
+            5: invalid.illegal.ssh_config
+        - include: pop-nl
+
+  generic-option:
+    - match: '^\s*([a-zA-Z1]+)'
+      captures:
+        1: keyword.other.ssh_config
+      push:
+        - match: '(?i)\b(yes|no)\b'
+          scope: constant.language.boolean.ssh_config
+        - match: '%[hpurdnl]'
+          scope: constant.character.escape.ssh_config
+        - match: '\d+'
+          scope: constant.numeric.ssh_config
+        - match: '\S+'
+          scope: string.unquoted.ssh_config
+        - include: pop-nl
+
+  comments:
+    - match: '^\s*(#)'
+      captures:
+        1: punctuation.definition.comment.ssh_config
+      push:
+        - meta_scope: comment.line.number-sign.ssh_config
+        - include: pop-nl
+    - match: '^\s*(;)'
+      captures:
+        1: punctuation.definition.comment.ssh_config
+      push:
+        - meta_scope: comment.line.semi-colon.ssh_config
+        - include: pop-nl

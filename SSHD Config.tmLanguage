@@ -52,7 +52,7 @@
 		</dict>
 	</array>
 	<key>scopeName</key>
-	<string>source.sshconfig</string>
+	<string>text.sshd_config</string>
 	<key>uuid</key>
 	<string>b2e45ae3-fc3a-49a0-999e-d738695780b8</string>
 </dict>
