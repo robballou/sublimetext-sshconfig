@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# http://www.sublimetext.com/docs/3/syntax.html
+# https://www.sublimetext.com/docs/3/syntax.html
 name: SSH Config
 file_extensions:
   - ssh_config
@@ -10,7 +10,13 @@ contexts:
     - include: comments
     - include: host
     - include: hostname
+    - include: bash-option
     - include: generic-option
+
+  percent-opts:
+    - match: '%[hpurdnl]'
+      scope: constant.character.escape.ssh_config
+      comment: https://www.dtucker.net/openssh/percent_expand_opts.html
 
   pop-nl:
     - match: '\n'
@@ -50,19 +56,30 @@ contexts:
             5: invalid.illegal.ssh_config
         - include: pop-nl
 
+  bash-option:
+    - match: '^\s*(?i)((?:proxy|local)command)[ \t]+'
+      captures:
+        1: keyword.other.ssh_config
+      with_prototype:
+        - include: percent-opts
+      push:
+        - meta_content_scope: text.ssh_config.embedded.shell
+        - include: scope:source.shell.bash
+        - include: pop-nl
+
   generic-option:
-    - match: '^\s*([a-zA-Z1]+)'
+    - match: '^\s*([a-zA-Z1]+)[ \t]+'
       captures:
         1: keyword.other.ssh_config
       push:
         - match: '(?i)\b(yes|no)\b'
           scope: constant.language.boolean.ssh_config
-        - match: '%[hpurdnl]'
-          scope: constant.character.escape.ssh_config
+        - include: percent-opts
         - match: '\d+'
           scope: constant.numeric.ssh_config
         - match: '\S+'
           scope: string.unquoted.ssh_config
+          comment: TODO make this respect percent-opts
         - include: pop-nl
 
   comments:

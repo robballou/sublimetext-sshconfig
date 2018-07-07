@@ -1,0 +1,42 @@
+# SYNTAX TEST "Packages/SSH Config/SSH Config.sublime-syntax"
+
+Host server serverino
+# ^^                  keyword.declaration.host-alias
+#    ^^^^^^           entity.name.label.host-alias
+#          ^          - entity.name.label.host-alias
+#           ^^^^^^^^^ entity.name.label.host-alias
+    Hostname server.com
+    # ^^^^^^            keyword.declaration.host
+    #        ^^^^^^^^^^ string.unquoted.hostname
+    # This is meant to be a comment
+    # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+    User will
+    # ^^      keyword.other
+    #    ^^^^ string.unquoted
+    ProxyCommand nc -x localhost:8888 %h %p
+    # ^^^^^^^^^^                             keyword.other
+    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  text.ssh_config.embedded.shell
+    #                                 ^^     constant.character.escape.ssh_config
+    #                                      ^ - text.ssh_config.embedded.shell
+    IdentityFile ~/.ssh/creds/%h.pem
+    # ^^^^^^^^^^                     keyword.other
+    #            ^^^^^^^^^^^^^^^^^^^ string.unquoted
+    #                         ^^
+
+Host *.splat?.com
+# ^^              keyword.declaration.host-alias
+#    ^^^^^^^^^^^^ entity.name.label.host-alias
+#    ^            constant.language.wildcard
+#           ^
+    User tim
+    # ^^     keyword.other
+    #    ^^^ string.unquoted
+
+Host *
+# ^^              keyword.declaration.host-alias
+#    ^            constant.language.wildcard
+    IdentityFile ~/.ssh/id_rsa
+    UseKeychain yes
+    # ^^^^^^^^^     keyword.other
+    #           ^^^ constant.language.boolean
+    UseRoaming no
