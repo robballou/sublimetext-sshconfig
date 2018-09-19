@@ -27,10 +27,10 @@ contexts:
       captures:
         1: keyword.declaration.host-alias.ssh_config
       push:
+        - match: '[^\s*?]+'
+          scope: entity.name.label.host-alias.ssh_config
         - match: '\*|\?'
           scope: entity.name.label.host-alias.ssh_config constant.language.wildcard.ssh_config
-        - match: '\S+'
-          scope: entity.name.label.host-alias.ssh_config
         - include: pop-nl
 
   hostname:

@@ -2,6 +2,7 @@
 
 Host server serverino
 # ^^                  keyword.declaration.host-alias
+#   ^                 - entity.name.label.host-alias
 #    ^^^^^^           entity.name.label.host-alias
 #          ^          - entity.name.label.host-alias
 #           ^^^^^^^^^ entity.name.label.host-alias
@@ -25,9 +26,10 @@ Host server serverino
 
 Host *.splat?.com
 # ^^              keyword.declaration.host-alias
+#   ^             - entity.name.label.host-alias
 #    ^^^^^^^^^^^^ entity.name.label.host-alias
 #    ^            constant.language.wildcard
-#           ^
+#           ^     constant.language.wildcard
     User tim
     # ^^     keyword.other
     #    ^^^ string.unquoted
