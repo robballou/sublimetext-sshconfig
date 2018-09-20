@@ -1,0 +1,10 @@
+[
+  {
+    "caption": "Open SSH Config File",
+    "command": "open_ssh_config_file",
+  },
+  {
+    "caption": "Open SSHD Config File",
+    "command": "open_sshd_config_file",
+  },
+]
