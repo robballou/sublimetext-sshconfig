@@ -1,6 +1,6 @@
 # SSH Config Language
 
-Provides some simple settings and snippets for `~/.ssh/config` and `sshd_config` files.
+Provides some highlighting and snippets for `~/.ssh/config` and `sshd_config` files.
 
 ## Installation
 
@@ -9,3 +9,8 @@ This package is now available via [Package Control](http://wbond.net/sublime_pac
 ## Snippets
 
 * host: create a new `Host` entry
+
+## Commands
+
+* Open SSH Config
+* Open SSHD Config
