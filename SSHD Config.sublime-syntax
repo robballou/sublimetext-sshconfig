@@ -25,6 +25,10 @@ contexts:
       push:
         - match: '(?i)\b(yes|no)\b'
           scope: constant.language.boolean.sshd_config
+        - match: '(?i)\b(any|none)\b'
+          scope: constant.language.set.sshd_config
+        - match: '(?i)\bdefault\b'
+          scope: constant.language.default.sshd_config
         - match: |-
             (?x:
               (
