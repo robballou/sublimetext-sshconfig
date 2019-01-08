@@ -16,13 +16,13 @@ Host server serverino
     #    ^^^^ string.unquoted
     ProxyCommand nc -x localhost:8888 %h %p
     # ^^^^^^^^^^                             keyword.other
-    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  text.ssh_config.embedded.shell
+    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  source.embedded.shell.bash
     #                                 ^^     constant.character.escape.ssh_config
     #                                      ^ - text.ssh_config.embedded.shell
     IdentityFile ~/.ssh/creds/%h.pem
     # ^^^^^^^^^^                     keyword.other
     #            ^^^^^^^^^^^^^^^^^^^ string.unquoted
-    #                         ^^
+    #                         ^^     constant.character.escape
 
 Host *.splat?.com
 # ^^              keyword.declaration.host-alias

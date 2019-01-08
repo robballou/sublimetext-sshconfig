@@ -22,6 +22,10 @@ contexts:
     - match: '\n'
       pop: true
 
+  pop-before-nl:
+    - match: '(?=\n)'
+      pop: true
+
   host:
     - match: '(?i)^[ \t]*(host)\b'
       captures:
@@ -63,7 +67,7 @@ contexts:
       with_prototype:
         - include: percent-opts
       push:
-        - meta_content_scope: text.ssh_config.embedded.shell
+        - meta_content_scope: source.embedded.shell.bash
         - include: scope:source.shell.bash
         - include: pop-nl
 
@@ -77,9 +81,12 @@ contexts:
         - include: percent-opts
         - match: '\d+'
           scope: constant.numeric.ssh_config
-        - match: '\S+'
+        - match: '\S'
           scope: string.unquoted.ssh_config
-          comment: TODO make this respect percent-opts
+          push:
+            - meta_content_scope: string.unquoted.ssh_config
+            - include: percent-opts
+            - include: pop-before-nl
         - include: pop-nl
 
   comments:
