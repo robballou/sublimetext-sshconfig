@@ -1,5 +1,14 @@
 # SYNTAX TEST "Packages/SSH Config/SSH Config.sublime-syntax"
 
+Match Host targ?t_host Exec not_inside_network User tim
+# ^^^ keyword.control.conditional
+#     ^^^^             keyword.other
+#          ^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
+#              ^       constant.language.wildcard.ssh_config
+#                      ^^^^                    keyword.other.ssh_config
+#                           ^^^^^^^^^^^^^^^^^^ source.embedded.shell.bash meta.function-call.shell
+    ProxyCommand ssh -W %h:%p proxy_server
+
 Host server serverino
 # ^^                  keyword.declaration.host-alias
 #   ^                 - entity.name.label.host-alias
