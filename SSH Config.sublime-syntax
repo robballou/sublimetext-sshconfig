@@ -39,7 +39,7 @@ contexts:
         1: keyword.declaration.host-alias.ssh_config
       push:
         - include: pop-nl
-        - include: hostname-with-wildcards
+        - include: alias-with-wildcards
 
   hostname:
     - match: '(?i)^[ \t]*(hostname)\b'
@@ -67,7 +67,7 @@ contexts:
         4: string.unquoted.hostname.ssh_config
         5: invalid.illegal.ssh_config
 
-  hostname-with-wildcards:
+  alias-with-wildcards:
     # http://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
     - match: '[^\s*?]+'
       scope: entity.name.label.host-alias.ssh_config
@@ -103,14 +103,14 @@ contexts:
             - include: match-exec-tokens
             - include: pop-before-match-option
           push:
-            - meta_content_scope: source.embedded.shell.bash
-            - include: scope:source.shell.bash
+            - meta_content_scope: source.embedded.shell
+            - include: scope:source.shell
 
         - match: (?i)\b((original)?host)\b
           scope: keyword.other.ssh_config
           push:
             - include: pop-before-match-option
-            - include: hostname-with-wildcards
+            - include: alias-with-wildcards
 
         - match: (?i)\b((local)?user)\b
           scope: keyword.other.ssh_config
@@ -127,8 +127,8 @@ contexts:
         - match: '%[%hpr]'
           scope: constant.character.escape.ssh_config
       push:
-        - meta_content_scope: source.embedded.shell.bash
-        - include: scope:source.shell.bash
+        - meta_content_scope: source.embedded.shell
+        - include: scope:source.shell
         - include: pop-nl
 
   localcommand:
@@ -139,8 +139,8 @@ contexts:
         - match: '%[%CdhilnprTu]'
           scope: constant.character.escape.ssh_config
       push:
-        - meta_content_scope: source.embedded.shell.bash
-        - include: scope:source.shell.bash
+        - meta_content_scope: source.embedded.shell
+        - include: scope:source.shell
         - include: pop-nl
 
   generic-option:

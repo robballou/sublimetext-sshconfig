@@ -1,13 +1,21 @@
 # SYNTAX TEST "Packages/SSH Config/SSH Config.sublime-syntax"
 
-Match Host targ?t_host Exec not_inside_network User tim
+Match Host targ?t_host Exec not_inside_network User sue
 # ^^^ keyword.control.conditional
 #     ^^^^             keyword.other
 #          ^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
 #              ^       constant.language.wildcard.ssh_config
 #                      ^^^^                    keyword.other.ssh_config
-#                           ^^^^^^^^^^^^^^^^^^ source.embedded.shell.bash meta.function-call.shell
+#                           ^^^^^^^^^^^^^^^^^^ source.embedded.shell meta.function-call.shell
+#                          ^                    - source.embedded.shell
+#                                             ^ - source.embedded.shell
+#                                              ^^^^     keyword.other
+#                                                   ^^^ string.unquoted
     ProxyCommand ssh -W %h:%p proxy_server
+    # ^^^^^^^^^^                            keyword.other
+    #            ^^^^^^^^^^^^^^^^^^^^^^^^^  source.embedded.shell
+    #                   ^^     constant.character.escape.ssh_config
+    #                                      ^ - text.ssh_config.embedded.shell
 
 Host server serverino
 # ^^                  keyword.declaration.host-alias
@@ -19,13 +27,14 @@ Host server serverino
     # ^^^^^^            keyword.declaration.host
     #        ^^^^^^^^^^ string.unquoted.hostname
     # This is meant to be a comment
+    # <- punctuation.definition.comment
     # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
     User will
     # ^^      keyword.other
     #    ^^^^ string.unquoted
     ProxyCommand nc -x localhost:8888 %h %p
     # ^^^^^^^^^^                             keyword.other
-    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  source.embedded.shell.bash
+    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  source.embedded.shell
     #                                 ^^     constant.character.escape.ssh_config
     #                                      ^ - text.ssh_config.embedded.shell
     IdentityFile ~/.ssh/creds/%h.pem
