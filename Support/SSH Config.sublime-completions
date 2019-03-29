@@ -1,5 +1,5 @@
 {
-	"scope": "text.ssh_config",
+	"scope": "text.ssh_config - meta.statement - meta.mapping.value - comment",
 	"completions": [
 		"Host",
 		"Match",
@@ -71,6 +71,6 @@
 		"UserKnownHostsFile",
 		"VerifyHostKeyDNS",
 		"VisualHostKey",
-		"XAuthLocation"
+		"XAuthLocation",
 	]
 }

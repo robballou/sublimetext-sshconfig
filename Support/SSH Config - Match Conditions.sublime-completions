@@ -1,0 +1,11 @@
+{
+	"scope": "text.ssh_config meta.block.match meta.statement.conditional",
+	"completions": [
+		"Canonical",
+		"Exec",
+		"Host",
+		"OriginalHost",
+		"User",
+		"LocalUser",
+	]
+}

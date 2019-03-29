@@ -1,9 +1,9 @@
 <snippet>
 	<content><![CDATA[
 Host ${1:hostname}
-    hostname ${2:$1}
-    user ${3:username}
-    port ${4:22}
+    Hostname ${2:$1}
+    User ${3:username}
+    Port ${4:22}
 
 ]]></content>
 	<tabTrigger>host</tabTrigger>
