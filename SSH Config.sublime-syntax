@@ -9,8 +9,11 @@ contexts:
   main:
     - include: comments
     - include: host
-    - include: hostname
     - include: match
+
+  options:
+    - include: comments
+    - include: hostname
     - include: localcommand
     - include: proxycommand
     - include: generic-option
@@ -33,18 +36,84 @@ contexts:
     - match: (?i)(?=[ \t]*(canonical|exec|host|originalhost|user|localuser))
       pop: true
 
+  pop-before-next-host:
+    - match: (?i)(?=^[ \t]*(host|match)\b)
+      pop: true
+
+  # Host
   host:
     - match: '(?i)^[ \t]*(host)\b'
       captures:
-        1: keyword.declaration.host-alias.ssh_config
+        1: meta.block.host.ssh_config keyword.declaration.host-alias.ssh_config
+      set: host-aliases
+
+  host-aliases:
+    - meta_scope: meta.block.host.ssh_config
+    - match: (?=\n)
+      set: host-body
+    - include: alias-with-wildcards
+
+  host-body:
+    - meta_scope: meta.block.host.ssh_config
+    - include: pop-before-next-host
+    - include: options
+
+  # Match
+  match:
+    - match: '(?i)^[ \t]*(match)\b'
+      captures:
+        1: meta.block.match.ssh_config keyword.control.conditional.ssh_config
+      set: match-conditions
+
+  match-conditions:
+    - meta_scope: meta.block.match.ssh_config meta.statement.conditional.ssh_config
+    - match: (?=\n)
+      set: match-body
+
+    - match: (?i)\b(canonical)\b
+      scope: keyword.other.ssh_config
+
+    - match: (?i)\b(exec)\b[ \t]*(\")
+      captures:
+        1: keyword.other.ssh_config
+        2: string.quoted.double.ssh_config punctuation.definition.string.begin.ssh_config
+      escape: (?<!\\)\"(?=\s*(?:#.*)?)
+      escape_captures:
+        0: string.quoted.double.ssh_config punctuation.definition.string.end.ssh_config
+      embed: scope:source.shell
+    - match: (?i)\b(exec)\b[ \t]+
+      captures:
+        1: keyword.other.ssh_config
+      with_prototype:
+        - include: match-exec-tokens
+        - include: pop-before-match-option
       push:
-        - include: pop-nl
+        - meta_content_scope: source.embedded.shell
+        - include: scope:source.shell
+
+    - match: (?i)\b((original)?host)\b
+      scope: keyword.other.ssh_config
+      push:
+        - include: pop-before-match-option
         - include: alias-with-wildcards
 
+    - match: (?i)\b((local)?user)\b
+      scope: keyword.other.ssh_config
+      push:
+        - include: pop-before-match-option
+        - match: '\S'
+          scope: string.unquoted.ssh_config
+
+  match-body:
+    - meta_scope: meta.block.match.ssh_config
+    - include: pop-before-next-host
+    - include: options
+
+  # Options
   hostname:
     - match: '(?i)^[ \t]*(hostname)\b'
       captures:
-        1: keyword.declaration.host.ssh_config
+        1: meta.mapping.key.ssh_config keyword.declaration.host.ssh_config
       push:
         - include: pop-nl
         - include: hostname-or-ip-value
@@ -60,6 +129,7 @@ contexts:
           [ \t]*                           # any whitespace
           (\S*)                            # anything else on the line
         )
+      scope: meta.mapping.value.ssh_config
       captures:
         1: meta.string.host.ssh_config
         2: constant.numeric.ip4.ssh_config
@@ -79,75 +149,36 @@ contexts:
     - match: '%[%hiLlnpru]'
       scope: constant.character.escape.ssh_config
 
-  match:
-    - match: '(?i)^[ \t]*(match)\b'
-      captures:
-        1: keyword.control.conditional.ssh_config
-      push:
-        - include: pop-nl
-        - match: (?i)\b(canonical)\b
-          scope: keyword.other.ssh_config
-
-        - match: (?i)\b(exec)\b[ \t]*(\")
-          captures:
-            1: keyword.other.ssh_config
-            2: string.quoted.double.ssh_config punctuation.definition.string.begin.ssh_config
-          escape: (?<!\\)\"(?=\s*(?:#.*)?)
-          escape_captures:
-            0: string.quoted.double.ssh_config punctuation.definition.string.end.ssh_config
-          embed: scope:source.shell
-        - match: (?i)\b(exec)\b[ \t]+
-          captures:
-            1: keyword.other.ssh_config
-          with_prototype:
-            - include: match-exec-tokens
-            - include: pop-before-match-option
-          push:
-            - meta_content_scope: source.embedded.shell
-            - include: scope:source.shell
-
-        - match: (?i)\b((original)?host)\b
-          scope: keyword.other.ssh_config
-          push:
-            - include: pop-before-match-option
-            - include: alias-with-wildcards
-
-        - match: (?i)\b((local)?user)\b
-          scope: keyword.other.ssh_config
-          push:
-            - include: pop-before-match-option
-            - match: '\S'
-              scope: string.unquoted.ssh_config
-
   proxycommand:
     - match: '^\s*(?i)(proxycommand)[ \t]+'
       captures:
-        1: keyword.other.ssh_config
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
       with_prototype:
         - match: '%[%hpr]'
           scope: constant.character.escape.ssh_config
       push:
-        - meta_content_scope: source.embedded.shell
+        - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
         - include: scope:source.shell
         - include: pop-nl
 
   localcommand:
     - match: '^\s*(?i)(localcommand)[ \t]+'
       captures:
-        1: keyword.other.ssh_config
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
       with_prototype:
         - match: '%[%CdhilnprTu]'
           scope: constant.character.escape.ssh_config
       push:
-        - meta_content_scope: source.embedded.shell
+        - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
         - include: scope:source.shell
         - include: pop-nl
 
   generic-option:
     - match: '^\s*([a-zA-Z1]+)[ \t]+'
       captures:
-        1: keyword.other.ssh_config
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
       push:
+        - meta_content_scope: meta.mapping.value.ssh_config
         - match: '(?i)\b(yes|no)\b'
           scope: constant.language.boolean.ssh_config
         - include: tokens

@@ -2,6 +2,7 @@
 
 Match Host targ?t_host Exec not_inside_network User sue
 # ^^^ keyword.control.conditional
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^             keyword.other
 #          ^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
 #              ^       constant.language.wildcard.ssh_config
@@ -11,13 +12,16 @@ Match Host targ?t_host Exec not_inside_network User sue
 #                                             ^ - source.embedded.shell
 #                                              ^^^^     keyword.other
 #                                                   ^^^ string.unquoted
+#                                                      ^ - meta.statement
     ProxyCommand ssh -W %h:%p proxy_server
-    # ^^^^^^^^^^                            keyword.other
-    #            ^^^^^^^^^^^^^^^^^^^^^^^^^  source.embedded.shell
-    #                   ^^     constant.character.escape.ssh_config
-    #                                      ^ - text.ssh_config.embedded.shell
+    # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match
+    # ^^^^^^^^^^                             keyword.other
+    #            ^^^^^^^^^^^^^^^^^^^^^^^^^   source.embedded.shell
+    #                   ^^                   constant.character.escape.ssh_config
+    #                                      ^  - text.ssh_config.embedded.shell
 
 Host server serverino
+# <- meta.block.host - meta.block.match
 # ^^                  keyword.declaration.host-alias
 #   ^                 - entity.name.label.host-alias
 #    ^^^^^^           entity.name.label.host-alias
