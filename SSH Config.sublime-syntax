@@ -239,8 +239,12 @@ contexts:
           scope: string.unquoted.ssh_config
           push:
             - meta_content_scope: string.unquoted.ssh_config
-            - include: tokens
             - include: pop-before-nl
+            - include: tokens
+            - match: \*|\?
+              scope: constant.language.wildcard.ssh_config
+            - match: ','
+              scope: punctuation.separator.sequence.ssh_config
         - include: pop-nl
 
   comments:
