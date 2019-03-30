@@ -1,6 +1,7 @@
 %YAML 1.2
 ---
 # https://www.sublimetext.com/docs/3/syntax.html
+# https://linux.die.net/man/5/ssh_config
 name: SSH Config
 file_extensions:
   - ssh_config

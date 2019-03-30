@@ -1,6 +1,7 @@
 %YAML 1.2
 ---
 # https://www.sublimetext.com/docs/3/syntax.html
+# https://linux.die.net/man/5/sshd_config
 name: SSHD Config
 file_extensions:
   - sshd_config
