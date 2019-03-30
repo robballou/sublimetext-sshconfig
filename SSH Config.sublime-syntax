@@ -16,6 +16,8 @@ contexts:
     - include: hostname
     - include: localcommand
     - include: proxycommand
+    - include: boolean-option
+    - include: boolean-option-plus
     - include: generic-option
 
   tokens:
@@ -173,14 +175,59 @@ contexts:
         - include: scope:source.shell
         - include: pop-nl
 
+  boolean-value:
+    - match: (?i)\b(yes|no)\b
+      scope: constant.language.boolean.ssh_config
+
+  boolean-option:
+    - match: |-
+        (?xi)
+        ^\s*(
+          (?:Pubkey|HostBased|Password|ChallengeResponse|KbdInteractive|(?:Rhosts)?RSA)Authentication| # Auth
+          ForwardAgent|ForwardX11(?:Trusted)?|ClearAllForwardings|ExitOnForwardFailure| # Fwds
+          BatchMode|CheckHostIP|Compression|EnableSSHKeySign|GatewayPorts|HashKnownHosts|
+          IdentitiesOnly|PermitLocalCommand|NoHostAuthenticationForLocalhost|
+          TCPKeepAlive|UsePrivilegedPort|VisualHostKey|
+          GSSAPI(?:Authentication|KeyExchange|DelegateCredentials|RenewalForcesRekey|TrustDNS) # GSSAPI
+        )[ \t]*(=)?
+      captures:
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
+      push:
+        - meta_content_scope: meta.mapping.value.ssh_config
+        - include: pop-nl
+        - match: '[ \t]+\S+'
+          scope: invalid.illegal.ssh_config
+        - include: boolean-value
+        - match: (?i)y(es?)?|no?
+        - match: \S+
+          scope: invalid.illegal.ssh_config
+
+  boolean-option-plus:
+    # ask
+    - match: (?i)^\s*(StrictHostKeyChecking|VerifyHostKeyDNS)\b[ \t]*(=)?
+      captures:
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
+      push:
+        - meta_content_scope: meta.mapping.value.ssh_config
+        - include: pop-nl
+        - match: '[ \t]+\S+'
+          scope: invalid.illegal.ssh_config
+        - include: boolean-value
+        - match: (?i)\b(ask)\b
+          scope: constant.language.set.ssh_config
+        - match: (?i)y(es?)?|no?|a(s?k)?
+        - match: \S+
+          scope: invalid.illegal.ssh_config
+
   generic-option:
     - match: '^\s*([a-zA-Z1]+)[ \t]+'
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - match: '(?i)\b(yes|no)\b'
-          scope: constant.language.boolean.ssh_config
+        - include: boolean-value
         - include: tokens
         - match: '\d+'
           scope: constant.numeric.ssh_config
