@@ -236,6 +236,21 @@ contexts:
         - include: tokens
         - match: '\d+'
           scope: constant.numeric.ssh_config
+        - match: \"
+          scope: punctuation.definition.string.begin.ssh_config
+          push:
+            - meta_scope: string.quoted.double.ssh_config
+            - match: \"
+              scope: punctuation.definition.string.end.ssh_config
+              pop: true
+            - match: \n|$
+              scope: invalid.illegal.ssh_config
+              pop: true
+            - include: tokens
+            - match: \*|\?
+              scope: constant.language.wildcard.ssh_config
+            - match: ','
+              scope: punctuation.separator.sequence.ssh_config
         - match: '\S'
           scope: string.unquoted.ssh_config
           push:

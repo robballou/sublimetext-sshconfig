@@ -61,6 +61,11 @@ Host *
 # ^^              keyword.declaration.host-alias
 #    ^            constant.language.wildcard
     IdentityFile ~/.ssh/id_rsa
+    Ciphers "aes128-ctr,aes192-ctr,aes256-ctr"
+    #       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double
+    #       ^                                  punctuation.definition.string.begin
+    #                  ^                       punctuation.separator.sequence
+    #                                        ^ punctuation.definition.string.end
     UseKeychain yes
     # ^^^^^^^^^     keyword.other
     #           ^^^ constant.language.boolean
