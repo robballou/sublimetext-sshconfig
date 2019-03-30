@@ -113,9 +113,10 @@ contexts:
 
   # Options
   hostname:
-    - match: '(?i)^[ \t]*(hostname)\b'
+    - match: '(?i)^[ \t]*(hostname)\b[ \t]*(=)?'
       captures:
         1: meta.mapping.key.ssh_config keyword.declaration.host.ssh_config
+        2: keyword.operator.assignment.ssh_config
       push:
         - include: pop-nl
         - include: hostname-or-ip-value
@@ -152,9 +153,10 @@ contexts:
       scope: constant.character.escape.ssh_config
 
   proxycommand:
-    - match: '^\s*(?i)(proxycommand)[ \t]+'
+    - match: '^\s*(?i)(proxycommand)\b[ \t]*(=)?'
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
       with_prototype:
         - match: '%[%hpr]'
           scope: constant.character.escape.ssh_config
@@ -164,9 +166,10 @@ contexts:
         - include: pop-nl
 
   localcommand:
-    - match: '^\s*(?i)(localcommand)[ \t]+'
+    - match: '^\s*(?i)(localcommand)\b[ \t]*(=)?'
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
       with_prototype:
         - match: '%[%CdhilnprTu]'
           scope: constant.character.escape.ssh_config
@@ -222,9 +225,10 @@ contexts:
           scope: invalid.illegal.ssh_config
 
   generic-option:
-    - match: '^\s*([a-zA-Z1]+)[ \t]+'
+    - match: '^\s*([a-zA-Z1]+)\b[ \t]*(=)?'
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
         - include: boolean-value
