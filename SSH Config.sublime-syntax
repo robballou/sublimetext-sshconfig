@@ -54,7 +54,7 @@ contexts:
     - meta_scope: meta.block.host.ssh_config
     - match: (?=\n)
       set: host-body
-    - include: alias-with-wildcards
+    - include: host-patterns
 
   host-body:
     - meta_scope: meta.block.host.ssh_config
@@ -98,7 +98,7 @@ contexts:
       scope: keyword.other.ssh_config
       push:
         - include: pop-before-match-option
-        - include: alias-with-wildcards
+        - include: host-patterns
 
     - match: (?i)\b((local)?user)\b
       scope: keyword.other.ssh_config
@@ -141,8 +141,10 @@ contexts:
         4: string.unquoted.hostname.ssh_config
         5: invalid.illegal.ssh_config
 
-  alias-with-wildcards:
+  host-patterns:
     # http://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
+    - match: '!'
+      scope: keyword.operator.logical.ssh_config
     - match: '[^\s*?]+'
       scope: entity.name.label.host-alias.ssh_config
     - match: '\*|\?'

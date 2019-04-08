@@ -20,13 +20,16 @@ Match Host targ?t_host Exec not_inside_network User sue
     #                   ^^                   constant.character.escape.ssh_config
     #                                      ^  - text.ssh_config.embedded.shell
 
-Host server serverino
+Host server serverino !other-pat?ern
 # <- meta.block.host - meta.block.match
 # ^^                  keyword.declaration.host-alias
 #   ^                 - entity.name.label.host-alias
 #    ^^^^^^           entity.name.label.host-alias
 #          ^          - entity.name.label.host-alias
 #           ^^^^^^^^^ entity.name.label.host-alias
+#                    ^               - entity.name.label.host-alias
+#                     ^              keyword.operator.logical.ssh_config
+#                      ^^^^^^^^^^^^^ entity.name.label.host-alias
     Hostname server.com
     # ^^^^^^            keyword.declaration.host
     #        ^^^^^^^^^^ string.unquoted.hostname
