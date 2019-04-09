@@ -81,6 +81,9 @@ AllowAgentForwarding no
 
 # pass locale information
 AcceptEnv LANG LC_*
+#^^^^^^^^ meta.mapping.key keyword.other
+#         ^^^^^^^^^ meta.mapping.value string.unquoted
+#                 ^ constant.language.wildcard
 
 # no default banner path
 #Banner none
@@ -94,3 +97,58 @@ Subsystem   sftp    /usr/libexec/sftp-server
 #   AllowTcpForwarding no
 #   PermitTTY no
 #   ForceCommand cvs server
+
+## https://stackoverflow.com/a/36072674
+# All users except username1 and username2 default to sftp
+Match User *,!username1,!username2
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match meta.statement.conditional
+#^^^^ meta.block.match
+#     ^^^^ keyword.other
+#          ^^^^^^^^^^^^^^^^^^^^^^^ string.unquoted
+#          ^ constant.language.wildcard
+#           ^ punctuation.separator.sequence
+#            ^ keyword.operator.logical
+#                      ^ punctuation.separator.sequence
+#                       ^ keyword.operator.logical
+    PasswordAuthentication yes
+    #^^^^^^^^^^^^^^^^^^^^^ meta.block.match meta.mapping.key keyword.other
+    #                      ^^^ constant.language.boolean
+    AllowTCPForwarding no
+    X11Forwarding no
+    ForceCommand internal-sftp -f LOCAL0 -l INFO
+    #^^^^^^^^^^^ meta.mapping.key keyword.other
+    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value source.embedded.shell
+    #            ^^^^^^^^^^^^^ meta.function-call.shell variable.function.shell
+    #                                           ^ - source.embedded
+
+# Normal ssh allowed for users username1 and username2 from the local network
+Match User username1,username2 Address 192.168.0.0/16
+#^^^^ meta.block.match meta.statement.conditional meta.block.match keyword.control.conditional
+#     ^^^^ keyword.other
+#          ^^^^^^^^^^^^^^^^^^^ string.unquoted
+#                   ^ punctuation.separator.sequence
+#                             ^ - string
+#                              ^^^^^^^ keyword.other - keyword keyword
+#                                      ^^^^^^^^^^^ constant.numeric.ip4
+#                                                 ^ punctuation.separator.sequence
+#                                                  ^^ constant.other.range
+    PasswordAuthentication yes
+
+# Users username1 and username2 not allowed from other networks
+Match User username1,username2 Address *,!192.168.0.0/16
+#^^^^ meta.block.match meta.statement.conditional meta.block.match keyword.control.conditional
+#     ^^^^ keyword.other
+#          ^^^^^^^^^^^^^^^^^^^ string.unquoted
+#                   ^ punctuation.separator.sequence
+#                             ^ - string
+#                              ^^^^^^^ keyword.other - keyword keyword
+#                                      ^ constant.language.wildcard
+#                                       ^ punctuation.separator.sequence
+#                                        ^ keyword.operator.logical
+#                                         ^^^^^^^^^^^ constant.numeric.ip4
+#                                                    ^ punctuation.separator.sequence
+#                                                     ^^ constant.other.range
+    PasswordAuthentication yes
+    AllowTCPForwarding no
+    X11Forwarding no
+    ForceCommand /usr/sbin/nologin
