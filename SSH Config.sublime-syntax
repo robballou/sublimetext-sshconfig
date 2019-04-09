@@ -36,7 +36,7 @@ contexts:
 
   pop-before-match-option:
     - include: pop-before-nl
-    - match: (?i)(?=[ \t]*(canonical|exec|host|originalhost|user|localuser))
+    - match: (?i)(?=[ \t]*(all|canonical|exec|host|originalhost|user|localuser))
       pop: true
 
   pop-before-next-host:
@@ -73,6 +73,10 @@ contexts:
     - match: (?=\n)
       set: match-body
 
+    - match: '!'
+      scope: keyword.operator.logical.ssh_config
+    - match: (?i)\b(all)\b
+      scope: constant.language.boolean.ssh_config
     - match: (?i)\b(canonical)\b
       scope: keyword.other.ssh_config
 
@@ -165,6 +169,9 @@ contexts:
           scope: constant.character.escape.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
+        - match: none
+          scope: constant.language.set.ssh_config
+          pop: true
         - include: scope:source.shell
         - include: pop-nl
 
@@ -178,6 +185,9 @@ contexts:
           scope: constant.character.escape.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
+        - match: none
+          scope: constant.language.set.ssh_config
+          pop: true
         - include: scope:source.shell
         - include: pop-nl
 
@@ -261,6 +271,8 @@ contexts:
             - include: tokens
             - match: \*|\?
               scope: constant.language.wildcard.ssh_config
+            - match: '!'
+              scope: keyword.operator.logical.ssh_config
             - match: ','
               scope: punctuation.separator.sequence.ssh_config
         - include: pop-nl
