@@ -195,7 +195,7 @@ contexts:
           IdentitiesOnly|PermitLocalCommand|NoHostAuthenticationForLocalhost|
           TCPKeepAlive|UsePrivilegedPort|VisualHostKey|
           GSSAPI(?:Authentication|KeyExchange|DelegateCredentials|RenewalForcesRekey|TrustDNS) # GSSAPI
-        )[ \t]*(=)?
+        )\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config

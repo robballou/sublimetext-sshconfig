@@ -18,6 +18,7 @@ Match Host targ?t_host Exec not_inside_network User sue
     # ^^^^^^^^^^                             keyword.other
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^   source.embedded.shell
     #                   ^^                   constant.character.escape.ssh_config
+    #                      ^^                constant.character.escape.ssh_config
     #                                      ^  - text.ssh_config.embedded.shell
 
 Host server serverino !other-pat?ern
@@ -59,6 +60,10 @@ Host *.splat?.com
     User tim
     # ^^     keyword.other
     #    ^^^ string.unquoted
+    Compression yes
+    CompressionLevel 7
+    # ^^^^^^^^^^^^^^ keyword.other.ssh_config - invalid.illegal
+
 
 Host *
 # ^^              keyword.declaration.host-alias
@@ -68,6 +73,7 @@ Host *
     #       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double
     #       ^                                  punctuation.definition.string.begin
     #                  ^                       punctuation.separator.sequence
+    #                             ^            punctuation.separator.sequence
     #                                        ^ punctuation.definition.string.end
     UseKeychain yes
     # ^^^^^^^^^     keyword.other
