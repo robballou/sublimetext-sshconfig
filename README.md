@@ -20,11 +20,11 @@ To see autocomplete, hit <kbd>Ctrl</kbd>+<kbd>Space</kbd> for an on-demand list 
 
 - `host`: create a new Host entry
 - `match`: create a new Match entry
-- Keyword completion for Linux and BSD
+- Keyword completion for Linux and BSD options
 
 ### SSHD Config
 
-- Keyword completion for Linux and BSD
+- Keyword completion for Linux and BSD options
 
 ## Commands
 
@@ -36,7 +36,7 @@ To see autocomplete, hit <kbd>Ctrl</kbd>+<kbd>Space</kbd> for an on-demand list 
 - Configurable file locations for the "open" commands
 - Better SSHD Config syntax
 
-[man-ssh-config]: https://linux.die.net/man/5/ssh_config
-[man-sshd-config]: https://linux.die.net/man/5/sshd_config
+[man-ssh-config]: http://man7.org/linux/man-pages/man5/ssh_config.5.html
+[man-sshd-config]: http://man7.org/linux/man-pages/man5/sshd_config.5.html
 [pkg]: https://packagecontrol.io/packages/SSH%20Config
 [pkg-ctrl]: https://packagecontrol.io
