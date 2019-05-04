@@ -132,7 +132,6 @@ contexts:
         2: keyword.operator.assignment.sshd_config
       push:
         - meta_content_scope: meta.mapping.value.sshd_config
-        - include: boolean-value
         - include: tokens
         - match: \"
           scope: punctuation.definition.string.begin.sshd_config
