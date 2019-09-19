@@ -7,5 +7,7 @@
 		"OriginalHost",
 		"User",
 		"LocalUser",
+		"All",
+		"Final",
 	]
 }

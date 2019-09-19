@@ -77,7 +77,7 @@ contexts:
       scope: keyword.operator.logical.ssh_config
     - match: (?i)\b(all)\b
       scope: constant.language.boolean.ssh_config
-    - match: (?i)\b(canonical)\b
+    - match: (?i)\b(canonical|final)\b
       scope: keyword.other.ssh_config
 
     - match: (?i)\b(exec)\b[ \t]*(\")
