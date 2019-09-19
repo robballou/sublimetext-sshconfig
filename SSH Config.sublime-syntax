@@ -102,6 +102,8 @@ contexts:
       scope: keyword.other.ssh_config
       push:
         - include: pop-before-match-option
+        - match: ','
+          scope: punctuation.separator.sequence.ssh_config
         - include: host-patterns
 
     - match: (?i)\b((local)?user)\b
@@ -149,7 +151,7 @@ contexts:
     # http://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
     - match: '!'
       scope: keyword.operator.logical.ssh_config
-    - match: '[^\s*?]+'
+    - match: '[^\s*?,]+'
       scope: entity.name.label.host-alias.ssh_config
     - match: '\*|\?'
       scope: entity.name.label.host-alias.ssh_config constant.language.wildcard.ssh_config

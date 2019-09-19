@@ -21,6 +21,15 @@ Match Host targ?t_host Exec not_inside_network User sue
     #                      ^^                constant.character.escape.ssh_config
     #                                      ^  - source.ssh_config.embedded.shell
 
+Match Host one,two
+# ^^^ keyword.control.conditional
+#     ^^^^^^^^^^^^ meta.statement.conditional
+#     ^^^^             keyword.other
+#          ^^^ entity.name.label.host-alias.ssh_config
+#             ^ punctuation.separator.sequence.ssh_config - entity
+#              ^^^ entity.name.label.host-alias.ssh_config
+    User bar
+
 Host server serverino !other-pat?ern
 # <- meta.block.host - meta.block.match
 # ^^                  keyword.declaration.host-alias
