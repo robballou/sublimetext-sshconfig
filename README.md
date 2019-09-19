@@ -8,11 +8,11 @@ This package [is available][pkg] via [Package Control][pkg-ctrl]. You can instal
 
 ## Snippets and Completions
 
-To see autocomplete, hit <kbd>Ctrl</kbd>+<kbd>Space</kbd> for an on-demand list or add this entry to syntax-specific settings to see the list while typing:
+If you do not see on-demand autocomplete, check for an `auto_complete_selector` line in your Syntax-specific Settings file. If it says `text.ssh_config`, remove the whole line. If one does not exist, you can try adding
 
 ``` json
 {
-    "auto_complete_selector": "text.ssh_config, text.sshd_config"
+    "auto_complete_selector": "source.ssh_config, source.sshd_config"
 }
 ```
 

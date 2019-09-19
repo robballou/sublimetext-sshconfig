@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Comments</string>
 	<key>scope</key>
-	<string>text.ssh_config, text.sshd_config</string>
+	<string>source.ssh_config, source.sshd_config</string>
 	<key>settings</key>
 	<dict>
 		<key>shellVariables</key>

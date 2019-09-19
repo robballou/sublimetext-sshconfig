@@ -5,5 +5,5 @@ Match ${1:conditions}
 
 ]]></content>
 	<tabTrigger>match</tabTrigger>
-	<scope>text.ssh_config</scope>
+	<scope>source.ssh_config</scope>
 </snippet>

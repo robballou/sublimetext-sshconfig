@@ -1,5 +1,5 @@
 {
-	"scope": "text.ssh_config - meta.statement - meta.mapping.value - comment",
+	"scope": "source.ssh_config - meta.statement - meta.mapping.value - comment",
 	"completions": [
 		"Host",
 		"Match",

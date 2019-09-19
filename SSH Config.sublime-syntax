@@ -5,7 +5,7 @@
 name: SSH Config
 file_extensions:
   - ssh_config
-scope: text.ssh_config
+scope: source.ssh_config
 contexts:
   main:
     - include: comments

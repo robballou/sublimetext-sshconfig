@@ -1,5 +1,5 @@
 {
-	"scope": "text.sshd_config",
+	"scope": "source.sshd_config",
 	"completions": [
 		"AcceptEnv",
 		"AddressFamily",

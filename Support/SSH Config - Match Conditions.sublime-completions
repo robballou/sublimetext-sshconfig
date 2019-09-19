@@ -1,5 +1,5 @@
 {
-	"scope": "text.ssh_config meta.block.match meta.statement.conditional",
+	"scope": "source.ssh_config meta.block.match meta.statement.conditional",
 	"completions": [
 		"Canonical",
 		"Exec",

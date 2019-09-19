@@ -19,7 +19,7 @@ Match Host targ?t_host Exec not_inside_network User sue
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^   source.embedded.shell
     #                   ^^                   constant.character.escape.ssh_config
     #                      ^^                constant.character.escape.ssh_config
-    #                                      ^  - text.ssh_config.embedded.shell
+    #                                      ^  - source.ssh_config.embedded.shell
 
 Host server serverino !other-pat?ern
 # <- meta.block.host - meta.block.match
@@ -45,7 +45,7 @@ Host server serverino !other-pat?ern
     # ^^^^^^^^^^                             keyword.other
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  source.embedded.shell
     #                                 ^^     constant.character.escape.ssh_config
-    #                                      ^ - text.ssh_config.embedded.shell
+    #                                      ^ - source.ssh_config.embedded.shell
     IdentityFile ~/.ssh/creds/%h.pem
     # ^^^^^^^^^^                     keyword.other
     #            ^^^^^^^^^^^^^^^^^^^ string.unquoted

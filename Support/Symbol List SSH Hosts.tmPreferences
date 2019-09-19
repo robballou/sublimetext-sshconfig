@@ -4,7 +4,7 @@
     <key>name</key>
     <string>Symbol List: SSH Hostnames</string>
     <key>scope</key>
-    <string>text.ssh_config meta.string.host</string>
+    <string>source.ssh_config meta.string.host</string>
     <key>settings</key>
     <dict>
         <key>showInSymbolList</key>

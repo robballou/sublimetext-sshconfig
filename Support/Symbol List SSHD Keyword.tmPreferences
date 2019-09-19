@@ -4,7 +4,7 @@
     <key>name</key>
     <string>Symbol List: SSHD Keywords</string>
     <key>scope</key>
-    <string>text.sshd_config meta.statement.conditional, text.sshd_config keyword - keyword.operator - meta.statement</string>
+    <string>source.sshd_config meta.statement.conditional, source.sshd_config keyword - keyword.operator - meta.statement</string>
     <key>settings</key>
     <dict>
         <key>showInSymbolList</key>

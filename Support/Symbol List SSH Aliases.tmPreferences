@@ -4,7 +4,7 @@
     <key>name</key>
     <string>Symbol List: SSH Host Aliases</string>
     <key>scope</key>
-    <string>text.ssh_config entity.name.label.host-alias</string>
+    <string>source.ssh_config entity.name.label.host-alias</string>
     <key>settings</key>
     <dict>
         <key>showInSymbolList</key>

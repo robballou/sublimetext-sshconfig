@@ -5,7 +5,7 @@
 name: SSHD Config
 file_extensions:
   - sshd_config
-scope: text.sshd_config
+scope: source.sshd_config
 contexts:
   main:
     - include: comments
