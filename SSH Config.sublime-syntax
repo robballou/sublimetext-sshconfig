@@ -26,16 +26,8 @@ contexts:
     - match: '%[%CdhiLlnprTu]'
       scope: constant.character.escape.ssh_config
 
-  pop-nl:
-    - match: '\n'
-      pop: true
-
-  pop-before-nl:
-    - match: '(?=\n)'
-      pop: true
-
   pop-before-match-option:
-    - include: pop-before-nl
+    - include: SSH Common.sublime-syntax#pop-before-nl
     - match: (?i)(?=[ \t]*(?:all|canonical|exec|host|originalhost|user|localuser)\b)
       pop: true
 
@@ -125,7 +117,7 @@ contexts:
         1: meta.mapping.key.ssh_config keyword.declaration.host.ssh_config
         2: keyword.operator.assignment.ssh_config
       push:
-        - include: pop-nl
+        - include: SSH Common.sublime-syntax#pop-nl
         - include: hostname-or-ip-value
 
   hostname-or-ip-value:
@@ -142,8 +134,8 @@ contexts:
       scope: meta.mapping.value.ssh_config
       captures:
         1: meta.string.host.ssh_config
-        2: constant.numeric.ip4.ssh_config
-        3: constant.numeric.ip6.ssh_config
+        2: constant.numeric.ip-address.v4.ssh_config
+        3: constant.numeric.ip-address.v6.ssh_config
         4: string.unquoted.hostname.ssh_config
         5: invalid.illegal.ssh_config
 
@@ -175,7 +167,7 @@ contexts:
           scope: constant.language.set.ssh_config
           pop: true
         - include: scope:source.shell
-        - include: pop-nl
+        - include: SSH Common.sublime-syntax#pop-nl
 
   localcommand:
     - match: '^\s*(?i)(localcommand)\b[ \t]*(=)?'
@@ -191,7 +183,7 @@ contexts:
           scope: constant.language.set.ssh_config
           pop: true
         - include: scope:source.shell
-        - include: pop-nl
+        - include: SSH Common.sublime-syntax#pop-nl
 
   boolean-value:
     - match: (?i)\b(?:yes|no)\b
@@ -213,7 +205,7 @@ contexts:
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - include: pop-nl
+        - include: SSH Common.sublime-syntax#pop-nl
         - match: '[ \t]+\S+'
           scope: invalid.illegal.ssh_config
         - include: boolean-value
@@ -230,7 +222,7 @@ contexts:
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - include: pop-nl
+        - include: SSH Common.sublime-syntax#pop-nl
         - match: '[ \t]+\S+'
           scope: invalid.illegal.ssh_config
         - include: boolean-value
@@ -271,7 +263,7 @@ contexts:
           scope: string.unquoted.ssh_config
           push:
             - meta_content_scope: string.unquoted.ssh_config
-            - include: pop-before-nl
+            - include: SSH Common.sublime-syntax#pop-before-nl
             - include: tokens
             - match: \*|\?
               scope: constant.language.wildcard.ssh_config
@@ -279,18 +271,8 @@ contexts:
               scope: keyword.operator.logical.ssh_config
             - match: ','
               scope: punctuation.separator.sequence.ssh_config
-        - include: pop-nl
+        - include: SSH Common.sublime-syntax#pop-nl
 
   comments:
-    - match: '^\s*(#)'
-      captures:
-        1: punctuation.definition.comment.ssh_config
-      push:
-        - meta_scope: comment.line.number-sign.ssh_config
-        - include: pop-nl
-    - match: '^\s*(;)'
-      captures:
-        1: punctuation.definition.comment.ssh_config
-      push:
-        - meta_scope: comment.line.semi-colon.ssh_config
-        - include: pop-nl
+    - include: SSH Common.sublime-syntax#comments-number-sign
+    - include: SSH Common.sublime-syntax#comments-semicolon

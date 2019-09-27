@@ -22,16 +22,8 @@ contexts:
     - match: '%[%DFfhiKksTtUu]'
       scope: constant.character.escape.sshd_config
 
-  pop-nl:
-    - match: '\n'
-      pop: true
-
-  pop-before-nl:
-    - match: '(?=\n)'
-      pop: true
-
   pop-before-match-option:
-    - include: pop-before-nl
+    - include: SSH Common.sublime-syntax#pop-before-nl
     - match: (?i)(?=[ \t]*(?:all|user|group|host|(?:local)?address|localport)\b)
       pop: true
 
@@ -123,7 +115,7 @@ contexts:
           scope: constant.language.set.sshd_config
           pop: true
         - include: scope:source.shell
-        - include: pop-nl
+        - include: SSH Common.sublime-syntax#pop-nl
 
   generic-option:
     - match: '^\s*([a-zA-Z1]+)\b[ \t]*(=)?'
@@ -147,9 +139,9 @@ contexts:
         - match: '(?=\S)'
           push:
             - meta_content_scope: string.unquoted.sshd_config
-            - include: pop-before-nl
+            - include: SSH Common.sublime-syntax#pop-before-nl
             - include: generic-option-value
-        - include: pop-nl
+        - include: SSH Common.sublime-syntax#pop-nl
 
   generic-option-value:
     - match: '(?i)\b(?:yes|no)\b'
@@ -170,15 +162,5 @@ contexts:
       scope: punctuation.separator.sequence.sshd_config
 
   comments:
-    - match: '^\s*(#)'
-      captures:
-        1: punctuation.definition.comment.sshd_config
-      push:
-        - meta_scope: comment.line.number-sign.sshd_config
-        - include: pop-nl
-    - match: '^\s*(;)'
-      captures:
-        1: punctuation.definition.comment.sshd_config
-      push:
-        - meta_scope: comment.line.semi-colon.sshd_config
-        - include: pop-nl
+    - include: SSH Common.sublime-syntax#comments-number-sign
+    - include: SSH Common.sublime-syntax#comments-semicolon

@@ -1,0 +1,50 @@
+%YAML 1.2
+---
+# This file is some kind of internal library which is used to store
+# common rules which are used by the visible syntax files.
+name: SSH Common
+hidden: true
+scope: text.ssh.common
+contexts:
+  main:
+    - match: pass
+
+  pop-nl:
+    - match: '\n'
+      pop: true
+
+  pop-before-nl:
+    - match: '(?=\n)'
+      pop: true
+
+  comments-number-sign:
+    - match: '^\s*(#)'
+      captures:
+        1: punctuation.definition.comment.ssh.common
+      push:
+        - meta_scope: comment.line.number-sign.ssh.common
+        - include: pop-nl
+
+  comments-semicolon:
+    - match: '^\s*(;)'
+      captures:
+        1: punctuation.definition.comment.ssh.common
+      push:
+        - meta_scope: comment.line.semi-colon.ssh.common
+        - include: pop-nl
+
+  ssh-algorithms:
+    - match: ssh-(?:rsa|dss|ed25519)|ecdsa-sha2-nistp(?:256|384|521)
+      scope: keyword.other.algorithm.ssh.common
+
+  ipv4:
+    - match: (?:\d{1,3}\.){3}\d{1,3}
+      scope: constant.numeric.ip-address.v4.ssh.common
+
+  ipv6:
+    - match: ((?i:[a-f0-9:]+:+)+[a-f0-9]+)
+      scope: constant.numeric.ip-address.v6.ssh.common
+
+  ip-addresses:
+    - include: ipv4
+    - include: ipv6
