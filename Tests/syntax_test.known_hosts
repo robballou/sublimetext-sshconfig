@@ -1,0 +1,33 @@
+# SYNTAX TEST "Packages/SSH Config/known_hosts.sublime-syntax"
+
+# Comment
+# ^^^^^^^ comment.line.number-sign
+github.com,192.30.252.129 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.known-host
+# ^^^^^^^^ meta.string.host string.quoted.other
+#         ^ punctuation.separator.sequence
+#          ^^^^^^^^^^^^^^ constant.numeric.ip-address.v4
+#                         ^^^^^^^ keyword.other.algorithm
+#                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.known-host variable.other.fingerprint
+#                                                                                                                                                                                                                                                                                                                                                                                                                     ^ - meta
+
+[ssh.github.com]:443,[192.30.253.122]:443 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+# <- punctuation.definition.string.begin
+# ^^^^^^^^^^^^^^^^^^ meta.brackets.host
+# ^^^^^^^^^^^^^ meta.string.host string.quoted.other
+#              ^ meta.brackets.host punctuation.definition.string.end
+#               ^ punctuation.separator.sequence
+#                ^^^ constant.numeric.integer.decimal
+#                   ^ punctuation.separator.sequence
+#                    ^^^^^^^^^^^^^^^^^^^^ meta.brackets.host
+#                    ^ punctuation.definition.string.begin
+#                     ^^^^^^^^^^^^^^ constant.numeric.ip-address.v4.ssh.common
+
+|1|SHVoOoEGaxjRGl0DQl2x3uw0Hes=|VBRemtFHTLtmm7rjrPfkXS3KIVU= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+# <- punctuation.definition
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.string.host.obfuscated
+#^ constant.numeric.integer.algorithm
+# ^ punctuation.definition
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.unquoted.salt
+#                              ^ punctuation.definition
+#                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.unquoted.hash

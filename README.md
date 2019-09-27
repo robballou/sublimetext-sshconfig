@@ -33,6 +33,13 @@ If you do not see on-demand autocomplete, check for an `auto_complete_selector` 
 - **Open SSH Config File**
 - **Open SSHD Config File**
 
+## Extras
+
+- `authorized_keys` and `known_hosts` also have
+    + Syntax highlighting
+    + Symbol index
+    + Available commands (though you have to map them yourself)
+
 ## To-Do
 
 - Configurable file locations for the "open" commands

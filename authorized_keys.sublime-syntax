@@ -1,0 +1,23 @@
+%YAML 1.2
+---
+# https://www.sublimetext.com/docs/3/syntax.html
+name: Authorized Keys
+file_extensions:
+  - authorized_keys
+scope: text.authorized_keys
+contexts:
+  main:
+    - include: SSH Common.sublime-syntax#comments-number-sign
+    - match: ^
+      push:
+        - meta_scope: meta.line.authorized-key.authorized_keys
+        - include: SSH Common.sublime-syntax#pop-before-nl
+        - include: SSH Common.sublime-syntax#pop-nl
+        - include: SSH Common.sublime-syntax#ssh-algorithms
+        - match: AAAA(?:E2V|[BC]3N)[\w+/]+={0,3}
+          scope: variable.other.fingerprint.known_hosts
+          push:
+            - match: \s*(.+)$
+              captures:
+                1: string.unquoted.label.authorized_keys
+              pop: true

@@ -1,0 +1,50 @@
+%YAML 1.2
+---
+# https://www.sublimetext.com/docs/3/syntax.html
+name: Known Hosts
+file_extensions:
+  - known_hosts
+scope: text.known_hosts
+contexts:
+  main:
+    - include: SSH Common.sublime-syntax#comments-number-sign
+    - match: ^
+      push:
+        - meta_scope: meta.line.known-host.known_hosts
+        - include: SSH Common.sublime-syntax#pop-before-nl
+        - include: SSH Common.sublime-syntax#pop-nl
+        - match: \,
+          scope: punctuation.separator.sequence.known_hosts
+        - match: (AAAA(?:E2V|[BC]3N)[\w+/]+={0,3})[ \t]*(\S*)
+          captures:
+            1: variable.other.fingerprint.known_hosts
+            2: invalid.illegal.known_hosts
+        - include: SSH Common.sublime-syntax#ssh-algorithms
+        - include: hostname-or-ip-value
+
+  hostname-or-ip-value:
+    - match: \[
+      scope: punctuation.definition.string.begin.known_hosts
+      push:
+        - meta_scope: meta.brackets.host.known_hosts
+        - match: (\])(?:(:)(\d{1,5}))?
+          captures:
+            1: punctuation.definition.string.end.known_hosts
+            2: punctuation.separator.sequence.known_hosts
+            3: constant.numeric.integer.decimal.known_hosts
+          pop: true
+        - include: SSH Common.sublime-syntax#ip-addresses
+        - match: '[^\]]'
+          scope: meta.string.host.known_hosts string.quoted.other.known_hosts
+    - include: SSH Common.sublime-syntax#ip-addresses
+    - match: (\|)(\d+)(\|)([\w+/]{27}=)(\|)([\w+/]{27}=)
+      scope: meta.string.host.obfuscated.known_hosts
+      captures:
+        1: punctuation.definition.known_hosts
+        2: constant.numeric.integer.algorithm.known_hosts
+        3: punctuation.definition.known_hosts
+        4: string.unquoted.salt.known_hosts
+        5: punctuation.definition.known_hosts
+        6: string.unquoted.hash.known_hosts
+    - match: '[^,\[\s]+'
+      scope: meta.string.host.known_hosts string.quoted.other.known_hosts

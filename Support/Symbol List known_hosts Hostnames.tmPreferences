@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Symbol List: SSH Hostnames</string>
+    <key>scope</key>
+    <string>text.known_hosts meta.string.host</string>
+    <key>settings</key>
+    <dict>
+        <key>showInSymbolList</key>
+        <integer>1</integer>
+        <key>symbolTransformation</key>
+        <string>
+        s/(.+)/Host: $1/g;
+        </string>
+    </dict>
+</dict>
+</plist>
