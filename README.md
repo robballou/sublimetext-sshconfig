@@ -21,10 +21,12 @@ If you do not see on-demand autocomplete, check for an `auto_complete_selector` 
 - `host`: create a new Host entry
 - `match`: create a new Match entry
 - Keyword completion for many Linux and BSD options
+- Symbol Index for hosts and aliases (<kbd>Ctrl</kbd>+<kbd>R</kbd> or <kbd>Cmd</kbd>+<kbd>R</kbd>)
 
 ### SSHD Config
 
 - Keyword completion for many Linux and BSD options
+- Symbol Index for active config options (<kbd>Ctrl</kbd>+<kbd>R</kbd> or <kbd>Cmd</kbd>+<kbd>R</kbd>)
 
 ## Commands
 

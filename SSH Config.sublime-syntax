@@ -36,11 +36,11 @@ contexts:
 
   pop-before-match-option:
     - include: pop-before-nl
-    - match: (?i)(?=[ \t]*(all|canonical|exec|host|originalhost|user|localuser)\b)
+    - match: (?i)(?=[ \t]*(?:all|canonical|exec|host|originalhost|user|localuser)\b)
       pop: true
 
   pop-before-next-host:
-    - match: (?i)(?=^[ \t]*(host|match)\b)
+    - match: (?i)(?=^[ \t]*(?:host|match)\b)
       pop: true
 
   # Host
@@ -75,9 +75,9 @@ contexts:
 
     - match: '!'
       scope: keyword.operator.logical.ssh_config
-    - match: (?i)\b(all)\b
+    - match: (?i)\b(?:all)\b
       scope: constant.language.boolean.ssh_config
-    - match: (?i)\b(canonical|final)\b
+    - match: (?i)\b(?:canonical|final)\b
       scope: keyword.other.ssh_config
 
     - match: (?i)\b(exec)\b[ \t]*(\")
@@ -98,7 +98,7 @@ contexts:
         - meta_content_scope: source.embedded.shell
         - include: scope:source.shell
 
-    - match: (?i)\b((original)?host)\b
+    - match: (?i)\b(?:(?:original)?host)\b
       scope: keyword.other.ssh_config
       push:
         - include: pop-before-match-option
@@ -106,7 +106,7 @@ contexts:
           scope: punctuation.separator.sequence.ssh_config
         - include: host-patterns
 
-    - match: (?i)\b((local)?user)\b
+    - match: (?i)\b(?:(?:local)?user)\b
       scope: keyword.other.ssh_config
       push:
         - include: pop-before-match-option
@@ -194,7 +194,7 @@ contexts:
         - include: pop-nl
 
   boolean-value:
-    - match: (?i)\b(yes|no)\b
+    - match: (?i)\b(?:yes|no)\b
       scope: constant.language.boolean.ssh_config
 
   boolean-option:
@@ -217,7 +217,8 @@ contexts:
         - match: '[ \t]+\S+'
           scope: invalid.illegal.ssh_config
         - include: boolean-value
-        - match: (?i)y(es?)?|no?
+        - match: (?i)y(?:es?)?|no?
+          comment: Don't highlight as illegal while typing a boolean.
         - match: \S+
           scope: invalid.illegal.ssh_config
 
@@ -233,9 +234,10 @@ contexts:
         - match: '[ \t]+\S+'
           scope: invalid.illegal.ssh_config
         - include: boolean-value
-        - match: (?i)\b(ask)\b
+        - match: (?i)\b(?:ask)\b
           scope: constant.language.set.ssh_config
-        - match: (?i)y(es?)?|no?|a(s?k)?
+        - match: (?i)y(?:es?)?|no?|a(?:s?k)?
+          comment: Don't highlight as illegal while typing a boolean.
         - match: \S+
           scope: invalid.illegal.ssh_config
 

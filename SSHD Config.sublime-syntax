@@ -32,11 +32,11 @@ contexts:
 
   pop-before-match-option:
     - include: pop-before-nl
-    - match: (?i)(?=[ \t]*(all|user|group|host|(?:local)?address|localport)\b)
+    - match: (?i)(?=[ \t]*(?:all|user|group|host|(?:local)?address|localport)\b)
       pop: true
 
   pop-before-next-match:
-    - match: (?i)(?=^[ \t]*(match)\b)
+    - match: (?i)(?=^[ \t]*(?:match)\b)
       pop: true
 
   # Match
@@ -53,10 +53,10 @@ contexts:
 
     - match: '!'
       scope: keyword.operator.logical.sshd_config
-    - match: (?i)\b(all)\b
+    - match: (?i)\b(?:all)\b
       scope: constant.language.boolean.sshd_config
 
-    - match: (?i)\b(user|group|host)\b
+    - match: (?i)\b(?:user|group|host)\b
       scope: keyword.other.sshd_config
       push:
         - include: pop-before-match-option
@@ -74,7 +74,7 @@ contexts:
         - include: ip-addresses
         - include: pop-before-match-option
 
-    - match: (?i)\b(localport)\b
+    - match: (?i)\b(?:localport)\b
       scope: keyword.other.sshd_config
       push:
         - match: \d+
@@ -152,9 +152,9 @@ contexts:
         - include: pop-nl
 
   generic-option-value:
-    - match: '(?i)\b(yes|no)\b'
+    - match: '(?i)\b(?:yes|no)\b'
       scope: constant.language.boolean.sshd_config
-    - match: '(?i)\b(any|none)\b'
+    - match: '(?i)\b(?:any|none)\b'
       scope: constant.language.set.sshd_config
     - match: '(?i)\bdefault\b'
       scope: constant.language.default.sshd_config
