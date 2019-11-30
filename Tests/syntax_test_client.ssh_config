@@ -4,9 +4,9 @@ Match Host targ?t_host Exec not_inside_network User sue
 # ^^^ keyword.control.conditional
 #     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^             keyword.other
-#          ^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
-#              ^       constant.language.wildcard.ssh_config
-#                      ^^^^                    keyword.other.ssh_config
+#          ^^^^^^^^^^^ entity.name.label.host-alias
+#              ^       constant.language.wildcard
+#                      ^^^^                    keyword.other
 #                           ^^^^^^^^^^^^^^^^^^ source.embedded.shell meta.function-call.shell
 #                          ^                    - source.embedded.shell
 #                                             ^ - source.embedded.shell
@@ -17,17 +17,18 @@ Match Host targ?t_host Exec not_inside_network User sue
     # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match
     # ^^^^^^^^^^                             keyword.other
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^   source.embedded.shell
-    #                   ^^                   constant.character.escape.ssh_config
-    #                      ^^                constant.character.escape.ssh_config
-    #                                      ^  - source.ssh_config.embedded.shell
+    #                   ^^                   constant.character.escape
+    #                      ^^                constant.character.escape
+    #                                      ^  - source.embedded.shell
 
 Match Host one,two
+# ^^^^^^^^^^^^^^^^ meta.block.match - meta.block.match meta.block.match
 # ^^^ keyword.control.conditional
 #     ^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^             keyword.other
-#          ^^^ entity.name.label.host-alias.ssh_config
-#             ^ punctuation.separator.sequence.ssh_config - entity
-#              ^^^ entity.name.label.host-alias.ssh_config
+#          ^^^ entity.name.label.host-alias
+#             ^ punctuation.separator.sequence - entity
+#              ^^^ entity.name.label.host-alias
     User bar
 
 Host server serverino !other-pat?ern
@@ -38,7 +39,7 @@ Host server serverino !other-pat?ern
 #          ^          - entity.name.label.host-alias
 #           ^^^^^^^^^ entity.name.label.host-alias
 #                    ^               - entity.name.label.host-alias
-#                     ^              keyword.operator.logical.ssh_config
+#                     ^              keyword.operator.logical
 #                      ^^^^^^^^^^^^^ entity.name.label.host-alias
     Hostname server.com
     # ^^^^^^            keyword.declaration.host
@@ -53,8 +54,8 @@ Host server serverino !other-pat?ern
     ProxyCommand nc -x localhost:8888 %h %p
     # ^^^^^^^^^^                             keyword.other
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  source.embedded.shell
-    #                                 ^^     constant.character.escape.ssh_config
-    #                                      ^ - source.ssh_config.embedded.shell
+    #                                 ^^     constant.character.escape
+    #                                      ^ - source.embedded.shell
     IdentityFile ~/.ssh/creds/%h.pem
     # ^^^^^^^^^^                     keyword.other
     #            ^^^^^^^^^^^^^^^^^^^ string.unquoted
@@ -71,7 +72,7 @@ Host *.splat?.com
     #    ^^^ string.unquoted
     Compression yes
     CompressionLevel 7
-    # ^^^^^^^^^^^^^^ keyword.other.ssh_config - invalid.illegal
+    # ^^^^^^^^^^^^^^ keyword.other - invalid.illegal
 
 
 Host *

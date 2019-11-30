@@ -7,7 +7,7 @@ hidden: true
 scope: text.ssh.common
 contexts:
   main:
-    - match: pass
+    - match: nothing at all; do not use
 
   pop-nl:
     - match: '\n'
@@ -34,8 +34,30 @@ contexts:
         - include: pop-nl
 
   ssh-algorithms:
-    - match: ssh-(?:rsa|dss|ed25519)|ecdsa-sha2-nistp(?:256|384|521)
+    - match: |-
+        (?x)
+          ssh-(?:rsa|dss|ed25519)|
+          ecdsa-sha2-nistp(?:256|384|521)
       scope: keyword.other.algorithm.ssh.common
+
+  ssh-ciphers:
+    - match: |-
+        (?x)
+          aes(?:128|192|256)-ctr|
+          aes(?:128|256)-gcm@openssh\.com|
+          chacha20-poly1305@openssh\.com
+      scope: keyword.other.cipher.ssh.common
+    - match: |-
+        (?x)
+          aes(?:128|192|256)-cbc|
+          (?:blowfish|cast128|3des)-cbc|
+          rijndael-cbc@lysator\.liu\.se|
+          arcfour(?:128|265)?
+      scope: invalid.deprecated.cipher.ssh.common
+
+  mac-addresses:
+    - match: (?:[0-9a-fA-F]{2}:){5}(?:[0-9a-fA-F]{2})
+      scope: entity.name.constant.mac-address.ssh.common
 
   ipv4:
     - match: (?:\d{1,3}\.){3}\d{1,3}

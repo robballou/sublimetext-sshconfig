@@ -15,7 +15,7 @@ contexts:
         - include: SSH Common.sublime-syntax#pop-nl
         - include: SSH Common.sublime-syntax#ssh-algorithms
         - match: AAAA(?:E2V|[BC]3N)[\w+/]+={0,3}
-          scope: variable.other.fingerprint.known_hosts
+          scope: variable.other.fingerprint.authorized_keys
           push:
             - match: \s*(.+)$
               captures:

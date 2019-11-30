@@ -61,7 +61,7 @@ contexts:
       set: match-conditions
 
   match-conditions:
-    - meta_scope: meta.block.match.ssh_config meta.statement.conditional.ssh_config
+    - meta_content_scope: meta.block.match.ssh_config meta.statement.conditional.ssh_config
     - match: (?=\n)
       set: match-body
 

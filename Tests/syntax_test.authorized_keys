@@ -2,3 +2,10 @@
 
 # Comment
 # ^^^^^^^ comment.line.number-sign
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHeDxE1jPGCLo51RSF7CeJbp4raIc3xo6TBiqkz4WRWI you@example.com
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key
+#                                                                                               ^ - meta.line.authorized-key
+# ^^^^^^^^^ keyword.other.algorithm
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ variable.other.fingerprint
+#                                                                                ^^^^^^^^^^^^^^^ string.unquoted.label
