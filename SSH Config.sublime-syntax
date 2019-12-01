@@ -28,16 +28,16 @@ contexts:
 
   pop-before-match-option:
     - include: SSH Common.sublime-syntax#pop-before-nl
-    - match: (?i)(?=[ \t]*(?:all|canonical|exec|host|originalhost|user|localuser)\b)
+    - match: (?=[ \t]*(?i:all|canonical|exec|host|originalhost|user|localuser)\b)
       pop: true
 
   pop-before-next-host:
-    - match: (?i)(?=^[ \t]*(?:host|match)\b)
+    - match: (?=^[ \t]*(?i:host|match)\b)
       pop: true
 
   # Host
   host:
-    - match: '(?i)^[ \t]*(host)\b'
+    - match: '^[ \t]*((?i:host))\b'
       captures:
         1: meta.block.host.ssh_config keyword.declaration.host-alias.ssh_config
       set: host-aliases
@@ -55,7 +55,7 @@ contexts:
 
   # Match
   match:
-    - match: '(?i)^[ \t]*(match)\b'
+    - match: '^[ \t]*((?i:match))\b'
       captures:
         1: meta.block.match.ssh_config keyword.control.conditional.ssh_config
       set: match-conditions
@@ -67,12 +67,12 @@ contexts:
 
     - match: '!'
       scope: keyword.operator.logical.ssh_config
-    - match: (?i)\b(?:all)\b
+    - match: \b(?i:all)\b
       scope: constant.language.boolean.ssh_config
-    - match: (?i)\b(?:canonical|final)\b
+    - match: \b(?i:canonical|final)\b
       scope: keyword.other.ssh_config
 
-    - match: (?i)\b(exec)\b[ \t]*(\")
+    - match: \b((?i:exec))\b[ \t]*(\")
       captures:
         1: keyword.other.ssh_config
         2: string.quoted.double.ssh_config punctuation.definition.string.begin.ssh_config
@@ -80,7 +80,7 @@ contexts:
       escape_captures:
         0: string.quoted.double.ssh_config punctuation.definition.string.end.ssh_config
       embed: scope:source.shell
-    - match: (?i)\b(exec)\b[ \t]+
+    - match: \b((?i:exec))\b[ \t]+
       captures:
         1: keyword.other.ssh_config
       with_prototype:
@@ -90,7 +90,7 @@ contexts:
         - meta_content_scope: source.embedded.shell
         - include: scope:source.shell
 
-    - match: (?i)\b(?:(?:original)?host)\b
+    - match: \b(?i:(?:original)?host)\b
       scope: keyword.other.ssh_config
       push:
         - include: pop-before-match-option
@@ -98,7 +98,7 @@ contexts:
           scope: punctuation.separator.sequence.ssh_config
         - include: host-patterns
 
-    - match: (?i)\b(?:(?:local)?user)\b
+    - match: \b(?i:(?:local)?user)\b
       scope: keyword.other.ssh_config
       push:
         - include: pop-before-match-option
@@ -112,7 +112,7 @@ contexts:
 
   # Options
   hostname:
-    - match: '(?i)^[ \t]*(hostname)\b[ \t]*(=)?'
+    - match: '^[ \t]*((?i:hostname))\b[ \t]*(=)?'
       captures:
         1: meta.mapping.key.ssh_config keyword.declaration.host.ssh_config
         2: keyword.operator.assignment.ssh_config
@@ -154,7 +154,7 @@ contexts:
       scope: constant.character.escape.ssh_config
 
   proxycommand:
-    - match: '^\s*(?i)(proxycommand)\b[ \t]*(=)?'
+    - match: '^\s*((?i:proxycommand))\b[ \t]*(=)?'
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
@@ -170,7 +170,7 @@ contexts:
         - include: SSH Common.sublime-syntax#pop-nl
 
   localcommand:
-    - match: '^\s*(?i)(localcommand)\b[ \t]*(=)?'
+    - match: '^\s*((?i:localcommand))\b[ \t]*(=)?'
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
@@ -186,14 +186,14 @@ contexts:
         - include: SSH Common.sublime-syntax#pop-nl
 
   boolean-value:
-    - match: (?i)\b(?:yes|no)\b
+    - match: \b(?i:yes|no)\b
       scope: constant.language.boolean.ssh_config
 
   boolean-option:
     - match: |-
-        (?xi)
+        (?x)
         ^\s*(
-          (?:Pubkey|HostBased|Password|ChallengeResponse|KbdInteractive|(?:Rhosts)?RSA)Authentication| # Auth
+          (?i:Pubkey|HostBased|Password|ChallengeResponse|KbdInteractive|(?:Rhosts)?RSA)Authentication| # Auth
           ForwardAgent|ForwardX11(?:Trusted)?|ClearAllForwardings|ExitOnForwardFailure| # Fwds
           BatchMode|CheckHostIP|Compression|EnableSSHKeySign|GatewayPorts|HashKnownHosts|
           IdentitiesOnly|PermitLocalCommand|NoHostAuthenticationForLocalhost|
@@ -216,7 +216,7 @@ contexts:
 
   boolean-option-plus:
     # ask
-    - match: (?i)^\s*(StrictHostKeyChecking|VerifyHostKeyDNS)\b[ \t]*(=)?
+    - match: ^\s*((?i:StrictHostKeyChecking|VerifyHostKeyDNS))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
@@ -226,7 +226,7 @@ contexts:
         - match: '[ \t]+\S+'
           scope: invalid.illegal.ssh_config
         - include: boolean-value
-        - match: (?i)\b(?:ask)\b
+        - match: \b(?i:ask)\b
           scope: constant.language.set.ssh_config
         - match: (?i)y(?:es?)?|no?|a(?:s?k)?
           comment: Don't highlight as illegal while typing a boolean.

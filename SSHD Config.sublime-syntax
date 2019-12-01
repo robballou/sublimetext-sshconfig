@@ -24,16 +24,16 @@ contexts:
 
   pop-before-match-option:
     - include: SSH Common.sublime-syntax#pop-before-nl
-    - match: (?i)(?=[ \t]*(?:all|user|group|host|(?:local)?address|localport)\b)
+    - match: (?=[ \t]*(?i:all|user|group|host|(?:local)?address|localport)\b)
       pop: true
 
   pop-before-next-match:
-    - match: (?i)(?=^[ \t]*(?:match)\b)
+    - match: (?=^[ \t]*(?i:match)\b)
       pop: true
 
   # Match
   match:
-    - match: '(?i)^[ \t]*(match)\b'
+    - match: '(?i)^[ \t]*((?i:match))\b'
       captures:
         1: meta.block.match.sshd_config keyword.control.conditional.sshd_config
       set: match-conditions
@@ -45,16 +45,16 @@ contexts:
 
     - match: '!'
       scope: keyword.operator.logical.sshd_config
-    - match: (?i)\b(?:all)\b
+    - match: \b(?i:all)\b
       scope: constant.language.boolean.sshd_config
 
-    - match: (?i)\b(?:user|group|host)\b
+    - match: \b(?i:user|group|host)\b
       scope: keyword.other.sshd_config
       push:
         - include: pop-before-match-option
         - include: string-patterns
 
-    - match: (?i)\b((?:local)?address)\b
+    - match: \b(?i:(?:local)?address)\b
       scope: keyword.other.sshd_config
       push:
         - match: '!'
@@ -66,7 +66,7 @@ contexts:
         - include: ip-addresses
         - include: pop-before-match-option
 
-    - match: (?i)\b(?:localport)\b
+    - match: \b(?i:localport)\b
       scope: keyword.other.sshd_config
       push:
         - match: \d+
@@ -105,7 +105,7 @@ contexts:
         5: constant.numeric.ip6.sshd_config
 
   forcecommand:
-    - match: '^\s*(?i)(forcecommand)\b[ \t]*(=)?'
+    - match: '^\s*((?i:forcecommand))\b[ \t]*(=)?'
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
@@ -144,17 +144,17 @@ contexts:
         - include: SSH Common.sublime-syntax#pop-nl
 
   generic-option-value:
-    - match: '(?i)\b(?:yes|no)\b'
+    - match: \b(?i:yes|no)\b
       scope: constant.language.boolean.sshd_config
-    - match: '(?i)\b(?:any|none)\b'
+    - match: \b(?i:any|none)\b
       scope: constant.language.set.sshd_config
-    - match: '(?i)\bdefault\b'
+    - match: \b(?i:default)\b
       scope: constant.language.default.sshd_config
     - include: ip-addresses
     - include: tokens
     - match: \*|\?
       scope: constant.language.wildcard.sshd_config
-    - match: '\d+'
+    - match: \d+
       scope: constant.numeric.sshd_config
     - match: '!'
       scope: keyword.operator.logical.sshd_config
