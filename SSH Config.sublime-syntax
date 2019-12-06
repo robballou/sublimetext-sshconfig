@@ -191,15 +191,22 @@ contexts:
 
   boolean-option:
     - match: |-
-        (?x)
-        ^\s*(
-          (?i:Pubkey|HostBased|Password|ChallengeResponse|KbdInteractive|(?:Rhosts)?RSA)Authentication| # Auth
-          ForwardAgent|ForwardX11(?:Trusted)?|ClearAllForwardings|ExitOnForwardFailure| # Fwds
-          BatchMode|CheckHostIP|Compression|EnableSSHKeySign|GatewayPorts|HashKnownHosts|
-          IdentitiesOnly|PermitLocalCommand|NoHostAuthenticationForLocalhost|
-          TCPKeepAlive|UsePrivilegedPort|VisualHostKey|
-          GSSAPI(?:Authentication|KeyExchange|DelegateCredentials|RenewalForcesRekey|TrustDNS) # GSSAPI
-        )\b[ \t]*(=)?
+        (?x:
+          ^\s*((?i:
+            (?:Pubkey|HostBased|Password|ChallengeResponse|
+             KbdInteractive|(?:Rhosts)?RSA)
+              Authentication| # Auth
+            ForwardAgent|ForwardX11(?:Trusted)?|ClearAllForwardings|
+              ExitOnForwardFailure| # Fwds
+            BatchMode|CanonicalizeFallbackLocal|CheckHostIP|Compression|
+            EnableSSHKeySign|GatewayPorts|HashKnownHosts|IdentitiesOnly|
+            NoHostAuthenticationForLocalhost|PermitLocalCommand|ProxyUseFdpass|
+            StreamLocalBindUnlink|TCPKeepAlive|UseKeychain|UsePrivilegedPort|
+            VisualHostKey|
+            GSSAPI(?:Authentication|KeyExchange|DelegateCredentials|
+                   RenewalForcesRekey|TrustDNS) # GSSAPI
+          ))\b[ \t]*(=)?
+        )
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
