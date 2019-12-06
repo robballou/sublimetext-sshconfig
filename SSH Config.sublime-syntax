@@ -189,6 +189,11 @@ contexts:
     - match: \b(?i:yes|no)\b
       scope: constant.language.boolean.ssh_config
 
+  boolean-value-with-typing:
+    - include: boolean-value
+      # Match while typing as well
+    - match: \b(?i:y(?:es?)?|no?)\b
+
   boolean-option:
     - match: |-
         (?x:
@@ -215,9 +220,7 @@ contexts:
         - include: SSH Common.sublime-syntax#pop-nl
         - match: '[ \t]+\S+'
           scope: invalid.illegal.ssh_config
-        - include: boolean-value
-        - match: (?i)y(?:es?)?|no?
-          comment: Don't highlight as illegal while typing a boolean.
+        - include: boolean-value-with-typing
         - match: \S+
           scope: invalid.illegal.ssh_config
 
@@ -232,11 +235,10 @@ contexts:
         - include: SSH Common.sublime-syntax#pop-nl
         - match: '[ \t]+\S+'
           scope: invalid.illegal.ssh_config
-        - include: boolean-value
+        - include: boolean-value-with-typing
         - match: \b(?i:ask)\b
           scope: constant.language.set.ssh_config
-        - match: (?i)y(?:es?)?|no?|a(?:s?k)?
-          comment: Don't highlight as illegal while typing a boolean.
+        - match: \b(?i:a(?:s?k)?)\b
         - match: \S+
           scope: invalid.illegal.ssh_config
 
