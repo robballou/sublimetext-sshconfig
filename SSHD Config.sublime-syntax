@@ -39,7 +39,7 @@ contexts:
       set: match-conditions
 
   match-conditions:
-    - meta_scope: meta.block.match.sshd_config meta.statement.conditional.sshd_config
+    - meta_content_scope: meta.block.match.sshd_config meta.statement.conditional.sshd_config
     - match: (?=\n)
       set: match-body
 
