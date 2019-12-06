@@ -1,0 +1,12 @@
+{
+	"scope": "source.sshd_config meta.block.match meta.statement.conditional",
+	"completions": [
+		"User",
+		"Group",
+		"Host",
+		"LocalAddress",
+		"LocalPort",
+		"RDomain",
+		"Address",
+	]
+}
