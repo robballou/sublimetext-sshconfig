@@ -20,30 +20,48 @@ If you do not see on-demand autocomplete, check for an `auto_complete_selector` 
 
 - `host`: create a new Host entry
 - `match`: create a new Match entry
-- Keyword completion for many Linux and BSD options
-- Symbol Index for hosts and aliases (<kbd>Ctrl</kbd>+<kbd>R</kbd> or <kbd>Cmd</kbd>+<kbd>R</kbd>)
+- Keyword completion for many \*Nix and \*BSD options
+- Symbol Index for hosts and aliases
+    (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
+     <kbd>Cmd</kbd>+<kbd>R</kbd>)
 
 ### SSHD Config
 
-- Keyword completion for many Linux and BSD options
-- Symbol Index for active config options (<kbd>Ctrl</kbd>+<kbd>R</kbd> or <kbd>Cmd</kbd>+<kbd>R</kbd>)
+- Keyword completion for many \*Nix and \*BSD options
+- Symbol Index for active config options
+    (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
+     <kbd>Cmd</kbd>+<kbd>R</kbd>)
 
 ## Commands
 
 - **Open SSH Config File**
 - **Open SSHD Config File**
 
+If these open the wrong file for you, make a `SSH Config.sublime-settings` file in your `Packages/User` folder, and put in content like this:
+
+``` json
+{
+    "file_locations": {
+        "ssh_config": "~/.ssh/config",
+        "sshd_config": "/etc/ssh/sshd_config",
+        "known_hosts": "~/.ssh/known_hosts",
+        "authorized_keys": "~/.ssh/authorized_keys"
+    }
+}
+```
+
 ## Extras
 
 - `authorized_keys` and `known_hosts` also have
     + Syntax highlighting
     + Symbol index
-    + Available commands (though you have to map them yourself)
+    + (unmapped) "Open file" commands
 
 ## To-Do
 
-- Configurable file locations for the "open" commands
-- (Even) better SSHD Config syntax
+- Completion and highlighting for crypto stuff (MACs, ciphers, algos)
+- Better highlighting for paths
+- Symbol Index for commented-out SSHD options
 
 [man-ssh-config]: http://man7.org/linux/man-pages/man5/ssh_config.5.html
 [man-sshd-config]: http://man7.org/linux/man-pages/man5/sshd_config.5.html
