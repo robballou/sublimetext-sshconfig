@@ -33,7 +33,7 @@ contexts:
 
   # Match
   match:
-    - match: '(?i)^[ \t]*((?i:match))\b'
+    - match: ^[ \t]*((?i:match))\b
       captures:
         1: meta.block.match.sshd_config keyword.control.conditional.sshd_config
       set: match-conditions
@@ -61,7 +61,7 @@ contexts:
           scope: keyword.operator.logical.sshd_config
         - match: ','
           scope: punctuation.separator.sequence.sshd_config
-        - match: '\*|\?'
+        - match: \*|\?
           scope: constant.language.wildcard.sshd_config
         - include: ip-addresses
         - include: pop-before-match-option
@@ -86,7 +86,7 @@ contexts:
       scope: string.unquoted.sshd_config keyword.operator.logical.sshd_config
     - match: ','
       scope: string.unquoted.sshd_config punctuation.separator.sequence.sshd_config
-    - match: '\*|\?'
+    - match: \*|\?
       scope: string.unquoted.sshd_config constant.language.wildcard.sshd_config
 
   ip-addresses:
@@ -105,7 +105,7 @@ contexts:
         5: constant.numeric.ip6.sshd_config
 
   forcecommand:
-    - match: '^\s*((?i:forcecommand))\b[ \t]*(=)?'
+    - match: ^\s*((?i:forcecommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
@@ -118,7 +118,7 @@ contexts:
         - include: SSH Common.sublime-syntax#pop-nl
 
   generic-option:
-    - match: '^\s*([a-zA-Z1]+)\b[ \t]*(=)?'
+    - match: ^\s*([a-zA-Z1]+)\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
@@ -136,7 +136,7 @@ contexts:
               scope: invalid.illegal.sshd_config
               pop: true
             - include: generic-option-value
-        - match: '(?=\S)'
+        - match: (?=\S)
           push:
             - meta_content_scope: string.unquoted.sshd_config
             - include: SSH Common.sublime-syntax#pop-before-nl
