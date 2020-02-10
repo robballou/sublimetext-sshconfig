@@ -1,0 +1,28 @@
+{
+    "default_file_locations": {
+        "windows": {
+            "ssh_config": "%USERPROFILE%\\.ssh\\config",
+            "sshd_config": "%PROGRAMDATA%\\ssh\\sshd_config",
+            "known_hosts": "%USERPROFILE%\\.ssh\\known_hosts",
+            "authorized_keys": "%USERPROFILE%\\.ssh\\authorized_keys",
+        },
+        "osx": {
+            "ssh_config": "~/.ssh/config",
+            "sshd_config": "/etc/ssh/sshd_config",
+            "known_hosts": "~/.ssh/known_hosts",
+            "authorized_keys": "~/.ssh/authorized_keys",
+        },
+        "linux": {
+            "ssh_config": "~/.ssh/config",
+            "sshd_config": "/etc/ssh/sshd_config",
+            "known_hosts": "~/.ssh/known_hosts",
+            "authorized_keys": "~/.ssh/authorized_keys",
+        },
+    },
+
+    // A map of file types to their place on disk to override
+    //  the default locations
+    // Map keys: ssh_config, sshd_config, known_hosts,
+    //           authorized_keys
+    "file_locations": null,
+}
