@@ -2,13 +2,17 @@
 <plist version="1.0">
 <dict>
     <key>name</key>
-    <string>Symbol List</string>
+    <string>Symbol List: SSH Hostnames</string>
     <key>scope</key>
-    <string>text.authorized_keys entity.name.label</string>
+    <string>text.known_hosts entity.name.label</string>
     <key>settings</key>
     <dict>
         <key>showInSymbolList</key>
         <integer>1</integer>
+        <key>symbolTransformation</key>
+        <string>
+        s/(.+)/Label: $1/g;
+        </string>
     </dict>
 </dict>
 </plist>

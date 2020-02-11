@@ -23,6 +23,7 @@ contexts:
 
   tokens:
     # http://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
+    # https://man.openbsd.org/ssh_config.5#TOKENS
     - match: '%[%CdhiLlnprTu]'
       scope: constant.character.escape.ssh_config
 

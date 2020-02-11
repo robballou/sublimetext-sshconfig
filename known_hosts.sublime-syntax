@@ -1,24 +1,29 @@
 %YAML 1.2
 ---
 # https://www.sublimetext.com/docs/3/syntax.html
+# https://man.openbsd.org/sshd.8#SSH_KNOWN_HOSTS_FILE_FORMAT
 name: Known Hosts
+scope: text.known_hosts
+
 file_extensions:
   - known_hosts
-scope: text.known_hosts
+hidden_file_extensions:
+  - known_hosts.old
+
 contexts:
   main:
     - include: SSH Common.sublime-syntax#comments-number-sign
-    - match: ^
+    - match: ^((@)(?:revoked|cert-authority))?
+      captures:
+        1: meta.annotation.known_hosts variable.annotation.known_hosts
+        2: punctuation.definition.annotation.known_hosts
       push:
         - meta_scope: meta.line.known-host.known_hosts
         - include: SSH Common.sublime-syntax#pop-before-nl
         - include: SSH Common.sublime-syntax#pop-nl
-        - match: \,
+        - match: ','
           scope: punctuation.separator.sequence.known_hosts
-        - match: (AAAA(?:E2V|[BC]3N)[\w+/]+={0,3})[ \t]*(\S*)
-          captures:
-            1: variable.other.fingerprint.known_hosts
-            2: invalid.illegal.known_hosts
+        - include: SSH Common.sublime-syntax#ssh-fingerprint-with-label
         - include: SSH Common.sublime-syntax#ssh-algorithms
         - include: hostname-or-ip-value
 
@@ -33,9 +38,16 @@ contexts:
             2: punctuation.separator.sequence.known_hosts
             3: constant.numeric.integer.decimal.known_hosts
           pop: true
+        - match: '!'
+          scope: keyword.operator.logical.known_hosts
         - include: SSH Common.sublime-syntax#ip-addresses
-        - match: '[^\]]'
-          scope: meta.string.host.known_hosts string.quoted.other.known_hosts
+        - match: ''
+          push:
+            - meta_scope: meta.string.host.known_hosts string.quoted.other.known_hosts
+            - match: (?=,|\])
+              pop: true
+            - match: '[*?]'
+              scope:  constant.language.wildcard.known_hosts
     - include: SSH Common.sublime-syntax#ip-addresses
     - match: (\|)(\d+)(\|)([\w+/]{27}=)(\|)([\w+/]{27}=)
       scope: meta.string.host.obfuscated.known_hosts
@@ -46,5 +58,9 @@ contexts:
         4: string.unquoted.salt.known_hosts
         5: punctuation.definition.known_hosts
         6: string.unquoted.hash.known_hosts
-    - match: '[^,\[\s]+'
-      scope: meta.string.host.known_hosts string.quoted.other.known_hosts
+    - match: '!'
+      scope: keyword.operator.logical.known_hosts
+    - match: '[*?]'
+      scope: meta.string.host.known_hosts string.unquoted.known_hosts constant.language.wildcard.known_hosts
+    - match: '[^,\[\s*?]+'
+      scope: meta.string.host.known_hosts string.unquoted.known_hosts

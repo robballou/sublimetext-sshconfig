@@ -1,10 +1,15 @@
 %YAML 1.2
 ---
 # https://www.sublimetext.com/docs/3/syntax.html
+# https://man.openbsd.org/sshd.8#AUTHORIZED_KEYS_FILE_FORMAT
 name: Authorized Keys
+scope: text.authorized_keys
+
 file_extensions:
   - authorized_keys
-scope: text.authorized_keys
+hidden_file_extensions:
+  - authorized_keys2
+
 contexts:
   main:
     - include: SSH Common.sublime-syntax#comments-number-sign
@@ -14,10 +19,127 @@ contexts:
         - include: SSH Common.sublime-syntax#pop-before-nl
         - include: SSH Common.sublime-syntax#pop-nl
         - include: SSH Common.sublime-syntax#ssh-algorithms
-        - match: AAAA(?:E2V|[BC]3N)[\w+/]+={0,3}
-          scope: variable.other.fingerprint.authorized_keys
-          push:
-            - match: \s*(.+)$
-              captures:
-                1: string.unquoted.label.authorized_keys
-              pop: true
+        - include: SSH Common.sublime-syntax#ssh-fingerprint-with-label
+        - include: flag-options
+        - include: value-options
+        - include: strings
+        - match: =
+          scope: keyword.operator.assignment.authorized_keys
+        - match: ','
+          scope: punctuation.separator.sequence.authorized_keys
+
+  flag-options:
+    - match: (?:no-)?(?:pty|user-rc|(?:agent|port|X11)-forwarding)
+      scope: keyword.other.authorized_keys
+    - match: (?:no-touch-required|cert-authority|restrict)
+      scope: keyword.other.authorized_keys
+
+  value-options:
+    - match: (principals)(=)
+      captures:
+        1: keyword.other.authorized_keys
+        2: keyword.operator.assignment.authorized_keys
+      with_prototype:
+        - match: ','
+          scope: punctuation.separator.sequence.authorized_keys
+      push: value-option-body
+
+    - match: (tunnel)(=)
+      captures:
+        1: keyword.other.authorized_keys
+        2: keyword.operator.assignment.authorized_keys
+      with_prototype:
+        - match: \d+
+          scope: constant.numeric.integer.decimal.authorized_keys
+      push: value-option-body
+
+    - match: (?:(expiry-time)|(valid-before))(=)
+      captures:
+        1: keyword.other.authorized_keys
+        2: invalid.deprecated.authorized_keys
+        3: keyword.operator.assignment.authorized_keys
+      with_prototype:
+        - match: \d{4}[012]\d[0-3]\d(?:[012]\d(?:[0-5]\d){1,2})?
+          scope: constant.numeric.integer.date.authorized_keys
+      push: value-option-body
+
+    - match: (permitlisten)(=)
+      captures:
+        1: keyword.other.authorized_keys
+        2: keyword.operator.assignment.authorized_keys
+      with_prototype:
+        # Host is optional
+        - match: (?:([^"]+)(:))?(\d+)
+          captures:
+            1: host
+            2: punctuation.separator.sequence.authorized_keys
+            3: constant.numeric.integer.decimal.authorized_keys
+      push: value-option-body
+
+    - match: (permitopen)(=)
+      captures:
+        1: keyword.other.authorized_keys
+        2: keyword.operator.assignment.authorized_keys
+      with_prototype:
+        # Host is required
+        - match: ([^"]+)(:)(\d+)
+          captures:
+            1: host
+            2: punctuation.separator.sequence.authorized_keys
+            3: constant.numeric.integer.decimal.authorized_keys
+      push: value-option-body
+
+    - match: (from)(=)
+      captures:
+        1: keyword.other.authorized_keys
+        2: keyword.operator.assignment.authorized_keys
+      with_prototype:
+        - match: '!'
+          scope: keyword.operator.logical.authorized_keys
+        - match: ','
+          scope: punctuation.separator.sequence.authorized_keys
+        - match: '[*?]'
+          scope: constant.language.wildcard.authorized_keys
+      push: value-option-body
+
+    - match: (environment)(=)
+      captures:
+        1: keyword.other.authorized_keys
+        2: keyword.operator.assignment.authorized_keys
+      with_prototype:
+        - match: (\w+)(=)
+          captures:
+            1: variable.other.readwrite.authorized_keys
+            2: keyword.operator.assignment.authorized_keys
+      push: value-option-body
+
+    - match: (command)(=)(")
+      captures:
+        1: keyword.other.authorized_keys
+        2: keyword.operator.assignment.authorized_keys
+        3: string.quoted.double.authorized_keys punctuation.definition.string.begin.authorized_keys
+      # TODO: Allow escaped double-quote
+      embed: scope:source.shell.bash
+      embed_scope: source.shell.embedded
+      escape: '"|(?=$)'
+      escape_captures:
+        0: string.quoted.double.authorized_keys punctuation.definition.string.end.authorized_keys
+
+  value-option-body:
+    - include: strings
+    - match: (?=,|\s)
+      pop: true
+    - match: .
+      scope: invalid.illegal.authorized_keys
+      pop: true
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.authorized_keys
+      push:
+        - meta_scope: string.quoted.double.authorized_keys
+        - match: \\"
+          scope: constant.character.escape.authorized_keys
+        - match: '"'
+          scope: punctuation.definition.string.end.authorized_keys
+          pop: true

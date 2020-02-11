@@ -5,7 +5,12 @@
 	<key>name</key>
 	<string>Comments</string>
 	<key>scope</key>
-	<string>source.ssh_config, source.sshd_config, text.authorized_keys, text.known_hosts</string>
+	<string>
+		source.ssh_config,
+		source.sshd_config,
+		text.authorized_keys,
+		text.known_hosts
+	</string>
 	<key>settings</key>
 	<dict>
 		<key>shellVariables</key>
