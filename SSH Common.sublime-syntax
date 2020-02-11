@@ -5,6 +5,28 @@
 name: SSH Common
 hidden: true
 scope: text.ssh.common
+
+variables:
+  # ipv4_basic: (?:(?:\d{1,3}\.){3}\d{1,3})
+  # ipv6_basic: (?i:(?:[a-f0-9:]+:+)+[a-f0-9]+)
+  zero_to_255: (?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:[1-9][0-9])|[0-9])
+  ipv4: (?:(?:{{zero_to_255}}\.){3}{{zero_to_255}})
+  ipv6: |-
+    (?xi:
+      (?:::(?:ffff(?::0{1,4}){0,1}:){0,1}{{ipv4}})          # ::255.255.255.255  ::ffff:255.255.255.255  ::ffff:0:255.255.255.255 (IPv4-mapped IPv6 addresses and IPv4-translated addresses)
+      |(?:(?:[0-9a-f]{1,4}:){1,4}:{{ipv4}})                 # 2001:db8:3:4::192.0.2.33  64:ff9b::192.0.2.33                       (IPv4-Embedded IPv6 Address)
+      |(?:fe80:(?::[0-9a-f]{1,4}){0,4}%[0-9a-z]{1,})        # fe80::7:8%eth0     fe80::7:8%1                                      (link-local IPv6 addresses with zone index)
+      |(?:(?:[0-9a-f]{1,4}:){7,7}    [0-9a-f]{1,4})         # 1:2:3:4:5:6:7:8
+      |   (?:[0-9a-f]{1,4}:      (?::[0-9a-f]{1,4}){1,6})   # 1::3:4:5:6:7:8     1::3:4:5:6:7:8   1::8
+      |(?:(?:[0-9a-f]{1,4}:){1,2}(?::[0-9a-f]{1,4}){1,5})   # 1::4:5:6:7:8       1:2::4:5:6:7:8   1:2::8
+      |(?:(?:[0-9a-f]{1,4}:){1,3}(?::[0-9a-f]{1,4}){1,4})   # 1::5:6:7:8         1:2:3::5:6:7:8   1:2:3::8
+      |(?:(?:[0-9a-f]{1,4}:){1,4}(?::[0-9a-f]{1,4}){1,3})   # 1::6:7:8           1:2:3:4::6:7:8   1:2:3:4::8
+      |(?:(?:[0-9a-f]{1,4}:){1,5}(?::[0-9a-f]{1,4}){1,2})   # 1::7:8             1:2:3:4:5::7:8   1:2:3:4:5::8
+      |(?:(?:[0-9a-f]{1,4}:){1,6}   :[0-9a-f]{1,4})         # 1::8               1:2:3:4:5:6::8   1:2:3:4:5:6::8
+      |(?:(?:[0-9a-f]{1,4}:){1,7}   :)                      # 1::                                 1:2:3:4:5:6:7::
+      |(?::(?:(?::[0-9a-f]{1,4}){1,7}|:))                   # ::2:3:4:5:6:7:8    ::2:3:4:5:6:7:8  ::8       ::
+    )
+
 contexts:
   main:
     - match: nothing at all; do not use
@@ -63,13 +85,33 @@ contexts:
       scope: entity.name.constant.mac-address.ssh.common
 
   ipv4:
-    - match: (?:\d{1,3}\.){3}\d{1,3}
+    - match: '\b{{ipv4}}\b'
       scope: constant.numeric.ip-address.v4.ssh.common
 
   ipv6:
-    - match: ((?i:[a-f0-9:]+:+)+[a-f0-9]+)
+    - match: '{{ipv6}}'
       scope: constant.numeric.ip-address.v6.ssh.common
 
   ip-addresses:
-    - include: ipv4
     - include: ipv6
+    - include: ipv4
+
+  ipv4-with-cidr:
+    # CIDR 0-32
+    - match: \b({{ipv4}})(?:(/)(3[0-2]|[12]\d|\d))?\b
+      captures:
+        1: constant.numeric.ip-address.v4.ssh.common
+        2: punctuation.separator.sequence.ssh.common
+        3: constant.other.range.ssh.common
+
+  ipv6-with-cidr:
+    # CIDR 0-128
+    - match: ({{ipv6}})(?:(/)(12[0-8]|1[01]\d|[1-9]\d|\d)\b)?
+      captures:
+        1: constant.numeric.ip-address.v6.ssh.common
+        2: punctuation.separator.sequence.ssh.common
+        3: constant.other.range.ssh.common
+
+  ip-addresses-with-cidr:
+    - include: ipv6-with-cidr
+    - include: ipv4-with-cidr

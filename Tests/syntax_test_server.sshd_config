@@ -16,7 +16,7 @@ AddressFamily any
 #             ^^^ constant.language.set
 ListenAddress 0.0.0.0
 # ^^^^^^^^^^^         keyword.other
-#             ^^^^^^^ constant.numeric.ip4
+#             ^^^^^^^ constant.numeric.ip-address.v4
 ListenAddress ::
 # ^^^^^^^^^^^    keyword.other
 #             ^^
@@ -133,7 +133,7 @@ Match User username1,username2 Address 192.168.0.0/16
 #                   ^ punctuation.separator.sequence
 #                             ^ - string
 #                              ^^^^^^^ keyword.other - keyword keyword
-#                                      ^^^^^^^^^^^ constant.numeric.ip4
+#                                      ^^^^^^^^^^^ constant.numeric.ip-address.v4
 #                                                 ^ punctuation.separator.sequence
 #                                                  ^^ constant.other.range
     PasswordAuthentication yes
@@ -152,7 +152,7 @@ Match User username1,username2 Address *,!192.168.0.0/16
 #                                      ^ constant.language.wildcard
 #                                       ^ punctuation.separator.sequence
 #                                        ^ keyword.operator.logical
-#                                         ^^^^^^^^^^^ constant.numeric.ip4
+#                                         ^^^^^^^^^^^ constant.numeric.ip-address.v4
 #                                                    ^ punctuation.separator.sequence
 #                                                     ^^ constant.other.range
     PasswordAuthentication yes
