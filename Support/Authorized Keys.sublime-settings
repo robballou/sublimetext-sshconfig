@@ -1,0 +1,4 @@
+{
+    "word_separators": "\\()\"':,;<>~!@#$%^&|=[]{}`~",
+    "auto_complete_selector": "text.authorized_keys - comment - string",
+}
