@@ -49,7 +49,7 @@ contexts:
         1: keyword.other.authorized_keys
         2: keyword.operator.assignment.authorized_keys
       with_prototype:
-        - match: \d+
+        - match: \d{1,3}
           scope: constant.numeric.integer.decimal.authorized_keys
       push: value-option-body
 
@@ -69,11 +69,12 @@ contexts:
         2: keyword.operator.assignment.authorized_keys
       with_prototype:
         # Host is optional
-        - match: (?:([^"]+)(:))?(\d+)
+        - match: (?:([^"]+)(:))?(?:(\d{1,5})|(\*))
           captures:
-            1: host
+            1: meta.string.host.authorized_keys
             2: punctuation.separator.sequence.authorized_keys
             3: constant.numeric.integer.decimal.authorized_keys
+            4: variable.language.wildcard.authorized_keys
       push: value-option-body
 
     - match: (permitopen)(=)
@@ -82,11 +83,12 @@ contexts:
         2: keyword.operator.assignment.authorized_keys
       with_prototype:
         # Host is required
-        - match: ([^"]+)(:)(\d+)
+        - match: ([^"]+)(:)(?:(\d{1,5})|(\*))
           captures:
-            1: host
+            1: meta.string.host.authorized_keys
             2: punctuation.separator.sequence.authorized_keys
             3: constant.numeric.integer.decimal.authorized_keys
+            4: variable.language.wildcard.authorized_keys
       push: value-option-body
 
     - match: (from)(=)
