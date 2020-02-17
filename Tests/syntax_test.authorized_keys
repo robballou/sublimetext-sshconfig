@@ -8,7 +8,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHeDxE1jPGCLo51RSF7CeJbp4raIc3xo6TBiqkz4WRWI
 #                                                                                               ^ - meta.line.authorized-key
 # ^^^^^^^^^ support.function.algorithm
 #           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ variable.other.fingerprint
-#                                                                                ^^^^^^^^^^^^^^^ entity.name.label
+#                                                                                ^^^^^^^^^^^^^^^ meta.annotation.identifier string.unquoted
 
 # Comments allowed at start of line
 ssh-rsa AAAAB3NzaLiPk== user@example.net

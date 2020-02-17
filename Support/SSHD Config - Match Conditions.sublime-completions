@@ -1,12 +1,18 @@
 {
 	"scope": "source.sshd_config meta.block.match meta.statement.conditional",
 	"completions": [
-		"User",
-		"Group",
-		"Host",
-		"LocalAddress",
-		"LocalPort",
+		{ "trigger": "User\tMatch if User in patterns",
+		  "contents": "User ${1:user1,user2}" },
+		{ "trigger": "Group\tMatch if user's groups match patterns",
+		  "contents": "Group ${1:group1,!group2}" },
+		{ "trigger": "Host\tMatch if hostname in patterns",
+		  "contents": "Host ${1:*.example.com,*.example.org}" },
+		{ "trigger": "LocalAddress\tMatch if listening NIC matches patterns",
+		  "contents": "LocalAddress ${1:192.0.2.0,2001:db8::}" },
+		{ "trigger": "LocalPort\tMatch if listening port matches patterns",
+		  "contents": "LocalPort ${1:22,2222}" },
 		"RDomain",
-		"Address",
+		{ "trigger": "Address\tMatch if CIDR matches connecting IP",
+		  "contents": "Address ${1:192.0.2.0/24,2001:db8::/32}" },
 	]
 }

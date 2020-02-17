@@ -135,6 +135,9 @@ contexts:
       scope: constant.language.set.sshd_config
     - match: \b(?i:default)\b
       scope: constant.language.default.sshd_config
+    - include: SSH Common.sublime-syntax#ssh-algorithms
+    - include: SSH Common.sublime-syntax#ssh-ciphers
+    - include: SSH Common.sublime-syntax#ipv6-square-bracket
     - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
     - include: tokens
     - match: \*|\?

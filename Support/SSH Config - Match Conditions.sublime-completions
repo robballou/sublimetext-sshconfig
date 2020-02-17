@@ -1,13 +1,18 @@
 {
 	"scope": "source.ssh_config meta.block.match meta.statement.conditional",
 	"completions": [
-		"Canonical",
-		"Exec",
-		"Host",
-		"OriginalHost",
-		"User",
-		"LocalUser",
-		"All",
-		"Final",
+		"Canonical\tOnly match after hostname canonicalization",
+		{ "trigger": "Exec\tMatch if return code is 0",
+		  "contents": "Exec \"${1:hostname -d | ! grep -q -E '^example\\.com'}\"" },
+		{ "trigger": "Host\tMatch if Host in patterns",
+		  "contents": "Host ${1:*.example.com,*.example.org}" },
+		{ "trigger": "OriginalHost\tMatch if CLI-entered host in patterns",
+		  "contents": "OriginalHost ${1:foo,*.jump}" },
+		{ "trigger": "User\tMatch if target User in patterns",
+		  "contents": "User ${1:user1,user2}" },
+		{ "trigger": "LocalUser\tMatch if your current user in patterns",
+		  "contents": "LocalUser ${1:user1,user2}" },
+		"All\tAlways matches",
+		"Final\tReparse config and match only on this pass",
 	]
 }

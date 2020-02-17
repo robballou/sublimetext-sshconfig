@@ -6,4 +6,5 @@ Match ${1:conditions}
 ]]></content>
 	<tabTrigger>match</tabTrigger>
 	<scope>source.ssh_config</scope>
+	<description>Create new Match entry</description>
 </snippet>

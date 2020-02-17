@@ -67,12 +67,12 @@ contexts:
         - include: pop-before-nl
         - match: '[ \t]*(\S(?:.+\S)?)[ \t]*$'
           captures:
-            1: entity.name.label.ssh.common
+            1: meta.annotation.identifier.ssh.common string.unquoted.ssh.common
           pop: true
 
   ssh-algorithms:
     - match: |-
-        (?x:
+        \b(?x:
           (?:sk-)?
           (?:ssh-(?:rsa|dss|ed25519)|
             rsa-sha2-(?:256|512)|
@@ -83,14 +83,14 @@ contexts:
 
   ssh-ciphers:
     - match: |-
-        (?x:
+        \b(?x:
           aes(?:128|192|256)-ctr|
           aes(?:128|256)-gcm@openssh\.com|
           chacha20-poly1305@openssh\.com
         )\b
-      scope: keyword.other.cipher.ssh.common
+      scope: support.function.cipher.ssh.common
     - match: |-
-        (?x:
+        \b(?x:
           aes(?:128|192|256)-cbc|
           (?:blowfish|cast128|3des)-cbc|
           rijndael-cbc@lysator\.liu\.se|
@@ -109,6 +109,13 @@ contexts:
   ipv6:
     - match: '{{ipv6}}'
       scope: constant.numeric.ip-address.v6.ssh.common
+
+  ipv6-square-bracket:
+    - match: (\[){{ipv6}}(\])
+      scope: constant.numeric.ip-address.v6.ssh.common
+      captures:
+        1: punctuation.definition.constant.begin.ssh.common
+        2: punctuation.definition.constant.end.ssh.common
 
   ip-addresses:
     - include: ipv6

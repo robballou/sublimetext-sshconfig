@@ -4,11 +4,18 @@
     <key>name</key>
     <string>Symbol List</string>
     <key>scope</key>
-    <string>text.authorized_keys entity.name.label</string>
+    <string>
+        text.authorized_keys meta.annotation.identifier,
+        text.known_hosts meta.annotation.identifier
+    </string>
     <key>settings</key>
     <dict>
         <key>showInSymbolList</key>
         <integer>1</integer>
+        <key>symbolTransformation</key>
+        <string>
+        s/(.+)/Annotation: $1/g;
+        </string>
     </dict>
 </dict>
 </plist>
