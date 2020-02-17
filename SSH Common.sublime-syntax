@@ -74,7 +74,7 @@ contexts:
     # ssh -Q key
     - match: |-
         \b(?x:
-          (?:ssh-(?:dss))
+          (?:ssh-(?:dss|rsa))
         )(?:(?:-cert-v01)?(@)openssh\.com)?\b
       scope: invalid.deprecated.key-type.ssh.common
       captures:
@@ -82,7 +82,6 @@ contexts:
     - match: |-
         \b(?x:
           (?:
-            ssh-rsa|   # Deprecation notice https://www.openssh.com/txt/release-8.2
             (?:sk-)?ssh-ed25519|
             (?:ed25519|ecdsa)-sk|
             rsa-sha2-(?:256|512)|
