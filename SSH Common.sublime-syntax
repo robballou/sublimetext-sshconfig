@@ -70,33 +70,88 @@ contexts:
             1: meta.annotation.identifier.ssh.common string.unquoted.ssh.common
           pop: true
 
-  ssh-algorithms:
+  ssh-key-types:
+    # ssh -Q key
     - match: |-
         \b(?x:
-          (?:sk-)?
-          (?:ssh-(?:rsa|dss|ed25519)|
+          (?:ssh-(?:dss))
+        )(?:(?:-cert-v01)?(@)openssh\.com)?\b
+      scope: invalid.deprecated.key-type.ssh.common
+      captures:
+        1: punctuation.separator.sequence.ssh.common
+    - match: |-
+        \b(?x:
+          (?:
+            ssh-rsa|   # Deprecation notice https://www.openssh.com/txt/release-8.2
+            (?:sk-)?ssh-ed25519|
+            (?:ed25519|ecdsa)-sk|
             rsa-sha2-(?:256|512)|
-            ecdsa-sha2-nistp(?:256|384|521)
+            (?:sk-)?ecdsa-sha2-nistp(?:256|384|521)
           )
-        )(?:(?:-cert-v01)?@openssh\.com)?\b
-      scope: support.function.algorithm.ssh.common
+        )(?:(?:-cert-v01)?(@)openssh\.com)?\b
+      scope: support.type.key-type.ssh.common
+      captures:
+        1: punctuation.separator.sequence.ssh.common
 
   ssh-ciphers:
-    - match: |-
-        \b(?x:
-          aes(?:128|192|256)-ctr|
-          aes(?:128|256)-gcm@openssh\.com|
-          chacha20-poly1305@openssh\.com
-        )\b
-      scope: support.function.cipher.ssh.common
+    # ssh -Q ciphers
     - match: |-
         \b(?x:
           aes(?:128|192|256)-cbc|
           (?:blowfish|cast128|3des)-cbc|
-          rijndael-cbc@lysator\.liu\.se|
+          rijndael-cbc(@)lysator\.liu\.se|
           arcfour(?:128|265)?
         )\b
       scope: invalid.deprecated.cipher.ssh.common
+      captures:
+        1: punctuation.separator.sequence.ssh.common
+    - match: |-
+        \b(?x:
+          aes(?:128|192|256)-ctr|
+          aes(?:128|256)-gcm(@)openssh\.com|
+          chacha20-poly1305(@)openssh\.com
+        )\b
+      scope: support.function.cipher.ssh.common
+      captures:
+        1: punctuation.separator.sequence.ssh.common
+        2: punctuation.separator.sequence.ssh.common
+
+  ssh-kex-algorithms:
+    # ssh -Q kex
+    - match: |-
+        \b(?x:
+          diffie-hellman-group(?:14?|-exchange)-sha1
+        )\b
+      scope: invalid.deprecated.kex-algorithm.ssh.common
+    - match: |-
+        \b(?x:
+          diffie-hellman-group(?:1[468]|-exchange)-sha(?:256|512)
+          |ecdh-sha2-nist(?:256|384|512)
+          |curve25519-sha256(?:(@)libssh\.org)?
+        )\b
+      scope: support.function.kex-algorithm.ssh.common
+      captures:
+        1: punctuation.separator.sequence.ssh.common
+
+  ssh-MACs:
+    # ssh -Q mac
+    - match: |-
+        \b(?x:
+          hmac-ripemd160
+          |hmac-md5(?:-96)?
+        )(?:(?:-etm)?(@)openssh\.com)?\b
+      scope: invalid.deprecated.mac-algorithm.ssh.common
+      captures:
+        1: punctuation.separator.sequence.ssh.common
+    - match: |-
+        \b(?x:
+          hmac-sha1(?:-96)?
+          |hmac-sha2-(?:256|512)
+          |umac-(?:64|128)
+        )(?:(?:-etm)?(@)openssh\.com)?\b
+      scope: support.function.mac-algorithm.ssh.common
+      captures:
+        1: punctuation.separator.sequence.ssh.common
 
   mac-addresses:
     - match: (?:[0-9a-fA-F]{2}:){5}(?:[0-9a-fA-F]{2})

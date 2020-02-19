@@ -8,7 +8,7 @@ github.com,192.30.252.129 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9
 # ^^^^^^^^ meta.string.host string.unquoted
 #         ^ punctuation.separator.sequence
 #          ^^^^^^^^^^^^^^ constant.numeric.ip-address.v4
-#                         ^^^^^^^ support.function.algorithm
+#                         ^^^^^^^ support.type.key-type
 #                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.known-host variable.other.fingerprint
 #                                                                                                                                                                                                                                                                                                                                                                                                                     ^ - meta
 

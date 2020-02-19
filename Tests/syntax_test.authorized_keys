@@ -6,7 +6,7 @@
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHeDxE1jPGCLo51RSF7CeJbp4raIc3xo6TBiqkz4WRWI you@example.com
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key
 #                                                                                               ^ - meta.line.authorized-key
-# ^^^^^^^^^ support.function.algorithm
+# ^^^^^^^^^ support.type.key-type
 #           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ variable.other.fingerprint
 #                                                                                ^^^^^^^^^^^^^^^ meta.annotation.identifier string.unquoted
 
@@ -31,7 +31,7 @@ expiry-time="20190606" ssh-rsa AAAAB3N21S== user@example.net
 #            ^^^^^^^^ constant
 #           ^^^^^^^^^^ string.quoted.double
 #                    ^ punctuation.definition.string.end
-#                      ^^^^^^^ support.function.algorithm
+#                      ^^^^^^^ support.type.key-type
 environment="NAME=value",environment="NAME2=value2" ssh-rsa AAAAB3N21S==
 # ^^^^^^^^^ keyword.other
 #          ^ keyword.operator.assignment

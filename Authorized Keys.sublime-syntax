@@ -18,7 +18,7 @@ contexts:
         - meta_scope: meta.line.authorized-key.authorized_keys
         - include: SSH Common.sublime-syntax#pop-before-nl
         - include: SSH Common.sublime-syntax#pop-nl
-        - include: SSH Common.sublime-syntax#ssh-algorithms
+        - include: SSH Common.sublime-syntax#ssh-key-types
         - include: SSH Common.sublime-syntax#ssh-fingerprint-with-label
         - include: flag-options
         - include: value-options

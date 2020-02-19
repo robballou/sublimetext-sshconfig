@@ -281,8 +281,10 @@ contexts:
       scope: keyword.operator.logical.ssh_config
     - match: ','
       scope: punctuation.separator.sequence.ssh_config
-    - include: SSH Common.sublime-syntax#ssh-algorithms
+    - include: SSH Common.sublime-syntax#ssh-key-types
     - include: SSH Common.sublime-syntax#ssh-ciphers
+    - include: SSH Common.sublime-syntax#ssh-kex-algorithms
+    - include: SSH Common.sublime-syntax#ssh-MACs
     - include: SSH Common.sublime-syntax#ipv6-square-bracket
     - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
 
