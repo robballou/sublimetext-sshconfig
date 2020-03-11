@@ -65,7 +65,7 @@ contexts:
       scope: variable.other.fingerprint.ssh.common
       push:
         - include: pop-before-nl
-        - match: '[ \t]*(\S(?:.+\S)?)[ \t]*$'
+        - match: '[ \t]*(\S(?:.*\S)?)[ \t]*$'
           captures:
             1: meta.annotation.identifier.ssh.common string.unquoted.ssh.common
           pop: true
