@@ -30,7 +30,23 @@ variables:
 
 contexts:
   main:
-    - match: nothing at all; do not use
+    - include: comments-number-sign
+    - match: '^key:'
+      push:
+        - include: pop-before-nl
+        - include: ssh-key-types
+    - match: '^kex:'
+      push:
+        - include: pop-before-nl
+        - include: ssh-kex-algorithms
+    - match: '^cipher:'
+      push:
+        - include: pop-before-nl
+        - include: ssh-ciphers
+    - match: '^mac:'
+      push:
+        - include: pop-before-nl
+        - include: ssh-MACs
 
   pop-nl:
     - match: \n
@@ -72,44 +88,79 @@ contexts:
 
   ssh-key-types:
     # ssh -Q key
-    - match: |-
-        \b(?x:
-          (?:ssh-(?:dss))
-        )(?:(?:-cert-v01)?(@)openssh\.com)?\b
-      scope: invalid.deprecated.key-type.ssh.common
-      captures:
-        1: punctuation.separator.sequence.ssh.common
+    # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
     - match: |-
         \b(?x:
           (?:
-            ssh-rsa|   # Deprecation notice https://www.openssh.com/txt/release-8.2
-            (?:sk-)?ssh-ed25519|
-            (?:ed25519|ecdsa)-sk|
-            rsa-sha2-(?:256|512)|
-            (?:sk-)?ecdsa-sha2-nistp(?:256|384|521)
+             x509v3-(?:sign|ssh)-dss
+            |ssh-rsa-cert-v00            (@)openssh\.com
+            |ssh-dss-cert-v0[01]         (@)openssh\.com
+            |ssh-dss
           )
-        )(?:(?:-cert-v01)?(@)openssh\.com)?\b
+        )\b
+      scope: invalid.deprecated.key-type.ssh.common
+      captures:
+        1: punctuation.separator.sequence.ssh.common
+        2: punctuation.separator.sequence.ssh.common
+    - match: |-
+        \b(?x:
+          (?:
+             ssh-rsa          (?:-sha256(@)ssh\.com)  # tagless version matched below
+            |x509v3-sign-rsa  (?:-sha256(@)ssh\.com)?
+            |x509v3-ssh-rsa
+            |ecdsa-sha2-1\.3\.132\.0\.10  # ECDSA over secp256k1 (i.e.: the Bitcoin curve)
+            |sk-(?:ssh-ed25519|ecdsa-sha2-nistp256) (@)openssh\.com
+          )
+        )\b
+      scope: support.type.key-type.ssh.common
+      captures:
+        1: punctuation.separator.sequence.ssh.common
+        2: punctuation.separator.sequence.ssh.common
+        3: punctuation.separator.sequence.ssh.common
+    # Optional `-cert-v01@openssh.com`
+    - match: |-
+        \b(?x:
+          (?:
+             rsa-sha2-(?:256|512)
+            |ssh-rsa
+            |(?:sk-)?ssh-ed25519
+            |ecdsa-sha2-nistp(?:256|384|521)
+            |sk-ecdsa-sha2-nistp256
+          )
+        )(?:-cert-v01(@)openssh\.com)?\b
       scope: support.type.key-type.ssh.common
       captures:
         1: punctuation.separator.sequence.ssh.common
 
   ssh-ciphers:
     # ssh -Q ciphers
+    # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
     - match: |-
         \b(?x:
-          aes(?:128|192|256)-cbc|
-          (?:blowfish|cast128|3des)-cbc|
-          rijndael-cbc(@)lysator\.liu\.se|
-          arcfour(?:128|265)?
+           none
+          |des(?:-cbc(?:-ssh1)?)?
+          |3des(?:-(?:cbc|ctr))?
+          |blowfish-(?:cbc|ctr)
+          |twofish(?:128|256)?-cbc
+          |serpent(?:128|192|256)-(?:cbc|ctr)
+          |idea-(?:cbc|ctr)
+          |cast128-(?:cbc|ctr)
+          |arcfour(?:128|256)?
+          |aes(?:128|192|256)-cbc
+          |rijndael(?:128|192|256)-cbc
+          |rijndael-cbc(@)lysator\.liu\.se
         )\b
       scope: invalid.deprecated.cipher.ssh.common
       captures:
         1: punctuation.separator.sequence.ssh.common
     - match: |-
         \b(?x:
-          aes(?:128|192|256)-ctr|
-          aes(?:128|256)-gcm(@)openssh\.com|
-          chacha20-poly1305(@)openssh\.com
+           twofish192-cbc
+          |twofish(?:128|192|256)?-ctr
+          |aes(?:128|192|256)-ctr
+          |aes(?:128|256)-gcm(?:(@)openssh\.com)?
+          |chacha20-poly1305(?:(@)openssh\.com)?
+          |camellia(?:128|192|256)-(?:cbc|ctr)
         )\b
       scope: support.function.cipher.ssh.common
       captures:
@@ -118,40 +169,79 @@ contexts:
 
   ssh-kex-algorithms:
     # ssh -Q kex
+    # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
     - match: |-
         \b(?x:
-          diffie-hellman-group(?:14?|-exchange)-sha1
-        )\b
+           gss-(?:gex|group14?)-sha1-(?:toWM5Slw5Ew8Mqkay\+al2g==)?
+          |diffie-hellman-group(?:14?|-exchange)-sha1\b
+        )
       scope: invalid.deprecated.kex-algorithm.ssh.common
     - match: |-
         \b(?x:
-          diffie-hellman-group(?:1[468]|-exchange)-sha(?:256|512)
-          |ecdh-sha2-nist(?:256|384|512)
+           gss-group1[45]-sha(?:256|512)-toWM5Slw5Ew8Mqkay\+al2g==
+        )
+      scope: support.function.kex-algorithm.ssh.common
+    - match: |-
+        \b(?x:
+           diffie-hellman-group1[4-8]-sha(?:256|384|512)   (?:(@)ssh\.com)?  # Technically too permissive
+          |diffie-hellman-group-exchange-sha(?:256|512)    (?:(@)ssh\.com)
+          |diffie-hellman-group-exchange-sha(?:256)
+          |ecdh-sha2-curve25519
+          |ecdh-sha2-nist(?:
+            b(?:233|409)
+            |k(?:163|233|283|409)
+            |p(?:192|224|256|384|521)
+            |t(?:571)
+          )
+          |ecdh-sha2-1\.3\.132\.0\.10  # ECDH over secp256k1 (i.e.: the Bitcoin curve)
           |curve25519-sha256(?:(@)libssh\.org)?
+          |curve448-sha512
+          |kexguess2(@)matt\.ucc\.asn\.au
+          |rsa1024-sha1
+          |rsa2048-sha256
+          |sntrup4591761x25519-sha512(@)tinyssh\.org
+          |ext-info-[cs]  # Extension negotiation (RFC 8308)
         )\b
       scope: support.function.kex-algorithm.ssh.common
       captures:
         1: punctuation.separator.sequence.ssh.common
+        2: punctuation.separator.sequence.ssh.common
+        3: punctuation.separator.sequence.ssh.common
+        4: punctuation.separator.sequence.ssh.common
+        5: punctuation.separator.sequence.ssh.common
 
   ssh-MACs:
     # ssh -Q mac
+    # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
     - match: |-
         \b(?x:
-          hmac-ripemd160
-          |hmac-md5(?:-96)?
-        )(?:(?:-etm)?(@)openssh\.com)?\b
+           none
+          |hmac-sha2-(?:256|512)-96   (?!-etm(@)openssh\.com)  # NOT -etm...
+          |hmac-sha1-96               (?:-etm(@)openssh\.com)?
+          |hmac-md5(?:-96)?           (?:-etm(@)openssh\.com)?
+          |hmac-ripemd(?:160(?:(?:-etm)?(@)openssh\.com)?)?
+        )\b
       scope: invalid.deprecated.mac-algorithm.ssh.common
       captures:
         1: punctuation.separator.sequence.ssh.common
     - match: |-
         \b(?x:
-          hmac-sha1(?:-96)?
-          |hmac-sha2-(?:256|512)
-          |umac-(?:64|128)
-        )(?:(?:-etm)?(@)openssh\.com)?\b
+           hmac-sha1                      (?:-etm(@)openssh\.com)?
+          |hmac-sha2-(?:256|512)(?:-96)?  (?:-etm(@)openssh\.com)?
+          |hmac-sha2-(?:56|224|384)
+          |hmac-sha3-(?:256|384|512)
+          |hmac-sha(?:256(?:-96)?|512)    (?:(@)ssh\.com)?
+          |umac-(?:32|96)                    (@)openssh\.com
+          |umac-(?:64|128)(?:-etm)?          (@)openssh\.com
+          |aes(?:128|256)-gcm
+        )\b
       scope: support.function.mac-algorithm.ssh.common
       captures:
         1: punctuation.separator.sequence.ssh.common
+        2: punctuation.separator.sequence.ssh.common
+        3: punctuation.separator.sequence.ssh.common
+        4: punctuation.separator.sequence.ssh.common
+        5: punctuation.separator.sequence.ssh.common
 
   mac-addresses:
     - match: (?:[0-9a-fA-F]{2}:){5}(?:[0-9a-fA-F]{2})
