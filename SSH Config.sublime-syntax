@@ -147,7 +147,7 @@ contexts:
     - match: '[^\s*?,]+'
       scope: entity.name.label.host-alias.ssh_config
     - match: \*|\?
-      scope: entity.name.label.host-alias.ssh_config constant.language.wildcard.ssh_config
+      scope: entity.name.label.host-alias.ssh_config keyword.operator.wildcard.ssh_config
 
   match-exec-tokens:
     # http://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
@@ -276,7 +276,7 @@ contexts:
   generic-option-includes:
     - include: tokens
     - match: \*|\?
-      scope: constant.language.wildcard.ssh_config
+      scope: keyword.operator.wildcard.ssh_config
     - match: '!'
       scope: keyword.operator.logical.ssh_config
     - match: ','

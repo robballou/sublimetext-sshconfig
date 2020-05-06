@@ -62,7 +62,7 @@ contexts:
         - match: ','
           scope: punctuation.separator.sequence.sshd_config
         - match: \*|\?
-          scope: constant.language.wildcard.sshd_config
+          scope: keyword.operator.wildcard.sshd_config
         - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
         - include: pop-before-match-option
 
@@ -87,7 +87,7 @@ contexts:
     - match: ','
       scope: string.unquoted.sshd_config punctuation.separator.sequence.sshd_config
     - match: \*|\?
-      scope: string.unquoted.sshd_config constant.language.wildcard.sshd_config
+      scope: string.unquoted.sshd_config keyword.operator.wildcard.sshd_config
 
   forcecommand:
     - match: ^\s*((?i:forcecommand))\b[ \t]*(=)?
@@ -143,7 +143,7 @@ contexts:
     - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
     - include: tokens
     - match: \*|\?
-      scope: constant.language.wildcard.sshd_config
+      scope: keyword.operator.wildcard.sshd_config
     - match: \d+
       scope: constant.numeric.sshd_config
     - match: '!'
