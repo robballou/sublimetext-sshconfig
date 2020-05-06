@@ -5,7 +5,7 @@ Match Host targ?t_host Exec not_inside_network User sue
 #     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^             keyword.other
 #          ^^^^^^^^^^^ entity.name.label.host-alias
-#              ^       constant.language.wildcard
+#              ^       keyword.operator.wildcard
 #                      ^^^^                    keyword.other
 #                           ^^^^^^^^^^^^^^^^^^ source.embedded.shell meta.function-call.shell
 #                          ^                    - source.embedded.shell
@@ -65,8 +65,8 @@ Host *.splat?.com
 # ^^              keyword.declaration.host-alias
 #   ^             - entity.name.label.host-alias
 #    ^^^^^^^^^^^^ entity.name.label.host-alias
-#    ^            constant.language.wildcard
-#           ^     constant.language.wildcard
+#    ^            keyword.operator.wildcard
+#           ^     keyword.operator.wildcard
     User tim
     # ^^     keyword.other
     #    ^^^ string.unquoted
@@ -77,7 +77,7 @@ Host *.splat?.com
 
 Host *
 # ^^              keyword.declaration.host-alias
-#    ^            constant.language.wildcard
+#    ^            keyword.operator.wildcard
     IdentityFile ~/.ssh/id_rsa
     Ciphers "aes128-ctr,aes192-ctr,aes256-ctr"
     #       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double

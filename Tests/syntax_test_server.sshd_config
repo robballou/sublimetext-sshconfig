@@ -83,7 +83,7 @@ AllowAgentForwarding no
 AcceptEnv LANG LC_*
 #^^^^^^^^ meta.mapping.key keyword.other
 #         ^^^^^^^^^ meta.mapping.value string.unquoted
-#                 ^ constant.language.wildcard
+#                 ^ keyword.operator.wildcard
 
 # no default banner path
 #Banner none
@@ -106,7 +106,7 @@ Match User *,!username1,!username2
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^ keyword.other
 #          ^^^^^^^^^^^^^^^^^^^^^^^ string.unquoted
-#          ^ constant.language.wildcard
+#          ^ keyword.operator.wildcard
 #           ^ punctuation.separator.sequence
 #            ^ keyword.operator.logical
 #                      ^ punctuation.separator.sequence
@@ -149,7 +149,7 @@ Match User username1,username2 Address *,!192.168.0.0/16
 #                   ^ punctuation.separator.sequence
 #                             ^ - string
 #                              ^^^^^^^ keyword.other - keyword keyword
-#                                      ^ constant.language.wildcard
+#                                      ^ keyword.operator.wildcard
 #                                       ^ punctuation.separator.sequence
 #                                        ^ keyword.operator.logical
 #                                         ^^^^^^^^^^^ constant.numeric.ip-address.v4
