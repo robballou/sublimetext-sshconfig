@@ -1,0 +1,15 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+first_line_match: ^-----BEGIN [\w ]+ PRIVATE KEY-----
+scope: source.ssh.private-key
+contexts:
+  main:
+    - match: ^-----BEGIN [\w ]+ PRIVATE KEY-----
+      scope: punctuation.section.block.begin.ssh.private-key
+    - match: ^-----END [\w ]+ PRIVATE KEY-----
+      scope: punctuation.section.block.begin.ssh.private-key
+    - match: ^[a-zA-Z0-9+/]{1,70}(=){0,3}$
+      scope: string.unquoted.private-key
+      captures:
+        1: punctuation.definition.string.end.private-key
