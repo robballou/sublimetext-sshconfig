@@ -1,208 +1,263 @@
 {
-	"scope": "text.authorized_keys - comment - string",
-	"completions": [
-		{
-			"trigger": "agent-forwarding\tReenable `restrict`ed agent forwarding",
-			"contents": "agent-forwarding",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Reenable <code>restrict</code>ed agent forwarding",
-		},
-		{
-			"trigger": "cert-authority\tMark key as a CA",
-			"contents": "cert-authority",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Mark key as a CA",
-		},
-		{
-			"trigger": "command\tRun command when key is used",
-			"contents": "command",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Run command when key is used",
-		},
-		{
-			"trigger": "command\tRun command when key is used",
-			"contents": "command=\"${0}\"",
-			"annotation": "options",
-			"kind": "snippet",
-			"details": "Run command when key is used",
-		},
-		{
-			"trigger": "environment\tSet one environment var",
-			"contents": "environment",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Set one environment var",
-		},
-		{
-			"trigger": "environment\tSet one environment var",
-			"contents": "environment=\"${1:NAME}=${2:value}\"",
-			"annotation": "options",
-			"kind": "snippet",
-			"details": "Set one environment var",
-		},
-		{
-			"trigger": "expiry-time\tGive this key an expiration",
-			"contents": "expiry-time",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Give this key an expiration",
-		},
-		{
-			"trigger": "expiry-time\tGive this key an expiration",
-			"contents": "expiry-time=\"${0:YYYYMMDD}\"",
-			"annotation": "options",
-			"kind": "snippet",
-			"details": "Give this key an expiration",
-		},
-		{
-			"trigger": "from\tWhitelist remote hosts",
-			"contents": "from",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Whitelist remote hosts",
-		},
-		{
-			"trigger": "from\tWhitelist remote hosts",
-			"contents": "from=\"${0:hosts}\"",
-			"annotation": "options",
-			"kind": "snippet",
-			"details": "Whitelist remote hosts",
-		},
-		{
-			"trigger": "no-agent-forwarding\tDisable agent forwarding",
-			"contents": "no-agent-forwarding",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Disable agent forwarding",
-		},
-		{
-			"trigger": "no-port-forwarding\tDisable port forwarding",
-			"contents": "no-port-forwarding",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Disable port forwarding",
-		},
-		{
-			"trigger": "no-pty\tDisable tty allocation",
-			"contents": "no-pty",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Disable tty allocation",
-		},
-		{
-			"trigger": "no-user-rc\tDisable ~/.ssh/rc execution",
-			"contents": "no-user-rc",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Disable <code>~/.ssh/rc</code> execution",
-		},
-		{
-			"trigger": "no-X11-forwarding\tDisable X11 forwarding",
-			"contents": "no-X11-forwarding",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Disable X11 forwarding",
-		},
-		{
-			"trigger": "permitlisten\tWhitelist remote (-R) port forwarding",
-			"contents": "permitlisten",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Whitelist remote (<code>-R</code>) port forwarding",
-		},
-		{
-			"trigger": "permitlisten\tWhitelist remote (-R) port forwarding",
-			"contents": "permitlisten=\"${1:[host:]port}\"",
-			"annotation": "options",
-			"kind": "snippet",
-			"details": "Whitelist remote (<code>-R</code>) port forwarding",
-		},
-		{
-			"trigger": "permitopen\tWhitelist local (-L) port forwarding",
-			"contents": "permitopen",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Whitelist local (<code>-L</code>) port forwarding",
-		},
-		{
-			"trigger": "permitopen\tWhitelist local (-L) port forwarding",
-			"contents": "permitopen=\"${1:host}:${2:port}\"",
-			"annotation": "options",
-			"kind": "snippet",
-			"details": "Whitelist local (<code>-L</code>) port forwarding",
-		},
-		{
-			"trigger": "port-forwarding\tReenable `restrict`ed port forwarding",
-			"contents": "port-forwarding",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Reenable <code>restrict</code>ed port forwarding",
-		},
-		{
-			"trigger": "principals\tWhitelist CA principals",
-			"contents": "principals",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Whitelist CA principals",
-		},
-		{
-			"trigger": "principals\tWhitelist CA principals",
-			"contents": "principals=\"${0:principals}\"",
-			"annotation": "options",
-			"kind": "snippet",
-			"details": "Whitelist CA principals",
-		},
-		{
-			"trigger": "pty\tReenable `restrict`ed tty allocation",
-			"contents": "pty",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Reenable <code>restrict</code>ed tty allocation",
-		},
-		{
-			"trigger": "no-touch-required\tSkip security key touch",
-			"contents": "no-touch-required",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Skip security key touch",
-		},
-		{
-			"trigger": "restrict\tEnable ALL restrictions",
-			"contents": "restrict",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Enable <b>all</b> restrictions",
-		},
-		{
-			"trigger": "tunnel\tForce specific tun device",
-			"contents": "tunnel",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Force specific <code>tun</code> device",
-		},
-		{
-			"trigger": "tunnel\tForce specific tun device",
-			"contents": "tunnel=\"${0:N}\"",
-			"annotation": "options",
-			"kind": "snippet",
-			"details": "Force specific <code>tun</code> device",
-		},
-		{
-			"trigger": "user-rc\tReenable `restrict`ed ~/.ssh/rc execution",
-			"contents": "user-rc",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Reenable <code>restrict</code>ed <code>~/.ssh/rc</code> execution",
-		},
-		{
-			"trigger": "X11-forwarding\tReenable `restrict`ed X11 forwarding",
-			"contents": "X11-forwarding",
-			"annotation": "options",
-			"kind": ["keyword", "o", "Options"],
-			"details": "Reenable <code>restrict</code>ed X11 forwarding",
-		},
-	]
+    "scope": "text.authorized_keys - comment - string",
+    "completions": [
+        {
+            "trigger": "agent-forwarding",
+            "contents": "agent-forwarding",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Reenable <code>restrict</code>ed agent forwarding"
+        },
+        {
+            "trigger": "cert-authority",
+            "contents": "cert-authority",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Mark key as a CA"
+        },
+        {
+            "trigger": "command",
+            "contents": "command",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Run command when key is used"
+        },
+        {
+            "trigger": "command",
+            "contents": "command=\"${0}\"",
+            "kind": "snippet",
+            "details": "Run command when key is used"
+        },
+        {
+            "trigger": "environment",
+            "contents": "environment",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Set one environment var"
+        },
+        {
+            "trigger": "environment",
+            "contents": "environment=\"${1:NAME}=${2:value}\"",
+            "kind": "snippet",
+            "details": "Set one environment var"
+        },
+        {
+            "trigger": "expiry-time",
+            "contents": "expiry-time",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Give this key an expiration"
+        },
+        {
+            "trigger": "expiry-time",
+            "contents": "expiry-time=\"${0:YYYYMMDD}\"",
+            "kind": "snippet",
+            "details": "Give this key an expiration"
+        },
+        {
+            "trigger": "from",
+            "contents": "from",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Whitelist remote hosts"
+        },
+        {
+            "trigger": "from",
+            "contents": "from=\"${0:hosts}\"",
+            "kind": "snippet",
+            "details": "Whitelist remote hosts"
+        },
+        {
+            "trigger": "no-agent-forwarding",
+            "contents": "no-agent-forwarding",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Disable agent forwarding"
+        },
+        {
+            "trigger": "no-port-forwarding",
+            "contents": "no-port-forwarding",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Disable post forwarding"
+        },
+        {
+            "trigger": "no-pty",
+            "contents": "no-pty",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Disable tty allocation"
+        },
+        {
+            "trigger": "no-user-rc",
+            "contents": "no-user-rc",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Disable <code>~/.ssh/rc</code> execution"
+        },
+        {
+            "trigger": "no-X11-forwarding",
+            "contents": "no-X11-forwarding",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Disable X11 forwarding"
+        },
+        {
+            "trigger": "permitlisten",
+            "contents": "permitlisten",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Whitelist remote (<code>-R</code>) port forwarding"
+        },
+        {
+            "trigger": "permitlisten",
+            "contents": "permitlisten=\"${1:[host:]port}\"",
+            "kind": "snippet",
+            "details": "Whitelist remote (<code>-R</code>) port forwarding"
+        },
+        {
+            "trigger": "permitopen",
+            "contents": "permitopen",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Whitelist local (<code>-L</code>) port forwarding"
+        },
+        {
+            "trigger": "permitopen",
+            "contents": "permitopen=\"${1:host}:${2:port}\"",
+            "kind": "snippet",
+            "details": "Whitelist local (<code>-L</code>) port forwarding"
+        },
+        {
+            "trigger": "port-forwarding",
+            "contents": "port-forwarding",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Reenable <code>restrict</code>ed port forwarding"
+        },
+        {
+            "trigger": "principals",
+            "contents": "principals",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Whitelist CA principals"
+        },
+        {
+            "trigger": "principals",
+            "contents": "principals=\"${0:principals}\"",
+            "kind": "snippet",
+            "details": "Whitelist CA principals"
+        },
+        {
+            "trigger": "pty",
+            "contents": "pty",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Reenable <code>restrict</code>ed tty allocation"
+        },
+        {
+            "trigger": "no-touch-required",
+            "contents": "no-touch-required",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Skip security key touch"
+        },
+        {
+            "trigger": "restrict",
+            "contents": "restrict",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Enable <b>all</b> restrictions"
+        },
+        {
+            "trigger": "tunnel",
+            "contents": "tunnel",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Force specific <code>tun</code> device"
+        },
+        {
+            "trigger": "tunnel",
+            "contents": "tunnel=\"${0:N}\"",
+            "kind": "snippet",
+            "details": "Force specific <code>tun</code> device"
+        },
+        {
+            "trigger": "user-rc",
+            "contents": "user-rc",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Reenable <code>restrict</code>ed <code>~/.ssh/rc</code> execution"
+        },
+        {
+            "trigger": "X11-forwarding",
+            "contents": "X11-forwarding",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Reenable <code>restrict</code>ed X11 forwarding"
+        }
+    ]
 }

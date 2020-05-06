@@ -1,96 +1,115 @@
 {
-	"scope": "source.ssh_config meta.block.match meta.statement.conditional",
-	"completions": [
-		{
-			"trigger": "Canonical\tOnly match after hostname canonicalization",
-			"contents": "Canonical",
-			"annotation": "match condition",
-			"kind": ["keyword", "c", "Condition"],
-			"details": "Only match after hostname canonicalization",
-		},
-		{
-			"trigger": "Exec\tMatch if return code is 0",
-			"contents": "Exec",
-			"annotation": "match condition",
-			"kind": ["keyword", "c", "Condition"],
-			"details": "Match if return code is 0",
-		},
-		{
-			"trigger": "exec\tMatch if return code is 0",
-			"contents": "Exec \"${1:hostname -d | ! grep -q -E '^example\\.com'}\"",
-			"annotation": "match condition",
-			"kind": "snippet",
-			"details": "Match if return code is 0",
-		},
-		{
-			"trigger": "Host\tMatch if Host in patterns",
-			"contents": "Host",
-			"annotation": "match condition",
-			"kind": ["keyword", "c", "Condition"],
-			"details": "Match if <code>Host</code> in patterns",
-		},
-		{
-			"trigger": "host\tMatch if Host in patterns",
-			"contents": "Host ${1:*.example.com,*.example.org}",
-			"annotation": "match condition",
-			"kind": "snippet",
-			"details": "Match if <code>Host</code> in patterns",
-		},
-		{
-			"trigger": "OriginalHost\tMatch if CLI-entered host in patterns",
-			"contents": "OriginalHost",
-			"annotation": "match condition",
-			"kind": ["keyword", "c", "Condition"],
-			"details": "Match if CLI-entered host in patterns",
-		},
-		{
-			"trigger": "originalhost\tMatch if CLI-entered host in patterns",
-			"contents": "OriginalHost ${1:foo,*.jump}",
-			"annotation": "match condition",
-			"kind": "snippet",
-			"details": "Match if CLI-entered host in patterns",
-		},
-		{
-			"trigger": "User\tMatch if target User in patterns",
-			"contents": "User",
-			"annotation": "match condition",
-			"kind": ["keyword", "c", "Condition"],
-			"details": "Match if target <code>User</code> in patterns",
-		},
-		{
-			"trigger": "user\tMatch if target User in patterns",
-			"contents": "User ${1:user1,user2}",
-			"annotation": "match condition",
-			"kind": "snippet",
-			"details": "Match if target <code>User</code> in patterns",
-		},
-		{
-			"trigger": "LocalUser\tMatch if your current user in patterns",
-			"contents": "LocalUser",
-			"annotation": "match condition",
-			"kind": ["keyword", "c", "condition"],
-			"details": "Match if your current user in patterns",
-		},
-		{
-			"trigger": "localuser\tMatch if your current user in patterns",
-			"contents": "LocalUser ${1:user1,user2}",
-			"annotation": "match condition",
-			"kind": "snippet",
-			"details": "Match if your current user in patterns",
-		},
-		{
-			"trigger": "All\tAlways matches",
-			"contents": "All",
-			"annotation": "match condition",
-			"kind": ["keyword", "c", "condition"],
-			"details": "Always matches",
-		},
-		{
-			"trigger": "Final\tReparse config and match only on this pass",
-			"contents": "Final",
-			"annotation": "match condition",
-			"kind": ["keyword", "c", "condition"],
-			"details": "Reparse config and match only on this pass",
-		},
-	]
+    "scope": "source.ssh_config meta.block.match meta.statement.conditional",
+    "completions": [
+        {
+            "trigger": "Canonical",
+            "contents": "Canonical",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Only match after hostname canonicalization"
+        },
+        {
+            "trigger": "Exec",
+            "contents": "Exec",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match if return code is 0"
+        },
+        {
+            "trigger": "exec",
+            "contents": "Exec \"${1:hostname -d | ! grep -q -E '^example\\.com'}\"",
+            "kind": "snippet",
+            "details": "Match if return code is 0"
+        },
+        {
+            "trigger": "Host",
+            "contents": "Host",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match if <code>Host</code> in patterns"
+        },
+        {
+            "trigger": "host",
+            "contents": "Host ${1:*.example.com,*.example.org}",
+            "kind": "snippet",
+            "details": "Match if <code>Host</code> in patterns"
+        },
+        {
+            "trigger": "OriginalHost",
+            "contents": "OriginalHost",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match if CLI-entered host in patterns"
+        },
+        {
+            "trigger": "originalhost",
+            "contents": "OriginalHost ${1:foo,*.jump}",
+            "kind": "snippet",
+            "details": "Match if CLI-entered host in patterns"
+        },
+        {
+            "trigger": "User",
+            "contents": "User",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match if target <code>User</code> in patterns"
+        },
+        {
+            "trigger": "user",
+            "contents": "User ${1:user1,user2}",
+            "kind": "snippet",
+            "details": "Match if target <code>User</code> in patterns"
+        },
+        {
+            "trigger": "LocalUser",
+            "contents": "LocalUser",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match if your current user in patterns"
+        },
+        {
+            "trigger": "localuser",
+            "contents": "LocalUser ${1:user1,user2}",
+            "kind": "snippet",
+            "details": "Match if your current user in patterns"
+        },
+        {
+            "trigger": "All",
+            "contents": "All",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Always matches"
+        },
+        {
+            "trigger": "Final",
+            "contents": "Final",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Reparse config and match only on this pass"
+        }
+    ]
 }

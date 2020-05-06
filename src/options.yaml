@@ -1,0 +1,903 @@
+%YAML 1.2
+---
+'SSH Config - Match Conditions':
+  completions:
+    scope: source.ssh_config meta.block.match meta.statement.conditional
+    annotation: match condition
+    kind: [keyword, c, Condition]
+  items:
+    Canonical:
+      details: Only match after hostname canonicalization
+    Exec:
+      details: Match if return code is 0
+      values: '"${1:hostname -d | ! grep -q -E ''^example\.com''}"'
+    Host:
+      details: Match if <code>Host</code> in patterns
+      values: ${1:*.example.com,*.example.org}
+    OriginalHost:
+      details: Match if CLI-entered host in patterns
+      values: ${1:foo,*.jump}
+    User:
+      details: Match if target <code>User</code> in patterns
+      values: ${1:user1,user2}
+    LocalUser:
+      details: Match if your current user in patterns
+      values: ${1:user1,user2}
+    All:
+      details: Always matches
+    Final:
+      details: Reparse config and match only on this pass
+
+'SSH Config':
+  completions:
+    scope: source.ssh_config - meta.statement - meta.mapping.value - comment
+    annotation: keyword
+    kind: keyword
+  items:
+    Host:
+      details: Define rules for a host
+    Match:
+      details: Define rules with multiple conditions
+    AddKeysToAgent:
+      details: Add keys to a running <code>ssh-agent</code>
+      values:
+        - 'yes'
+        - 'no'
+        - confirm
+        - ask
+    AddressFamily:
+      details: IPv4/IPv6 switch
+      values:
+        - inet4
+        - inet6
+        - any
+    BatchMode:
+      details: Disable UI prompts
+      values:
+        - 'yes'
+        - 'no'
+    BindAddress:
+      details: Specify source NIC
+      values: ${0:192.0.2.16}
+    CanonicalDomains:
+      details: List of domain suffixes
+      values: ${0:local.example.com,local.example.org}
+    CanonicalizeFallbackLocal:
+      details: Fallback for domain lookup failure
+      values:
+        - 'yes'
+        - 'no'
+    CanonicalizeHostname:
+      details: Enable explicit hostname lookups
+      values:
+        - 'yes'
+        - 'no'
+        - always
+    CanonicalizeMaxDots:
+      details: Number of <code>.</code>s to disable domain lookup
+      values: ${0:1}
+    CanonicalizePermittedCNAMEs:
+      details: Map of whitelisted CNAMEs to follow on lookup
+      values: ${0:*.source.com,source.org:dest.org,*.local.dest.com}
+    CASignatureAlgorithms:
+      details: Permitted algms for CAs
+      values: ${0:ssh-ed25519,rsa-sha2-512}
+    CertificateFile:
+      details: Path to user certificate
+      values: ${0:~/.ssh/pem_%h}
+    ChallengeResponseAuthentication:
+      details: Disable challenge-response auth
+      values:
+        - 'yes'
+        - 'no'
+    CheckHostIP:
+      details: Disable comparing IP to <code>known_hosts</code>
+      values:
+        - 'yes'
+        - 'no'
+    Ciphers:
+      details: Permitted cipher patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    ClearAllForwardings:
+      details: Clear port forwarding
+      values:
+        - 'yes'
+        - 'no'
+    Compression:
+      details: Disable compression
+      values:
+        - 'yes'
+        - 'no'
+    ConnectionAttempts:
+      details: Set retry for intermittent connections
+      values: ${0:1}
+    ConnectTimeout:
+      details: Timeout in seconds
+      values: ${0:5}
+    ControlMaster:
+      details: Set connection sharing for multiple sessions on <code>ControlPath</code>
+      values:
+        - 'yes'
+        - 'no'
+        - ask
+    ControlPath:
+      details: Tokenized path to connection sharing file
+      values: ${0:~/.ssh/control-%h-%p-%r}
+    ControlPersist:
+      details: Keep connection on disconnect of sessions
+      values: ${0:{ yes | no | 300 (seconds to timeout) \}}
+    DynamicForward:
+      details: Dynamic SSH or SOCKS port forwarding
+      values: ${0:[address:]port}
+    EnableSSHKeysign:
+      details: Enable <code>ssh-keysign</code> for <code>HostbasedAuthentication</code>
+      values:
+        - 'yes'
+        - 'no'
+    EscapeChar:
+      details: Default <code>~</code>
+      values: ${0:{ ^E | none \}}
+    ExitOnForwardFailure:
+      details: Enable termination if port forwarding fails
+      values:
+        - 'yes'
+        - 'no'
+    FingerprintHash:
+      details: Key hash algorithm
+      values: ${0:{ sha256 | md5 \}}
+    ForwardAgent:
+      details: Enable forwarding ssh-agent keys to outbound ssh
+      values: ${0:{ yes | no | ~/path/to/socket | \$PATH_VAR \}}
+    ForwardX11:
+      details: Enable X11 forwarding
+      values:
+        - 'yes'
+        - 'no'
+    ForwardX11Timeout:
+      values: ${0:2h}
+    ForwardX11Trusted:
+      details: Consider the remote X11 to be "trusted"
+      values:
+        - 'yes'
+        - 'no'
+    GatewayPorts:
+      details: Present local port forwards to remote host
+      values:
+        - 'yes'
+        - 'no'
+    GlobalKnownHostsFile:
+      details: File(s) with global host keys
+      values: ${0:/etc/ssh/ssh_known_hosts}
+    GSSAPIAuthentication:
+      details: Enable auth with GSSAPI
+      values:
+        - 'yes'
+        - 'no'
+    GSSAPIClientIdentity:
+    GSSAPIDelegateCredentials:
+      details: Forward credentials to the server
+      values:
+        - 'yes'
+        - 'no'
+    GSSAPIKeyExchange:
+    GSSAPIRenewalForcesRekey:
+      values:
+        - 'yes'
+        - 'no'
+    GSSAPITrustDns:
+      values:
+        - 'yes'
+        - 'no'
+    HashKnownHosts:
+      details: Obfuscate entry in <code>known_hosts</code>
+      values:
+        - 'yes'
+        - 'no'
+    HostbasedAuthentication:
+      details: Enable rhosts auth with public keys
+      values:
+        - 'yes'
+        - 'no'
+    HostbasedKeyTypes:
+      details: Permitted key type patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    HostKeyAlgorithms:
+      details: Permitted key algm patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    HostKeyAlias:
+      details: Use an alias for this host's certs
+      values: ${0:hostname}
+    HostName:
+      details: Set real hostname
+      values: ${0:%h.example.com}
+    IdentitiesOnly:
+      details: Suppress keys from ~/.ssh
+      values:
+        - 'yes'
+        - 'no'
+    IdentityAgent:
+      details: Socket to communicate with auth agent
+      values: ${0:{ SSH_AUTH_SOCK | ~/.ssh/socket/path | \$PATH_VAR | none \}}
+    IdentityFile:
+      details: Path to key file; Multiple allowed
+      values: ${0:~/.ssh/id_rsa_%h}
+    IgnoreUnknown:
+      details: Pattern for config options to ignore
+      values: ${0:FooBar*}
+    Include:
+      details: Configuration files to inject
+      values: ${0:~/.ssh/config_*_cloud}
+    IPQoS:
+      details: IPv4 type-of-service or DSCP class for connections
+      values: ${0:{ af11 | af12 | ... | lowdelay | throughput | reliability \}}
+    KbdInteractiveAuthentication:
+      details: Disable interactive login on the CLI
+      values:
+        - 'yes'
+        - 'no'
+    KbdInteractiveDevices:
+      details: Methods to use in keyboard-interactive auth
+      values: ${0:bsdauth,pam,skey}
+    KexAlgorithms:
+      details: Permitted key exchange algm patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    LocalCommand:
+      details: Execute command locally when connection successful
+      values: ${0:echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %T, %u"}
+    LocalForward:
+      details: Forward local port over <code>ssh</code> to third party
+      values: ${1:[bind_address:]port} ${2:host}:${3:hostport}
+    LogLevel:
+      values:
+        - QUIET
+        - FATAL
+        - ERROR
+        - INFO
+        - '...'
+    MACs:
+      details: Permitted message auth code algm patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    NoHostAuthenticationForLocalhost:
+      details: Let <code>localhost</code> pretend to be anyone it wants
+      values:
+        - 'yes'
+        - 'no'
+    NumberOfPasswordPrompts:
+      details: Number of password attempts before deny
+      values: ${0:1}
+    PasswordAuthentication:
+      details: Disable CLI password entry
+      values:
+        - 'yes'
+        - 'no'
+    PermitLocalCommand:
+      details: Enable <code>LocalCommand</code> execution
+      values:
+        - 'yes'
+        - 'no'
+    PKCS11Provider:
+      details: Specify a PKCS#11 provider
+    Port:
+      details: Connect on this port
+      values: ${0:22}
+    PreferredAuthentications:
+      details: Auth methods, by preference
+      values: ${0:gssapi-with-mic,hostbased,publickey,keyboard-interactive,password}
+    Protocol:
+      details: <em>Deprecated</em> Protocol is 2
+      values: ${0:2}
+    ProxyCommand:
+      details: Run command to establish proxy
+      values: ${0:/usr/bin/nc -X connect -x 192.0.2.0:8080 %h %p}
+    ProxyJump:
+      details: Use <code>ssh</code> on <code>host</code> as proxy
+      values: ${0:[user@]host[:port]}
+    ProxyUseFdpass:
+      details: Pass a connected <code>fd</code> instead of continuing interactively
+      values:
+        - 'yes'
+        - 'no'
+    PubkeyAcceptedKeyTypes:
+      details: Permitted key type patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    PubkeyAuthentication:
+      details: Disable asymmetric key authentication
+      values:
+        - 'yes'
+        - 'no'
+    RekeyLimit:
+      details: Data-length and duration before rekey
+      values: ${0:2G 3h}
+    RemoteCommand:
+      details: Run command on server after connecting
+      values: ${0:echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %u"}
+    RemoteForward:
+      details: Forward ports (<code>-R</code>) from server to client
+      values: '${1:[bind_address:]port}${2: [host:hostport]}'
+    RequestTTY:
+      details: Toggle asking for a <code>pty</code>
+      values:
+        - 'yes'
+        - 'no'
+        - force
+        - auto
+    RevokedHostKeys:
+      details: File of KRL or list of bad public keys
+    RhostsRSAAuthentication:
+    RSAAuthentication:
+      values:
+        - 'yes'
+        - 'no'
+    SecurityKeyProvider:
+      details: Path to alternative library for FIDO keys
+    SendEnv:
+      details: Patterns for environment vars to send to remote
+    ServerAliveCountMax:
+      details: Number of check-alive messages to send before giving up
+      values: ${0:3}
+    ServerAliveInterval:
+      details: Timeout in seconds before sending check-alive messages
+      values: ${0:300}
+    SetEnv:
+      details: Specify environment vars directly
+      values: ${1:NAME}=${2:value}
+    SmartcardDevice:
+    StreamLocalBindMask:
+      details: File mode <code>umask</code> when creating a forwarded port
+      values: ${0:0177}
+    StreamLocalBindUnlink:
+      details: Enable overwriting existing ports with forwarding
+      values:
+        - 'yes'
+        - 'no'
+    StrictHostKeyChecking:
+      details: Set behavior for new and unmatched <code>known_hosts</code> entries
+      values:
+        - 'yes'
+        - 'no'
+        - ask
+        - accept-new
+        - 'off'
+    SyslogFacility:
+      details: Facility code used when logging <code>ssh</code> messages
+      values:
+        - DAEMON
+        - USER
+        - AUTH
+        - LOCAL0
+        - '...'
+    TCPKeepAlive:
+      details: Disable TCP keepalive messages
+      values:
+        - 'yes'
+        - 'no'
+    Tunnel:
+      details: Request <code>tun</code> device forwarding
+      values:
+        - 'yes'
+        - 'no'
+        - ethernet
+        - point-to-point
+    TunnelDevice:
+      details: Specify <code>tun</code> devices to open on client and server
+      values: ${0:local_tun[:remote_tun]}
+    UpdateHostKeys:
+      details: Update <code>known_hosts</code> after auth
+      values:
+        - 'yes'
+        - 'no'
+        - ask
+    UseKeychain:
+      details: Use macOS keychain to manage passphrases
+    UsePrivilegePort:
+    User:
+      details: Set user to log in as
+      values: ${0:username}
+    UserKnownHostsFile:
+      details: Path to <code>known_hosts</code> file(s)
+      values: ${0:~/.ssh/known_hosts}
+    VerifyHostKeyDNS:
+      values:
+        - 'yes'
+        - 'no'
+        - ask
+    VisualHostKey:
+      details: Show ASCII art for host's key
+      values:
+        - 'yes'
+        - 'no'
+    XAuthLocation:
+      details: Full pathname of the <code>xauth</code> program
+      values: ${0:/usr/X11R6/bin/xauth}
+
+'SSHD Config - Match Conditions':
+  completions:
+    scope: source.sshd_config meta.block.match meta.statement.conditional
+    annotation: match condition
+    kind: [keyword, c, Condition]
+  items:
+    User:
+      details: Match if user matches patterns
+      values: ${1:user1,user2}
+    Group:
+      details: Match if user's <code>group</code>s match patterns
+      values: ${1:group1,group2}
+    Host:
+      details: Match if hostname in patterns
+      values: ${1:*.example.com,*.example.org}
+    LocalAddress:
+      details: Match if listening NIC matches patterns
+      values: ${1:192.0.2.0,2001:db8::}
+    LocalPort:
+      details: Match if listening port matches patterns
+      values: ${1:22,2222}
+    RDomain:
+    Address:
+      details: Match if connecting IP in CIDRs
+      values: ${1:192.0.2.0/24,2001:db8::/32}
+
+'SSHD Config':
+  completions:
+    scope: source.sshd_config - meta.statement - meta.mapping.value
+    annotation: keyword
+    kind: keyword
+  items:
+    Match:
+      details: Start a conditional block
+    AcceptEnv:
+      details: Patterns for permitted env vars from client
+    AddressFamily:
+      details: IPv4/IPv6 switch
+      values:
+        - inet4
+        - inet6
+        - any
+    AllowAgentForwarding:
+      details: Disable <code>ssh-agent</code> forwarding
+      values:
+        - 'yes'
+        - 'no'
+    AllowGroups:
+      details: Whitelist user groups with patterns
+      values: ${0:group1,group2}
+    AllowStreamLocalForwarding:
+      details: Set <code>StreamLocal</code> (Unix-domain socket) forwarding policy
+      values:
+        - 'yes'
+        - 'no'
+        - all
+        - local
+        - remote
+    AllowTcpForwarding:
+      details: Set TCP forwarding policy
+      values:
+        - 'yes'
+        - 'no'
+        - all
+        - local
+        - remote
+    AllowUsers:
+      details: Whitelist users[@hosts] with patterns
+    AuthenticationMethods:
+      details: 'Req''d auth methods: <code>,</code> for sequence, <code> </code> for new seq'
+      values: ${0:publickey,password publickey,keyboard-interactive}
+    AuthorizedKeysCommand:
+      details: A program to look up the user's public keys
+    AuthorizedKeysCommandUser:
+      details: User account to run <code>AuthorizedKeysCommand</code>
+    AuthorizedKeysFile:
+      details: A file containing public keys for user authentication
+    AuthorizedPrincipalsCommand:
+      details: A program to generate certificate principals
+    AuthorizedPrincipalsCommandUser:
+      details: User account to run <code>AuthorizedPrincipalsCommand</code>
+    AuthorizedPrincipalsFile:
+      details: A file listing principal names for cert auth
+    Banner:
+      details: A file containing a message for connecting users
+    CASignatureAlgorithms:
+    ChallengeResponseAuthentication:
+      details: Disable chal/resp auth, like PAM or <code>login.conf</code>
+      values:
+        - 'yes'
+        - 'no'
+    ChrootDirectory:
+      details: Path to <code>chroot</code> to after authentication
+    Ciphers:
+      details: Accepted cipher patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    ClientAliveCountMax:
+      details: Number of check-alive messages to send before giving up
+    ClientAliveInterval:
+      details: Timeout before sending check-alive messages
+    Compression:
+      details: Disable compression
+      values:
+        - 'yes'
+        - 'no'
+    DenyGroups:
+      details: Blacklist user groups with patterns
+    DenyUsers:
+      details: Blacklist users[@hosts] with patterns
+      values: ${0:mysql,*@evil.example.com}
+    DisableForwarding:
+      details: Disables all forwarding features
+    ExposeAuthInfo:
+      details: Write a temp file in <code>SSH_USER_AUTH</code> with auth details
+      values:
+        - 'yes'
+        - 'no'
+    FingerprintHash:
+      details: Algm for logging key fingerprints
+      values:
+        - sha256
+        - md5
+    ForceCommand:
+      details: Run this instead of <code>~/.ssh/rc</code> or client command
+    GatewayPorts:
+      details: Permit remote hosts to connect to ports forwarded for the client
+      values:
+        - 'yes'
+        - 'no'
+        - client-specified
+    GSSAPIAuthentication:
+      details: Enable GSSAPI auth
+      values:
+        - 'yes'
+        - 'no'
+    GSSAPICleanupCredentials:
+      details: Destroy creds on logout
+      values:
+        - 'yes'
+        - 'no'
+    GSSAPIStrictAcceptorCheck:
+      details: Disable auth against non-hostname keys
+      values:
+        - 'yes'
+        - 'no'
+    HostbasedAcceptedKeyTypes:
+      details: Accepted Hostbased key type patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    HostbasedAuthentication:
+      details: Enable rhosts or <code>/etc/hosts.equiv</code> auth
+      values:
+        - 'yes'
+        - 'no'
+    HostbasedUsesNameFromPacketOnly:
+      details: Attempt reverse DNS lookup during <code>HostbasedAuthentication</code
+      values:
+        - 'yes'
+        - 'no'
+    HostCertificate:
+      details: Path to public host cert. Must match a private <code>HostKey</code>
+    HostKey:
+      details: Path to private key file
+    HostKeyAgent:
+      details: Agent with keys or <code>SSH_AUTH_SOCK</code> to load from env
+      values: ${0:{ ~/path/to/socket | SSH_AUTH_SOCK \}}
+    HostKeyAlgorithms:
+      details: Accepted host key algm patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    IgnoreRhosts:
+      details: Skip <code>.rhosts</code> and <code>.shosts</code> files in <code>HostbasedAuthentication</code>
+      values:
+        - 'yes'
+        - 'no'
+    IgnoreUserKnownHosts:
+      details: Ignore <code>~/.ssh/known_hosts</code> in favor of <code>/etc/ssh/known_hosts</code>
+      values:
+        - 'yes'
+        - 'no'
+    Include:
+      details: Also load config from files in these patterns
+      values: ${0:/etc/ssh/sshd_config_*}
+    IPQoS:
+      details: IPv4 type-of-service or DSCP class for the connection
+      values: ${0:{ af11 | af12 | ... | lowdelay | throughput | reliability \}}
+    KbdInteractiveAuthentication:
+      details: Allow keyboard-interactive authentication
+      values:
+        - 'yes'
+        - 'no'
+    KerberosAuthentication:
+      details: Enable Kerberos authentication
+      values:
+        - 'yes'
+        - 'no'
+    KerberosGetAFSToken:
+      details: If available, try to get AFS token during login
+      values:
+        - 'yes'
+        - 'no'
+    KerberosOrLocalPasswd:
+      details: Fallback from Kerberos to local password
+      values:
+        - 'yes'
+        - 'no'
+    KerberosTicketCleanup:
+      details: Destroy ticket cache on logout
+      values:
+        - 'yes'
+        - 'no'
+    KexAlgorithms:
+      details: Accepted key exchange algm patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    KeyRegenerationInterval:
+    ListenAddress:
+      details: Listen on these hosts/ports/IPs
+      values: ${0:{host|IP\}[:port]}
+    LoginGraceTime:
+      details: Time until server disconnects if user has not logged in
+    LogLevel:
+      details: Verbosity level when logging <code>sshd</code> messages
+      values:
+        - QUIET
+        - FATAL
+        - ERROR
+        - INFO
+        - '...'
+    MACs:
+      details: Accepted message auth code algm patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    MaxAuthTries:
+      details: Max auth attempts per connection
+    MaxSessions:
+      details: Max open sessions per network connection
+    MaxStartups:
+      details: Max concurrent unauth'ed connections to <code>sshd</code>
+    PasswordAuthentication:
+      details: Disable password authentication
+      values:
+        - 'yes'
+        - 'no'
+    PermitEmptyPasswords:
+      details: Enable passwords that are blank
+      values:
+        - 'yes'
+        - 'no'
+    PermitListen:
+      details: Whitelist remote (<code>-R</code>) port forwarding
+      values: '"${1:[host:]port}"'
+    PermitOpen:
+      details: Whitelist local (<code>-L</code>) port forwarding
+      values: '"${1:host}:${2:port}"'
+    PermitRootLogin:
+      details: Set behavior for login as <code>root</code>
+      values:
+        - 'yes'
+        - 'no'
+        - prohibit-password
+        - forced-commands-only
+    PermitTTY:
+      details: Disable <code>pty</code> allocation
+      values:
+        - 'yes'
+        - 'no'
+    PermitTunnel:
+      details: Enable <code>tun</code> device forwarding
+      values:
+        - 'yes'
+        - 'no'
+        - point-to-point
+        - ethernet
+    PermitUserEnvironment:
+      details: Enable <code>~/.ssh/environment</code> and env vars from <code>authorized_keys</code>
+      values:
+        - 'yes'
+        - 'no'
+    PermitUserRC:
+      details: Disable execution of <code>~/.ssh/rc</code> files
+      values:
+        - 'yes'
+        - 'no'
+    PidFile:
+      details: File for proc-ID of daemon, or <code>none</code> to skip
+    Port:
+      details: Port number to listen on. Multiple options permitted
+      values: ${0:22}
+    PrintLastLog:
+      details: Print the timestamp of the last user login
+      values:
+        - 'yes'
+        - 'no'
+    PrintMotd:
+      details: Print <code>/etc/motd</code> on login
+      values:
+        - 'yes'
+        - 'no'
+    Protocol:
+      details: <em>Deprecated</em> Protocol is 2
+    PubkeyAcceptedKeyTypes:
+      details: Accepted key type patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    PubkeyAuthOptions:
+      details: Require FIDO keys to be touched
+      values:
+        - none
+        - touch-required
+    PubkeyAuthentication:
+      details: Disable asymmetric key authentication
+      values:
+        - 'yes'
+        - 'no'
+    RekeyLimit:
+      details: Data-length and duration before re-key
+      values: ${0:2G 3h}
+    RevokedKeys:
+      details: File containing revoked public keys
+    RDomain:
+      details: Apply explicit routing domain after auth
+    RhostsRSAAuthentication:
+    RSAAuthentication:
+    ServerKeyBits:
+    SetEnv:
+      details: Set one or more environment variables
+      values: ${0:NAME="VALUE"}
+    ShowPatchLevel:
+    StreamLocalBindMask:
+      details: File mode <code>umask</code> when creating a forwarded port
+      values: ${0:0177}
+    StreamLocalBindUnlink:
+      details: Enable overwriting existing ports with forwarding
+      values:
+        - 'yes'
+        - 'no'
+    StrictModes:
+      details: Check file modes in <code>~</code> before login
+      values:
+        - 'yes'
+        - 'no'
+    Subsystem:
+      details: Configure an external subsystem (e.g. file transfer daemon)
+    SyslogFacility:
+      details: Facility code used when logging <code>sshd</code> messages
+      values:
+        - DAEMON
+        - USER
+        - AUTH
+        - LOCAL0
+        - '...'
+    TCPKeepAlive:
+      details: Disable TCP keepalive messages
+      values:
+        - 'yes'
+        - 'no'
+    TrustedUserCAKeys:
+      details: File of public keys for CAs trusted to sign user certs
+    UseDNS:
+      details: Double check that reverse DNS matches IP
+      values:
+        - 'yes'
+        - 'no'
+    UseLogin:
+    UsePAM:
+      details: '<code>root</code>-only: enable Pluggable Authentication Module'
+      values:
+        - 'yes'
+        - 'no'
+    UsePrivilegeSeparation:
+    VersionAddendum:
+      details: Append text to the SSH protocol banner
+    X11DisplayOffset:
+      details: First display number available for X11 forwarding
+      values: ${0:10}
+    X11Forwarding:
+      details: Toggle X11 forwarding
+      values:
+        - 'yes'
+        - 'no'
+    X11UseLocalhost:
+      details: Bind X11 forwarding server to <code>localhost</code> or <code>*</code>
+      values:
+        - 'yes'
+        - 'no'
+    XAuthLocation:
+      details: Full pathname of the <code>xauth</code> program
+
+'Authorized Keys':
+  completions:
+    scope: text.authorized_keys - comment - string
+    annotation: options
+    kind: [keyword, o, Options]
+    snippet_spacer: '='
+  items:
+    agent-forwarding:
+      details: Reenable <code>restrict</code>ed agent forwarding
+    cert-authority:
+      details: Mark key as a CA
+    command:
+      details: Run command when key is used
+      values: '"${0}"'
+    environment:
+      details: Set one environment var
+      values: '"${1:NAME}=${2:value}"'
+    expiry-time:
+      details: Give this key an expiration
+      values: '"${0:YYYYMMDD}"'
+    from:
+      details: Whitelist remote hosts
+      values: '"${0:hosts}"'
+    no-agent-forwarding:
+      details: Disable agent forwarding
+    no-port-forwarding:
+      details: Disable post forwarding
+    no-pty:
+      details: Disable tty allocation
+    no-user-rc:
+      details: Disable <code>~/.ssh/rc</code> execution
+    no-X11-forwarding:
+      details: Disable X11 forwarding
+    permitlisten:
+      details: Whitelist remote (<code>-R</code>) port forwarding
+      values: '"${1:[host:]port}"'
+    permitopen:
+      details: Whitelist local (<code>-L</code>) port forwarding
+      values: '"${1:host}:${2:port}"'
+    port-forwarding:
+      details: Reenable <code>restrict</code>ed port forwarding
+    principals:
+      details: Whitelist CA principals
+      values: '"${0:principals}"'
+    pty:
+      details: Reenable <code>restrict</code>ed tty allocation
+    no-touch-required:
+      details: Skip security key touch
+    restrict:
+      details: Enable <b>all</b> restrictions
+    tunnel:
+      details: Force specific <code>tun</code> device
+      values: '"${0:N}"'
+    user-rc:
+      details: Reenable <code>restrict</code>ed <code>~/.ssh/rc</code> execution
+    X11-forwarding:
+      details: Reenable <code>restrict</code>ed X11 forwarding
+
+...
