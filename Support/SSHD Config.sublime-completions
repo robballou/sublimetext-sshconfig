@@ -1,101 +1,965 @@
 {
-	"scope": "source.sshd_config - meta.statement - meta.mapping.value",
-	"completions": [
-		"AcceptEnv",
-		"AddressFamily",
-		"AllowAgentForwarding",
-		"AllowGroups",
-		"AllowStreamLocalForwarding",
-		"AllowTcpForwarding",
-		"AllowUsers",
-		"AuthenticationMethods",
-		"AuthorizedKeysCommand",
-		"AuthorizedKeysCommandUser",
-		"AuthorizedKeysFile",
-		"AuthorizedPrincipalsCommand",
-		"AuthorizedPrincipalsCommandUser",
-		"AuthorizedPrincipalsFile",
-		"Banner",
-		"CASignatureAlgorithms",
-		"ChallengeResponseAuthentication",
-		"ChrootDirectory",
-		"Ciphers",
-		"ClientAliveCountMax",
-		"ClientAliveInterval",
-		"Compression",
-		"DenyGroups",
-		"DenyUsers",
-		"DisableForwarding",
-		"ExposeAuthInfo",
-		"FingerprintHash",
-		"ForceCommand",
-		"GatewayPorts",
-		"GSSAPIAuthentication",
-		"GSSAPICleanupCredentials",
-		"GSSAPIStrictAcceptorCheck",
-		"HostbasedAcceptedKeyTypes",
-		"HostbasedAuthentication",
-		"HostbasedUsesNameFromPacketOnly",
-		"HostCertificate",
-		"HostKey",
-		"HostKeyAgent",
-		"HostKeyAlgorithms",
-		"IgnoreRhosts",
-		"IgnoreUserKnownHosts",
-		"IPQoS",
-		"KbdInteractiveAuthentication",
-		"KerberosAuthentication",
-		"KerberosGetAFSToken",
-		"KerberosOrLocalPasswd",
-		"KerberosTicketCleanup",
-		"KexAlgorithms",
-		"KeyRegenerationInterval",
-		"ListenAddress",
-		"LoginGraceTime",
-		"LogLevel",
-		"MACs",
-		"Match",
-		"MaxAuthTries",
-		"MaxSessions",
-		"MaxStartups",
-		"PasswordAuthentication",
-		"PermitEmptyPasswords",
-		"PermitListen",
-		"PermitOpen",
-		"PermitRootLogin",
-		"PermitTTY",
-		"PermitTunnel",
-		"PermitUserEnvironment",
-		"PermitUserRC",
-		"PidFile",
-		"Port",
-		"PrintLastLog",
-		"PrintMotd",
-		"Protocol",
-		"PubkeyAcceptedKeyTypes",
-		"PubkeyAuthentication",
-		"RekeyLimit",
-		"RevokedKeys",
-		"RDomain",
-		"RhostsRSAAuthentication",
-		"RSAAuthentication",
-		"ServerKeyBits",
-		"SetEnv",
-		"ShowPatchLevel",
-		"StreamLocalBindMask",
-		"StreamLocalBindUnlink",
-		"StrictModes",
-		"Subsystem",
-		"SyslogFacility",
-		"TCPKeepAlive",
-		"UseDNS",
-		"UseLogin",
-		"UsePAM",
-		"UsePrivilegeSeparation",
-		"VersionAddendum",
-		"X11DisplayOffset",
-		"X11Forwarding",
-		"X11UseLocalhost",
-		"XAuthLocation",
-	]
+    "scope": "source.sshd_config - meta.statement - meta.mapping.value",
+    "completions": [
+        {
+            "trigger": "Match",
+            "contents": "Match",
+            "kind": "keyword",
+            "details": "Start a conditional block"
+        },
+        {
+            "trigger": "AcceptEnv",
+            "contents": "AcceptEnv",
+            "kind": "keyword",
+            "details": "Patterns for permitted env vars from client"
+        },
+        {
+            "trigger": "AddressFamily",
+            "contents": "AddressFamily",
+            "kind": "keyword",
+            "details": "IPv4/IPv6 switch"
+        },
+        {
+            "trigger": "addressfamily",
+            "contents": "AddressFamily ${0:{ inet4 | inet6 | any \\}}",
+            "kind": "snippet",
+            "details": "IPv4/IPv6 switch"
+        },
+        {
+            "trigger": "AllowAgentForwarding",
+            "contents": "AllowAgentForwarding",
+            "kind": "keyword",
+            "details": "Disable <code>ssh-agent</code> forwarding"
+        },
+        {
+            "trigger": "allowagentforwarding",
+            "contents": "AllowAgentForwarding ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Disable <code>ssh-agent</code> forwarding"
+        },
+        {
+            "trigger": "AllowGroups",
+            "contents": "AllowGroups",
+            "kind": "keyword",
+            "details": "Whitelist user groups with patterns"
+        },
+        {
+            "trigger": "allowgroups",
+            "contents": "AllowGroups ${0:group1,group2}",
+            "kind": "snippet",
+            "details": "Whitelist user groups with patterns"
+        },
+        {
+            "trigger": "AllowStreamLocalForwarding",
+            "contents": "AllowStreamLocalForwarding",
+            "kind": "keyword",
+            "details": "Set <code>StreamLocal</code> (Unix-domain socket) forwarding policy"
+        },
+        {
+            "trigger": "allowstreamlocalforwarding",
+            "contents": "AllowStreamLocalForwarding ${0:{ yes | no | all | local | remote \\}}",
+            "kind": "snippet",
+            "details": "Set <code>StreamLocal</code> (Unix-domain socket) forwarding policy"
+        },
+        {
+            "trigger": "AllowTcpForwarding",
+            "contents": "AllowTcpForwarding",
+            "kind": "keyword",
+            "details": "Set TCP forwarding policy"
+        },
+        {
+            "trigger": "allowtcpforwarding",
+            "contents": "AllowTcpForwarding ${0:{ yes | no | all | local | remote \\}}",
+            "kind": "snippet",
+            "details": "Set TCP forwarding policy"
+        },
+        {
+            "trigger": "AllowUsers",
+            "contents": "AllowUsers",
+            "kind": "keyword",
+            "details": "Whitelist users[@hosts] with patterns"
+        },
+        {
+            "trigger": "AuthenticationMethods",
+            "contents": "AuthenticationMethods",
+            "kind": "keyword",
+            "details": "Req'd auth methods: <code>,</code> for sequence, <code> </code> for new seq"
+        },
+        {
+            "trigger": "authenticationmethods",
+            "contents": "AuthenticationMethods ${0:publickey,password publickey,keyboard-interactive}",
+            "kind": "snippet",
+            "details": "Req'd auth methods: <code>,</code> for sequence, <code> </code> for new seq"
+        },
+        {
+            "trigger": "AuthorizedKeysCommand",
+            "contents": "AuthorizedKeysCommand",
+            "kind": "keyword",
+            "details": "A program to look up the user's public keys"
+        },
+        {
+            "trigger": "AuthorizedKeysCommandUser",
+            "contents": "AuthorizedKeysCommandUser",
+            "kind": "keyword",
+            "details": "User account to run <code>AuthorizedKeysCommand</code>"
+        },
+        {
+            "trigger": "AuthorizedKeysFile",
+            "contents": "AuthorizedKeysFile",
+            "kind": "keyword",
+            "details": "A file containing public keys for user authentication"
+        },
+        {
+            "trigger": "AuthorizedPrincipalsCommand",
+            "contents": "AuthorizedPrincipalsCommand",
+            "kind": "keyword",
+            "details": "A program to generate certificate principals"
+        },
+        {
+            "trigger": "AuthorizedPrincipalsCommandUser",
+            "contents": "AuthorizedPrincipalsCommandUser",
+            "kind": "keyword",
+            "details": "User account to run <code>AuthorizedPrincipalsCommand</code>"
+        },
+        {
+            "trigger": "AuthorizedPrincipalsFile",
+            "contents": "AuthorizedPrincipalsFile",
+            "kind": "keyword",
+            "details": "A file listing principal names for cert auth"
+        },
+        {
+            "trigger": "Banner",
+            "contents": "Banner",
+            "kind": "keyword",
+            "details": "A file containing a message for connecting users"
+        },
+        {
+            "trigger": "CASignatureAlgorithms",
+            "contents": "CASignatureAlgorithms",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "ChallengeResponseAuthentication",
+            "contents": "ChallengeResponseAuthentication",
+            "kind": "keyword",
+            "details": "Disable chal/resp auth, like PAM or <code>login.conf</code>"
+        },
+        {
+            "trigger": "challengeresponseauthentication",
+            "contents": "ChallengeResponseAuthentication ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Disable chal/resp auth, like PAM or <code>login.conf</code>"
+        },
+        {
+            "trigger": "ChrootDirectory",
+            "contents": "ChrootDirectory",
+            "kind": "keyword",
+            "details": "Path to <code>chroot</code> to after authentication"
+        },
+        {
+            "trigger": "Ciphers",
+            "contents": "Ciphers",
+            "kind": "keyword",
+            "details": "Accepted cipher patterns, by preference"
+        },
+        {
+            "trigger": "ciphers",
+            "contents": "Ciphers ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Accepted cipher patterns, by preference"
+        },
+        {
+            "trigger": "ClientAliveCountMax",
+            "contents": "ClientAliveCountMax",
+            "kind": "keyword",
+            "details": "Number of check-alive messages to send before giving up"
+        },
+        {
+            "trigger": "ClientAliveInterval",
+            "contents": "ClientAliveInterval",
+            "kind": "keyword",
+            "details": "Timeout before sending check-alive messages"
+        },
+        {
+            "trigger": "Compression",
+            "contents": "Compression",
+            "kind": "keyword",
+            "details": "Disable compression"
+        },
+        {
+            "trigger": "compression",
+            "contents": "Compression ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Disable compression"
+        },
+        {
+            "trigger": "DenyGroups",
+            "contents": "DenyGroups",
+            "kind": "keyword",
+            "details": "Blacklist user groups with patterns"
+        },
+        {
+            "trigger": "DenyUsers",
+            "contents": "DenyUsers",
+            "kind": "keyword",
+            "details": "Blacklist users[@hosts] with patterns"
+        },
+        {
+            "trigger": "denyusers",
+            "contents": "DenyUsers ${0:mysql,*@evil.example.com}",
+            "kind": "snippet",
+            "details": "Blacklist users[@hosts] with patterns"
+        },
+        {
+            "trigger": "DisableForwarding",
+            "contents": "DisableForwarding",
+            "kind": "keyword",
+            "details": "Disables all forwarding features"
+        },
+        {
+            "trigger": "ExposeAuthInfo",
+            "contents": "ExposeAuthInfo",
+            "kind": "keyword",
+            "details": "Write a temp file in <code>SSH_USER_AUTH</code> with auth details"
+        },
+        {
+            "trigger": "exposeauthinfo",
+            "contents": "ExposeAuthInfo ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Write a temp file in <code>SSH_USER_AUTH</code> with auth details"
+        },
+        {
+            "trigger": "FingerprintHash",
+            "contents": "FingerprintHash",
+            "kind": "keyword",
+            "details": "Algm for logging key fingerprints"
+        },
+        {
+            "trigger": "fingerprinthash",
+            "contents": "FingerprintHash ${0:{ sha256 | md5 \\}}",
+            "kind": "snippet",
+            "details": "Algm for logging key fingerprints"
+        },
+        {
+            "trigger": "ForceCommand",
+            "contents": "ForceCommand",
+            "kind": "keyword",
+            "details": "Run this instead of <code>~/.ssh/rc</code> or client command"
+        },
+        {
+            "trigger": "GatewayPorts",
+            "contents": "GatewayPorts",
+            "kind": "keyword",
+            "details": "Permit remote hosts to connect to ports forwarded for the client"
+        },
+        {
+            "trigger": "gatewayports",
+            "contents": "GatewayPorts ${0:{ yes | no | client-specified \\}}",
+            "kind": "snippet",
+            "details": "Permit remote hosts to connect to ports forwarded for the client"
+        },
+        {
+            "trigger": "GSSAPIAuthentication",
+            "contents": "GSSAPIAuthentication",
+            "kind": "keyword",
+            "details": "Enable GSSAPI auth"
+        },
+        {
+            "trigger": "gssapiauthentication",
+            "contents": "GSSAPIAuthentication ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Enable GSSAPI auth"
+        },
+        {
+            "trigger": "GSSAPICleanupCredentials",
+            "contents": "GSSAPICleanupCredentials",
+            "kind": "keyword",
+            "details": "Destroy creds on logout"
+        },
+        {
+            "trigger": "gssapicleanupcredentials",
+            "contents": "GSSAPICleanupCredentials ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Destroy creds on logout"
+        },
+        {
+            "trigger": "GSSAPIStrictAcceptorCheck",
+            "contents": "GSSAPIStrictAcceptorCheck",
+            "kind": "keyword",
+            "details": "Disable auth against non-hostname keys"
+        },
+        {
+            "trigger": "gssapistrictacceptorcheck",
+            "contents": "GSSAPIStrictAcceptorCheck ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Disable auth against non-hostname keys"
+        },
+        {
+            "trigger": "HostbasedAcceptedKeyTypes",
+            "contents": "HostbasedAcceptedKeyTypes",
+            "kind": "keyword",
+            "details": "Accepted Hostbased key type patterns, by preference"
+        },
+        {
+            "trigger": "hostbasedacceptedkeytypes",
+            "contents": "HostbasedAcceptedKeyTypes ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Accepted Hostbased key type patterns, by preference"
+        },
+        {
+            "trigger": "HostbasedAuthentication",
+            "contents": "HostbasedAuthentication",
+            "kind": "keyword",
+            "details": "Enable rhosts or <code>/etc/hosts.equiv</code> auth"
+        },
+        {
+            "trigger": "hostbasedauthentication",
+            "contents": "HostbasedAuthentication ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Enable rhosts or <code>/etc/hosts.equiv</code> auth"
+        },
+        {
+            "trigger": "HostbasedUsesNameFromPacketOnly",
+            "contents": "HostbasedUsesNameFromPacketOnly",
+            "kind": "keyword",
+            "details": "Attempt reverse DNS lookup during <code>HostbasedAuthentication</code"
+        },
+        {
+            "trigger": "hostbasedusesnamefrompacketonly",
+            "contents": "HostbasedUsesNameFromPacketOnly ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Attempt reverse DNS lookup during <code>HostbasedAuthentication</code"
+        },
+        {
+            "trigger": "HostCertificate",
+            "contents": "HostCertificate",
+            "kind": "keyword",
+            "details": "Path to public host cert. Must match a private <code>HostKey</code>"
+        },
+        {
+            "trigger": "HostKey",
+            "contents": "HostKey",
+            "kind": "keyword",
+            "details": "Path to private key file"
+        },
+        {
+            "trigger": "HostKeyAgent",
+            "contents": "HostKeyAgent",
+            "kind": "keyword",
+            "details": "Agent with keys or <code>SSH_AUTH_SOCK</code> to load from env"
+        },
+        {
+            "trigger": "hostkeyagent",
+            "contents": "HostKeyAgent ${0:{ ~/path/to/socket | SSH_AUTH_SOCK \\}}",
+            "kind": "snippet",
+            "details": "Agent with keys or <code>SSH_AUTH_SOCK</code> to load from env"
+        },
+        {
+            "trigger": "HostKeyAlgorithms",
+            "contents": "HostKeyAlgorithms",
+            "kind": "keyword",
+            "details": "Accepted host key algm patterns, by preference"
+        },
+        {
+            "trigger": "hostkeyalgorithms",
+            "contents": "HostKeyAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Accepted host key algm patterns, by preference"
+        },
+        {
+            "trigger": "IgnoreRhosts",
+            "contents": "IgnoreRhosts",
+            "kind": "keyword",
+            "details": "Skip <code>.rhosts</code> and <code>.shosts</code> files in <code>HostbasedAuthentication</code>"
+        },
+        {
+            "trigger": "ignorerhosts",
+            "contents": "IgnoreRhosts ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Skip <code>.rhosts</code> and <code>.shosts</code> files in <code>HostbasedAuthentication</code>"
+        },
+        {
+            "trigger": "IgnoreUserKnownHosts",
+            "contents": "IgnoreUserKnownHosts",
+            "kind": "keyword",
+            "details": "Ignore <code>~/.ssh/known_hosts</code> in favor of <code>/etc/ssh/known_hosts</code>"
+        },
+        {
+            "trigger": "ignoreuserknownhosts",
+            "contents": "IgnoreUserKnownHosts ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Ignore <code>~/.ssh/known_hosts</code> in favor of <code>/etc/ssh/known_hosts</code>"
+        },
+        {
+            "trigger": "Include",
+            "contents": "Include",
+            "kind": "keyword",
+            "details": "Also load config from files in these patterns"
+        },
+        {
+            "trigger": "include",
+            "contents": "Include ${0:/etc/ssh/sshd_config_*}",
+            "kind": "snippet",
+            "details": "Also load config from files in these patterns"
+        },
+        {
+            "trigger": "IPQoS",
+            "contents": "IPQoS",
+            "kind": "keyword",
+            "details": "IPv4 type-of-service or DSCP class for the connection"
+        },
+        {
+            "trigger": "ipqos",
+            "contents": "IPQoS ${0:{ af11 | af12 | ... | lowdelay | throughput | reliability \\}}",
+            "kind": "snippet",
+            "details": "IPv4 type-of-service or DSCP class for the connection"
+        },
+        {
+            "trigger": "KbdInteractiveAuthentication",
+            "contents": "KbdInteractiveAuthentication",
+            "kind": "keyword",
+            "details": "Allow keyboard-interactive authentication"
+        },
+        {
+            "trigger": "kbdinteractiveauthentication",
+            "contents": "KbdInteractiveAuthentication ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Allow keyboard-interactive authentication"
+        },
+        {
+            "trigger": "KerberosAuthentication",
+            "contents": "KerberosAuthentication",
+            "kind": "keyword",
+            "details": "Enable Kerberos authentication"
+        },
+        {
+            "trigger": "kerberosauthentication",
+            "contents": "KerberosAuthentication ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Enable Kerberos authentication"
+        },
+        {
+            "trigger": "KerberosGetAFSToken",
+            "contents": "KerberosGetAFSToken",
+            "kind": "keyword",
+            "details": "If available, try to get AFS token during login"
+        },
+        {
+            "trigger": "kerberosgetafstoken",
+            "contents": "KerberosGetAFSToken ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "If available, try to get AFS token during login"
+        },
+        {
+            "trigger": "KerberosOrLocalPasswd",
+            "contents": "KerberosOrLocalPasswd",
+            "kind": "keyword",
+            "details": "Fallback from Kerberos to local password"
+        },
+        {
+            "trigger": "kerberosorlocalpasswd",
+            "contents": "KerberosOrLocalPasswd ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Fallback from Kerberos to local password"
+        },
+        {
+            "trigger": "KerberosTicketCleanup",
+            "contents": "KerberosTicketCleanup",
+            "kind": "keyword",
+            "details": "Destroy ticket cache on logout"
+        },
+        {
+            "trigger": "kerberosticketcleanup",
+            "contents": "KerberosTicketCleanup ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Destroy ticket cache on logout"
+        },
+        {
+            "trigger": "KexAlgorithms",
+            "contents": "KexAlgorithms",
+            "kind": "keyword",
+            "details": "Accepted key exchange algm patterns, by preference"
+        },
+        {
+            "trigger": "kexalgorithms",
+            "contents": "KexAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Accepted key exchange algm patterns, by preference"
+        },
+        {
+            "trigger": "KeyRegenerationInterval",
+            "contents": "KeyRegenerationInterval",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "ListenAddress",
+            "contents": "ListenAddress",
+            "kind": "keyword",
+            "details": "Listen on these hosts/ports/IPs"
+        },
+        {
+            "trigger": "listenaddress",
+            "contents": "ListenAddress ${0:{host|IP\\}[:port]}",
+            "kind": "snippet",
+            "details": "Listen on these hosts/ports/IPs"
+        },
+        {
+            "trigger": "LoginGraceTime",
+            "contents": "LoginGraceTime",
+            "kind": "keyword",
+            "details": "Time until server disconnects if user has not logged in"
+        },
+        {
+            "trigger": "LogLevel",
+            "contents": "LogLevel",
+            "kind": "keyword",
+            "details": "Verbosity level when logging <code>sshd</code> messages"
+        },
+        {
+            "trigger": "loglevel",
+            "contents": "LogLevel ${0:{ QUIET | FATAL | ERROR | INFO | ... \\}}",
+            "kind": "snippet",
+            "details": "Verbosity level when logging <code>sshd</code> messages"
+        },
+        {
+            "trigger": "MACs",
+            "contents": "MACs",
+            "kind": "keyword",
+            "details": "Accepted message auth code algm patterns, by preference"
+        },
+        {
+            "trigger": "macs",
+            "contents": "MACs ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Accepted message auth code algm patterns, by preference"
+        },
+        {
+            "trigger": "MaxAuthTries",
+            "contents": "MaxAuthTries",
+            "kind": "keyword",
+            "details": "Max auth attempts per connection"
+        },
+        {
+            "trigger": "MaxSessions",
+            "contents": "MaxSessions",
+            "kind": "keyword",
+            "details": "Max open sessions per network connection"
+        },
+        {
+            "trigger": "MaxStartups",
+            "contents": "MaxStartups",
+            "kind": "keyword",
+            "details": "Max concurrent unauth'ed connections to <code>sshd</code>"
+        },
+        {
+            "trigger": "PasswordAuthentication",
+            "contents": "PasswordAuthentication",
+            "kind": "keyword",
+            "details": "Disable password authentication"
+        },
+        {
+            "trigger": "passwordauthentication",
+            "contents": "PasswordAuthentication ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Disable password authentication"
+        },
+        {
+            "trigger": "PermitEmptyPasswords",
+            "contents": "PermitEmptyPasswords",
+            "kind": "keyword",
+            "details": "Enable passwords that are blank"
+        },
+        {
+            "trigger": "permitemptypasswords",
+            "contents": "PermitEmptyPasswords ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Enable passwords that are blank"
+        },
+        {
+            "trigger": "PermitListen",
+            "contents": "PermitListen",
+            "kind": "keyword",
+            "details": "Whitelist remote (<code>-R</code>) port forwarding"
+        },
+        {
+            "trigger": "permitlisten",
+            "contents": "PermitListen \"${1:[host:]port}\"",
+            "kind": "snippet",
+            "details": "Whitelist remote (<code>-R</code>) port forwarding"
+        },
+        {
+            "trigger": "PermitOpen",
+            "contents": "PermitOpen",
+            "kind": "keyword",
+            "details": "Whitelist local (<code>-L</code>) port forwarding"
+        },
+        {
+            "trigger": "permitopen",
+            "contents": "PermitOpen \"${1:host}:${2:port}\"",
+            "kind": "snippet",
+            "details": "Whitelist local (<code>-L</code>) port forwarding"
+        },
+        {
+            "trigger": "PermitRootLogin",
+            "contents": "PermitRootLogin",
+            "kind": "keyword",
+            "details": "Set behavior for login as <code>root</code>"
+        },
+        {
+            "trigger": "permitrootlogin",
+            "contents": "PermitRootLogin ${0:{ yes | no | prohibit-password | forced-commands-only \\}}",
+            "kind": "snippet",
+            "details": "Set behavior for login as <code>root</code>"
+        },
+        {
+            "trigger": "PermitTTY",
+            "contents": "PermitTTY",
+            "kind": "keyword",
+            "details": "Disable <code>pty</code> allocation"
+        },
+        {
+            "trigger": "permittty",
+            "contents": "PermitTTY ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Disable <code>pty</code> allocation"
+        },
+        {
+            "trigger": "PermitTunnel",
+            "contents": "PermitTunnel",
+            "kind": "keyword",
+            "details": "Enable <code>tun</code> device forwarding"
+        },
+        {
+            "trigger": "permittunnel",
+            "contents": "PermitTunnel ${0:{ yes | no | point-to-point | ethernet \\}}",
+            "kind": "snippet",
+            "details": "Enable <code>tun</code> device forwarding"
+        },
+        {
+            "trigger": "PermitUserEnvironment",
+            "contents": "PermitUserEnvironment",
+            "kind": "keyword",
+            "details": "Enable <code>~/.ssh/environment</code> and env vars from <code>authorized_keys</code>"
+        },
+        {
+            "trigger": "permituserenvironment",
+            "contents": "PermitUserEnvironment ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Enable <code>~/.ssh/environment</code> and env vars from <code>authorized_keys</code>"
+        },
+        {
+            "trigger": "PermitUserRC",
+            "contents": "PermitUserRC",
+            "kind": "keyword",
+            "details": "Disable execution of <code>~/.ssh/rc</code> files"
+        },
+        {
+            "trigger": "permituserrc",
+            "contents": "PermitUserRC ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Disable execution of <code>~/.ssh/rc</code> files"
+        },
+        {
+            "trigger": "PidFile",
+            "contents": "PidFile",
+            "kind": "keyword",
+            "details": "File for proc-ID of daemon, or <code>none</code> to skip"
+        },
+        {
+            "trigger": "Port",
+            "contents": "Port",
+            "kind": "keyword",
+            "details": "Port number to listen on. Multiple options permitted"
+        },
+        {
+            "trigger": "port",
+            "contents": "Port ${0:22}",
+            "kind": "snippet",
+            "details": "Port number to listen on. Multiple options permitted"
+        },
+        {
+            "trigger": "PrintLastLog",
+            "contents": "PrintLastLog",
+            "kind": "keyword",
+            "details": "Print the timestamp of the last user login"
+        },
+        {
+            "trigger": "printlastlog",
+            "contents": "PrintLastLog ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Print the timestamp of the last user login"
+        },
+        {
+            "trigger": "PrintMotd",
+            "contents": "PrintMotd",
+            "kind": "keyword",
+            "details": "Print <code>/etc/motd</code> on login"
+        },
+        {
+            "trigger": "printmotd",
+            "contents": "PrintMotd ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Print <code>/etc/motd</code> on login"
+        },
+        {
+            "trigger": "Protocol",
+            "contents": "Protocol",
+            "kind": "keyword",
+            "details": "<em>Deprecated</em> Protocol is 2"
+        },
+        {
+            "trigger": "PubkeyAcceptedKeyTypes",
+            "contents": "PubkeyAcceptedKeyTypes",
+            "kind": "keyword",
+            "details": "Accepted key type patterns, by preference"
+        },
+        {
+            "trigger": "pubkeyacceptedkeytypes",
+            "contents": "PubkeyAcceptedKeyTypes ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Accepted key type patterns, by preference"
+        },
+        {
+            "trigger": "PubkeyAuthOptions",
+            "contents": "PubkeyAuthOptions",
+            "kind": "keyword",
+            "details": "Require FIDO keys to be touched"
+        },
+        {
+            "trigger": "pubkeyauthoptions",
+            "contents": "PubkeyAuthOptions ${0:{ none | touch-required \\}}",
+            "kind": "snippet",
+            "details": "Require FIDO keys to be touched"
+        },
+        {
+            "trigger": "PubkeyAuthentication",
+            "contents": "PubkeyAuthentication",
+            "kind": "keyword",
+            "details": "Disable asymmetric key authentication"
+        },
+        {
+            "trigger": "pubkeyauthentication",
+            "contents": "PubkeyAuthentication ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Disable asymmetric key authentication"
+        },
+        {
+            "trigger": "RekeyLimit",
+            "contents": "RekeyLimit",
+            "kind": "keyword",
+            "details": "Data-length and duration before re-key"
+        },
+        {
+            "trigger": "rekeylimit",
+            "contents": "RekeyLimit ${0:2G 3h}",
+            "kind": "snippet",
+            "details": "Data-length and duration before re-key"
+        },
+        {
+            "trigger": "RevokedKeys",
+            "contents": "RevokedKeys",
+            "kind": "keyword",
+            "details": "File containing revoked public keys"
+        },
+        {
+            "trigger": "RDomain",
+            "contents": "RDomain",
+            "kind": "keyword",
+            "details": "Apply explicit routing domain after auth"
+        },
+        {
+            "trigger": "RhostsRSAAuthentication",
+            "contents": "RhostsRSAAuthentication",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "RSAAuthentication",
+            "contents": "RSAAuthentication",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "ServerKeyBits",
+            "contents": "ServerKeyBits",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "SetEnv",
+            "contents": "SetEnv",
+            "kind": "keyword",
+            "details": "Set one or more environment variables"
+        },
+        {
+            "trigger": "setenv",
+            "contents": "SetEnv ${0:NAME=\"VALUE\"}",
+            "kind": "snippet",
+            "details": "Set one or more environment variables"
+        },
+        {
+            "trigger": "ShowPatchLevel",
+            "contents": "ShowPatchLevel",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "StreamLocalBindMask",
+            "contents": "StreamLocalBindMask",
+            "kind": "keyword",
+            "details": "File mode <code>umask</code> when creating a forwarded port"
+        },
+        {
+            "trigger": "streamlocalbindmask",
+            "contents": "StreamLocalBindMask ${0:0177}",
+            "kind": "snippet",
+            "details": "File mode <code>umask</code> when creating a forwarded port"
+        },
+        {
+            "trigger": "StreamLocalBindUnlink",
+            "contents": "StreamLocalBindUnlink",
+            "kind": "keyword",
+            "details": "Enable overwriting existing ports with forwarding"
+        },
+        {
+            "trigger": "streamlocalbindunlink",
+            "contents": "StreamLocalBindUnlink ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Enable overwriting existing ports with forwarding"
+        },
+        {
+            "trigger": "StrictModes",
+            "contents": "StrictModes",
+            "kind": "keyword",
+            "details": "Check file modes in <code>~</code> before login"
+        },
+        {
+            "trigger": "strictmodes",
+            "contents": "StrictModes ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Check file modes in <code>~</code> before login"
+        },
+        {
+            "trigger": "Subsystem",
+            "contents": "Subsystem",
+            "kind": "keyword",
+            "details": "Configure an external subsystem (e.g. file transfer daemon)"
+        },
+        {
+            "trigger": "SyslogFacility",
+            "contents": "SyslogFacility",
+            "kind": "keyword",
+            "details": "Facility code used when logging <code>sshd</code> messages"
+        },
+        {
+            "trigger": "syslogfacility",
+            "contents": "SyslogFacility ${0:{ DAEMON | USER | AUTH | LOCAL0 | ... \\}}",
+            "kind": "snippet",
+            "details": "Facility code used when logging <code>sshd</code> messages"
+        },
+        {
+            "trigger": "TCPKeepAlive",
+            "contents": "TCPKeepAlive",
+            "kind": "keyword",
+            "details": "Disable TCP keepalive messages"
+        },
+        {
+            "trigger": "tcpkeepalive",
+            "contents": "TCPKeepAlive ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Disable TCP keepalive messages"
+        },
+        {
+            "trigger": "TrustedUserCAKeys",
+            "contents": "TrustedUserCAKeys",
+            "kind": "keyword",
+            "details": "File of public keys for CAs trusted to sign user certs"
+        },
+        {
+            "trigger": "UseDNS",
+            "contents": "UseDNS",
+            "kind": "keyword",
+            "details": "Double check that reverse DNS matches IP"
+        },
+        {
+            "trigger": "usedns",
+            "contents": "UseDNS ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Double check that reverse DNS matches IP"
+        },
+        {
+            "trigger": "UseLogin",
+            "contents": "UseLogin",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "UsePAM",
+            "contents": "UsePAM",
+            "kind": "keyword",
+            "details": "<code>root</code>-only: enable Pluggable Authentication Module"
+        },
+        {
+            "trigger": "usepam",
+            "contents": "UsePAM ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "<code>root</code>-only: enable Pluggable Authentication Module"
+        },
+        {
+            "trigger": "UsePrivilegeSeparation",
+            "contents": "UsePrivilegeSeparation",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "VersionAddendum",
+            "contents": "VersionAddendum",
+            "kind": "keyword",
+            "details": "Append text to the SSH protocol banner"
+        },
+        {
+            "trigger": "X11DisplayOffset",
+            "contents": "X11DisplayOffset",
+            "kind": "keyword",
+            "details": "First display number available for X11 forwarding"
+        },
+        {
+            "trigger": "x11displayoffset",
+            "contents": "X11DisplayOffset ${0:10}",
+            "kind": "snippet",
+            "details": "First display number available for X11 forwarding"
+        },
+        {
+            "trigger": "X11Forwarding",
+            "contents": "X11Forwarding",
+            "kind": "keyword",
+            "details": "Toggle X11 forwarding"
+        },
+        {
+            "trigger": "x11forwarding",
+            "contents": "X11Forwarding ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Toggle X11 forwarding"
+        },
+        {
+            "trigger": "X11UseLocalhost",
+            "contents": "X11UseLocalhost",
+            "kind": "keyword",
+            "details": "Bind X11 forwarding server to <code>localhost</code> or <code>*</code>"
+        },
+        {
+            "trigger": "x11uselocalhost",
+            "contents": "X11UseLocalhost ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Bind X11 forwarding server to <code>localhost</code> or <code>*</code>"
+        },
+        {
+            "trigger": "XAuthLocation",
+            "contents": "XAuthLocation",
+            "kind": "keyword",
+            "details": "Full pathname of the <code>xauth</code> program"
+        }
+    ]
 }

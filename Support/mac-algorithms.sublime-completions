@@ -1,0 +1,418 @@
+{
+    "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value",
+    "completions": [
+        {
+            "trigger": "hmac-sha1",
+            "contents": "hmac-sha1",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha2-56",
+            "contents": "hmac-sha2-56",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha2-224",
+            "contents": "hmac-sha2-224",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha2-256",
+            "contents": "hmac-sha2-256",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha2-384",
+            "contents": "hmac-sha2-384",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha2-512",
+            "contents": "hmac-sha2-512",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha3-256",
+            "contents": "hmac-sha3-256",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha3-384",
+            "contents": "hmac-sha3-384",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha3-512",
+            "contents": "hmac-sha3-512",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha256",
+            "contents": "hmac-sha256",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha256-96@ssh.com",
+            "contents": "hmac-sha256-96@ssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha256@ssh.com",
+            "contents": "hmac-sha256@ssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha512",
+            "contents": "hmac-sha512",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha512@ssh.com",
+            "contents": "hmac-sha512@ssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "umac-64@openssh.com",
+            "contents": "umac-64@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "umac-128@openssh.com",
+            "contents": "umac-128@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha1-etm@openssh.com",
+            "contents": "hmac-sha1-etm@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha2-256-96-etm@openssh.com",
+            "contents": "hmac-sha2-256-96-etm@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha2-512-96-etm@openssh.com",
+            "contents": "hmac-sha2-512-96-etm@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha2-256-etm@openssh.com",
+            "contents": "hmac-sha2-256-etm@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha2-512-etm@openssh.com",
+            "contents": "hmac-sha2-512-etm@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "umac-32@openssh.com",
+            "contents": "umac-32@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "umac-64-etm@openssh.com",
+            "contents": "umac-64-etm@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "umac-96@openssh.com",
+            "contents": "umac-96@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "umac-128-etm@openssh.com",
+            "contents": "umac-128-etm@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "aes128-gcm",
+            "contents": "aes128-gcm",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "aes256-gcm",
+            "contents": "aes256-gcm",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-md5",
+            "contents": "hmac-md5",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-md5-96",
+            "contents": "hmac-md5-96",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-md5-96-etm@openssh.com",
+            "contents": "hmac-md5-96-etm@openssh.com",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-md5-etm@openssh.com",
+            "contents": "hmac-md5-etm@openssh.com",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-ripemd",
+            "contents": "hmac-ripemd",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-ripemd160",
+            "contents": "hmac-ripemd160",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-ripemd160-etm@openssh.com",
+            "contents": "hmac-ripemd160-etm@openssh.com",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-ripemd160@openssh.com",
+            "contents": "hmac-ripemd160@openssh.com",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-sha1-96",
+            "contents": "hmac-sha1-96",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-sha1-96-etm@openssh.com",
+            "contents": "hmac-sha1-96-etm@openssh.com",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-sha2-256-96",
+            "contents": "hmac-sha2-256-96",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-sha2-512-96",
+            "contents": "hmac-sha2-512-96",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "none",
+            "contents": "none",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        }
+    ]
+}
