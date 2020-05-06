@@ -16,7 +16,7 @@ from="*.sales.example.net,!pc.sales.example.net" ssh-rsa AAAAB3N9Q== john@exampl
 #^^^ keyword.other
 #   ^ keyword.operator.assignment
 #    ^ punctuation.definition.string.begin
-#     ^ constant.language.wildcard
+#     ^ keyword.operator.wildcard
 command="dump /home",no-pty,no-port-forwarding ssh-rsa AAAAC3N51R== example.net
 permitopen="192.0.2.1:80",permitopen="192.0.2.2:25" ssh-rsa AAAAB3N21S==
 permitlisten="localhost:8080",permitopen="localhost:22000" ssh-rsa AAAAB3N21S==

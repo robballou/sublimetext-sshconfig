@@ -102,7 +102,7 @@ contexts:
         - match: ','
           scope: punctuation.separator.sequence.authorized_keys
         - match: '[*?]'
-          scope: constant.language.wildcard.authorized_keys
+          scope: keyword.operator.wildcard.authorized_keys
       push: value-option-body
 
     - match: (environment)(=)
