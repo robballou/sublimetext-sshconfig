@@ -30,6 +30,12 @@ Match Host one,two
 #             ^ punctuation.separator.sequence - entity
 #              ^^^ entity.name.label.host-alias
     User bar
+    Port 22
+    #    ^^ constant.numeric
+
+Host tj
+    User 2022sratna
+    #    ^^^^^^^^^^ meta.mapping.value - constant.numeric
 
 Host server serverino !other-pat?ern
 # <- meta.block.host - meta.block.match

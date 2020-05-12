@@ -252,7 +252,7 @@ contexts:
         - meta_content_scope: meta.mapping.value.ssh_config
         - include: boolean-value
         - include: tokens
-        - match: \d+
+        - match: \b\d+(?=[\s,"])
           scope: constant.numeric.ssh_config
         - match: \"
           scope: punctuation.definition.string.begin.ssh_config
