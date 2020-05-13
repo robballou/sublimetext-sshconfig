@@ -47,7 +47,7 @@ contexts:
             - match: (?=,|\])
               pop: true
             - match: '[*?]'
-              scope:  constant.language.wildcard.known_hosts
+              scope:  keyword.operator.wildcard.known_hosts
     - include: SSH Common.sublime-syntax#ip-addresses
     - match: (\|)(\d+)(\|)([\w+/]{27}=)(\|)([\w+/]{27}=)
       scope: meta.string.host.obfuscated.known_hosts
@@ -61,6 +61,6 @@ contexts:
     - match: '!'
       scope: keyword.operator.logical.known_hosts
     - match: '[*?]'
-      scope: meta.string.host.known_hosts string.unquoted.known_hosts constant.language.wildcard.known_hosts
+      scope: meta.string.host.known_hosts string.unquoted.known_hosts keyword.operator.wildcard.known_hosts
     - match: '[^,\[\s*?]+'
       scope: meta.string.host.known_hosts string.unquoted.known_hosts
