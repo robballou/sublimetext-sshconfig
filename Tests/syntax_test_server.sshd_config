@@ -143,7 +143,7 @@ Match User username1,username2 Address 192.168.0.0/16
 Match User username1,username2 Address *,!192.168.0.0/16
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.block.match meta.block.match
 #^^^^ meta.block.match keyword.control.conditional
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^ keyword.other
 #          ^^^^^^^^^^^^^^^^^^^ string.unquoted
 #                   ^ punctuation.separator.sequence

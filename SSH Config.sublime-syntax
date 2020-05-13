@@ -36,6 +36,11 @@ contexts:
     - match: (?=^[ \t]*(?i:host|match)\b)
       pop: true
 
+  pop-nl-as-value:
+    - match: \n
+      scope: meta.mapping.value.ssh_config
+      pop: true
+
   # Host
   host:
     - match: ^[ \t]*((?i:host))\b
@@ -63,7 +68,7 @@ contexts:
 
   match-conditions:
     - meta_content_scope: meta.block.match.ssh_config meta.statement.conditional.ssh_config
-    - match: (?=\n)
+    - match: \n
       set: match-body
 
     - match: '!'
@@ -168,7 +173,7 @@ contexts:
           scope: constant.language.set.ssh_config
           pop: true
         - include: scope:source.shell
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl-as-value
 
   localcommand:
     - match: ^\s*((?i:localcommand))\b[ \t]*(=)?
@@ -184,7 +189,7 @@ contexts:
           scope: constant.language.set.ssh_config
           pop: true
         - include: scope:source.shell
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl-as-value
 
   boolean-value:
     - match: \b(?i:yes|no)\b
@@ -218,7 +223,7 @@ contexts:
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl-as-value
         - match: '[ \t]+\S+'
           scope: invalid.illegal.ssh_config
         - include: boolean-value-with-typing
@@ -233,7 +238,7 @@ contexts:
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl-as-value
         - match: '[ \t]+\S+'
           scope: invalid.illegal.ssh_config
         - include: boolean-value-with-typing
@@ -271,7 +276,7 @@ contexts:
             - meta_content_scope: string.unquoted.ssh_config
             - include: SSH Common.sublime-syntax#pop-before-nl
             - include: generic-option-includes
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl-as-value
 
   generic-option-includes:
     - include: tokens

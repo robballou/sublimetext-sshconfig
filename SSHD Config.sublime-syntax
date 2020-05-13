@@ -65,7 +65,12 @@ contexts:
     - match: (?=^[ \t]*(?i:match)\b)
       pop: true
 
-  # Match
+  pop-nl-as-value:
+    - match: \n
+      scope: meta.mapping.value.ssh_config
+      pop: true
+
+ # Match
   match:
     - match: ^[ \t]*((?i:match))\b
       captures:
@@ -74,7 +79,7 @@ contexts:
 
   match-conditions:
     - meta_content_scope: meta.block.match.sshd_config meta.statement.conditional.sshd_config
-    - match: (?=\n)
+    - match: \n
       set: match-body
 
     - match: '!'
@@ -134,7 +139,7 @@ contexts:
           scope: constant.language.set.sshd_config
           pop: true
         - include: scope:source.shell
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl-as-value
 
   generic-option:
     - match: ^\s*([a-zA-Z1]+)\b[ \t]*(=)?
@@ -160,7 +165,7 @@ contexts:
             - meta_content_scope: string.unquoted.sshd_config
             - include: SSH Common.sublime-syntax#pop-before-nl
             - include: generic-option-value
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl-as-value
 
   generic-option-value:
     - match: \b(?i:yes|no)\b
