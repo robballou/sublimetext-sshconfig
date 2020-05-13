@@ -2,7 +2,7 @@
 
 Match Host targ?t_host Exec not_inside_network User sue
 # ^^^ keyword.control.conditional
-#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^             keyword.other
 #          ^^^^^^^^^^^ entity.name.label.host-alias
 #              ^       keyword.operator.wildcard
@@ -12,8 +12,8 @@ Match Host targ?t_host Exec not_inside_network User sue
 #                                             ^ - source.embedded.shell
 #                                              ^^^^     keyword.other
 #                                                   ^^^ string.unquoted
-#                                                      ^ - meta.statement
     ProxyCommand ssh -W %h:%p proxy_server
+#<- - meta.statement
     # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match
     # ^^^^^^^^^^                             keyword.other
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^   source.embedded.shell
