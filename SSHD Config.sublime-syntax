@@ -175,10 +175,12 @@ contexts:
     - include: SSH Common.sublime-syntax#ssh-MACs
     - include: SSH Common.sublime-syntax#ipv6-square-bracket
     - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
+    - include: SSH Common.sublime-syntax#time-values
+    - include: SSH Common.sublime-syntax#bytes-values
     - include: tokens
     - match: \*|\?
       scope: keyword.operator.wildcard.sshd_config
-    - match: \d+
+    - match: \b\d+(?=[\s,"])
       scope: constant.numeric.sshd_config
     - match: '!'
       scope: keyword.operator.logical.sshd_config
