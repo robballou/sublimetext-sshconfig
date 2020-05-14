@@ -243,6 +243,21 @@ contexts:
         4: punctuation.separator.sequence.ssh.common
         5: punctuation.separator.sequence.ssh.common
 
+  time-values:
+    # seconds, minutes, hours, days, weeks
+    - match: \b(\d+)(?i:([smhdw]))(?=[\d\s,"])
+      scope: meta.constant.date.ssh.common
+      captures:
+        1: constant.numeric.integer.decimal.ssh.common
+        2: storage.modifier.unit.ssh.common
+
+  bytes-values:
+    - match: \b(\d+)([KMG])(?=[\s,"])
+      scope: meta.constant.bytes.ssh.common
+      captures:
+        1: constant.numeric.integer.decimal.ssh.common
+        2: storage.modifier.unit.ssh.common
+
   mac-addresses:
     - match: (?:[0-9a-fA-F]{2}:){5}(?:[0-9a-fA-F]{2})
       scope: entity.name.constant.mac-address.ssh.common

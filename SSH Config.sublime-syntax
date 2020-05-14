@@ -287,6 +287,8 @@ contexts:
     - include: SSH Common.sublime-syntax#ssh-MACs
     - include: SSH Common.sublime-syntax#ipv6-square-bracket
     - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
+    - include: SSH Common.sublime-syntax#time-values
+    - include: SSH Common.sublime-syntax#bytes-values
 
   comments:
     - include: SSH Common.sublime-syntax#comments-number-sign
