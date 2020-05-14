@@ -22,6 +22,12 @@ jobs:
       - name: Setup 'Data/Packages/SSH Config'
         run: mkdir -p 'Data/Packages/SSH Config'
       - name: Move package into its own subdir within Data dir
-        run: find . -maxdepth 1 -mindepth 1 -not -name 'Data' -not -name 'syntax_tests' -exec mv -v '{}' 'Data/Packages/SSH Config/' \;
+        run: >-
+          find .
+            -maxdepth 1
+            -mindepth 1
+            -not -name 'Data'
+            -not -name 'syntax_tests'
+            -exec mv -v '{}' 'Data/Packages/SSH Config/' \;
       - name: Run syntax tests
         run: ./syntax_tests
