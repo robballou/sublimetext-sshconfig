@@ -52,6 +52,10 @@ def build_crypto():
     with open('crypto.yaml', 'r') as stream:
         crypto_input = yaml.load(stream, Loader=yaml.BaseLoader)
 
+    test_content = [
+        '# SYNTAX TEST "Packages/SSH Config/SSH Common.sublime-syntax"\n',
+    ]
+
     for domain, settings in crypto_input.items():
         completions = {
             'scope': settings['completions']['scope'],
@@ -59,6 +63,10 @@ def build_crypto():
         }
         default_kind = settings['completions']['kind']
         annotation = settings['completions']['annotation']
+        active_scope = settings['active']['scope']
+        deprec_scope = settings['deprecated']['scope']
+
+        test_content.append(f'\n###[ {domain + " ]":#<74}\n')
 
         for item in settings['active']['items']:
             completions['completions'].append({
@@ -67,6 +75,9 @@ def build_crypto():
                 'annotation': annotation,
                 'kind': default_kind,
             })
+            test_content.append(f'{annotation}: {item}')
+            test_content.append(
+                f'#{" " * len(annotation)} {"^" * len(item)} {active_scope}')
 
         for item in settings['deprecated']['items']:
             completions['completions'].append({
@@ -76,9 +87,15 @@ def build_crypto():
                 'kind': default_kind,
                 'details': 'Deprecated',
             })
+            test_content.append(f'{annotation}: {item}')
+            test_content.append(
+                f'#{" " * len(annotation)} {"^" * len(item)} {deprec_scope}')
 
         with open(f'../Support/{domain}.sublime-completions', 'w') as f:
             json.dump(completions, f, indent=4)
+
+    with open('../Tests/syntax_test_crypto', 'w') as test_file:
+        test_file.write('\n'.join(test_content))
 
 
 def main():

@@ -31,7 +31,7 @@ variables:
 contexts:
   main:
     - include: comments-number-sign
-    - match: '^key:'
+    - match: '^key type:'
       push:
         - include: pop-before-nl
         - include: ssh-key-types
