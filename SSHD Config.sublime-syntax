@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 # https://www.sublimetext.com/docs/3/syntax.html
-# http://man7.org/linux/man-pages/man5/sshd_config.5.html
+# https://man7.org/linux/man-pages/man5/sshd_config.5.html
 name: SSHD Config
 file_extensions:
   - sshd_config
@@ -52,7 +52,7 @@ contexts:
     - include: generic-option
 
   tokens:
-    # http://man7.org/linux/man-pages/man5/sshd_config.5.html#TOKENS
+    # https://man7.org/linux/man-pages/man5/sshd_config.5.html#TOKENS
     - match: '%[%DFfhiKksTtUu]'
       scope: constant.character.escape.sshd_config
 
@@ -118,7 +118,7 @@ contexts:
     - include: options
 
   string-patterns:
-    # http://man7.org/linux/man-pages/man5/sshd_config.5.html#PATTERNS
+    # https://man7.org/linux/man-pages/man5/sshd_config.5.html#PATTERNS
     - match: '[^\s*?!,]+'
       scope: string.unquoted.sshd_config
     - match: '!'

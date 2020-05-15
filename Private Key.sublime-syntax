@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# See http://www.sublimetext.com/docs/3/syntax.html
+# https://www.sublimetext.com/docs/3/syntax.html
 first_line_match: ^-----BEGIN [\w ]+ PRIVATE KEY-----
 scope: source.ssh.private-key
 contexts:
