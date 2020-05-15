@@ -59,17 +59,17 @@ contexts:
   comments-number-sign:
     - match: ^\s*(#)
       captures:
-        1: punctuation.definition.comment.ssh.common
+        1: comment.line.number-sign.ssh.common punctuation.definition.comment.ssh.common
       push:
-        - meta_scope: comment.line.number-sign.ssh.common
+        - meta_content_scope: comment.line.number-sign.ssh.common
         - include: pop-nl
 
   comments-semicolon:
     - match: ^\s*(;)
       captures:
-        1: punctuation.definition.comment.ssh.common
+        1: comment.line.number-sign.ssh.common punctuation.definition.comment.ssh.common
       push:
-        - meta_scope: comment.line.semi-colon.ssh.common
+        - meta_content_scope: comment.line.semi-colon.ssh.common
         - include: pop-nl
 
   ssh-fingerprint:

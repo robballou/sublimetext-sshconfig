@@ -80,6 +80,14 @@ Host *.splat?.com
     CompressionLevel 7
     # ^^^^^^^^^^^^^^ keyword.other - invalid.illegal
 
+# Comment
+# <- comment.line.number-sign punctuation.definition.comment
+#^^^^^^^^ comment.line.number-sign
+
+    # Comment
+#^^^ - comment
+    # <- comment.line.number-sign punctuation.definition.comment
+    #^^^^^^^^ comment.line.number-sign
 
 Host *
 # ^^              keyword.declaration.host-alias
