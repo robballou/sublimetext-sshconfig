@@ -1,7 +1,7 @@
-# SYNTAX TEST "Packages/SSH Config/SSH Common.sublime-syntax"
+# SYNTAX TEST "Packages/SSH Config/SSH Crypto.sublime-syntax"
 
 
-###[ key_types ]###############################################################
+###[ key-types ]###############################################################
 
 key type: ecdsa-sha2-1.3.132.0.10
 #         ^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
@@ -161,7 +161,7 @@ cipher: twofish192-cbc
 cipher: twofish256-cbc
 #       ^^^^^^^^^^^^^^ invalid.deprecated.cipher
 
-###[ kex_algorithms ]##########################################################
+###[ kex-algorithms ]##########################################################
 
 kex: curve25519-sha256
 #    ^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
@@ -264,7 +264,7 @@ kex: gss-group14-sha1-
 kex: gss-group14-sha1-toWM5Slw5Ew8Mqkay+al2g==
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm
 
-###[ mac_algorithms ]##########################################################
+###[ mac-algorithms ]##########################################################
 
 mac: hmac-sha1
 #    ^^^^^^^^^ support.function.mac-algorithm

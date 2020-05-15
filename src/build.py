@@ -2,6 +2,7 @@
 
 import json
 import os
+import re
 import sys
 import yaml
 
@@ -53,8 +54,18 @@ def build_crypto():
         crypto_input = yaml.load(stream, Loader=yaml.BaseLoader)
 
     test_content = [
-        '# SYNTAX TEST "Packages/SSH Config/SSH Common.sublime-syntax"\n',
+        '# SYNTAX TEST "Packages/SSH Config/SSH Crypto.sublime-syntax"\n',
     ]
+    syntax_content = {
+        'name': 'SSH Crypto',
+        'hidden': True,
+        'scope': 'text.ssh.crypto',
+        'contexts': {
+            'main': [
+                {'include': 'SSH Common.sublime-syntax#comments-number-sign'},
+            ]
+        }
+    }
 
     for domain, settings in crypto_input.items():
         completions = {
@@ -67,6 +78,27 @@ def build_crypto():
         deprec_scope = settings['deprecated']['scope']
 
         test_content.append(f'\n###[ {domain + " ]":#<74}\n')
+        syntax_content['contexts']['main'].append({
+            'match': fr'^{annotation}:',
+            'push': [
+                {'include': 'SSH Common.sublime-syntax#pop-before-nl'},
+                {'include': f'ssh-{domain}'}
+            ]
+        })
+        syntax_content['contexts'][f'ssh-{domain}'] = [
+            {
+                'match': fr"""\b(?:{'|'.join(
+                    re.escape(i) for i in settings['active']['items']
+                )})(?=[,\s\"])""",
+                'scope': active_scope,
+            },
+            {
+                'match': fr"""\b(?:{'|'.join(
+                    re.escape(i) for i in settings['deprecated']['items']
+                )})(?=[,\s\"])""",
+                'scope': deprec_scope,
+            },
+        ]
 
         for item in settings['active']['items']:
             completions['completions'].append({
@@ -93,6 +125,10 @@ def build_crypto():
 
         with open(f'../Support/{domain}.sublime-completions', 'w') as f:
             json.dump(completions, f, indent=4)
+
+    with open('../SSH Crypto.sublime-syntax', 'w') as syntax_file:
+        syntax_file.write('%YAML 1.2\n---\n')
+        yaml.dump(syntax_content, syntax_file)
 
     with open('../Tests/syntax_test_crypto', 'w') as test_file:
         test_file.write('\n'.join(test_content))

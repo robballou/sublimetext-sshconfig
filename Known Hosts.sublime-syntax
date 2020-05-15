@@ -24,7 +24,7 @@ contexts:
         - match: ','
           scope: punctuation.separator.sequence.known_hosts
         - include: SSH Common.sublime-syntax#ssh-fingerprint-with-label
-        - include: SSH Common.sublime-syntax#ssh-key-types
+        - include: SSH Crypto.sublime-syntax#ssh-key-types
         - include: hostname-or-ip-value
 
   hostname-or-ip-value:
