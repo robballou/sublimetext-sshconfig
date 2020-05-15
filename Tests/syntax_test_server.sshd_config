@@ -123,6 +123,15 @@ Match User *,!username1,!username2
     #            ^^^^^^^^^^^^^ meta.function-call.shell variable.function.shell
     #                                           ^ - source.embedded
 
+# Comment
+# <- comment.line.number-sign punctuation.definition.comment
+#^^^^^^^^ comment.line.number-sign
+
+    # Comment
+#^^^ - comment
+    # <- comment.line.number-sign punctuation.definition.comment
+    #^^^^^^^^ comment.line.number-sign
+
 # Normal ssh allowed for users username1 and username2 from the local network
 Match User username1,username2 Address 192.168.0.0/16
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.block.match meta.block.match

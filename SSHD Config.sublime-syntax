@@ -195,17 +195,17 @@ contexts:
   comments:
     - match: ^\s*(#)
       captures:
-        1: punctuation.definition.comment.sshd_config
+        1: comment.line.number-sign.sshd_config punctuation.definition.comment.sshd_config
       push:
-        - meta_scope: comment.line.number-sign.sshd_config
+        - meta_content_scope: comment.line.number-sign.sshd_config
         - include: SSH Common.sublime-syntax#pop-nl
         - match: '{{all_options}}'
           scope: meta.keyword.comment.sshd_config
     - match: ^\s*(;)
       captures:
-        1: punctuation.definition.comment.sshd_config
+        1: comment.line.number-sign.sshd_config punctuation.definition.comment.sshd_config
       push:
-        - meta_scope: comment.line.semi-colon.sshd_config
+        - meta_content_scope: comment.line.semi-colon.sshd_config
         - include: SSH Common.sublime-syntax#pop-nl
         - match: '{{all_options}}'
           scope: meta.keyword.comment.sshd_config
