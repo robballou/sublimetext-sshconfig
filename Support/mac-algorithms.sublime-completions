@@ -1,8 +1,8 @@
 {
-    "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value",
+    "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - source source",
     "completions": [
         {
-            "trigger": "hmac-sha1",
+            "trigger": "hmac-sha1\tmac",
             "contents": "hmac-sha1",
             "annotation": "mac",
             "kind": [
@@ -12,7 +12,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-56",
+            "trigger": "hmac-sha2-56\tmac",
             "contents": "hmac-sha2-56",
             "annotation": "mac",
             "kind": [
@@ -22,7 +22,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-224",
+            "trigger": "hmac-sha2-224\tmac",
             "contents": "hmac-sha2-224",
             "annotation": "mac",
             "kind": [
@@ -32,7 +32,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-256",
+            "trigger": "hmac-sha2-256\tmac",
             "contents": "hmac-sha2-256",
             "annotation": "mac",
             "kind": [
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-384",
+            "trigger": "hmac-sha2-384\tmac",
             "contents": "hmac-sha2-384",
             "annotation": "mac",
             "kind": [
@@ -52,7 +52,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-512",
+            "trigger": "hmac-sha2-512\tmac",
             "contents": "hmac-sha2-512",
             "annotation": "mac",
             "kind": [
@@ -62,7 +62,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha3-256",
+            "trigger": "hmac-sha3-256\tmac",
             "contents": "hmac-sha3-256",
             "annotation": "mac",
             "kind": [
@@ -72,7 +72,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha3-384",
+            "trigger": "hmac-sha3-384\tmac",
             "contents": "hmac-sha3-384",
             "annotation": "mac",
             "kind": [
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha3-512",
+            "trigger": "hmac-sha3-512\tmac",
             "contents": "hmac-sha3-512",
             "annotation": "mac",
             "kind": [
@@ -92,7 +92,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha256",
+            "trigger": "hmac-sha256\tmac",
             "contents": "hmac-sha256",
             "annotation": "mac",
             "kind": [
@@ -102,7 +102,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha256-96@ssh.com",
+            "trigger": "hmac-sha256-96@ssh.com\tmac",
             "contents": "hmac-sha256-96@ssh.com",
             "annotation": "mac",
             "kind": [
@@ -112,7 +112,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha256@ssh.com",
+            "trigger": "hmac-sha256@ssh.com\tmac",
             "contents": "hmac-sha256@ssh.com",
             "annotation": "mac",
             "kind": [
@@ -122,7 +122,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha512",
+            "trigger": "hmac-sha512\tmac",
             "contents": "hmac-sha512",
             "annotation": "mac",
             "kind": [
@@ -132,7 +132,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha512@ssh.com",
+            "trigger": "hmac-sha512@ssh.com\tmac",
             "contents": "hmac-sha512@ssh.com",
             "annotation": "mac",
             "kind": [
@@ -142,7 +142,7 @@
             ]
         },
         {
-            "trigger": "umac-64@openssh.com",
+            "trigger": "umac-64@openssh.com\tmac",
             "contents": "umac-64@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -152,7 +152,7 @@
             ]
         },
         {
-            "trigger": "umac-128@openssh.com",
+            "trigger": "umac-128@openssh.com\tmac",
             "contents": "umac-128@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -162,7 +162,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha1-etm@openssh.com",
+            "trigger": "hmac-sha1-etm@openssh.com\tmac",
             "contents": "hmac-sha1-etm@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -172,7 +172,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-256-96-etm@openssh.com",
+            "trigger": "hmac-sha2-256-96-etm@openssh.com\tmac",
             "contents": "hmac-sha2-256-96-etm@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -182,7 +182,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-512-96-etm@openssh.com",
+            "trigger": "hmac-sha2-512-96-etm@openssh.com\tmac",
             "contents": "hmac-sha2-512-96-etm@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -192,7 +192,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-256-etm@openssh.com",
+            "trigger": "hmac-sha2-256-etm@openssh.com\tmac",
             "contents": "hmac-sha2-256-etm@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -202,7 +202,7 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-512-etm@openssh.com",
+            "trigger": "hmac-sha2-512-etm@openssh.com\tmac",
             "contents": "hmac-sha2-512-etm@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -212,7 +212,7 @@
             ]
         },
         {
-            "trigger": "umac-32@openssh.com",
+            "trigger": "umac-32@openssh.com\tmac",
             "contents": "umac-32@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -222,7 +222,7 @@
             ]
         },
         {
-            "trigger": "umac-64-etm@openssh.com",
+            "trigger": "umac-64-etm@openssh.com\tmac",
             "contents": "umac-64-etm@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -232,7 +232,7 @@
             ]
         },
         {
-            "trigger": "umac-96@openssh.com",
+            "trigger": "umac-96@openssh.com\tmac",
             "contents": "umac-96@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -242,7 +242,7 @@
             ]
         },
         {
-            "trigger": "umac-128-etm@openssh.com",
+            "trigger": "umac-128-etm@openssh.com\tmac",
             "contents": "umac-128-etm@openssh.com",
             "annotation": "mac",
             "kind": [
@@ -252,7 +252,7 @@
             ]
         },
         {
-            "trigger": "aes128-gcm",
+            "trigger": "aes128-gcm\tmac",
             "contents": "aes128-gcm",
             "annotation": "mac",
             "kind": [
@@ -262,7 +262,7 @@
             ]
         },
         {
-            "trigger": "aes256-gcm",
+            "trigger": "aes256-gcm\tmac",
             "contents": "aes256-gcm",
             "annotation": "mac",
             "kind": [
@@ -272,7 +272,7 @@
             ]
         },
         {
-            "trigger": "hmac-md5",
+            "trigger": "hmac-md5\tdeprecated mac",
             "contents": "hmac-md5",
             "annotation": "deprecated mac",
             "kind": [
@@ -283,7 +283,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-md5-96",
+            "trigger": "hmac-md5-96\tdeprecated mac",
             "contents": "hmac-md5-96",
             "annotation": "deprecated mac",
             "kind": [
@@ -294,7 +294,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-md5-96-etm@openssh.com",
+            "trigger": "hmac-md5-96-etm@openssh.com\tdeprecated mac",
             "contents": "hmac-md5-96-etm@openssh.com",
             "annotation": "deprecated mac",
             "kind": [
@@ -305,7 +305,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-md5-etm@openssh.com",
+            "trigger": "hmac-md5-etm@openssh.com\tdeprecated mac",
             "contents": "hmac-md5-etm@openssh.com",
             "annotation": "deprecated mac",
             "kind": [
@@ -316,7 +316,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-ripemd",
+            "trigger": "hmac-ripemd\tdeprecated mac",
             "contents": "hmac-ripemd",
             "annotation": "deprecated mac",
             "kind": [
@@ -327,7 +327,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-ripemd160",
+            "trigger": "hmac-ripemd160\tdeprecated mac",
             "contents": "hmac-ripemd160",
             "annotation": "deprecated mac",
             "kind": [
@@ -338,7 +338,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-ripemd160-etm@openssh.com",
+            "trigger": "hmac-ripemd160-etm@openssh.com\tdeprecated mac",
             "contents": "hmac-ripemd160-etm@openssh.com",
             "annotation": "deprecated mac",
             "kind": [
@@ -349,7 +349,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-ripemd160@openssh.com",
+            "trigger": "hmac-ripemd160@openssh.com\tdeprecated mac",
             "contents": "hmac-ripemd160@openssh.com",
             "annotation": "deprecated mac",
             "kind": [
@@ -360,7 +360,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-sha1-96",
+            "trigger": "hmac-sha1-96\tdeprecated mac",
             "contents": "hmac-sha1-96",
             "annotation": "deprecated mac",
             "kind": [
@@ -371,7 +371,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-sha1-96-etm@openssh.com",
+            "trigger": "hmac-sha1-96-etm@openssh.com\tdeprecated mac",
             "contents": "hmac-sha1-96-etm@openssh.com",
             "annotation": "deprecated mac",
             "kind": [
@@ -382,7 +382,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-sha2-256-96",
+            "trigger": "hmac-sha2-256-96\tdeprecated mac",
             "contents": "hmac-sha2-256-96",
             "annotation": "deprecated mac",
             "kind": [
@@ -393,7 +393,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-sha2-512-96",
+            "trigger": "hmac-sha2-512-96\tdeprecated mac",
             "contents": "hmac-sha2-512-96",
             "annotation": "deprecated mac",
             "kind": [
@@ -404,7 +404,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "none",
+            "trigger": "none\tdeprecated mac",
             "contents": "none",
             "annotation": "deprecated mac",
             "kind": [
