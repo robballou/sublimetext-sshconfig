@@ -1,0 +1,88 @@
+{
+    "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - comment - source source",
+    "completions": [
+        {
+            "trigger": "yes",
+            "contents": "yes",
+            "kind": ["variable", "c", "Constant"],
+            "details": "Boolean",
+        },
+        {
+            "trigger": "no",
+            "contents": "no",
+            "kind": ["variable", "c", "Constant"],
+            "details": "Boolean",
+        },
+        {
+            "trigger": "ask",
+            "contents": "ask",
+            "kind": ["variable", "c", "Constant"],
+        },
+        {
+            "trigger": "confirm",
+            "contents": "confirm",
+            "kind": ["variable", "c", "Constant"],
+        },
+        {
+            "trigger": "any",
+            "contents": "any",
+            "kind": ["variable", "c", "Constant"],
+            "details": "Set",
+        },
+        {
+            "trigger": "none",
+            "contents": "none",
+            "kind": ["variable", "c", "Constant"],
+            "details": "Set",
+        },
+        {
+            "trigger": "inet",
+            "contents": "inet",
+            "annotation": "IPv4",
+            "kind": ["variable", "c", "Constant"],
+            "details": "only IPv4",
+        },
+        {
+            "trigger": "inet6",
+            "contents": "inet6",
+            "annotation": "IPv6",
+            "kind": ["variable", "c", "Constant"],
+            "details": "only IPv6",
+        },
+        {
+            "trigger": "gssapi-with-mic\tauth",
+            "contents": "gssapi-with-mic",
+            "annotation": "auth",
+            "kind": ["variable", "a", "Auth type"],
+            "details": "GSSAPI authentication",
+        },
+        {
+            "trigger": "hostbased\tauth",
+            "contents": "hostbased",
+            "annotation": "auth",
+            "kind": ["variable", "a", "Auth type"],
+            "details": "Host-based authentication",
+        },
+        {
+            "trigger": "publickey\tauth",
+            "contents": "publickey",
+            "annotation": "auth",
+            "kind": ["variable", "a", "Auth type"],
+            "details": "Public key authentication",
+        },
+        {
+            "trigger": "keyboard-interactive\tauth",
+            "contents": "keyboard-interactive",
+            "annotation": "auth",
+            "kind": ["variable", "a", "Auth type"],
+            "details": "PAM or BSDAuth authentication",
+        },
+        {
+            "trigger": "password\tauth",
+            "contents": "password",
+            "annotation": "auth",
+            "kind": ["variable", "a", "Auth type"],
+            "details": "<code>/etc/passwd</code> authentication",
+        },
+    ]
+}
