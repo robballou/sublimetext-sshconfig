@@ -1,6 +1,8 @@
 %YAML 1.2
 ---
 key-types:
+  # ssh -Q key
+  # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
   completions:
     scope: (source.ssh_config | source.sshd_config) & meta.mapping.value, (text.authorized_keys | text.known_hosts) - comment - string
     kind: [type, k, Key type]
@@ -40,6 +42,8 @@ key-types:
 
 
 ciphers:
+  # ssh -Q ciphers
+  # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
   completions:
     scope: (source.ssh_config | source.sshd_config) & meta.mapping.value
     kind: [function, c, Cipher]
@@ -104,6 +108,8 @@ ciphers:
 
 
 kex-algorithms:
+  # ssh -Q kex
+  # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
   completions:
     scope: (source.ssh_config | source.sshd_config) & meta.mapping.value
     kind: [function, k, Kex Algm]
@@ -167,6 +173,8 @@ kex-algorithms:
 
 
 mac-algorithms:
+  # ssh -Q mac
+  # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
   completions:
     scope: (source.ssh_config | source.sshd_config) & meta.mapping.value
     kind: [function, m, MAC Algm]

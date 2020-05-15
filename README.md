@@ -56,10 +56,14 @@ If these open the wrong file for you, make a `SSH Config.sublime-settings` file 
     + Syntax highlighting
     + Symbol index
     + (unmapped) "Open file" commands
+- Completion and highlighting for crypto stuff
+    + Key types
+    + KEX algorithms
+    + Encryption ciphers
+    + MACs
 
 ## To-Do
 
-- Completion and highlighting for crypto stuff (MACs, ciphers, algos)
 - Better highlighting for paths
 
 [man-ssh-config]: https://man7.org/linux/man-pages/man5/ssh_config.5.html
