@@ -62,7 +62,7 @@ If these open the wrong file for you, make a `SSH Config.sublime-settings` file 
 - Completion and highlighting for crypto stuff (MACs, ciphers, algos)
 - Better highlighting for paths
 
-[man-ssh-config]: http://man7.org/linux/man-pages/man5/ssh_config.5.html
-[man-sshd-config]: http://man7.org/linux/man-pages/man5/sshd_config.5.html
+[man-ssh-config]: https://man7.org/linux/man-pages/man5/ssh_config.5.html
+[man-sshd-config]: https://man7.org/linux/man-pages/man5/sshd_config.5.html
 [pkg]: https://packagecontrol.io/packages/SSH%20Config
 [pkg-ctrl]: https://packagecontrol.io

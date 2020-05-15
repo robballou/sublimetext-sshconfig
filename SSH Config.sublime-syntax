@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 # https://www.sublimetext.com/docs/3/syntax.html
-# http://man7.org/linux/man-pages/man5/ssh_config.5.html
+# https://man7.org/linux/man-pages/man5/ssh_config.5.html
 name: SSH Config
 file_extensions:
   - ssh_config
@@ -22,7 +22,7 @@ contexts:
     - include: generic-option
 
   tokens:
-    # http://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
+    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
     # https://man.openbsd.org/ssh_config.5#TOKENS
     - match: '%[%CdhiLlnprTu]'
       scope: constant.character.escape.ssh_config
@@ -146,7 +146,7 @@ contexts:
         5: invalid.illegal.ssh_config
 
   host-patterns:
-    # http://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
+    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
     - match: '!'
       scope: keyword.operator.logical.ssh_config
     - match: '[^\s*?,]+'
@@ -155,7 +155,7 @@ contexts:
       scope: entity.name.label.host-alias.ssh_config keyword.operator.wildcard.ssh_config
 
   match-exec-tokens:
-    # http://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
+    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
     - match: '%[%hiLlnpru]'
       scope: constant.character.escape.ssh_config
 
