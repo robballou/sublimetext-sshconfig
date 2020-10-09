@@ -13,13 +13,20 @@ on:
       - '**.tmPreferences'
 
 jobs:
-  syntax_tests:
-    name: Run Syntax Tests
+  main:
+    name: Syntax Tests (${{ matrix.build }})
+    strategy:
+      matrix:
+        include:
+          - build: 3211
+            packages: st3
+          - build: 4087
+            packages: master
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: SublimeText/syntax-test-action@v2
         with:
-          build: latest
-          default_packages: master
+          build: ${{ matrix.build }}
+          default_packages: ${{ matrix.packages }}
           package_name: 'SSH Config'
