@@ -7,7 +7,7 @@ Match Host targ?t_host Exec not_inside_network User sue
 #          ^^^^^^^^^^^ entity.name.label.host-alias
 #              ^       keyword.operator.wildcard
 #                      ^^^^                    keyword.other
-#                           ^^^^^^^^^^^^^^^^^^ source.embedded.shell meta.function-call.shell
+#                           ^^^^^^^^^^^^^^^^^^ source.embedded.shell meta.function-call
 #                          ^                    - source.embedded.shell
 #                                             ^ - source.embedded.shell
 #                                              ^^^^     keyword.other

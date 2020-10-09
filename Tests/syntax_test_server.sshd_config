@@ -120,7 +120,7 @@ Match User *,!username1,!username2
     ForceCommand internal-sftp -f LOCAL0 -l INFO
     #^^^^^^^^^^^ meta.mapping.key keyword.other
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value source.embedded.shell
-    #            ^^^^^^^^^^^^^ meta.function-call.shell variable.function.shell
+    #            ^^^^^^^^^^^^^ meta.function-call variable.function.shell
     #                                           ^ - source.embedded
 
 # Comment
