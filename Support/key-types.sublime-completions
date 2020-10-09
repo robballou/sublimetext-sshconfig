@@ -132,6 +132,26 @@
             ]
         },
         {
+            "trigger": "spi-sign-rsa\tkey type",
+            "contents": "spi-sign-rsa",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "ssh-dss-sha256@ssh.com\tkey type",
+            "contents": "ssh-dss-sha256@ssh.com",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
             "trigger": "ssh-ed25519\tkey type",
             "contents": "ssh-ed25519",
             "annotation": "key type",
@@ -144,6 +164,46 @@
         {
             "trigger": "ssh-ed25519-cert-v01@openssh.com\tkey type",
             "contents": "ssh-ed25519-cert-v01@openssh.com",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "ssh-ed448\tkey type",
+            "contents": "ssh-ed448",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "ssh-gost-2001\tkey type",
+            "contents": "ssh-gost-2001",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "ssh-gost-2012-256\tkey type",
+            "contents": "ssh-gost-2012-256",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "ssh-gost-2012-512\tkey type",
+            "contents": "ssh-gost-2012-512",
             "annotation": "key type",
             "kind": [
                 "type",
@@ -182,6 +242,46 @@
             ]
         },
         {
+            "trigger": "x509v3-ecdsa-sha2-nistp256\tkey type",
+            "contents": "x509v3-ecdsa-sha2-nistp256",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "x509v3-ecdsa-sha2-nistp384\tkey type",
+            "contents": "x509v3-ecdsa-sha2-nistp384",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "x509v3-ecdsa-sha2-nistp521\tkey type",
+            "contents": "x509v3-ecdsa-sha2-nistp521",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "x509v3-rsa2408-sha256\tkey type",
+            "contents": "x509v3-rsa2408-sha256",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
             "trigger": "x509v3-sign-rsa\tkey type",
             "contents": "x509v3-sign-rsa",
             "annotation": "key type",
@@ -202,8 +302,8 @@
             ]
         },
         {
-            "trigger": "x509v3-ssh-rsa\tkey type",
-            "contents": "x509v3-ssh-rsa",
+            "trigger": "x509v3-ssh-rs\tkey type",
+            "contents": "x509v3-ssh-rs",
             "annotation": "key type",
             "kind": [
                 "type",
@@ -247,6 +347,17 @@
         {
             "trigger": "ssh-rsa-cert-v00@openssh.com\tdeprecated key type",
             "contents": "ssh-rsa-cert-v00@openssh.com",
+            "annotation": "deprecated key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ssh-rsa1\tdeprecated key type",
+            "contents": "ssh-rsa1",
             "annotation": "deprecated key type",
             "kind": [
                 "type",

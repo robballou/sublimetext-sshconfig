@@ -29,22 +29,42 @@ key type: sk-ecdsa-sha2-nistp256-cert-v01@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
 key type: sk-ecdsa-sha2-nistp256@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
+key type: spi-sign-rsa
+#         ^^^^^^^^^^^^ support.type.key-type
+key type: ssh-dss-sha256@ssh.com
+#         ^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
 key type: ssh-ed25519
 #         ^^^^^^^^^^^ support.type.key-type
 key type: ssh-ed25519-cert-v01@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
+key type: ssh-ed448
+#         ^^^^^^^^^ support.type.key-type
+key type: ssh-gost-2001
+#         ^^^^^^^^^^^^^ support.type.key-type
+key type: ssh-gost-2012-256
+#         ^^^^^^^^^^^^^^^^^ support.type.key-type
+key type: ssh-gost-2012-512
+#         ^^^^^^^^^^^^^^^^^ support.type.key-type
 key type: ssh-rsa
 #         ^^^^^^^ support.type.key-type
 key type: ssh-rsa-cert-v01@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
 key type: ssh-rsa-sha256@ssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
+key type: x509v3-ecdsa-sha2-nistp256
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
+key type: x509v3-ecdsa-sha2-nistp384
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
+key type: x509v3-ecdsa-sha2-nistp521
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
+key type: x509v3-rsa2408-sha256
+#         ^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
 key type: x509v3-sign-rsa
 #         ^^^^^^^^^^^^^^^ support.type.key-type
 key type: x509v3-sign-rsa-sha256@ssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
-key type: x509v3-ssh-rsa
-#         ^^^^^^^^^^^^^^ support.type.key-type
+key type: x509v3-ssh-rs
+#         ^^^^^^^^^^^^^ support.type.key-type
 key type: ssh-dss
 #         ^^^^^^^ invalid.deprecated.key-type
 key type: ssh-dss-cert-v00@openssh.com
@@ -53,11 +73,17 @@ key type: ssh-dss-cert-v01@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type
 key type: ssh-rsa-cert-v00@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type
+key type: ssh-rsa1
+#         ^^^^^^^^ invalid.deprecated.key-type
 key type: x509v3-sign-dss
 #         ^^^^^^^^^^^^^^^ invalid.deprecated.key-type
 
 ###[ ciphers ]#################################################################
 
+cipher: AEAD_AES_128_GCM
+#       ^^^^^^^^^^^^^^^^ support.function.cipher
+cipher: AEAD_AES_256_GCM
+#       ^^^^^^^^^^^^^^^^ support.function.cipher
 cipher: aes128-ctr
 #       ^^^^^^^^^^ support.function.cipher
 cipher: aes128-gcm
@@ -88,6 +114,10 @@ cipher: chacha20-poly1305
 #       ^^^^^^^^^^^^^^^^^ support.function.cipher
 cipher: chacha20-poly1305@openssh.com
 #       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher
+cipher: crypticore128@ssh.com
+#       ^^^^^^^^^^^^^^^^^^^^^ support.function.cipher
+cipher: seed-cbc@ssh.com
+#       ^^^^^^^^^^^^^^^^ support.function.cipher
 cipher: twofish-ctr
 #       ^^^^^^^^^^^ support.function.cipher
 cipher: twofish128-ctr
@@ -167,6 +197,8 @@ kex: curve25519-sha256
 #    ^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
 kex: curve25519-sha256@libssh.org
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
+kex: Curve25519SHA256
+#    ^^^^^^^^^^^^^^^^ support.function.kex-algorithm
 kex: curve448-sha512
 #    ^^^^^^^^^^^^^^^ support.function.kex-algorithm
 kex: diffie-hellman-group-exchange-sha256
@@ -175,6 +207,8 @@ kex: diffie-hellman-group-exchange-sha256@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
 kex: diffie-hellman-group-exchange-sha512@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
+kex: diffie-hellman-group1-sha256
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
 kex: diffie-hellman-group14-sha256
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
 kex: diffie-hellman-group14-sha256@ssh.com
@@ -233,10 +267,22 @@ kex: ext-info-c
 #    ^^^^^^^^^^ support.function.kex-algorithm
 kex: ext-info-s
 #    ^^^^^^^^^^ support.function.kex-algorithm
+kex: gss-curve25519-sha256-
+#    ^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
+kex: gss-group14-sha256-
+#    ^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
 kex: gss-group14-sha256-toWM5Slw5Ew8Mqkay+al2g==
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
+kex: gss-group15-sha512-
+#    ^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
 kex: gss-group15-sha512-toWM5Slw5Ew8Mqkay+al2g==
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
+kex: gss-group16-sha512-
+#    ^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
+kex: gss-nistp256-sha256-
+#    ^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
+kex: kexAlgoCurve25519SHA256
+#    ^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
 kex: kexguess2@matt.ucc.asn.au
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm
 kex: rsa1024-sha1
@@ -266,17 +312,43 @@ kex: gss-group14-sha1-toWM5Slw5Ew8Mqkay+al2g==
 
 ###[ mac-algorithms ]##########################################################
 
+mac: aes128-gcm
+#    ^^^^^^^^^^ support.function.mac-algorithm
+mac: aes256-gcm
+#    ^^^^^^^^^^ support.function.mac-algorithm
+mac: chacha20-poly1305@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
+mac: crypticore-mac@ssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: hmac-sha1
 #    ^^^^^^^^^ support.function.mac-algorithm
-mac: hmac-sha2-56
-#    ^^^^^^^^^^^^ support.function.mac-algorithm
+mac: hmac-sha1-etm@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: hmac-sha2-224
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: hmac-sha2-256
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm
+mac: hmac-sha2-256-96-etm@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
+mac: hmac-sha2-256-etm@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: hmac-sha2-384
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: hmac-sha2-512
+#    ^^^^^^^^^^^^^ support.function.mac-algorithm
+mac: hmac-sha2-512-96-etm@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
+mac: hmac-sha2-512-etm@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
+mac: hmac-sha2-56
+#    ^^^^^^^^^^^^ support.function.mac-algorithm
+mac: hmac-sha256
+#    ^^^^^^^^^^^ support.function.mac-algorithm
+mac: hmac-sha256-96@ssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
+mac: hmac-sha256@ssh.com
+#    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
+mac: hmac-sha3-224
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: hmac-sha3-256
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm
@@ -284,42 +356,22 @@ mac: hmac-sha3-384
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: hmac-sha3-512
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm
-mac: hmac-sha256
-#    ^^^^^^^^^^^ support.function.mac-algorithm
-mac: hmac-sha256-96@ssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
-mac: hmac-sha256@ssh.com
-#    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: hmac-sha512
 #    ^^^^^^^^^^^ support.function.mac-algorithm
 mac: hmac-sha512@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
-mac: umac-64@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
+mac: umac-128-etm@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: umac-128@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
-mac: hmac-sha1-etm@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
-mac: hmac-sha2-256-96-etm@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
-mac: hmac-sha2-512-96-etm@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
-mac: hmac-sha2-256-etm@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
-mac: hmac-sha2-512-etm@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: umac-32@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: umac-64-etm@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
+mac: umac-64@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
 mac: umac-96@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
-mac: umac-128-etm@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm
-mac: aes128-gcm
-#    ^^^^^^^^^^ support.function.mac-algorithm
-mac: aes256-gcm
-#    ^^^^^^^^^^ support.function.mac-algorithm
 mac: hmac-md5
 #    ^^^^^^^^ invalid.deprecated.mac-algorithm
 mac: hmac-md5-96

@@ -22,6 +22,16 @@
             ]
         },
         {
+            "trigger": "Curve25519SHA256\tkex",
+            "contents": "Curve25519SHA256",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "curve448-sha512\tkex",
             "contents": "curve448-sha512",
             "annotation": "kex",
@@ -54,6 +64,16 @@
         {
             "trigger": "diffie-hellman-group-exchange-sha512@ssh.com\tkex",
             "contents": "diffie-hellman-group-exchange-sha512@ssh.com",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "diffie-hellman-group1-sha256\tkex",
+            "contents": "diffie-hellman-group1-sha256",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -352,6 +372,26 @@
             ]
         },
         {
+            "trigger": "gss-curve25519-sha256-\tkex",
+            "contents": "gss-curve25519-sha256-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "gss-group14-sha256-\tkex",
+            "contents": "gss-group14-sha256-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "gss-group14-sha256-toWM5Slw5Ew8Mqkay+al2g==\tkex",
             "contents": "gss-group14-sha256-toWM5Slw5Ew8Mqkay+al2g==",
             "annotation": "kex",
@@ -362,8 +402,48 @@
             ]
         },
         {
+            "trigger": "gss-group15-sha512-\tkex",
+            "contents": "gss-group15-sha512-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "gss-group15-sha512-toWM5Slw5Ew8Mqkay+al2g==\tkex",
             "contents": "gss-group15-sha512-toWM5Slw5Ew8Mqkay+al2g==",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "gss-group16-sha512-\tkex",
+            "contents": "gss-group16-sha512-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "gss-nistp256-sha256-\tkex",
+            "contents": "gss-nistp256-sha256-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "kexAlgoCurve25519SHA256\tkex",
+            "contents": "kexAlgoCurve25519SHA256",
             "annotation": "kex",
             "kind": [
                 "function",

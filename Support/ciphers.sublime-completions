@@ -2,6 +2,26 @@
     "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - source source",
     "completions": [
         {
+            "trigger": "AEAD_AES_128_GCM\tcipher",
+            "contents": "AEAD_AES_128_GCM",
+            "annotation": "cipher",
+            "kind": [
+                "function",
+                "c",
+                "Cipher"
+            ]
+        },
+        {
+            "trigger": "AEAD_AES_256_GCM\tcipher",
+            "contents": "AEAD_AES_256_GCM",
+            "annotation": "cipher",
+            "kind": [
+                "function",
+                "c",
+                "Cipher"
+            ]
+        },
+        {
             "trigger": "aes128-ctr\tcipher",
             "contents": "aes128-ctr",
             "annotation": "cipher",
@@ -144,6 +164,26 @@
         {
             "trigger": "chacha20-poly1305@openssh.com\tcipher",
             "contents": "chacha20-poly1305@openssh.com",
+            "annotation": "cipher",
+            "kind": [
+                "function",
+                "c",
+                "Cipher"
+            ]
+        },
+        {
+            "trigger": "crypticore128@ssh.com\tcipher",
+            "contents": "crypticore128@ssh.com",
+            "annotation": "cipher",
+            "kind": [
+                "function",
+                "c",
+                "Cipher"
+            ]
+        },
+        {
+            "trigger": "seed-cbc@ssh.com\tcipher",
+            "contents": "seed-cbc@ssh.com",
             "annotation": "cipher",
             "kind": [
                 "function",
