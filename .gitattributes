@@ -1,0 +1,4 @@
+/.git* export-ignore
+/src/ export-ignore
+/[Tt]ests/ export-ignore
+README.md export-ignore
