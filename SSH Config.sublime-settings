@@ -25,4 +25,8 @@
     // Map keys: ssh_config, sshd_config, known_hosts,
     //           authorized_keys
     "file_locations": null,
+
+    // Tell the "Open" command for SSH Config to apply the syntax
+    // highlighting, even if the file extension is not configured.
+    "force_ssh_config_syntax": true,
 }

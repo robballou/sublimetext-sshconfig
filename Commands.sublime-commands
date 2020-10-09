@@ -1,10 +1,18 @@
 [
-  {
-    "caption": "Open SSH Config File",
-    "command": "open_ssh_config_file",
-  },
-  {
-    "caption": "Open SSHD Config File",
-    "command": "open_sshd_config_file",
-  },
+    {
+        "caption": "SSH Config: Open SSH Config File",
+        "command": "open_ssh_config_file",
+    },
+    {
+        "caption": "SSH Config: Open SSHD Config File",
+        "command": "open_sshd_config_file",
+    },
+    {
+        "caption": "SSH Config: Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/SSH Config/SSH Config.sublime-settings",
+            "default": "{\n\t$0\n}\n",
+        }
+    },
 ]

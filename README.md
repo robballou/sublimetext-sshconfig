@@ -6,16 +6,6 @@ Provides highlighting and snippets for [`~/.ssh/config`][man-ssh-config] and [`/
 
 This package [is available][pkg] via [Package Control][pkg-ctrl]. You can install it by searching for SSH in the "Install Package" interface or by cloning this repository in your Sublime Text "Packages" directory.
 
-## Snippets and Completions
-
-If you do not see on-demand autocomplete, check for an `auto_complete_selector` line in your Syntax-specific Settings file. If it says `text.ssh_config`, remove the whole line. If one does not exist, you can try adding
-
-``` json
-{
-    "auto_complete_selector": "source.ssh_config, source.sshd_config"
-}
-```
-
 ### SSH Config
 
 - `host`: create a new Host entry
@@ -24,6 +14,20 @@ If you do not see on-demand autocomplete, check for an `auto_complete_selector` 
 - Symbol Index for hosts and aliases
     (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
      <kbd>Cmd</kbd>+<kbd>R</kbd>)
+
+Note that `~/.ssh/config` is not linked to the SSH Config syntax highlighting
+out of the box. This is because the filename is shared by other formats (e.g.
+`.git/config`) and we don't want to set the wrong highlighting for those.
+
+Here are three ways to change that:
+
+1. Use the "Open SSH Config" command to open your config, which proactively
+    sets the right highlighting unless you disable it.
+2. Choose "Open all with current extension as..." from the syntax highlighting
+    selection menu.
+3. Install and configure [ApplySyntax][] to examine the whole path of the file
+    and set the syntax highlighting after load. Sample configuration
+    [shown here][applysyntax-config]
 
 ### SSHD Config
 
@@ -37,16 +41,19 @@ If you do not see on-demand autocomplete, check for an `auto_complete_selector` 
 - Open SSH Config File
 - Open SSHD Config File
 
-If these open the wrong file for you, make a `SSH Config.sublime-settings` file in your `Packages/User` folder, and put in content like this:
+If these commands open the wrong file for you, open the Command Palette
+(<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or
+ <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), search for
+ "SSH Config: Settings", and put in content like this:
 
-``` json
+``` jsonc
 {
     "file_locations": {
         "ssh_config": "~/.ssh/config",
         "sshd_config": "/etc/ssh/sshd_config",
         "known_hosts": "~/.ssh/known_hosts",
-        "authorized_keys": "~/.ssh/authorized_keys"
-    }
+        "authorized_keys": "~/.ssh/authorized_keys",
+    },
 }
 ```
 
@@ -70,3 +77,5 @@ If these open the wrong file for you, make a `SSH Config.sublime-settings` file 
 [man-sshd-config]: https://man7.org/linux/man-pages/man5/sshd_config.5.html
 [pkg]: https://packagecontrol.io/packages/SSH%20Config
 [pkg-ctrl]: https://packagecontrol.io
+[applysyntax]: https://packagecontrol.io/packages/ApplySyntax
+[applysyntax-config]: https://github.com/robballou/sublimetext-sshconfig/issues/8#issuecomment-686492850
