@@ -2,7 +2,7 @@
 ---
 key-types:
   # ssh -Q key
-  # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
+  # https://github.com/jtesta/ssh-audit/blob/master/src/ssh_audit/ssh2_kexdb.py
   completions:
     scope: "
       (source.ssh_config | source.sshd_config)
@@ -61,7 +61,7 @@ key-types:
 
 ciphers:
   # ssh -Q ciphers
-  # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
+  # https://github.com/jtesta/ssh-audit/blob/master/src/ssh_audit/ssh2_kexdb.py
   completions:
     scope: "
       (source.ssh_config | source.sshd_config)
@@ -135,7 +135,7 @@ ciphers:
 
 kex-algorithms:
   # ssh -Q kex
-  # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
+  # https://github.com/jtesta/ssh-audit/blob/master/src/ssh_audit/ssh2_kexdb.py
   completions:
     scope: "
       (source.ssh_config | source.sshd_config)
@@ -212,7 +212,7 @@ kex-algorithms:
 
 mac-algorithms:
   # ssh -Q mac
-  # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
+  # https://github.com/jtesta/ssh-audit/blob/master/src/ssh_audit/ssh2_kexdb.py
   completions:
     scope: "
       (source.ssh_config | source.sshd_config)
