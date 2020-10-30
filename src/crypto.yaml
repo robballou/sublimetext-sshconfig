@@ -4,7 +4,14 @@ key-types:
   # ssh -Q key
   # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
   completions:
-    scope: (source.ssh_config | source.sshd_config) & meta.mapping.value - source source, (text.authorized_keys | text.known_hosts) - comment - string
+    scope: "
+      (source.ssh_config | source.sshd_config)
+        & meta.mapping.value
+        - source source,
+      (text.authorized_keys | text.known_hosts)
+        - comment
+        - string
+    "
     kind: [type, k, Key type]
     annotation: key type
   active:
@@ -56,7 +63,11 @@ ciphers:
   # ssh -Q ciphers
   # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
   completions:
-    scope: (source.ssh_config | source.sshd_config) & meta.mapping.value - source source
+    scope: "
+      (source.ssh_config | source.sshd_config)
+        & meta.mapping.value
+        - source source
+      "
     kind: [function, c, Cipher]
     annotation: cipher
   active:
@@ -126,7 +137,11 @@ kex-algorithms:
   # ssh -Q kex
   # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
   completions:
-    scope: (source.ssh_config | source.sshd_config) & meta.mapping.value - source source
+    scope: "
+      (source.ssh_config | source.sshd_config)
+        & meta.mapping.value
+        - source source
+      "
     kind: [function, k, Kex Algm]
     annotation: kex
   active:
@@ -199,7 +214,11 @@ mac-algorithms:
   # ssh -Q mac
   # https://github.com/jtesta/ssh-audit/blob/master/ssh-audit.py
   completions:
-    scope: (source.ssh_config | source.sshd_config) & meta.mapping.value - source source
+    scope: "
+      (source.ssh_config | source.sshd_config)
+        & meta.mapping.value
+        - source source
+      "
     kind: [function, m, MAC Algm]
     annotation: mac
   active:

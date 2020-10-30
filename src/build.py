@@ -69,7 +69,7 @@ def build_crypto():
 
     for domain, settings in crypto_input.items():
         completions = {
-            'scope': settings['completions']['scope'],
+            'scope': settings['completions']['scope'].strip(),
             'completions': [],
         }
         default_kind = settings['completions']['kind']
