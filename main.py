@@ -1,5 +1,6 @@
 import sublime
 import sublime_plugin
+from os.path import expandvars
 
 
 def get_file_location(identifier):
@@ -7,12 +8,12 @@ def get_file_location(identifier):
     user_setting = settings.get('file_locations')
     if user_setting:
         if identifier in user_setting:
-            return user_setting[identifier]
+            return expandvars(user_setting[identifier])
         else:
             print('Could not find {} key in "file_locations"'
                   ''.format(identifier))
-    return settings.get(
-        'default_file_locations')[sublime.platform()][identifier]
+    return expandvars(settings.get(
+        'default_file_locations')[sublime.platform()][identifier])
 
 
 class OpenSshConfigFileCommand(sublime_plugin.TextCommand):
