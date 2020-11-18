@@ -1,7 +1,8 @@
 %YAML 1.2
 ---
-# https://www.sublimetext.com/docs/3/syntax.html
+# https://www.sublimetext.com/docs/syntax.html
 # https://man7.org/linux/man-pages/man5/ssh_config.5.html
+# https://man.openbsd.org/ssh_config.5
 name: SSH Config
 file_extensions:
   - ssh_config
@@ -147,6 +148,7 @@ contexts:
 
   host-patterns:
     # https://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
+    # https://man.openbsd.org/ssh_config.5#PATTERNS
     - match: '!'
       scope: keyword.operator.logical.ssh_config
     - match: '[^\s*?,]+'
@@ -156,6 +158,7 @@ contexts:
 
   match-exec-tokens:
     # https://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
+    # https://man.openbsd.org/ssh_config.5#TOKENS
     - match: '%[%hiLlnpru]'
       scope: constant.character.escape.ssh_config
 

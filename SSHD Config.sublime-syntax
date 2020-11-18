@@ -1,7 +1,8 @@
 %YAML 1.2
 ---
-# https://www.sublimetext.com/docs/3/syntax.html
+# https://www.sublimetext.com/docs/syntax.html
 # https://man7.org/linux/man-pages/man5/sshd_config.5.html
+# https://man.openbsd.org/sshd_config.5
 name: SSHD Config
 file_extensions:
   - sshd_config
@@ -53,6 +54,7 @@ contexts:
 
   tokens:
     # https://man7.org/linux/man-pages/man5/sshd_config.5.html#TOKENS
+    # https://man.openbsd.org/ssh_config.5#TOKENS
     - match: '%[%DFfhiKksTtUu]'
       scope: constant.character.escape.sshd_config
 
@@ -119,6 +121,7 @@ contexts:
 
   string-patterns:
     # https://man7.org/linux/man-pages/man5/sshd_config.5.html#PATTERNS
+    # https://man.openbsd.org/ssh_config.5#PATTERNS
     - match: '[^\s*?!,]+'
       scope: string.unquoted.sshd_config
     - match: '!'

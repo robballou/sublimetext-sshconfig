@@ -1,6 +1,7 @@
 %YAML 1.2
 ---
-# https://www.sublimetext.com/docs/3/syntax.html
+# https://www.sublimetext.com/docs/syntax.html
+# https://man7.org/linux/man-pages/man8/sshd.8.html#SSH_KNOWN_HOSTS_FILE_FORMAT
 # https://man.openbsd.org/sshd.8#SSH_KNOWN_HOSTS_FILE_FORMAT
 name: Known Hosts
 scope: text.known_hosts
