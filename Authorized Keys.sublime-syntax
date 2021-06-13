@@ -33,7 +33,7 @@ contexts:
   flag-options:
     - match: (?:no-)?(?:pty|user-rc|(?:agent|port|X11)-forwarding)
       scope: keyword.other.authorized_keys
-    - match: (?:no-touch-required|cert-authority|restrict)
+    - match: (?:no-touch-required|verify-required|cert-authority|restrict)
       scope: keyword.other.authorized_keys
 
   value-options:
