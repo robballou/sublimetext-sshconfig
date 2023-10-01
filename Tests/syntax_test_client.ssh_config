@@ -1,6 +1,23 @@
 # SYNTAX TEST "Packages/SSH Config/SSH Config.sublime-syntax"
 
+#<- meta.block.naked
+User foo
+# ^^^^^^ meta.block.naked
+# ^^     keyword.other
+#    ^^^ string.unquoted
+Port 22
+# ^^^^^ meta.block.naked
+# ^^    keyword.other
+#    ^^ constant.numeric
+Include ~/.ssh/config_*_cloud
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.naked
+# ^^^^^                       keyword.other
+#       ^^^^^^^^^^^^^^^^^^^^^ string.unquoted
+#                     ^       keyword.operator.wildcard
+
+
 Match Host targ?t_host Exec not_inside_network User sue
+#<- - meta.block.naked
 # ^^^ keyword.control.conditional
 #     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^             keyword.other
