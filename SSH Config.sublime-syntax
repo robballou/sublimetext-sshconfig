@@ -12,6 +12,7 @@ contexts:
     - include: comments
     - include: host
     - include: match
+    - include: naked-options
 
   options:
     - include: comments
@@ -41,6 +42,13 @@ contexts:
     - match: \n
       scope: meta.mapping.value.ssh_config
       pop: true
+
+  naked-options:
+    - match: (?!^[ \t]*(?i:host|match)\b)
+      push:
+        - meta_scope: meta.block.naked.ssh_config
+        - include: pop-before-next-host
+        - include: options
 
   # Host
   host:
