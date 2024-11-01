@@ -31,7 +31,7 @@ Match Host targ?t_host Exec not_inside_network User sue
 #                                                   ^^^ string.unquoted
     ProxyCommand ssh -W %h:%p proxy_server
 #<- - meta.statement
-    # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match
+    # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match
     # ^^^^^^^^^^                             keyword.other
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^   source.embedded.shell
     #                   ^^                   constant.character.escape
@@ -99,12 +99,12 @@ Host *.splat?.com
 
 # Comment
 # <- comment.line.number-sign punctuation.definition.comment
-#^^^^^^^^ comment.line.number-sign
+#^^^^^^^^^ comment.line.number-sign
 
     # Comment
 #^^^ - comment
     # <- comment.line.number-sign punctuation.definition.comment
-    #^^^^^^^^ comment.line.number-sign
+    #^^^^^^^^^ comment.line.number-sign
 
 Host *
 # ^^              keyword.declaration.host-alias
