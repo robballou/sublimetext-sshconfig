@@ -1,0 +1,38 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+scope: source.shell.bash.ssh_config
+version: 2
+hidden: true
+
+extends: Packages/ShellScript/Bash.sublime-syntax
+
+contexts:
+  main:
+    - meta_prepend: true
+    - include: ssh-config-none
+
+  expansions-parameter:
+    - meta_prepend: true
+    - include: ssh-config-char-escapes
+
+  string-prototype:
+    - meta_prepend: true
+    - include: ssh-config-char-escapes
+
+  ssh-config-char-escapes:
+    - match: '{{ssh_config_character_escapes}}'
+      scope: constant.character.escape.ssh_config
+
+  ssh-config-none:
+    - match: none
+      scope: constant.language.set.ssh_config
+      pop: true
+    #- include: scope:source.ssh_config#pop-nl-as-value
+
+variables:
+  # requires Packages PR #4024
+  # lazy escaping from heredoc as shell maybe indented
+  no_indent: ^\s*
+  tab_indent: ^\s*
+  ssh_config_character_escapes: '%[%hpr]'

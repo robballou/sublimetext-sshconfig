@@ -136,13 +136,11 @@ contexts:
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
-      push:
-        - meta_content_scope: meta.mapping.value.sshd_config source.embedded.shell
-        - match: none
-          scope: constant.language.set.sshd_config
-          pop: true
-        - include: scope:source.shell
-        - include: pop-nl-as-value
+      embed: scope:source.shell.bash.ssh_config
+      embed_scope: meta.mapping.value.ssh_config source.embedded.shell
+      escape: \n
+      escape_captures:
+        0: meta.mapping.value.ssh_config
 
   generic-option:
     - match: ^\s*([a-zA-Z1]+)\b[ \t]*(=)?

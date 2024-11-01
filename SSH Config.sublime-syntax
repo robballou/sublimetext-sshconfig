@@ -7,6 +7,10 @@ name: SSH Config
 file_extensions:
   - ssh_config
 scope: source.ssh_config
+
+variables:
+  pop_before_match_option: (?=$|[ \t]*(?i:all|canonical|exec|host|originalhost|user|localuser)\b)
+
 contexts:
   main:
     - include: comments
@@ -31,7 +35,7 @@ contexts:
 
   pop-before-match-option:
     - include: SSH Common.sublime-syntax#pop-before-nl
-    - match: (?=[ \t]*(?i:all|canonical|exec|host|originalhost|user|localuser)\b)
+    - match: '{{pop_before_match_option}}'
       pop: true
 
   pop-before-next-host:
@@ -49,7 +53,6 @@ contexts:
         - meta_scope: meta.block.naked.ssh_config
         - include: pop-before-next-host
         - include: options
-
   # Host
   host:
     - match: ^[ \t]*((?i:host))\b
@@ -98,12 +101,12 @@ contexts:
     - match: \b((?i:exec))\b[ \t]+
       captures:
         1: keyword.other.ssh_config
-      with_prototype:
-        - include: match-exec-tokens
-        - include: pop-before-match-option
-      push:
-        - meta_content_scope: source.embedded.shell
-        - include: scope:source.shell
+      # with_prototype:
+      #   - include: match-exec-tokens
+      #   - include: pop-before-match-option
+      embed: scope:source.shell.bash.ssh_config
+      embed_scope: source.embedded.shell
+      escape: '{{pop_before_match_option}}'
 
     - match: \b(?i:(?:original)?host)\b
       scope: keyword.other.ssh_config
@@ -175,36 +178,29 @@ contexts:
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      with_prototype:
-        - match: '%[%hpr]'
-          scope: constant.character.escape.ssh_config
-      push:
-        - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
-        - match: none
-          scope: constant.language.set.ssh_config
-          pop: true
-        - include: scope:source.shell
-        - include: pop-nl-as-value
+      embed: scope:source.shell.bash.ssh_config
+      embed_scope: meta.mapping.value.ssh_config source.embedded.shell
+      escape: $
 
   localcommand:
     - match: ^\s*((?i:localcommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      with_prototype:
-        - match: '%[%CdhilnprTu]'
-          scope: constant.character.escape.ssh_config
-      push:
-        - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
-        - match: none
-          scope: constant.language.set.ssh_config
-          pop: true
-        - include: scope:source.shell
-        - include: pop-nl-as-value
+      # with_prototype:
+      #   - match: '%[%CdhilnprTu]'
+      #     scope: constant.character.escape.ssh_config
+      embed: scope:source.shell.bash.ssh_config
+      embed_scope: meta.mapping.value.ssh_config source.embedded.shell
+      escape: \n
+      escape_captures:
+        0: meta.mapping.value.ssh_config
 
   boolean-value:
-    - match: \b(?i:yes|no)\b
-      scope: constant.language.boolean.ssh_config
+    - match: \b(?i:yes)\b
+      scope: constant.language.boolean.true.ssh_config
+    - match: \b(?i:no)\b
+      scope: constant.language.boolean.false.ssh_config
 
   boolean-value-with-typing:
     - include: boolean-value

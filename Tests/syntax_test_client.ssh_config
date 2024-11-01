@@ -49,6 +49,10 @@ Match Host one,two
     User bar
     Port 22
     #    ^^ constant.numeric
+    ProxyCommand none
+#^^^^^^^^^^^^^^^^^^^^ meta.block.match
+#   ^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                ^^^^ meta.mapping.value constant.language.set
 
 Host tj
     User 2022sratna
@@ -118,5 +122,13 @@ Host *
     #                                        ^ punctuation.definition.string.end
     UseKeychain yes
     # ^^^^^^^^^     keyword.other
-    #           ^^^ constant.language.boolean
+    #           ^^^ constant.language.boolean.true
     UseRoaming no
+#^^^^^^^^^^^^^^^^ meta.block.host
+#^^^ - meta.mapping
+#   ^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^ meta.mapping.value constant.language.boolean.false
+    LogLevel Quiet
+#^^^^^^^^^^^^^^^^^ meta.block.host
+#   ^^^^^^^^ meta.mapping.key keyword.other
+#            ^^^^^ meta.mapping.value string.unquoted
