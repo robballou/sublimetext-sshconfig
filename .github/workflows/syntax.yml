@@ -18,8 +18,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - build: 4180
+          - build: 4183
             packages: master
+          - build: 4180
+            packages: v4180
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
