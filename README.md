@@ -76,7 +76,7 @@ If these commands open the wrong file for you, open the Command Palette
 - Open the project from under `Packages/SSH Config`
 - Open a syntax test file located in the Tests directory
 - Run `Build With: Syntax Tests` command
-    + supplied by the `PackageDev` Sublime Package
+    + supplied by the `Default` Sublime Package
     + available on the command palette when a test file is open
 
 ## To-Do
