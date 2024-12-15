@@ -42,10 +42,10 @@ Match Host targ?t_host Exec not_inside_network User sue
 #                   ^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.arguments.shell
 #                    ^^ meta.parameter.option.shell variable.parameter.option.shell
 #                    ^ punctuation.definition.parameter.shell
-#                         ^^^ meta.string.shell string.unquoted.shell
+#                       ^^^^^ meta.string string.unquoted.shell
 #                       ^^ constant.other.placeholder.ssh
 #                          ^^ constant.other.placeholder.ssh
-#                             ^^^^^^^^^^^^ meta.string.shell string.unquoted.shell
+#                             ^^^^^^^^^^^^ meta.string string.unquoted.shell
 #                @@@ reference
 ##                       ^^ meta.string.shell string.unquoted.shell
 
@@ -129,7 +129,7 @@ Host server serverino !other-pat?ern
 #                  ^^^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.arguments.shell
 #                   ^^ meta.parameter.option.shell variable.parameter.option.shell
 #                   ^ punctuation.definition.parameter.shell
-#                      ^^^^^^^^^^^^^^ meta.string.shell string.unquoted.shell
+#                      ^^^^^^^^^^^^^^ meta.string string.unquoted.shell
 #                                     ^^ constant.other.placeholder.ssh
 #                                        ^^ constant.other.placeholder.ssh
 #                                          ^                            - source.shell

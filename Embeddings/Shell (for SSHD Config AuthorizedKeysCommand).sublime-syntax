@@ -7,4 +7,4 @@ hidden: true
 extends: Shell (for SSH Config).sublime-syntax
 
 variables:
-  tokens: (?:%[%CDfhkstUu])
+  ssh_config_character_escapes: (?:%[%CDfhkstUu])

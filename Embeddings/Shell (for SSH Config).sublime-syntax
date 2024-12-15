@@ -6,21 +6,24 @@ hidden: true
 
 extends: Packages/ShellScript/Shell-Unix-Generic.sublime-syntax
 
-variables:
-  tokens: (?:%[%CdhikLlnpru])
-
 contexts:
 
-  prototype:
+  expansions-parameter:
     - meta_prepend: true
+    - include: ssh-config-char-escapes
+
+  string-prototype:
+    - meta_prepend: true
+    - include: ssh-config-char-escapes
+
+  ssh-config-char-escapes:
     - match: '%%'
       scope: constant.character.escape.ssh
-    - match: '{{tokens}}'
+    - match: '{{ssh_config_character_escapes}}'
       scope: constant.other.placeholder.ssh
 
-  string-path-pattern-body:
-    - meta_prepend: true
-    - match: '%%'
-      scope: constant.character.escape.ssh
-    - match: '{{tokens}}'
-      scope: constant.other.placeholder.ssh
+variables:
+  # lazy escaping from heredoc as shell maybe indented
+  no_indent: ^\s*
+  tab_indent: ^\s*
+  ssh_config_character_escapes: (?:%[%CdhikLlnpru])
