@@ -24,7 +24,7 @@ Match Host targ?t_host Exec not_inside_network User sue
 #          ^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
 #              ^ keyword.operator.wildcard.ssh_config
 #                      ^^^^ keyword.other.ssh_config
-#                           ^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash meta.function-call.identifier.shell meta.path.shell variable.function.shell
+#                           ^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash variable.function.shell
 #                                              ^^^^ keyword.other.ssh_config
 #                                                   ^^^ string.unquoted.ssh_config
     ProxyCommand ssh -W %h:%p proxy_server
@@ -32,7 +32,7 @@ Match Host targ?t_host Exec not_inside_network User sue
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
 #                ^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash
-#                ^^^ meta.function-call.identifier.shell meta.path.shell variable.function.shell
+#                ^^^ variable.function.shell
 #                   ^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.arguments.shell
 #                    ^^ meta.parameter.option.shell variable.parameter.option.shell
 #                    ^ punctuation.definition.parameter.shell
@@ -250,68 +250,95 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                     ^ punctuation.definition.string.begin.ssh_config
 #                      ^^^^ constant.language.null.ssh_config
 #                          ^ punctuation.definition.string.end.ssh_config
-    KnownHostsCommand echo %%%a%b%c%d%e%f%g%h%i%j%k%l%m%n%o%p%q%r%s%t%u%v%w%x%y%z%A%B%C%D%E%F%G%H%I%J%K%L%M%N%O%P%Q%R%S%T%U%V%W%X%Y%Z
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+    KnownHostsCommand echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh.knownhostscommand source.shell
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh.knownhostscommand source.shell
 #                     ^^^^^ - constant
 #                     ^^^^ meta.function-call.identifier.shell support.function.shell
 #                          ^^ constant.character.escape.ssh
-#                            ^^^^^^ - constant
-#                                  ^^ constant.character.escape.ssh
-#                                    ^^ - constant
+#                            ^^^^^^^^^^ - constant
 #                                      ^^ constant.character.escape.ssh
-#                                        ^^ - constant
-#                                          ^^^^ constant.character.escape.ssh
-#                                              ^^ - constant
-#                                                ^^^^ constant.character.escape.ssh
-#                                                    ^^ - constant
-#                                                      ^^ constant.character.escape.ssh
-#                                                        ^^ - constant
-#                                                          ^^ constant.character.escape.ssh
-#                                                            ^^ - constant
+#                                        ^^^^ - constant
+#                                            ^^ constant.character.escape.ssh
+#                                              ^^^^ - constant
+#                                                  ^^ constant.character.escape.ssh
+#                                                     ^^ constant.character.escape.ssh
+#                                                       ^^^^ - constant
+#                                                           ^^ constant.character.escape.ssh
 #                                                              ^^ constant.character.escape.ssh
-#                                                                ^^ - constant
-#                                                                  ^^^^ constant.character.escape.ssh
-#                                                                      ^^^^^^^^^^^^^^ - constant
-#                                                                                    ^^ constant.character.escape.ssh
-#                                                                                      ^^^^^^^^ - constant
-#                                                                                              ^^^^ constant.character.escape.ssh
-#                                                                                                  ^^ - constant
-#                                                                                                    ^^^^ constant.character.escape.ssh
-#                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
-    KnownHostsCommand "echo %%%a%b%c%d%e%f%g%h%i%j%k%l%m%n%o%p%q%r%s%t%u%v%w%x%y%z%A%B%C%D%E%F%G%H%I%J%K%L%M%N%O%P%Q%R%S%T%U%V%W%X%Y%Z"
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#                                                                ^^^^ - constant
+#                                                                    ^^ constant.character.escape.ssh
+#                                                                      ^^^^ - constant
+#                                                                          ^^ constant.character.escape.ssh
+#                                                                            ^^^^ - constant
+#                                                                                ^^ constant.character.escape.ssh
+#                                                                                  ^^^^ - constant
+#                                                                                      ^^ constant.character.escape.ssh
+#                                                                                         ^^ constant.character.escape.ssh
+#                                                                                           ^^^^^^^^^^^^^^^ - constant
+    KnownHostsCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh.knownhostscommand source.shell
+#                     ^^^^^ - constant
+#                     ^^^^ meta.function-call.identifier.shell support.function.shell
+#                          ^^ constant.character.escape.ssh
+#                            ^^^^^^^ - constant
+#                                   ^^ constant.character.escape.ssh
+#                                     ^^^^^^^^^^^^^ - constant
+#                                                  ^^ constant.character.escape.ssh
+#                                                     ^^ constant.character.escape.ssh
+#                                                       ^^^^ - constant
+#                                                           ^^ constant.character.escape.ssh
+#                                                              ^^ constant.character.escape.ssh
+#                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+    KnownHostsCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
 #                     ^ punctuation.definition.string.begin.ssh_config - source.shell
-#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.quoted.double.ssh_config
-#                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh.knownhostscommand source.shell
+#                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh.knownhostscommand source.shell
 #                      ^^^^^ - constant
 #                      ^^^^ meta.function-call.identifier.shell support.function.shell
 #                           ^^ constant.character.escape.ssh
-#                             ^^^^^^ - constant
-#                                   ^^ constant.character.escape.ssh
-#                                     ^^ - constant
+#                             ^^^^^^^^^^ - constant
 #                                       ^^ constant.character.escape.ssh
-#                                         ^^ - constant
-#                                           ^^^^ constant.character.escape.ssh
-#                                               ^^ - constant
-#                                                 ^^^^ constant.character.escape.ssh
-#                                                     ^^ - constant
-#                                                       ^^ constant.character.escape.ssh
-#                                                         ^^ - constant
-#                                                           ^^ constant.character.escape.ssh
-#                                                             ^^ - constant
+#                                         ^^^^ - constant
+#                                             ^^ constant.character.escape.ssh
+#                                               ^^^^ - constant
+#                                                   ^^ constant.character.escape.ssh
+#                                                      ^^ constant.character.escape.ssh
+#                                                        ^^^^ - constant
+#                                                            ^^ constant.character.escape.ssh
 #                                                               ^^ constant.character.escape.ssh
-#                                                                 ^^ - constant
-#                                                                   ^^^^ constant.character.escape.ssh
-#                                                                       ^^^^^^^^^^^^^^ - constant
-#                                                                                     ^^ constant.character.escape.ssh
-#                                                                                       ^^^^^^^^ - constant
-#                                                                                               ^^^^ constant.character.escape.ssh
-#                                                                                                   ^^ - constant
-#                                                                                                     ^^^^ constant.character.escape.ssh
-#                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                 ^^^^ - constant
+#                                                                     ^^ constant.character.escape.ssh
+#                                                                       ^^^^ - constant
+#                                                                           ^^ constant.character.escape.ssh
+#                                                                             ^^^^ - constant
+#                                                                                 ^^ constant.character.escape.ssh
+#                                                                                   ^^^^ - constant
+#                                                                                       ^^ constant.character.escape.ssh
+#                                                                                          ^^ constant.character.escape.ssh
+#                                                                                            ^^^^^^^^^^^^^^^ - constant
+#                                                                                                           ^ punctuation.definition.string.end.ssh_config - source.shell
+    KnownHostsCommand "echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                     ^ punctuation.definition.string.begin.ssh_config - source.shell
+#                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh.knownhostscommand source.shell
+#                      ^^^^ meta.function-call.identifier.shell support.function.shell
+#                           ^^ constant.character.escape.ssh
+#                             ^^^^^^^ - constant
+#                                    ^^ constant.character.escape.ssh
+#                                      ^^^^^^^^^^^^^ - constant
+#                                                   ^^ constant.character.escape.ssh
+#                                                      ^^ constant.character.escape.ssh
+#                                                        ^^^^ - constant
+#                                                            ^^ constant.character.escape.ssh
+#                                                               ^^ constant.character.escape.ssh
+#                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                                           ^ punctuation.definition.string.end.ssh_config - source.shell
     LocalCommand none
 #^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -323,37 +350,82 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                ^ punctuation.definition.string.begin.ssh_config
 #                 ^^^^ constant.language.null.ssh_config
 #                     ^ punctuation.definition.string.end.ssh_config
-    LocalCommand "echo %%%a%b%c%d%e%f%g%h%i%j%k%l%m%n%o%p%q%r%s%t%u%v%w%x%y%z%A%B%C%D%E%F%G%H%I%J%K%L%M%N%O%P%Q%R%S%T%U%V%W%X%Y%Z"
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+    LocalCommand echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh.localcommand source.shell
+#                ^^^^ meta.function-call.identifier.shell support.function.shell
+#                     ^^ constant.character.escape.ssh
+#                       ^^^^^^^^^^ - constant
+#                                 ^^ constant.character.escape.ssh
+#                                   ^^^^^^^^^^ - constant
+#                                             ^^ constant.character.escape.ssh
+#                                                ^^ constant.character.escape.ssh
+#                                                  ^^^^ - constant
+#                                                      ^^ constant.character.escape.ssh
+#                                                         ^^ constant.character.escape.ssh
+#                                                           ^^^^ - constant
+#                                                               ^^ constant.character.escape.ssh
+#                                                                 ^^^^ - constant
+#                                                                     ^^ constant.character.escape.ssh
+#                                                                       ^^^^ - constant
+#                                                                           ^^ constant.character.escape.ssh
+#                                                                             ^^^^^^^ - constant
+#                                                                                    ^^ constant.character.escape.ssh
+#                                                                                      ^^^^^^^^^^^^^^^ - constant
+    LocalCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh.localcommand source.shell
+#                ^^^^ meta.function-call.identifier.shell support.function.shell
+#                     ^^ constant.character.escape.ssh
+#                       ^^^^^^^ - constant
+#                              ^^ constant.character.escape.ssh
+#                                ^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                         ^^ constant.character.escape.ssh
+#                                                           ^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                 ^^ constant.character.escape.ssh
+#                                                                                   ^^^^^^^^^^^^^^^^^^ - constant
+    LocalCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
 #                ^ punctuation.definition.string.begin.ssh_config - source.shell
-#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.quoted.double.ssh_config
-#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh.localcommand source.shell
-#                 ^^^^^ - constant
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh.localcommand source.shell
 #                 ^^^^ meta.function-call.identifier.shell support.function.shell
 #                      ^^ constant.character.escape.ssh
-#                        ^^^^^^ - constant
-#                              ^^ constant.character.escape.ssh
-#                                ^^^^^^ - constant
-#                                      ^^^^ constant.character.escape.ssh
-#                                          ^^ - constant
-#                                            ^^^^ constant.character.escape.ssh
-#                                                ^^ - constant
-#                                                  ^^ constant.character.escape.ssh
-#                                                    ^^ - constant
-#                                                      ^^ constant.character.escape.ssh
-#                                                        ^^ - constant
+#                        ^^^^^^^^^^ - constant
+#                                  ^^ constant.character.escape.ssh
+#                                    ^^^^^^^^^^ - constant
+#                                              ^^ constant.character.escape.ssh
+#                                                 ^^ constant.character.escape.ssh
+#                                                   ^^^^ - constant
+#                                                       ^^ constant.character.escape.ssh
 #                                                          ^^ constant.character.escape.ssh
 #                                                            ^^^^ - constant
 #                                                                ^^ constant.character.escape.ssh
-#                                                                  ^^^^^^^^^^^^^^ - constant
-#                                                                                ^^ constant.character.escape.ssh
-#                                                                                  ^^^^^^^^^^^^^^^^ - constant
-#                                                                                                  ^^ constant.character.escape.ssh
-#                                                                                                    ^^^^^^^^^^^^^^ - constant
-#                                                                                                                  ^^ constant.character.escape.ssh
-#                                                                                                                    ^^^^^^^^^^^^ - constant
-#                                                                                                                                ^ punctuation.definition.string.end.ssh_config - source.shell
+#                                                                  ^^^^ - constant
+#                                                                      ^^ constant.character.escape.ssh
+#                                                                        ^^^^ - constant
+#                                                                            ^^ constant.character.escape.ssh
+#                                                                              ^^^^^^^ - constant
+#                                                                                     ^^ constant.character.escape.ssh
+#                                                                                       ^^^^^^^^^^^^^^^ - constant
+#                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
+    LocalCommand "echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                ^ punctuation.definition.string.begin.ssh_config - source.shell
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh.localcommand source.shell
+#                 ^^^^ meta.function-call.identifier.shell support.function.shell
+#                      ^^ constant.character.escape.ssh
+#                        ^^^^^^^ - constant
+#                               ^^ constant.character.escape.ssh
+#                                 ^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                          ^^ constant.character.escape.ssh
+#                                                            ^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                  ^^ constant.character.escape.ssh
+#                                                                                    ^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
     ProxyCommand none
 #^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -366,38 +438,51 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                ^ punctuation.definition.string.begin.ssh_config
 #                 ^^^^ constant.language.null.ssh_config
 #                     ^ punctuation.definition.string.end.ssh_config
-    ProxyCommand echo %%%a%b%c%d%e%f%g%h%i%j%k%l%m%n%o%p%q%r%s%t%u%v%w%x%y%z%A%B%C%D%E%F%G%H%I%J%K%L%M%N%O%P%Q%R%S%T%U%V%W%X%Y%Z
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+    ProxyCommand echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh.proxycommand source.shell
-#                ^^^^^ - constant
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh.proxycommand source.shell
 #                ^^^^ meta.function-call.identifier.shell support.function.shell
 #                     ^^ constant.character.escape.ssh
-#                       ^^^^^^^^^^^^^^ - constant
-#                                     ^^ constant.character.escape.ssh
-#                                       ^^^^^^^^^^ - constant
-#                                                 ^^ constant.character.escape.ssh
-#                                                   ^^ - constant
-#                                                     ^^ constant.character.escape.ssh
-#                                                       ^^ - constant
-#                                                         ^^ constant.character.escape.ssh
-#                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
-    ProxyCommand "echo %%%a%b%c%d%e%f%g%h%i%j%k%l%m%n%o%p%q%r%s%t%u%v%w%x%y%z%A%B%C%D%E%F%G%H%I%J%K%L%M%N%O%P%Q%R%S%T%U%V%W%X%Y%Z"
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#                       ^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                             ^^ constant.character.escape.ssh
+#                                               ^^^^^^^^^^^^^^^^ - constant
+#                                                               ^^ constant.character.escape.ssh
+#                                                                 ^^^^ - constant
+#                                                                     ^^ constant.character.escape.ssh
+#                                                                       ^^^^ - constant
+#                                                                           ^^ constant.character.escape.ssh
+#                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+    ProxyCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh.proxycommand source.shell
+#                ^^^^ meta.function-call.identifier.shell support.function.shell
+#                     ^^ constant.character.escape.ssh
+#                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+    ProxyCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
 #                ^ punctuation.definition.string.begin.ssh_config - source.shell
-#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.quoted.double.ssh_config
-#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh.proxycommand source.shell
-#                 ^^^^^ - constant
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh.proxycommand source.shell
 #                 ^^^^ meta.function-call.identifier.shell support.function.shell
 #                      ^^ constant.character.escape.ssh
-#                        ^^^^^^^^^^^^^^ - constant
-#                                      ^^ constant.character.escape.ssh
-#                                        ^^^^^^^^^^ - constant
-#                                                  ^^ constant.character.escape.ssh
-#                                                    ^^ - constant
-#                                                      ^^ constant.character.escape.ssh
-#                                                        ^^ - constant
-#                                                          ^^ constant.character.escape.ssh
-#                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
-#                                                                                                                                ^ punctuation.definition.string.end.ssh_config - source.shell
+#                        ^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                              ^^ constant.character.escape.ssh
+#                                                ^^^^^^^^^^^^^^^^ - constant
+#                                                                ^^ constant.character.escape.ssh
+#                                                                  ^^^^ - constant
+#                                                                      ^^ constant.character.escape.ssh
+#                                                                        ^^^^ - constant
+#                                                                            ^^ constant.character.escape.ssh
+#                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
+    ProxyCommand "echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                ^ punctuation.definition.string.begin.ssh_config - source.shell
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh.proxycommand source.shell
+#                 ^^^^ meta.function-call.identifier.shell support.function.shell
+#                      ^^ constant.character.escape.ssh
+#                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
