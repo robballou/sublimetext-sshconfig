@@ -9,6 +9,10 @@
     <dict>
         <key>showInSymbolList</key>
         <integer>1</integer>
+        <key>symbolTransformation</key>
+        <string>
+        s/(.+)/IP: $1/g;
+        </string>
     </dict>
 </dict>
 </plist>

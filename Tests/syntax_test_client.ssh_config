@@ -31,7 +31,7 @@ Match Host targ?t_host Exec not_inside_network User sue
 #                           ^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash variable.function.shell
 #                                              ^^^^ keyword.other.ssh_config
 #                                                   ^^^ string.unquoted.ssh_config
-#          @@@@@@@@@@@ local-definition
+#          @@@@@@@@@@@ local-definition "Alias: targ?t_host"
 #                           @@@@@@@@@@@@@@@@@@ reference
     ProxyCommand ssh -W %h:%p proxy_server
 #<- - meta.statement - meta.block meta.block
@@ -58,8 +58,8 @@ Match Host one,two All
 #             ^ punctuation.separator.sequence.ssh.common - entity
 #              ^^^ entity.name.label.host-alias.ssh_config
 #                  ^^^ constant.language.boolean.true.ssh.common
-#          @@@ local-definition
-#              @@@ local-definition
+#          @@@ local-definition "Alias: one"
+#              @@@ local-definition "Alias: two"
     User bar
     Port 22
     #    ^^ constant.numeric
@@ -78,7 +78,7 @@ Match LocalNetwork 127.0.0.1/12,10.1.21.0/24
 #                                         ^^ constant.other.range.ssh.common
 
 Host tj
-#    @@ local-definition
+#    @@ local-definition "Alias: tj"
     User 2022sratna
 #^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -95,16 +95,16 @@ Host server serverino !other-pat?ern
 #                     ^              keyword.operator.logical.ssh.common
 #                      ^^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
 #                               ^    constant.other.wildcard.questionmark.ssh.common
-#    @@@@@@ local-definition
-#           @@@@@@@@@ local-definition
-#                      @@@@@@@@@@@@@ local-definition
+#    @@@@@@ local-definition "Alias: server"
+#           @@@@@@@@@ local-definition "Alias: serverino"
+#                      @@@@@@@@@@@@@ local-definition "Alias: other-pat?ern"
     Hostname server%h.com
 #^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^ meta.mapping.key.ssh_config keyword.declaration.host.ssh_config
 #            ^^^^^^^^^^^^ meta.string.host.ssh_config string.unquoted.hostname.ssh_config
 #                  ^^ constant.character.escape.ssh_config
 #                    ^ punctuation.separator.sequence.ssh.common
-#            @@@@@@@@@@@@ local-definition
+#            @@@@@@@@@@@@ local-definition "Host: server%h.com"
     # This is meant to be a comment
 #   ^ punctuation.definition.comment.ssh.common
 #   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign.ssh.common
@@ -156,7 +156,7 @@ Host *.splat?.com
 #           ^ constant.other.wildcard.questionmark.ssh.common
 #            ^ punctuation.separator.sequence.ssh.common
 #                ^ - entity
-#    @@@@@@@@@@@@ local-definition
+#    @@@@@@@@@@@@ local-definition "Alias: *.splat?.com"
     User tim
 #^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -207,7 +207,7 @@ Host *
 #^^^^^ meta.block.host.ssh_config - meta.block meta.block
 #^^^ meta.block.host.ssh_config keyword.declaration.host-alias.ssh_config
 #    ^ entity.name.label.host-alias.ssh_config constant.other.wildcard.asterisk.ssh.common
-#    @ local-definition
+#    @ local-definition "Alias: *"
     IdentityFile ~/.ssh/id_rsa
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -260,7 +260,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                ^^^^ variable.function.shell
 #                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - variable.function
 #                                                                                          ^ punctuation.definition.string.end.ssh_config - source.shell
-#          @@@@@@@@@@@@@ local-definition
+#          @@@@@@@@@@@@@ local-definition "Alias: *.example.com"
 #                                @@@@ reference
 Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/resolv.conf" Canonical
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
@@ -279,7 +279,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - variable.function
 #                                                                                          ^ punctuation.definition.string.end.ssh_config - source.shell
 #                                                                                            ^^^^^^^^^ keyword.other.ssh_config
-#          @@@@@@@@@@@@@ local-definition
+#          @@@@@@@@@@@@@ local-definition "Alias: *.example.com"
 #                                @@@@ reference
     KnownHostsCommand none
 #^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
