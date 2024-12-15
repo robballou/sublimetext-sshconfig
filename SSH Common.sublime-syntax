@@ -159,6 +159,14 @@ contexts:
       scope: meta.number.integer.decimal.ssh.common
              constant.numeric.port-number.ssh.common
 
+  none:
+    - match: '\b(?xi: none )\b'
+      scope: constant.language.null.ssh.common
+
+  any:
+    - match: '\b(?xi: any )\b'
+      scope: constant.language.set.ssh.common
+
   boolean:
     - match: '\b(?xi: yes )\b'
       scope: constant.language.boolean.true.ssh.common

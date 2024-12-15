@@ -436,6 +436,9 @@ contexts:
         - include: pop-nl-as-value
 
   generic-parameter-values:
+    - include: none
+    - include: boolean
+    - include: any
     - include: tokens-standard
     - include: wildcards
     - include: operator-exclamation

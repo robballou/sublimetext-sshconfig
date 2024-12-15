@@ -255,10 +255,8 @@ contexts:
 
   generic-parameter-values:
     - include: boolean
-    - match: '\b(?xi: none )\b'
-      scope: constant.language.null.sshd_config
-    - match: '\b(?xi: any )\b'
-      scope: constant.language.set.sshd_config
+    - include: none
+    - include: any
     - match: '\b(?xi: default )\b'
       scope: constant.language.default.sshd_config
     - include: ssh-key-types
