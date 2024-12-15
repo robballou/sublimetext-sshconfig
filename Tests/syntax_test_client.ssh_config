@@ -23,19 +23,20 @@ Match Host targ?t_host Exec not_inside_network User sue
 #          ^^^^^^^^^^^ entity.name.label.host-alias
 #              ^       keyword.operator.wildcard
 #                      ^^^^                    keyword.other
-#                           ^^^^^^^^^^^^^^^^^^ source.embedded.shell meta.function-call
-#                          ^                    - source.embedded.shell
-#                                             ^ - source.embedded.shell
+#                          ^                    - source.shell.embedded
+#                           ^^^^^^^^^^^^^^^^^^  source.shell.embedded meta.function-call
+#                                             ^ - source.shell.embedded
 #                                              ^^^^     keyword.other
 #                                                   ^^^ string.unquoted
     ProxyCommand ssh -W %h:%p proxy_server
 #<- - meta.statement
     # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match
     # ^^^^^^^^^^                             keyword.other
-    #            ^^^^^^^^^^^^^^^^^^^^^^^^^   source.embedded.shell
+    #           ^                            - source.shell.embedded
+    #            ^^^^^^^^^^^^^^^^^^^^^^^^^   source.shell.embedded
     #                   ^^                   constant.character.escape
     #                      ^^                constant.character.escape
-    #                                      ^  - source.embedded.shell
+    #                                      ^ - source.shell.embedded
 
 Match Host one,two
 # ^^^^^^^^^^^^^^^^ meta.block.match - meta.block.match meta.block.match
@@ -90,10 +91,11 @@ Host server serverino !other-pat?ern
     #    ^^^^ string.unquoted
     ProxyCommand nc -x localhost:8888 %h %p
     # ^^^^^^^^^^                             keyword.other
-    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  source.embedded.shell
+    #           ^                            - source.shell.embedded
+    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  source.shell.embedded
     #                                 ^^     constant.character.escape
     #                                    ^^  constant.character.escape
-    #                                      ^ - source.embedded.shell
+    #                                      ^ - source.shell.embedded
     IdentityFile ~/.ssh/creds/%h.pem
     # ^^^^^^^^^^                     keyword.other
     #            ^^^^^^^^^^^^^^^^^^^ string.unquoted

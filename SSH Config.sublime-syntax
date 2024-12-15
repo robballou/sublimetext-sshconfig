@@ -17,6 +17,7 @@ variables:
   tokens_proxycommand: (?:%[%hnpr])
   tokens_all: (?:{{tokens_knownhosts}}|%T)
   tokens_localcommand: '{{tokens_all}}'
+  match_parameters: '\b(?xi: all | canonical | exec | host | originalhost | user | localuser )\b'
 
 contexts:
   main:
@@ -46,7 +47,7 @@ contexts:
 
   pop-before-match-parameter:
     - include: SSH Common.sublime-syntax#pop-before-nl
-    - match: '(?=[ \t]*(?xi: all | canonical | exec | host | originalhost | user | localuser )\b)'
+    - match: '(?=[ \t]*{{match_parameters}})'
       pop: true
 
   pop-before-next-host:
@@ -126,6 +127,14 @@ contexts:
   match-conditions:
     - meta_content_scope: meta.block.match.ssh_config
                           meta.statement.conditional.ssh_config
+
+    # unquoted shell
+    - match: '\b((?xi: exec ))\b[ \t]+'
+      captures:
+        1: keyword.other.ssh_config
+      escape: '(?=[ \t]*(?:{{match_parameters}}|$))'
+      embed: scope:source.shell.embedded.ssh
+
     - match: \n
       set: match-body
 
@@ -146,16 +155,6 @@ contexts:
       escape_captures:
         0: string.quoted.double.ssh_config punctuation.definition.string.end.ssh_config
       embed: scope:source.shell.embedded.ssh
-    # unquoted shell
-    - match: '\b((?xi: exec ))\b[ \t]+'
-      captures:
-        1: keyword.other.ssh_config
-      with_prototype:
-        - include: tokens-standard
-        - include: pop-before-match-parameter
-      push:
-        - meta_content_scope: source.embedded.shell
-        - include: scope:source.shell
 
     # Match predicates with host arguments
     - match: '\b(?xi: (?:original)? host )\b'
@@ -256,51 +255,36 @@ contexts:
 
   parameter-proxycommand:
     # TODO: Double-quoted version
+    # TODO: Bring back "none" as a value
+    # TODO: Bring back specific tokens
     - match: ^\s*((?i:ProxyCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      with_prototype:
-        - match: '{{tokens_proxycommand}}'
-          scope: constant.character.escape.ssh_config
-      push:
-        - meta_content_scope: meta.mapping.value.ssh_config
-                              source.embedded.shell
-        - include: pop-none-value
-        - include: scope:source.shell
-        - include: pop-nl-as-value
+      escape: (?=$)
+      embed: scope:source.shell.embedded.ssh
 
   parameter-localcommand:
     # TODO: Double-quoted version
+    # TODO: Bring back "none" as a value
+    # TODO: Bring back specific tokens
     - match: ^\s*((?i:LocalCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      with_prototype:
-        - match: '{{tokens_localcommand}}'
-          scope: constant.character.escape.ssh_config
-      push:
-        - meta_content_scope: meta.mapping.value.ssh_config
-                              source.embedded.shell
-        - include: pop-none-value
-        - include: scope:source.shell
-        - include: pop-nl-as-value
+      escape: (?=$)
+      embed: scope:source.shell.embedded.ssh
 
   parameter-knownhostscommand:
     # TODO: Double-quoted version
+    # TODO: Bring back "none" as a value
+    # TODO: Bring back specific tokens
     - match: ^\s*((?i:KnownHostsCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      with_prototype:
-        - match: '{{tokens_knownhosts}}'
-          scope: constant.character.escape.ssh_config
-      push:
-        - meta_content_scope: meta.mapping.value.ssh_config
-                              source.embedded.shell
-        - include: pop-none-value
-        - include: scope:source.shell
-        - include: pop-nl-as-value
+      escape: (?=$)
+      embed: scope:source.shell.embedded.ssh
 
   boolean-value:
     - match: \b(?i:yes|no)\b
