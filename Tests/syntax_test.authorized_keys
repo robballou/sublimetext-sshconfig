@@ -100,7 +100,7 @@ tunnel="0",command="sh /etc/netstart tun0" ssh-rsa AAAAB3N21S== jane@example.net
 #     ^ keyword.operator.assignment.authorized_keys
 #      ^^^ string.quoted.double.authorized_keys
 #      ^ punctuation.definition.string.begin.authorized_keys
-#       ^ constant.numeric.integer.decimal.authorized_keys
+#       ^ meta.number.integer.decimal.authorized_keys constant.numeric.value.authorized_keys
 #        ^ punctuation.definition.string.end.authorized_keys
 #         ^ punctuation.separator.sequence.ssh.common
 #          ^^^^^^^ keyword.other.authorized_keys

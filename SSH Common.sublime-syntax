@@ -85,6 +85,7 @@ contexts:
       scope: variable.other.fingerprint.ssh.common
 
   ssh-fingerprint-with-label:
+    # TODO: Refactor so that captures (like @) can be injected
     - match: '{{ssh_fingerprint}}'
       scope: variable.other.fingerprint.ssh.common
       push:
