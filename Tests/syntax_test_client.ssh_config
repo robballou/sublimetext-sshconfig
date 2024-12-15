@@ -1,6 +1,5 @@
 # SYNTAX TEST "Packages/SSH Config/SSH Config.sublime-syntax"
 
-#<- meta.block.naked
 User foo
 # ^^^^^^ meta.block.naked
 # ^^     keyword.other
@@ -64,9 +63,10 @@ Host server serverino !other-pat?ern
 #                    ^               - entity.name.label.host-alias
 #                     ^              keyword.operator.logical
 #                      ^^^^^^^^^^^^^ entity.name.label.host-alias
-    Hostname server.com
+    Hostname server%h.com
     # ^^^^^^            keyword.declaration.host
-    #        ^^^^^^^^^^ string.unquoted.hostname
+    #        ^^^^^^^^^^^^ string.unquoted.hostname
+    #              ^^ constant.character.escape
     # This is meant to be a comment
     # <- punctuation.definition.comment
     # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
@@ -96,6 +96,20 @@ Host *.splat?.com
     Compression yes
     CompressionLevel 7
     # ^^^^^^^^^^^^^^ keyword.other - invalid.illegal
+
+    ProxyJump 1.1.1.1:27,jim@festival%h2:8080
+#   ^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value
+#             ^^^^^^^ constant.numeric.ip-address.v4
+#                    ^ punctuation.separator
+#                     ^^ meta.number.integer constant.numeric.port-number
+#                       ^ punctuation.separator.sequence
+#                        ^^^ meta.string.user string.unquoted
+#                           ^ punctuation.separator
+#                            ^^^^^^^^^^^ string.unquoted.hostname
+#                                    ^^ constant.character.escape
+#                                       ^ punctuation.separator
+#                                        ^^^^ meta.number.integer constant.numeric.port-number
 
 # Comment
 # <- comment.line.number-sign punctuation.definition.comment

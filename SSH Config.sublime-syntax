@@ -23,28 +23,24 @@ contexts:
     - include: comments
     - include: host
     - include: match
-    - include: naked-options
+    - include: naked-parameters
 
-  options:
+  parameters:
     - include: comments
-    - include: hostname
-    - include: localcommand
-    - include: proxycommand
-    - include: proxyjump
-    - include: knownhostscommand
-    - include: boolean-option
-    - include: boolean-option-plus
-    - include: generic-option
-
-  tokens:
-    - match: '{{tokens_all}}'
-      scope: constant.character.escape.ssh_config
+    - include: parameter-hostname
+    - include: parameter-localcommand
+    - include: parameter-proxycommand
+    - include: parameter-proxyjump
+    - include: parameter-knownhostscommand
+    - include: parameter-with-boolean-values
+    - include: parameter-with-boolean-values-plus
+    - include: parameter-generic
 
   tokens-standard:
     - match: '{{tokens_standard}}'
       scope: constant.character.escape.ssh_config
 
-  pop-before-match-option:
+  pop-before-match-parameter:
     - include: SSH Common.sublime-syntax#pop-before-nl
     - match: (?=[ \t]*(?i:all|canonical|exec|host|originalhost|user|localuser)\b)
       pop: true
@@ -58,16 +54,28 @@ contexts:
       scope: meta.mapping.value.ssh_config
       pop: true
 
-  naked-options:
-    - match: (?!^[ \t]*(?i:host|match)\b)
+  naked-parameters:
+    - match: (?=\S)
       push:
         - meta_scope: meta.block.naked.ssh_config
         - include: pop-before-next-host
-        - include: options
+        - include: parameters
+
+  operator-exclamation:
+    - match: '!'
+      scope: keyword.operator.logical.ssh_config
+
+  punctuation-comma-sequence:
+    - match: ','
+      scope: punctuation.separator.sequence.ssh_config
+
+  environment-variables:
+    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#ENVIRONMENT_VARIABLES
+    - include: scope:source.shell#expansions-parameter
 
   # Host
   host:
-    - match: ^[ \t]*((?i:host))\b
+    - match: ^[ \t]*((?i:Host))\b
       captures:
         1: meta.block.host.ssh_config keyword.declaration.host-alias.ssh_config
       set: host-aliases
@@ -81,7 +89,7 @@ contexts:
   host-body:
     - meta_scope: meta.block.host.ssh_config
     - include: pop-before-next-host
-    - include: options
+    - include: parameters
 
   # Match
   match:
@@ -91,12 +99,12 @@ contexts:
       set: match-conditions
 
   match-conditions:
-    - meta_content_scope: meta.block.match.ssh_config meta.statement.conditional.ssh_config
+    - meta_content_scope: meta.block.match.ssh_config
+                          meta.statement.conditional.ssh_config
     - match: \n
       set: match-body
 
-    - match: '!'
-      scope: keyword.operator.logical.ssh_config
+    - include: operator-exclamation
     - match: \b(?i:All)\b
       scope: constant.language.boolean.ssh_config
     - match: \b(?i:Canonical|Final)\b
@@ -114,8 +122,8 @@ contexts:
       captures:
         1: keyword.other.ssh_config
       with_prototype:
-        - include: match-exec-tokens
-        - include: pop-before-match-option
+        - include: tokens-standard
+        - include: pop-before-match-parameter
       push:
         - meta_content_scope: source.embedded.shell
         - include: scope:source.shell
@@ -123,81 +131,93 @@ contexts:
     - match: \b(?i:(?:Original)?Host)\b
       scope: keyword.other.ssh_config
       push:
-        - include: pop-before-match-option
-        - match: ','
-          scope: punctuation.separator.sequence.ssh_config
+        - include: pop-before-match-parameter
+        - include: punctuation-comma-sequence
         - include: host-patterns
 
     - match: \b(?i:(?:Local)?User)\b
       scope: keyword.other.ssh_config
       push:
-        - include: pop-before-match-option
+        - include: pop-before-match-parameter
         - match: \S
           scope: string.unquoted.ssh_config
 
   match-body:
     - meta_scope: meta.block.match.ssh_config
     - include: pop-before-next-host
-    - include: options
+    - include: parameters
 
-  # Options
-  hostname:
+  # Parameters
+  parameter-hostname:
     - match: ^[ \t]*((?i:HostName))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.declaration.host.ssh_config
         2: keyword.operator.assignment.ssh_config
       push:
+        - meta_content_scope: meta.string.host.ssh_config
         - include: SSH Common.sublime-syntax#pop-nl
-        - include: hostname-or-ip-value
-
-  hostname-or-ip-value:
-    - match: |-
-        (?x:
-          (
-            ((?:\d{1,3}\.){3}\d{1,3})|     # simple IPv4
-            ((?i:[a-f0-9:]+:+)+[a-f0-9]+)| # simple IPv6
-            (\S+)                          # anything else
-          )
-          [ \t]*                           # any whitespace
-          (\S*)                            # anything else on the line
-        )
-      scope: meta.mapping.value.ssh_config
-      captures:
-        1: meta.string.host.ssh_config
-        2: constant.numeric.ip-address.v4.ssh_config
-        3: constant.numeric.ip-address.v6.ssh_config
-        4: string.unquoted.hostname.ssh_config
-        5: invalid.illegal.ssh_config
+        - include: SSH Common.sublime-syntax#ip-addresses
+        - match: (?=\S+)
+          push:
+            - meta_content_scope: string.unquoted.hostname.ssh_config
+            - include: SSH Common.sublime-syntax#pop-before-nl
+            - match: '{{tokens_hostname}}'
+              scope: constant.character.escape.ssh_config
+            - match: '[ \t]+(\S+)'
+              captures:
+                1: invalid.illegal.ssh_config
 
   host-patterns:
     # https://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
     # https://man.openbsd.org/ssh_config.5#PATTERNS
-    - match: '!'
-      scope: keyword.operator.logical.ssh_config
+    - include: operator-exclamation
     - match: '[^\s*?,]+'
       scope: entity.name.label.host-alias.ssh_config
     - match: \*|\?
       scope: entity.name.label.host-alias.ssh_config keyword.operator.wildcard.ssh_config
 
-  match-exec-tokens:
-    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
-    # https://man.openbsd.org/ssh_config.5#TOKENS
-    - match: '%[%hiLlnpru]'
-      scope: constant.character.escape.ssh_config
-
-  proxyjump:
+  parameter-proxyjump:
+    # TODO: Double-quoted version
     - match: ^\s*((?i:ProxyJump))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - match: '{{tokens_proxycommand}}'
-          scope: constant.character.escape.ssh_config
-        - include: hostname-or-ip-value
         - include: pop-nl-as-value
+        - include: SSH Common.sublime-syntax#ip-addresses
+        - include: punctuation-comma-sequence
 
-  proxycommand:
+        # user
+        - match: (?=[\w%]+@)
+          push:
+            - meta_content_scope: meta.string.user.ssh_config string.unquoted.ssh_config
+            - match: '{{tokens_proxycommand}}'
+              scope: constant.character.escape.ssh_config
+            - match: '@'
+              scope: punctuation.separator.ssh_config
+              pop: true
+
+        # port
+        - match: ':(?=\d{1,5}\b)'
+          scope: punctuation.separator.ssh_config
+          push:
+            - match: (?=\D)
+              pop: true
+            - include: SSH Common.sublime-syntax#port-numbers
+
+        # host or host nickname
+        - match: \bNone\b
+          scope: constant.language.null.ssh_config
+        - match: (?=\S+)
+          push:
+            - meta_content_scope: string.unquoted.hostname.ssh_config
+            - match: (?=[\s,:"])
+              pop: true
+            - match: '{{tokens_proxycommand}}'
+              scope: constant.character.escape.ssh_config
+
+  parameter-proxycommand:
     - match: ^\s*((?i:ProxyCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -206,14 +226,15 @@ contexts:
         - match: '{{tokens_proxycommand}}'
           scope: constant.character.escape.ssh_config
       push:
-        - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
+        - meta_content_scope: meta.mapping.value.ssh_config
+                              source.embedded.shell
         - match: none
           scope: constant.language.set.ssh_config
           pop: true
         - include: scope:source.shell
         - include: pop-nl-as-value
 
-  localcommand:
+  parameter-localcommand:
     - match: ^\s*((?i:LocalCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -222,14 +243,15 @@ contexts:
         - match: '{{tokens_localcommand}}'
           scope: constant.character.escape.ssh_config
       push:
-        - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
+        - meta_content_scope: meta.mapping.value.ssh_config
+                              source.embedded.shell
         - match: none
           scope: constant.language.set.ssh_config
           pop: true
         - include: scope:source.shell
         - include: pop-nl-as-value
 
-  knownhostscommand:
+  parameter-knownhostscommand:
     - match: ^\s*((?i:KnownHostsCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -238,7 +260,8 @@ contexts:
         - match: '{{tokens_knownhosts}}'
           scope: constant.character.escape.ssh_config
       push:
-        - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
+        - meta_content_scope: meta.mapping.value.ssh_config
+                              source.embedded.shell
         - match: none
           scope: constant.language.set.ssh_config
           pop: true
@@ -254,7 +277,7 @@ contexts:
       # Match while typing as well
     - match: \b(?i:y(?:es?)?|no?)\b
 
-  boolean-option:
+  parameter-with-boolean-values:
     - match: |-
         (?x:
           ^\s*((?i:
@@ -284,7 +307,7 @@ contexts:
         - match: \S+
           scope: invalid.illegal.ssh_config
 
-  boolean-option-plus:
+  parameter-with-boolean-values-plus:
     # ask
     - match: ^\s*((?i:StrictHostKeyChecking|VerifyHostKeyDNS))\b[ \t]*(=)?
       captures:
@@ -302,7 +325,8 @@ contexts:
         - match: \S+
           scope: invalid.illegal.ssh_config
 
-  generic-option:
+  parameter-generic:
+    # the `1` is for "X11"
     - match: ^\s*([a-zA-Z1]+)\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -310,7 +334,7 @@ contexts:
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
         - include: boolean-value
-        - include: tokens
+        - include: tokens-standard
         - match: \b\d+(?=[\s,"])
           scope: constant.numeric.ssh_config
         - match: \"
@@ -323,23 +347,21 @@ contexts:
             - match: \n|$
               scope: invalid.illegal.ssh_config
               pop: true
-            - include: generic-option-includes
+            - include: generic-parameter-values
         - match: \S
           scope: string.unquoted.ssh_config
           push:
             - meta_content_scope: string.unquoted.ssh_config
             - include: SSH Common.sublime-syntax#pop-before-nl
-            - include: generic-option-includes
+            - include: generic-parameter-values
         - include: pop-nl-as-value
 
-  generic-option-includes:
-    - include: tokens
+  generic-parameter-values:
+    - include: tokens-standard
     - match: \*|\?
       scope: keyword.operator.wildcard.ssh_config
-    - match: '!'
-      scope: keyword.operator.logical.ssh_config
-    - match: ','
-      scope: punctuation.separator.sequence.ssh_config
+    - include: operator-exclamation
+    - include: punctuation-comma-sequence
     - include: SSH Crypto.sublime-syntax#ssh-key-types
     - include: SSH Crypto.sublime-syntax#ssh-ciphers
     - include: SSH Crypto.sublime-syntax#ssh-kex-algorithms
