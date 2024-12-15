@@ -10,6 +10,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHeDxE1jPGCLo51RSF7CeJbp4raIc3xo6TBiqkz4WRWI
 # ^^^^^^^^^ support.type.key-type
 #           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ variable.other.fingerprint
 #                                                                                ^^^^^^^^^^^^^^^ meta.annotation.identifier string.unquoted
+#                                                                                @@@@@@@@@@@@@@@ local-definition
 
 # Comments allowed at start of line
 ssh-rsa AAAAB3NzaLiPk== user@example.net
@@ -17,6 +18,7 @@ ssh-rsa AAAAB3NzaLiPk== user@example.net
 #^^^^^^ support.type.key-type
 #       ^^^^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                       ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                       @@@@@@@@@@@@@@@@ local-definition
 from="*.sales.example.net,!pc.sales.example.net" ssh-rsa AAAAB3N9Q== john@example.net
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
 #^^^ keyword.other.authorized_keys
@@ -30,6 +32,7 @@ from="*.sales.example.net,!pc.sales.example.net" ssh-rsa AAAAB3N9Q== john@exampl
 #                                                ^^^^^^^ support.type.key-type
 #                                                        ^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                                                                    ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                                                                    @@@@@@@@@@@@@@@@ local-definition
 command="dump /home",no-pty,no-port-forwarding ssh-rsa AAAAC3N51R== example.net
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
 #^^^^^^ keyword.other.authorized_keys
@@ -47,6 +50,8 @@ command="dump /home",no-pty,no-port-forwarding ssh-rsa AAAAC3N51R== example.net
 #                                              ^^^^^^^ support.type.key-type
 #                                                      ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                                                                   ^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#        @@@@ reference
+#                                                                   @@@@@@@@@@@ local-definition
 permitopen="192.0.2.1:80",permitopen="192.0.2.2:25" ssh-rsa AAAAB3N21S==
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
 #^^^^^^^^^ keyword.other.authorized_keys
@@ -110,6 +115,7 @@ tunnel="0",command="sh /etc/netstart tun0" ssh-rsa AAAAB3N21S== jane@example.net
 #                                          ^^^^^^^ support.type.key-type
 #                                                  ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                                                               ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                                                               @@@@@@@@@@@@@@@@ local-definition
 restrict,command="uptime" ssh-rsa AAAAB3N21S== user@example.net
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
 #^^^^^^^ keyword.other.authorized_keys
@@ -122,6 +128,7 @@ restrict,command="uptime" ssh-rsa AAAAB3N21S== user@example.net
 #                         ^^^^^^^ support.type.key-type
 #                                 ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                                              ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                                              @@@@@@@@@@@@@@@@ local-definition
 restrict,pty,command="nethack" ssh-rsa AAAAB3N21S== user@example.net
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
 #^^^^^^^ keyword.other.authorized_keys
@@ -136,12 +143,14 @@ restrict,pty,command="nethack" ssh-rsa AAAAB3N21S== user@example.net
 #                              ^^^^^^^ support.type.key-type
 #                                      ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                                                   ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                                                   @@@@@@@@@@@@@@@@ local-definition
 no-touch-required sk-ecdsa-sha2-nistp256@openssh.com AAAAB3N21S== user@example.net
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
 #^^^^^^^^^^^^^^^^ keyword.other.authorized_keys
 #                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
 #                                                    ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                                                                 ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                                                                 @@@@@@@@@@@@@@@@ local-definition
 expiry-time="20190606" ssh-rsa AAAAB3N21S== user@example.net
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
 #^^^^^^^^^^ keyword.other.authorized_keys
@@ -153,6 +162,7 @@ expiry-time="20190606" ssh-rsa AAAAB3N21S== user@example.net
 #                      ^^^^^^^ support.type.key-type
 #                              ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                                           ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                                           @@@@@@@@@@@@@@@@ local-definition
 environment="NAME=value",environment="NAME2=value2" ssh-rsa AAAAB3N21S==
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
 #^^^^^^^^^^ keyword.other.authorized_keys

@@ -1,4 +1,4 @@
-# SYNTAX TEST "Packages/SSH Config/SSHD Config.sublime-syntax"
+# SYNTAX TEST partial-symbols "Packages/SSH Config/SSHD Config.sublime-syntax"
 
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
@@ -24,13 +24,16 @@ ListenAddress ::
 #HostKey /etc/ssh/ssh_host_rsa_key
 #HostKey /etc/ssh/ssh_host_ecdsa_key
 #HostKey /etc/ssh/ssh_host_ed25519_key
+#@@@@@@@ local-definition
 
 # Ciphers and keying
 #RekeyLimit default none
+#@@@@@@@@@@ local-definition
 
 # Logging
 #SyslogFacility AUTH
 #LogLevel INFO
+#@@@@@@@@ local-definition
 
 # Authentication:
 
@@ -93,14 +96,20 @@ AcceptEnv LANG LC_*
 #Banner none
 
 # override default of no subsystems
-Subsystem   sftp    /usr/libexec/sftp-server
+ Subsystem   sftp    /usr/libexec/sftp-server
+#@@@@@@@@@ local-definition
 
 # Example of overriding settings on a per-user basis
 # Match User anoncvs
+# @@@@@ local-definition
 #   X11Forwarding no
+#   @@@@@@@@@@@@@ local-definition
 #   AllowTcpForwarding no
+#   @@@@@@@@@@@@@@@@@@ local-definition
 #   PermitTTY no
+#   @@@@@@@@@ local-definition
 #   ForceCommand cvs server
+#   @@@@@@@@@@@@ local-definition
 
 ## https://stackoverflow.com/a/36072674
 # All users except username1 and username2 default to sftp
@@ -124,6 +133,7 @@ Match User *,!username1,!usern.ame2 Host foo.example.com
 #                                                   ^ punctuation.separator.sequence.ssh.common
     PasswordAuthentication yes
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement.conditional - meta.block.match meta.block.match
+#   @@@@@@@@@@@@@@@@@@@@@@ local-definition
     #^^^^^^^^^^^^^^^^^^^^^ meta.block.match meta.mapping.key keyword.other
     #                      ^^^ constant.language.boolean
     AllowTCPForwarding no
@@ -143,20 +153,24 @@ Match User *,!username1,!usern.ame2 Host foo.example.com
 # Comment
 # <- comment.line.number-sign.sshd_config punctuation.definition.comment.sshd_config
 #^^^^^^^^ comment.line.number-sign.sshd_config
+#@@@@@@@@@@@@@ none
 
     # Comment
 #^^^ - comment
 #   ^^^^^^^^^ comment.line.number-sign.sshd_config
 #   ^ punctuation.definition.comment.sshd_config
+#@@@@@@@@@@@@@ none
 
 ; Comment
 # <- comment.line.semi-colon.sshd_config punctuation.definition.comment.sshd_config
 #^^^^^^^^ comment.line.semi-colon.sshd_config
+#@@@@@@@@@@@@@ none
 
     ; Comment
 #^^^ - comment
 #   ^^^^^^^^^ comment.line.semi-colon.sshd_config
 #   ^ punctuation.definition.comment.sshd_config
+#@@@@@@@@@@@@@ none
 
 
 # Normal ssh allowed for users username1 and username2 from the local network

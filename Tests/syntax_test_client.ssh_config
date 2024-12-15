@@ -27,6 +27,8 @@ Match Host targ?t_host Exec not_inside_network User sue
 #                           ^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash variable.function.shell
 #                                              ^^^^ keyword.other.ssh_config
 #                                                   ^^^ string.unquoted.ssh_config
+#          @@@@@@@@@@@ local-definition
+#                           @@@@@@@@@@@@@@@@@@ reference
     ProxyCommand ssh -W %h:%p proxy_server
 #<- - meta.statement - meta.block meta.block
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
@@ -36,10 +38,12 @@ Match Host targ?t_host Exec not_inside_network User sue
 #                   ^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.arguments.shell
 #                    ^^ meta.parameter.option.shell variable.parameter.option.shell
 #                    ^ punctuation.definition.parameter.shell
-#                       ^^^^^ meta.string.shell string.unquoted.shell
+#                         ^^^ meta.string.shell string.unquoted.shell
 #                       ^^ constant.character.escape.ssh
 #                          ^^ constant.character.escape.ssh
 #                             ^^^^^^^^^^^^ meta.string.shell string.unquoted.shell
+#                @@@ reference
+##                       ^^ meta.string.shell string.unquoted.shell
 
 Match Host one,two
 #^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
@@ -49,6 +53,8 @@ Match Host one,two
 #          ^^^ entity.name.label.host-alias.ssh_config
 #             ^ punctuation.separator.sequence.ssh.common - entity
 #              ^^^ entity.name.label.host-alias.ssh_config
+#          @@@ local-definition
+#              @@@ local-definition
     User bar
     Port 22
     #    ^^ constant.numeric
@@ -67,6 +73,7 @@ Match LocalNetwork 127.0.0.1/12,10.1.21.0/24
 #                                         ^^ constant.other.range.ssh.common
 
 Host tj
+#    @@ local-definition
     User 2022sratna
 #^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -83,30 +90,43 @@ Host server serverino !other-pat?ern
 #                     ^              keyword.operator.logical.ssh.common
 #                      ^^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
 #                               ^    constant.other.wildcard.questionmark.ssh.common
+#    @@@@@@ local-definition
+#           @@@@@@@@@ local-definition
+#                      @@@@@@@@@@@@@ local-definition
     Hostname server%h.com
 #^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^ meta.mapping.key.ssh_config keyword.declaration.host.ssh_config
 #            ^^^^^^^^^^^^ meta.string.host.ssh_config string.unquoted.hostname.ssh_config
 #                  ^^ constant.character.escape.ssh_config
 #                    ^ punctuation.separator.sequence.ssh.common
+#            @@@@@@@@@@@@ local-definition
     # This is meant to be a comment
 #   ^ punctuation.definition.comment.ssh.common
 #   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign.ssh.common
     User=will
-    # ^^      keyword.other
-    #   ^     keyword.operator.assignment
-    #    ^^^^ string.unquoted
+#^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#       ^ keyword.operator.assignment.ssh_config
+#        ^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
     ProxyCommand nc -x localhost:8888 %h %p
-    # ^^^^^^^^^^                             keyword.other
-    #           ^                            - source.shell.embedded
-    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  source.shell.embedded
-    #                                 ^^     constant.character.escape
-    #                                    ^^  constant.character.escape
-    #                                      ^ - source.shell.embedded
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#               ^                            - source.shell
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh.proxycommand source.shell
+#                ^^ meta.function-call.identifier.shell meta.command.shell variable.function.shell
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.arguments.shell
+#                   ^^ meta.parameter.option.shell variable.parameter.option.shell
+#                   ^ punctuation.definition.parameter.shell
+#                      ^^^^^^^^^^^^^^ meta.string.shell string.unquoted.shell
+#                                     ^^ constant.character.escape.ssh
+#                                        ^^ constant.character.escape.ssh
+#                                          ^                            - source.shell
+#                @@ reference
     IdentityFile ~/.ssh/creds/%h.pem
-    # ^^^^^^^^^^                     keyword.other
-    #            ^^^^^^^^^^^^^^^^^^^ string.unquoted
-    #                         ^^     constant.character.escape
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                ^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
+#                             ^^ constant.character.escape.ssh_config
 
 Host *.splat?.com
 #^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
@@ -118,6 +138,7 @@ Host *.splat?.com
 #           ^ constant.other.wildcard.questionmark.ssh.common
 #            ^ punctuation.separator.sequence.ssh.common
 #                ^ - entity
+#    @@@@@@@@@@@@ local-definition
     User tim
 #^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -168,6 +189,7 @@ Host *
 #^^^^^ meta.block.host.ssh_config - meta.block meta.block
 #^^^ meta.block.host.ssh_config keyword.declaration.host-alias.ssh_config
 #    ^ entity.name.label.host-alias.ssh_config constant.other.wildcard.asterisk.ssh.common
+#    @ local-definition
     IdentityFile ~/.ssh/id_rsa
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -216,6 +238,8 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                ^^^^ variable.function.shell
 #                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - variable.function
 #                                                                                          ^ punctuation.definition.string.end.ssh_config - source.shell
+#          @@@@@@@@@@@@@ local-definition
+#                                @@@@ reference
 Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/resolv.conf" Canonical
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #^^^^ keyword.control.conditional.ssh_config
@@ -233,6 +257,8 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - variable.function
 #                                                                                          ^ punctuation.definition.string.end.ssh_config - source.shell
 #                                                                                            ^^^^^^^^^ keyword.other.ssh_config
+#          @@@@@@@@@@@@@ local-definition
+#                                @@@@ reference
     KnownHostsCommand none
 #^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #   ^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -271,6 +297,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                                                      ^^ constant.character.escape.ssh
 #                                                                                         ^^ constant.character.escape.ssh
 #                                                                                           ^^^^^^^^^^^^^^^ - constant
+#                     @@@@ reference
     KnownHostsCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -287,6 +314,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                           ^^ constant.character.escape.ssh
 #                                                              ^^ constant.character.escape.ssh
 #                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                     @@@@ reference
     KnownHostsCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -316,6 +344,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                                                          ^^ constant.character.escape.ssh
 #                                                                                            ^^^^^^^^^^^^^^^ - constant
 #                                                                                                           ^ punctuation.definition.string.end.ssh_config - source.shell
+#                      @@@@ reference
     KnownHostsCommand "echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -333,6 +362,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                               ^^ constant.character.escape.ssh
 #                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                                           ^ punctuation.definition.string.end.ssh_config - source.shell
+#                      @@@@ reference
     LocalCommand none
 #^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -367,6 +397,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                                             ^^^^^^^ - constant
 #                                                                                    ^^ constant.character.escape.ssh
 #                                                                                      ^^^^^^^^^^^^^^^ - constant
+#                @@@@ reference
     LocalCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -380,6 +411,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                           ^^^^^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                 ^^ constant.character.escape.ssh
 #                                                                                   ^^^^^^^^^^^^^^^^^^ - constant
+#                @@@@ reference
     LocalCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -405,6 +437,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                                                     ^^ constant.character.escape.ssh
 #                                                                                       ^^^^^^^^^^^^^^^ - constant
 #                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
+#                 @@@@ reference
     LocalCommand "echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -420,6 +453,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                                                  ^^ constant.character.escape.ssh
 #                                                                                    ^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
+#                 @@@@ reference
     ProxyCommand none
 #^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -447,6 +481,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                                       ^^^^ - constant
 #                                                                           ^^ constant.character.escape.ssh
 #                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                @@@@ reference
     ProxyCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -454,6 +489,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                ^^^^ meta.function-call.identifier.shell support.function.shell
 #                     ^^ constant.character.escape.ssh
 #                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                @@@@ reference
     ProxyCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -471,6 +507,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                                            ^^ constant.character.escape.ssh
 #                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
+#                 @@@@ reference
     ProxyCommand "echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -480,6 +517,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                      ^^ constant.character.escape.ssh
 #                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
+#                 @@@@ reference
     ProxyJump none
 #^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
