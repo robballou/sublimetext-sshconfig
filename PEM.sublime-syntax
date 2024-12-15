@@ -34,7 +34,7 @@ first_line_match: |-
           | (?:[0-9A-Z -]+[ ])? PARAMETERS
           | X509 [ ] CRL
           | PKCS7
-          | PKCS [ ] #7 [ ] SIGNED [ ] DATA
+          | PKCS [ ] \#7 [ ] SIGNED [ ] DATA
           | CMS
           | PGP [ ] MESSAGE (?:,[ ] PART [ ] \d+(?:/\d+)?)?
           | PGP [ ] (?: PUBLIC | PRIVATE ) [ ] KEY [ ] BLOCK
@@ -55,7 +55,7 @@ contexts:
           | (?:[0-9A-Z -]+[ ])? PARAMETERS
           | X509 [ ] CRL
           | PKCS7
-          | PKCS [ ] #7 [ ] SIGNED [ ] DATA
+          | PKCS [ ] \#7 [ ] SIGNED [ ] DATA
           | CMS
           | PGP [ ] MESSAGE (?:,[ ] PART [ ] \d+(?:/\d+)?)?
           | PGP [ ] (?: PUBLIC | PRIVATE ) [ ] KEY [ ] BLOCK
