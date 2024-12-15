@@ -115,6 +115,7 @@ tunnel="0",command="sh /etc/netstart tun0" ssh-rsa AAAAB3N21S== jane@example.net
 #                                          ^^^^^^^ support.type.key-type
 #                                                  ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                                                               ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                   @@ reference
 #                                                               @@@@@@@@@@@@@@@@ local-definition
 restrict,command="uptime" ssh-rsa AAAAB3N21S== user@example.net
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
@@ -128,6 +129,7 @@ restrict,command="uptime" ssh-rsa AAAAB3N21S== user@example.net
 #                         ^^^^^^^ support.type.key-type
 #                                 ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                                              ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                 @@@@@@ reference
 #                                              @@@@@@@@@@@@@@@@ local-definition
 restrict,pty,command="nethack" ssh-rsa AAAAB3N21S== user@example.net
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
@@ -143,6 +145,7 @@ restrict,pty,command="nethack" ssh-rsa AAAAB3N21S== user@example.net
 #                              ^^^^^^^ support.type.key-type
 #                                      ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 #                                                   ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                     @@@@@@@ reference
 #                                                   @@@@@@@@@@@@@@@@ local-definition
 no-touch-required sk-ecdsa-sha2-nistp256@openssh.com AAAAB3N21S== user@example.net
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
