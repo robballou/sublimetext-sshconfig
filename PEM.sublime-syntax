@@ -98,10 +98,23 @@ contexts:
     - meta_scope: meta.mapping.pem
     - meta_content_scope: meta.mapping.value.pem
     - include: header-end
-    - match: \,
-      scope: punctuation.separator.pem
+    - include: punctuation-comma-sequence
     - match: =
       scope: punctuation.separator.key-value.pem
+    - match: '\b(?x: ENCRYPTED | MIC-ONLY | MIC-CLEAR )\b'
+      scope: storage.modifier.pem
+    - match: |-
+        \b(?x:
+          ( AES-(?:128|256)-CBC
+          | DES-(?:EDE3-)?CBC
+          )\b
+          ( (,) .+ )?
+        )
+      captures:
+        1: meta.function-call.identifier.pem
+           support.function.cipher.ssh.crypto
+        2: meta.function-call.arguments.pem
+        3: punctuation.section.arguments.begin.pem
 
   header-end:
     - match: \\\r?\n
