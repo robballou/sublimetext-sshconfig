@@ -42,7 +42,7 @@ LoginGraceTime 2m
 
 PubkeyAuthentication yes
 #^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
-#                    ^^^ meta.mapping.value.sshd_config constant.language.boolean.true.sshd_config
+#                    ^^^ meta.mapping.value.sshd_config constant.language.boolean.true.ssh.common
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
@@ -56,7 +56,7 @@ AuthorizedKeysFile  .ssh/authorized_keys
 # For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
 HostbasedAuthentication no
 #^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
-#                       ^^ meta.mapping.value.sshd_config constant.language.boolean.false.sshd_config
+#                       ^^ meta.mapping.value.sshd_config constant.language.boolean.false.ssh.common
 
 # To disable tunneled clear text passwords, change to `no` here!
 PasswordAuthentication no
@@ -87,7 +87,7 @@ AllowAgentForwarding no
 AcceptEnv LANG LC_*
 #^^^^^^^^ meta.mapping.key keyword.other
 #         ^^^^^^^^^ meta.mapping.value string.unquoted
-#                 ^ keyword.operator.wildcard
+#                 ^ constant.other.wildcard.asterisk.ssh.common
 
 # no default banner path
 #Banner none
@@ -109,12 +109,13 @@ Match User *,!username1,!username2
 #^^^^ meta.block.match keyword.control.conditional
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^ keyword.other
-#          ^^^^^^^^^^^^^^^^^^^^^^^ string.unquoted
-#          ^ constant.other.wildcard.asterisk.ssh.common
+#          ^ string.unquoted constant.other.wildcard.asterisk.ssh.common
 #           ^ punctuation.separator.sequence
 #            ^ keyword.operator.logical
+#             ^^^^^^^^^ string.unquoted
 #                      ^ punctuation.separator.sequence
 #                       ^ keyword.operator.logical
+#                        ^^^^^^^^^ string.unquoted
     PasswordAuthentication yes
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement.conditional - meta.block.match meta.block.match
     #^^^^^^^^^^^^^^^^^^^^^ meta.block.match meta.mapping.key keyword.other
@@ -125,7 +126,7 @@ Match User *,!username1,!username2
 #   ^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
 #                 ^^^^ meta.mapping.value.sshd_config string.quoted.double.sshd_config
 #                 ^ punctuation.definition.string.begin.sshd_config
-#                  ^^ constant.language.boolean.false.sshd_config
+#                  ^^ constant.language.boolean.false.ssh.common
 #                    ^ punctuation.definition.string.end.sshd_config
     ForceCommand internal-sftp -f LOCAL0 -l INFO
     #^^^^^^^^^^^ meta.mapping.key keyword.other
@@ -158,8 +159,9 @@ Match User username1,username2 Address 192.168.0.0/16
 #^^^^ meta.block.match keyword.control.conditional
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^ keyword.other
-#          ^^^^^^^^^^^^^^^^^^^ string.unquoted
+#          ^^^^^^^^^ string.unquoted
 #                   ^ punctuation.separator.sequence
+#                    ^^^^^^^^^ string.unquoted
 #                             ^ - string
 #                              ^^^^^^^ keyword.other - keyword keyword
 #                                      ^^^^^^^^^^^ constant.numeric.ip-address.v4
@@ -172,10 +174,11 @@ Match User username1,username2 Address 192.168.0.0/16
 Match User username1,username2 Address *,!192.168.0.0/16
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.block meta.block
 #^^^^ meta.block.match keyword.control.conditional
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^ keyword.other
-#          ^^^^^^^^^^^^^^^^^^^ string.unquoted
+#          ^^^^^^^^^ string.unquoted
 #                   ^ punctuation.separator.sequence
+#                    ^^^^^^^^^ string.unquoted
 #                             ^ - string
 #                              ^^^^^^^ keyword.other - keyword keyword
 #                                      ^ constant.other.wildcard.asterisk.ssh.common
