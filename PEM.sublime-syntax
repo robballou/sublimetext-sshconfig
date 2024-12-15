@@ -80,10 +80,12 @@ contexts:
     - include: headers
 
   headers:
-    - match: ^(?i:Comment:)
-      scope: punctuation.definition.comment.begin.pem
+    - match: ^(?i:(Comment))(:)
+      captures:
+        1: keyword.other.comment.pem
+        2: punctuation.separator.key-value.pem
       push:
-        - meta_scope: comment.line.pem
+        - meta_content_scope: comment.line.pem
         - include: header-end
     - match: ^((x-)?[\w-]+)(:)
       captures:

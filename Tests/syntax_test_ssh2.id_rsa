@@ -4,8 +4,9 @@
 ---- BEGIN SSH2 PUBLIC KEY ----
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem punctuation.section.block.begin.pem
 Comment: "1024-bit RSA, converted from OpenSSH by me@example.com"
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem comment.line.pem
-# ^^^^^^ punctuation.definition.comment.begin.pem
+#^^^^^^ keyword.other.comment.pem
+#      ^ punctuation.separator.key-value.pem
+#       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem comment.line.pem
 x-command: /home/me/bin/lock-in-guest.sh
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem meta.mapping.pem
 #^^^^^^^^ meta.mapping.key.pem keyword.other.pem
@@ -47,8 +48,9 @@ sY29ouezv4Xz2PuMch5VGPP+CDqzCM4loWgV
 ---- BEGIN SSH2 PUBLIC KEY ----
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem punctuation.section.block.begin.pem
 Comment: DSA Public Key for use with MyIsp
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem comment.line.pem
-# ^^^^^^ punctuation.definition.comment.begin.pem
+#^^^^^^ keyword.other.comment.pem
+#      ^ punctuation.separator.key-value.pem
+#       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem comment.line.pem
 AAAAB3NzaC1kc3MAAACBAPY8ZOHY2yFSJA6XYC9HRwNHxaehvx5wOJ0rzZdzoSOXxbET
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem string.unquoted.pem
 W6ToHv8D1UJ/z+zHo9Fiko5XybZnDIaBDHtblQ+Yp7StxyltHnXF1YLfKD1G4T6JYrdH
