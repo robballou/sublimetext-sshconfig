@@ -47,17 +47,17 @@ contexts:
 
   pop-before-match-option:
     - include: pop-before-nl
-    - match: '(?=[ \t]*(?xi: all | user | group | host | (?:local)? address | localport )\b)'
+    - match: '(?=\s*(?xi: all | user | group | host | (?:local)? address | localport )\b)'
       pop: 1
 
   pop-before-next-match:
-    - match: (?=^[ \t]*(?i:Match)\b)
+    - match: (?=^\s*(?i:Match)\b)
       pop: 1
 
 ###[ MATCH ]###################################################################
 
   match:
-    - match: ^[ \t]*((?i:Match))\b
+    - match: ^\s*((?i:Match))\b
       captures:
         1: meta.block.match.sshd_config
            keyword.control.conditional.sshd_config
@@ -115,7 +115,7 @@ contexts:
       push:
         - meta_content_scope: meta.mapping.value.sshd_config
         - include: pop-before-match-option
-        - match: '\b{{zero_to_255}}\b'
+        - match: \b{{zero_to_255}}\b
           scope: meta.number.integer.decimal.sshd_config
                  constant.numeric.value.sshd_config
 
@@ -139,17 +139,17 @@ contexts:
 ###[ PARAMETERS ]##############################################################
 
   parameter-forcecommand:
-    - match: ^\s*((?i:ForceCommand))\b[ \t]*(=)?
+    - match: ^\s*((?i:ForceCommand))\b\s*(=)?
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
       push:
         - meta_content_scope: meta.mapping.value.sshd_config
         - include: pop-nl
-        - match: '[ \t]*((?i:none))\b[ \t]*$'
+        - match: \s*((?i:none))\b\s*$
           captures:
             1: constant.language.null.sshd_config
-        - match: '[ \t]*((")((?i:none))("))[ \t]*$'
+        - match: \s*((")((?i:none))("))\s*$
           captures:
             1: string.quoted.double.sshd_config
             2: punctuation.definition.string.begin.sshd_config
@@ -170,7 +170,7 @@ contexts:
           embed: scope:source.shell
 
   parameter-with-boolean-values:
-    - match: ^\s*({{parameters_boolean}})[ \t]*(=)?
+    - match: ^\s*({{parameters_boolean}})\s*(=)?
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
@@ -181,7 +181,7 @@ contexts:
       push: possibly-quoted-value
 
   parameter-generic:
-    - match: ^\s*([a-zA-Z1]+)\b[ \t]*(=)?
+    - match: ^\s*([a-zA-Z1]+)\b\s*(=)?
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
