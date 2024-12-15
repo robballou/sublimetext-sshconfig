@@ -11,7 +11,11 @@ Port 22
 Include ~/.ssh/config_*_cloud
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.naked.ssh_config
 #^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#       ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
+#       ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common meta.path.ssh.common entity.name.ssh.common
+#       ^ variable.language.home.ssh.common
+#        ^ punctuation.separator.path.ssh.common
+#         ^ punctuation.separator.sequence.ssh.common
+#             ^ punctuation.separator.path.ssh.common
 #                     ^ constant.other.wildcard.asterisk.ssh.common
 
 
@@ -132,8 +136,14 @@ Host server serverino !other-pat?ern
     IdentityFile ~/.ssh/creds/%h.pem
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#                ^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
-#                             ^^ constant.character.escape.ssh_config
+#                ^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common meta.path.ssh.common entity.name.ssh.common
+#                ^ variable.language.home.ssh.common
+#                 ^ punctuation.separator.path.ssh.common
+#                  ^ punctuation.separator.sequence.ssh.common
+#                      ^ punctuation.separator.path.ssh.common
+#                            ^ punctuation.separator.path.ssh.common
+#                             ^^ constant.other.placeholder.ssh_config
+#                               ^ punctuation.separator.sequence.ssh.common
 
 Host *.splat?.com
 #^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
@@ -200,7 +210,11 @@ Host *
     IdentityFile ~/.ssh/id_rsa
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#                ^^^^^^^^^^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
+#                ^^^^^^^^^^^^^ meta.mapping.value.ssh.common meta.path.ssh.common entity.name.ssh.common
+#                ^ variable.language.home.ssh.common
+#                 ^ punctuation.separator.path.ssh.common
+#                  ^ punctuation.separator.sequence.ssh.common
+#                      ^ punctuation.separator.path.ssh.common
     Ciphers "aes128-ctr,aes192-ctr,aes256-ctr"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config

@@ -82,9 +82,6 @@ If these commands open the wrong file for you, open the Command Palette
 
 The PackageDev package is helpful for writing tests, but not required.
 
-## To-Do
-
-- Better highlighting for paths
 
 [man-ssh-config]: https://man7.org/linux/man-pages/man5/ssh_config.5.html
 [man-sshd-config]: https://man7.org/linux/man-pages/man5/sshd_config.5.html

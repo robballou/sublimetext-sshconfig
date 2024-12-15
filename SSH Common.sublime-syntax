@@ -208,3 +208,23 @@ contexts:
         - meta_content_scope: string.unquoted.ssh.common
         - include: pop-before-nl
     - include: pop-nl
+
+  paths:
+    # This is just heuristic. Expect failures.
+    - match: (?=~?[\w.\-?*${}%]*/[\w.\-?*${}%]?)
+      push:
+        - meta_scope: meta.path.ssh.common
+                      entity.name.ssh.common
+        - match: (?=[\s,"])
+          pop: 1
+        - match: ~[\w\-.]*
+          scope: variable.language.home.ssh.common
+        - match: /
+          scope: punctuation.separator.path.ssh.common
+        - include: punctuation-dot-sequence
+        - include: wildcards
+        - include: tokens
+        - include: environment-variables
+
+  tokens: []
+  environment-variables: []

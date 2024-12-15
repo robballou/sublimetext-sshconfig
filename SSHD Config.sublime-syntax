@@ -211,6 +211,7 @@ contexts:
     - include: wildcards
     - include: punctuation-comma-sequence
     - include: log-level
+    - include: paths
     - match: \b\d+(?=[\s,"])
       scope: constant.numeric.sshd_config
 
