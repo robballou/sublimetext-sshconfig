@@ -327,10 +327,10 @@ contexts:
           embed: scope:source.shell.embedded.ssh.knownhostscommand
 
   none-command-values:
-    - match: \s*((?i:none))\b[ \t]*$
+    - match: \s*(none)\b[ \t]*$
       captures:
         1: constant.language.null.ssh_config
-    - match: \s*((")((?i:none))("))[ \t]*$
+    - match: \s*((")(none)("))[ \t]*$
       captures:
         1: string.quoted.double.ssh_config
         2: punctuation.definition.string.begin.ssh_config
@@ -384,7 +384,7 @@ contexts:
       with_prototype:
         - include: boolean-with-typing
         - include: ask
-        - match: \b(?i:a(?:sk?)?)\b
+        - match: \ba(?:sk?)?\b
         - match: '[^"\s]+'
           scope: invalid.illegal.sshd_config
       push: possibly-quoted-value
@@ -400,7 +400,7 @@ contexts:
       push: possibly-quoted-value
 
   ask:
-  - match: \b(?i:ask)\b
+  - match: \bask\b
     scope: constant.language.ssh_config
 
   generic-parameter-values:

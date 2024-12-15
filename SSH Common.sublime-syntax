@@ -170,28 +170,28 @@ contexts:
     - include: ipv4-with-cidr
 
   port-numbers:
-    - match: '\b{{zero_to_65535}}(?![\w:])'
+    - match: \b{{zero_to_65535}}(?![\w:])
       scope: meta.number.integer.decimal.ssh.common
              constant.numeric.port-number.ssh.common
 
   none:
-    - match: '\b(?xi: none )\b'
+    - match: \bnone\b
       scope: constant.language.null.ssh.common
 
   any:
-    - match: '\b(?xi: any )\b'
+    - match: \bany\b
       scope: constant.language.set.ssh.common
 
   boolean:
-    - match: '\b(?xi: yes )\b'
+    - match: \byes\b
       scope: constant.language.boolean.true.ssh.common
-    - match: '\b(?xi: no )\b'
+    - match: \bno\b
       scope: constant.language.boolean.false.ssh.common
 
   boolean-with-typing:
     - include: boolean
       # Match while typing as well
-    - match: '\b(?xi: y(?:es?)? | no? )\b'
+    - match: '\b(?x: y(?:es?)? | no? )\b'
 
   log-level:
     - match: '\b(?x: QUIET | FATAL | ERROR | INFO | DEBUG[1-3]? )\b'
