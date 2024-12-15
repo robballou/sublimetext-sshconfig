@@ -78,28 +78,15 @@ contexts:
                  constant.numeric.integer.date.authorized_keys
       push: value-option-body
 
-    - match: (permitlisten)(=)
+    # Technically, permitopen requires a host, but let's be lenient
+    - match: (permitlisten|permitopen)(=)
       captures:
         1: keyword.other.authorized_keys
         2: keyword.operator.assignment.authorized_keys
       with_prototype:
-        # Host is optional
-        - match: (?:([^"]+)(:))?(?:({{zero_to_65535}})|(\*))
-          captures:
-            1: meta.string.host.authorized_keys
-            2: punctuation.separator.sequence.authorized_keys
-            3: meta.number.integer.decimal.authorized_keys
-               constant.numeric.port-number.authorized_keys
-            4: constant.other.wildcard.asterisk.authorized_keys
-      push: value-option-body
-
-    - match: (permitopen)(=)
-      captures:
-        1: keyword.other.authorized_keys
-        2: keyword.operator.assignment.authorized_keys
-      with_prototype:
-        # Host is required
-        - match: ([^"]+)(:)(?:({{zero_to_65535}})|(\*))
+        - include: ipv4
+        - include: ipv6-square-bracket
+        - match: (?:([^"]*)(:))?(?:({{zero_to_65535}})|(\*))
           captures:
             1: meta.string.host.authorized_keys
             2: punctuation.separator.sequence.authorized_keys

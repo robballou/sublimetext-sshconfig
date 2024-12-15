@@ -59,7 +59,7 @@ permitopen="192.0.2.1:80",permitopen="192.0.2.2:25" ssh-rsa AAAAB3N21S==
 #         ^ keyword.operator.assignment.authorized_keys
 #          ^^^^^^^^^^^^^^ string.quoted.double.authorized_keys
 #          ^ punctuation.definition.string.begin.authorized_keys
-#           ^^^^^^^^^ meta.string.host.authorized_keys
+#           ^^^^^^^^^ meta.number.integer.other.ssh.common constant.numeric.ip-address.v4.ssh.common
 #                    ^ punctuation.separator.sequence.authorized_keys
 #                     ^^ meta.number.integer.decimal.authorized_keys constant.numeric.port-number.authorized_keys
 #                       ^ punctuation.definition.string.end.authorized_keys
@@ -68,14 +68,14 @@ permitopen="192.0.2.1:80",permitopen="192.0.2.2:25" ssh-rsa AAAAB3N21S==
 #                                   ^ keyword.operator.assignment.authorized_keys
 #                                    ^^^^^^^^^^^^^^ string.quoted.double.authorized_keys
 #                                    ^ punctuation.definition.string.begin.authorized_keys
-#                                     ^^^^^^^^^ meta.string.host.authorized_keys
+#                                     ^^^^^^^^^ meta.number.integer.other.ssh.common constant.numeric.ip-address.v4.ssh.common
 #                                              ^ punctuation.separator.sequence.authorized_keys
 #                                               ^^ meta.number.integer.decimal.authorized_keys constant.numeric.port-number.authorized_keys
 #                                                 ^ punctuation.definition.string.end.authorized_keys
-#                                                   ^^^^^^^ support.type.key-type
+#                                                   ^^^^^^^ support.type.key-type.ssh.crypto
 #                                                           ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
-permitlisten="localhost:8080",permitopen="localhost:22000" ssh-rsa AAAAB3N21S==
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+permitlisten="localhost:8080",permitopen="localhost:22000",permitlisten="8081" ssh-rsa AAAAB3N21S==
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
 #^^^^^^^^^^^ keyword.other.authorized_keys
 #           ^ keyword.operator.assignment.authorized_keys
 #            ^^^^^^^^^^^^^^^^ string.quoted.double.authorized_keys
@@ -93,8 +93,15 @@ permitlisten="localhost:8080",permitopen="localhost:22000" ssh-rsa AAAAB3N21S==
 #                                                  ^ punctuation.separator.sequence.authorized_keys
 #                                                   ^^^^^ meta.number.integer.decimal.authorized_keys constant.numeric.port-number.authorized_keys
 #                                                        ^ punctuation.definition.string.end.authorized_keys
-#                                                          ^^^^^^^ support.type.key-type
-#                                                                  ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
+#                                                         ^ punctuation.separator.sequence.ssh.common
+#                                                          ^^^^^^^^^^^^ keyword.other.authorized_keys
+#                                                                      ^ keyword.operator.assignment.authorized_keys
+#                                                                       ^^^^^^ string.quoted.double.authorized_keys
+#                                                                       ^ punctuation.definition.string.begin.authorized_keys
+#                                                                        ^^^^ meta.number.integer.decimal.authorized_keys constant.numeric.port-number.authorized_keys
+#                                                                            ^ punctuation.definition.string.end.authorized_keys
+#                                                                              ^^^^^^^ support.type.key-type.ssh.crypto
+#                                                                                      ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 tunnel="0",command="sh /etc/netstart tun0" ssh-rsa AAAAB3N21S== jane@example.net
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
 #^^^^^ keyword.other.authorized_keys
