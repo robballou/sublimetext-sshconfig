@@ -77,13 +77,13 @@
                 "o",
                 "Options"
             ],
-            "details": "Whitelist remote hosts"
+            "details": "Allowlist remote hosts"
         },
         {
             "trigger": "from",
             "contents": "from=\"${0:hosts}\"",
             "kind": "snippet",
-            "details": "Whitelist remote hosts"
+            "details": "Allowlist remote hosts"
         },
         {
             "trigger": "no-agent-forwarding",
@@ -143,13 +143,13 @@
                 "o",
                 "Options"
             ],
-            "details": "Whitelist remote (<code>-R</code>) port forwarding"
+            "details": "Allowlist remote (<code>-R</code>) port forwarding"
         },
         {
             "trigger": "permitlisten",
             "contents": "permitlisten=\"${1:[host:]port}\"",
             "kind": "snippet",
-            "details": "Whitelist remote (<code>-R</code>) port forwarding"
+            "details": "Allowlist remote (<code>-R</code>) port forwarding"
         },
         {
             "trigger": "permitopen",
@@ -159,13 +159,13 @@
                 "o",
                 "Options"
             ],
-            "details": "Whitelist local (<code>-L</code>) port forwarding"
+            "details": "Allowlist local (<code>-L</code>) port forwarding"
         },
         {
             "trigger": "permitopen",
             "contents": "permitopen=\"${1:host}:${2:port}\"",
             "kind": "snippet",
-            "details": "Whitelist local (<code>-L</code>) port forwarding"
+            "details": "Allowlist local (<code>-L</code>) port forwarding"
         },
         {
             "trigger": "port-forwarding",
@@ -185,13 +185,13 @@
                 "o",
                 "Options"
             ],
-            "details": "Whitelist CA principals"
+            "details": "Allowlist CA principals"
         },
         {
             "trigger": "principals",
             "contents": "principals=\"${0:principals}\"",
             "kind": "snippet",
-            "details": "Whitelist CA principals"
+            "details": "Allowlist CA principals"
         },
         {
             "trigger": "pty",

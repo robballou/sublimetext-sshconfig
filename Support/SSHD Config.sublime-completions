@@ -41,13 +41,13 @@
             "trigger": "AllowGroups",
             "contents": "AllowGroups",
             "kind": "keyword",
-            "details": "Whitelist user groups with patterns"
+            "details": "Allowlist user groups with patterns"
         },
         {
             "trigger": "allowgroups",
             "contents": "AllowGroups ${0:group1,group2}",
             "kind": "snippet",
-            "details": "Whitelist user groups with patterns"
+            "details": "Allowlist user groups with patterns"
         },
         {
             "trigger": "AllowStreamLocalForwarding",
@@ -77,7 +77,7 @@
             "trigger": "AllowUsers",
             "contents": "AllowUsers",
             "kind": "keyword",
-            "details": "Whitelist users[@hosts] with patterns"
+            "details": "Allowlist users[@hosts] with patterns"
         },
         {
             "trigger": "AuthenticationMethods",
@@ -209,19 +209,19 @@
             "trigger": "DenyGroups",
             "contents": "DenyGroups",
             "kind": "keyword",
-            "details": "Blacklist user groups with patterns"
+            "details": "Denylist user groups with patterns"
         },
         {
             "trigger": "DenyUsers",
             "contents": "DenyUsers",
             "kind": "keyword",
-            "details": "Blacklist users[@hosts] with patterns"
+            "details": "Denylist users[@hosts] with patterns"
         },
         {
             "trigger": "denyusers",
             "contents": "DenyUsers ${0:mysql,*@evil.example.com}",
             "kind": "snippet",
-            "details": "Blacklist users[@hosts] with patterns"
+            "details": "Denylist users[@hosts] with patterns"
         },
         {
             "trigger": "DisableForwarding",
@@ -347,13 +347,13 @@
             "trigger": "HostbasedUsesNameFromPacketOnly",
             "contents": "HostbasedUsesNameFromPacketOnly",
             "kind": "keyword",
-            "details": "Attempt reverse DNS lookup during <code>HostbasedAuthentication</code"
+            "details": "Attempt reverse DNS lookup during <code>HostbasedAuthentication</code>"
         },
         {
             "trigger": "hostbasedusesnamefrompacketonly",
             "contents": "HostbasedUsesNameFromPacketOnly ${0:{ yes | no \\}}",
             "kind": "snippet",
-            "details": "Attempt reverse DNS lookup during <code>HostbasedAuthentication</code"
+            "details": "Attempt reverse DNS lookup during <code>HostbasedAuthentication</code>"
         },
         {
             "trigger": "HostCertificate",
@@ -623,25 +623,25 @@
             "trigger": "PermitListen",
             "contents": "PermitListen",
             "kind": "keyword",
-            "details": "Whitelist remote (<code>-R</code>) port forwarding"
+            "details": "Allowlist remote (<code>-R</code>) port forwarding"
         },
         {
             "trigger": "permitlisten",
             "contents": "PermitListen \"${1:[host:]port}\"",
             "kind": "snippet",
-            "details": "Whitelist remote (<code>-R</code>) port forwarding"
+            "details": "Allowlist remote (<code>-R</code>) port forwarding"
         },
         {
             "trigger": "PermitOpen",
             "contents": "PermitOpen",
             "kind": "keyword",
-            "details": "Whitelist local (<code>-L</code>) port forwarding"
+            "details": "Allowlist local (<code>-L</code>) port forwarding"
         },
         {
             "trigger": "permitopen",
             "contents": "PermitOpen \"${1:host}:${2:port}\"",
             "kind": "snippet",
-            "details": "Whitelist local (<code>-L</code>) port forwarding"
+            "details": "Allowlist local (<code>-L</code>) port forwarding"
         },
         {
             "trigger": "PermitRootLogin",

@@ -86,7 +86,7 @@
       details: Number of <code>.</code>s to disable domain lookup
       values: ${0:1}
     CanonicalizePermittedCNAMEs:
-      details: Map of whitelisted CNAMEs to follow on lookup
+      details: Map of allowlisted CNAMEs to follow on lookup
       values: ${0:*.source.com,source.org:dest.org,*.local.dest.com}
     CASignatureAlgorithms:
       details: Permitted algms for CAs
@@ -550,7 +550,7 @@
         - 'yes'
         - 'no'
     AllowGroups:
-      details: Whitelist user groups with patterns
+      details: Allowlist user groups with patterns
       values: ${0:group1,group2}
     AllowStreamLocalForwarding:
       details: Set <code>StreamLocal</code> (Unix-domain socket) forwarding policy
@@ -569,7 +569,7 @@
         - local
         - remote
     AllowUsers:
-      details: Whitelist users[@hosts] with patterns
+      details: Allowlist users[@hosts] with patterns
     AuthenticationMethods:
       details: 'Req''d auth methods: <code>,</code> for sequence, <code> </code> for new seq'
       values: ${0:publickey,password publickey,keyboard-interactive}
@@ -615,9 +615,9 @@
         - 'yes'
         - 'no'
     DenyGroups:
-      details: Blacklist user groups with patterns
+      details: Denylist user groups with patterns
     DenyUsers:
-      details: Blacklist users[@hosts] with patterns
+      details: Denylist users[@hosts] with patterns
       values: ${0:mysql,*@evil.example.com}
     DisableForwarding:
       details: Disables all forwarding features
@@ -674,7 +674,7 @@
         - 'yes'
         - 'no'
     HostbasedUsesNameFromPacketOnly:
-      details: Attempt reverse DNS lookup during <code>HostbasedAuthentication</code
+      details: Attempt reverse DNS lookup during <code>HostbasedAuthentication</code>
       values:
         - 'yes'
         - 'no'
@@ -783,10 +783,10 @@
         - 'yes'
         - 'no'
     PermitListen:
-      details: Whitelist remote (<code>-R</code>) port forwarding
+      details: Allowlist remote (<code>-R</code>) port forwarding
       values: '"${1:[host:]port}"'
     PermitOpen:
-      details: Whitelist local (<code>-L</code>) port forwarding
+      details: Allowlist local (<code>-L</code>) port forwarding
       values: '"${1:host}:${2:port}"'
     PermitRootLogin:
       details: Set behavior for login as <code>root</code>
@@ -982,7 +982,7 @@
       details: Give this key an expiration
       values: '"${0:YYYYMMDD}"'
     from:
-      details: Whitelist remote hosts
+      details: Allowlist remote hosts
       values: '"${0:hosts}"'
     no-agent-forwarding:
       details: Disable agent forwarding
@@ -995,15 +995,15 @@
     no-X11-forwarding:
       details: Disable X11 forwarding
     permitlisten:
-      details: Whitelist remote (<code>-R</code>) port forwarding
+      details: Allowlist remote (<code>-R</code>) port forwarding
       values: '"${1:[host:]port}"'
     permitopen:
-      details: Whitelist local (<code>-L</code>) port forwarding
+      details: Allowlist local (<code>-L</code>) port forwarding
       values: '"${1:host}:${2:port}"'
     port-forwarding:
       details: Reenable <code>restrict</code>ed port forwarding
     principals:
-      details: Whitelist CA principals
+      details: Allowlist CA principals
       values: '"${0:principals}"'
     pty:
       details: Reenable <code>restrict</code>ed tty allocation

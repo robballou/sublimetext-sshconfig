@@ -125,13 +125,13 @@
             "trigger": "CanonicalizePermittedCNAMEs",
             "contents": "CanonicalizePermittedCNAMEs",
             "kind": "keyword",
-            "details": "Map of whitelisted CNAMEs to follow on lookup"
+            "details": "Map of allowlisted CNAMEs to follow on lookup"
         },
         {
             "trigger": "canonicalizepermittedcnames",
             "contents": "CanonicalizePermittedCNAMEs ${0:*.source.com,source.org:dest.org,*.local.dest.com}",
             "kind": "snippet",
-            "details": "Map of whitelisted CNAMEs to follow on lookup"
+            "details": "Map of allowlisted CNAMEs to follow on lookup"
         },
         {
             "trigger": "CASignatureAlgorithms",
