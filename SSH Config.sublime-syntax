@@ -379,8 +379,7 @@ contexts:
               scope: invalid.illegal.ssh_config
               pop: true
             - include: generic-parameter-values
-        - match: \S
-          scope: string.unquoted.ssh_config
+        - match: (?=\S)
           push:
             - meta_content_scope: string.unquoted.ssh_config
             - include: SSH Common.sublime-syntax#pop-before-nl
