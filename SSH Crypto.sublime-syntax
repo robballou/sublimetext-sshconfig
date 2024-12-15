@@ -41,6 +41,8 @@ contexts:
     scope: invalid.deprecated.mac-algorithm
 extends: SSH Common.sublime-syntax
 hidden: true
+hidden_file_extensions:
+- syntax_test_crypto
 name: SSH Crypto
 scope: text.ssh.crypto
 version: 2

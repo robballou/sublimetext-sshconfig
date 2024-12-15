@@ -62,6 +62,9 @@ def build_crypto():
         'scope': 'text.ssh.crypto',
         'extends': 'SSH Common.sublime-syntax',
         'version': 2,
+        'hidden_file_extensions': [
+            'syntax_test_crypto',
+        ],
         'contexts': {
             'main': [
                 {'include': 'comments'},
