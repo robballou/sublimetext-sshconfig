@@ -872,6 +872,12 @@
             "details": "Apply explicit routing domain after auth"
         },
         {
+            "trigger": "rdomain",
+            "contents": "RDomain ${0:4}",
+            "kind": "snippet",
+            "details": "Apply explicit routing domain after auth"
+        },
+        {
             "trigger": "RhostsRSAAuthentication",
             "contents": "RhostsRSAAuthentication",
             "kind": "keyword",
@@ -953,6 +959,12 @@
             "trigger": "Subsystem",
             "contents": "Subsystem",
             "kind": "keyword",
+            "details": "Configure an external subsystem (e.g. file transfer daemon)"
+        },
+        {
+            "trigger": "subsystem",
+            "contents": "Subsystem ${0:sftp    /usr/libexec/sftp-server}",
+            "kind": "snippet",
             "details": "Configure an external subsystem (e.g. file transfer daemon)"
         },
         {

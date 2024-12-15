@@ -89,7 +89,13 @@
                 "c",
                 "Condition"
             ],
-            "details": ""
+            "details": "Match if in the routing domain"
+        },
+        {
+            "trigger": "rdomain",
+            "contents": "RDomain ${0:4}",
+            "kind": "snippet",
+            "details": "Match if in the routing domain"
         },
         {
             "trigger": "Address",

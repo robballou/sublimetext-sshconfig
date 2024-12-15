@@ -522,6 +522,8 @@
       details: Match if listening port matches patterns
       values: ${1:22,2222}
     RDomain:
+      details: Match if in the routing domain
+      values: ${0:4}
     Address:
       details: Match if connecting IP in CIDRs
       values: ${1:192.0.2.0/24,2001:db8::/32}
@@ -884,6 +886,7 @@
       details: File containing revoked public keys
     RDomain:
       details: Apply explicit routing domain after auth
+      values: ${0:4}
     RhostsRSAAuthentication:
     RSAAuthentication:
     SecurityKeyProvider:
@@ -909,6 +912,7 @@
         - 'no'
     Subsystem:
       details: Configure an external subsystem (e.g. file transfer daemon)
+      values: ${0:sftp    /usr/libexec/sftp-server}
     SyslogFacility:
       details: Facility code used when logging <code>sshd</code> messages
       values:

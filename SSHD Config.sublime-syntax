@@ -64,7 +64,8 @@ contexts:
   match:
     - match: ^[ \t]*((?i:Match))\b
       captures:
-        1: meta.block.match.sshd_config keyword.control.conditional.sshd_config
+        1: meta.block.match.sshd_config
+           keyword.control.conditional.sshd_config
       set: match-conditions
 
   match-conditions:
@@ -74,28 +75,54 @@ contexts:
 
     - include: operator-exclamation
     - match: '\b(?xi: all )\b'
-      scope: constant.language.boolean.sshd_config
+      scope: constant.language.boolean.true.sshd_config
 
-    - match: '\b(?xi: user | group | host )\b'
-      scope: keyword.other.sshd_config
+    - match: '\b(?xi: host )\b'
+      scope: meta.mapping.key.sshd_config
+             keyword.other.sshd_config
+      with_prototype:
+        - include: punctuation-dot-sequence
       push:
+        - meta_content_scope: meta.mapping.value.sshd_config
+        - include: pop-before-match-option
+        - include: string-patterns
+
+    - match: '\b(?xi: user | group )\b'
+      scope: meta.mapping.key.sshd_config
+             keyword.other.sshd_config
+      push:
+        - meta_content_scope: meta.mapping.value.sshd_config
         - include: pop-before-match-option
         - include: string-patterns
 
     - match: '\b(?xi: (?:local)? address )\b'
-      scope: keyword.other.sshd_config
+      scope: meta.mapping.key.sshd_config
+             keyword.other.sshd_config
       push:
+        - meta_content_scope: meta.mapping.value.sshd_config
+        - include: pop-before-match-option
         - include: operator-exclamation
         - include: wildcards
         - include: punctuation-comma-sequence
         - include: ip-addresses-with-cidr
-        - include: pop-before-match-option
 
     - match: '\b(?xi: localport )\b'
-      scope: keyword.other.sshd_config
+      scope: meta.mapping.key.sshd_config
+             keyword.other.sshd_config
       push:
-        - include: port-numbers
+        - meta_content_scope: meta.mapping.value.sshd_config
         - include: pop-before-match-option
+        - include: port-numbers
+
+    - match: '\b(?xi: rdomain )\b'
+      scope: meta.mapping.key.sshd_config
+             keyword.other.sshd_config
+      push:
+        - meta_content_scope: meta.mapping.value.sshd_config
+        - include: pop-before-match-option
+        - match: '\b{{zero_to_255}}\b'
+          scope: meta.number.integer.decimal.sshd_config
+                 constant.numeric.value.sshd_config
 
   match-body:
     - meta_scope: meta.block.match.sshd_config

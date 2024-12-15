@@ -104,18 +104,24 @@ Subsystem   sftp    /usr/libexec/sftp-server
 
 ## https://stackoverflow.com/a/36072674
 # All users except username1 and username2 default to sftp
-Match User *,!username1,!username2
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.block.match meta.block.match
-#^^^^ meta.block.match keyword.control.conditional
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
-#     ^^^^ keyword.other
-#          ^ string.unquoted constant.other.wildcard.asterisk.ssh.common
-#           ^ punctuation.separator.sequence
-#            ^ keyword.operator.logical
-#             ^^^^^^^^^ string.unquoted
-#                      ^ punctuation.separator.sequence
-#                       ^ keyword.operator.logical
-#                        ^^^^^^^^^ string.unquoted
+Match User *,!username1,!usern.ame2 Host foo.example.com
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config - meta.block meta.block
+#^^^^ keyword.control.conditional.sshd_config
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.sshd_config
+#     ^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config
+#          ^ string.unquoted.sshd_config constant.other.wildcard.asterisk.ssh.common
+#           ^ punctuation.separator.sequence.ssh.common
+#            ^ keyword.operator.logical.ssh.common
+#             ^^^^^^^^^ string.unquoted.sshd_config
+#                      ^ punctuation.separator.sequence.ssh.common
+#                       ^ keyword.operator.logical.ssh.common
+#                        ^^^^^^^^^^ string.unquoted.sshd_config - punctuation
+#                                   ^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                                       ^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config
+#                                        ^^^^^^^^^^^^^^^ string.unquoted.sshd_config
+#                                           ^ punctuation.separator.sequence.ssh.common
+#                                                   ^ punctuation.separator.sequence.ssh.common
     PasswordAuthentication yes
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement.conditional - meta.block.match meta.block.match
     #^^^^^^^^^^^^^^^^^^^^^ meta.block.match meta.mapping.key keyword.other
