@@ -18,7 +18,11 @@ def get_file_location(identifier):
 
 class OpenSshConfigFileCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        view = self.view.window().open_file(get_file_location('ssh_config'))
+        window = self.view.window()
+        if not window:
+            print('Missing window for view')
+            return
+        view = window.open_file(get_file_location('ssh_config'))
 
         if sublime.load_settings('SSH Config.sublime-settings').get(
                 'force_ssh_config_syntax'):
@@ -28,14 +32,26 @@ class OpenSshConfigFileCommand(sublime_plugin.TextCommand):
 
 class OpenSshdConfigFileCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        self.view.window().open_file(get_file_location('sshd_config'))
+        window = self.view.window()
+        if not window:
+            print('Missing window for view')
+            return
+        window.open_file(get_file_location('sshd_config'))
 
 
 class OpenKnownHostsFileCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        self.view.window().open_file(get_file_location('known_hosts'))
+        window = self.view.window()
+        if not window:
+            print('Missing window for view')
+            return
+        window.open_file(get_file_location('known_hosts'))
 
 
 class OpenAuthorizedKeysFileCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        self.view.window().open_file(get_file_location('authorized_keys'))
+        window = self.view.window()
+        if not window:
+            print('Missing window for view')
+            return
+        window.open_file(get_file_location('authorized_keys'))
