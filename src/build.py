@@ -60,9 +60,11 @@ def build_crypto():
         'name': 'SSH Crypto',
         'hidden': True,
         'scope': 'text.ssh.crypto',
+        'extends': 'SSH Common.sublime-syntax',
+        'version': 2,
         'contexts': {
             'main': [
-                {'include': 'SSH Common.sublime-syntax#comments-number-sign'},
+                {'include': 'comments'},
             ]
         }
     }
@@ -81,7 +83,7 @@ def build_crypto():
         syntax_content['contexts']['main'].append({
             'match': fr'^{annotation}:',
             'push': [
-                {'include': 'SSH Common.sublime-syntax#pop-before-nl'},
+                {'include': 'pop-before-nl'},
                 {'include': f'ssh-{domain}'}
             ]
         })

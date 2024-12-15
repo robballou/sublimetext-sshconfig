@@ -110,7 +110,7 @@ Match User *,!username1,!username2
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^ keyword.other
 #          ^^^^^^^^^^^^^^^^^^^^^^^ string.unquoted
-#          ^ keyword.operator.wildcard
+#          ^ constant.other.wildcard.asterisk.ssh.common
 #           ^ punctuation.separator.sequence
 #            ^ keyword.operator.logical
 #                      ^ punctuation.separator.sequence
@@ -178,7 +178,7 @@ Match User username1,username2 Address *,!192.168.0.0/16
 #                   ^ punctuation.separator.sequence
 #                             ^ - string
 #                              ^^^^^^^ keyword.other - keyword keyword
-#                                      ^ keyword.operator.wildcard
+#                                      ^ constant.other.wildcard.asterisk.ssh.common
 #                                       ^ punctuation.separator.sequence
 #                                        ^ keyword.operator.logical
 #                                         ^^^^^^^^^^^ constant.numeric.ip-address.v4

@@ -1,7 +1,8 @@
 # SYNTAX TEST "Packages/SSH Config/Authorized Keys.sublime-syntax"
 
 # Comment
-# ^^^^^^^ comment.line.number-sign
+# <- comment.line.number-sign.ssh.common punctuation.definition.comment.ssh.common
+#^^^^^^^^ comment.line.number-sign.ssh.common
 
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHeDxE1jPGCLo51RSF7CeJbp4raIc3xo6TBiqkz4WRWI you@example.com
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key
@@ -12,28 +13,162 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHeDxE1jPGCLo51RSF7CeJbp4raIc3xo6TBiqkz4WRWI
 
 # Comments allowed at start of line
 ssh-rsa AAAAB3NzaLiPk== user@example.net
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^^^^ support.type.key-type
+#       ^^^^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
+#                       ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
 from="*.sales.example.net,!pc.sales.example.net" ssh-rsa AAAAB3N9Q== john@example.net
-#^^^ keyword.other
-#   ^ keyword.operator.assignment
-#    ^ punctuation.definition.string.begin
-#     ^ keyword.operator.wildcard
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^ keyword.other.authorized_keys
+#   ^ keyword.operator.assignment.authorized_keys
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.authorized_keys
+#    ^ punctuation.definition.string.begin.authorized_keys
+#     ^ constant.other.wildcard.asterisk.ssh.common
+#                        ^ punctuation.separator.sequence.ssh.common
+#                         ^ keyword.operator.logical.ssh.common
+#                                              ^ punctuation.definition.string.end.authorized_keys
+#                                                ^^^^^^^ support.type.key-type
+#                                                        ^^^^^^^^^^^ variable.other.fingerprint.ssh.common
+#                                                                    ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
 command="dump /home",no-pty,no-port-forwarding ssh-rsa AAAAC3N51R== example.net
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^^^^ keyword.other.authorized_keys
+#      ^ keyword.operator.assignment.authorized_keys
+#       ^ string.quoted.double.authorized_keys punctuation.definition.string.begin.authorized_keys
+#        ^^^^^^^^^^ source.shell.embedded
+#        ^^^^ meta.function-call.identifier.shell meta.command.shell variable.function.shell
+#            ^^^^^^ meta.function-call.arguments.shell
+#             ^^^^^ meta.string.shell string.unquoted.shell
+#                  ^ string.quoted.double.authorized_keys punctuation.definition.string.end.authorized_keys
+#                   ^ punctuation.separator.sequence.ssh.common
+#                    ^^^^^^ keyword.other.authorized_keys
+#                          ^ punctuation.separator.sequence.ssh.common
+#                           ^^^^^^^^^^^^^^^^^^ keyword.other.authorized_keys
+#                                              ^^^^^^^ support.type.key-type
+#                                                      ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
+#                                                                   ^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
 permitopen="192.0.2.1:80",permitopen="192.0.2.2:25" ssh-rsa AAAAB3N21S==
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^^^^^^^ keyword.other.authorized_keys
+#         ^ keyword.operator.assignment.authorized_keys
+#          ^^^^^^^^^^^^^^ string.quoted.double.authorized_keys
+#          ^ punctuation.definition.string.begin.authorized_keys
+#           ^^^^^^^^^ meta.string.host.authorized_keys
+#                    ^ punctuation.separator.sequence.authorized_keys
+#                     ^^ constant.numeric.integer.decimal.authorized_keys
+#                       ^ punctuation.definition.string.end.authorized_keys
+#                        ^ punctuation.separator.sequence.ssh.common
+#                         ^^^^^^^^^^ keyword.other.authorized_keys
+#                                   ^ keyword.operator.assignment.authorized_keys
+#                                    ^^^^^^^^^^^^^^ string.quoted.double.authorized_keys
+#                                    ^ punctuation.definition.string.begin.authorized_keys
+#                                     ^^^^^^^^^ meta.string.host.authorized_keys
+#                                              ^ punctuation.separator.sequence.authorized_keys
+#                                               ^^ constant.numeric.integer.decimal.authorized_keys
+#                                                 ^ punctuation.definition.string.end.authorized_keys
+#                                                   ^^^^^^^ support.type.key-type
+#                                                           ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 permitlisten="localhost:8080",permitopen="localhost:22000" ssh-rsa AAAAB3N21S==
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^^^^^^^^^ keyword.other.authorized_keys
+#           ^ keyword.operator.assignment.authorized_keys
+#            ^^^^^^^^^^^^^^^^ string.quoted.double.authorized_keys
+#            ^ punctuation.definition.string.begin.authorized_keys
+#             ^^^^^^^^^ meta.string.host.authorized_keys
+#                      ^ punctuation.separator.sequence.authorized_keys
+#                       ^^^^ constant.numeric.integer.decimal.authorized_keys
+#                           ^ punctuation.definition.string.end.authorized_keys
+#                            ^ punctuation.separator.sequence.ssh.common
+#                             ^^^^^^^^^^ keyword.other.authorized_keys
+#                                       ^ keyword.operator.assignment.authorized_keys
+#                                        ^^^^^^^^^^^^^^^^^ string.quoted.double.authorized_keys
+#                                        ^ punctuation.definition.string.begin.authorized_keys
+#                                         ^^^^^^^^^ meta.string.host.authorized_keys
+#                                                  ^ punctuation.separator.sequence.authorized_keys
+#                                                   ^^^^^ constant.numeric.integer.decimal.authorized_keys
+#                                                        ^ punctuation.definition.string.end.authorized_keys
+#                                                          ^^^^^^^ support.type.key-type
+#                                                                  ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
 tunnel="0",command="sh /etc/netstart tun0" ssh-rsa AAAAB3N21S== jane@example.net
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^^^ keyword.other.authorized_keys
+#     ^ keyword.operator.assignment.authorized_keys
+#      ^^^ string.quoted.double.authorized_keys
+#      ^ punctuation.definition.string.begin.authorized_keys
+#       ^ constant.numeric.integer.decimal.authorized_keys
+#        ^ punctuation.definition.string.end.authorized_keys
+#         ^ punctuation.separator.sequence.ssh.common
+#          ^^^^^^^ keyword.other.authorized_keys
+#                 ^ keyword.operator.assignment.authorized_keys
+#                  ^ string.quoted.double.authorized_keys punctuation.definition.string.begin.authorized_keys
+#                   ^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded
+#                   ^^ meta.function-call.identifier.shell meta.command.shell variable.function.shell
+#                     ^^^^^^^^^^^^^^^^^^^ meta.function-call.arguments.shell
+#                      ^^^^^^^^^^^^^ meta.string.shell string.unquoted.shell
+#                                    ^^^^ meta.string.shell string.unquoted.shell
+#                                        ^ string.quoted.double.authorized_keys punctuation.definition.string.end.authorized_keys
+#                                          ^^^^^^^ support.type.key-type
+#                                                  ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
+#                                                               ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
 restrict,command="uptime" ssh-rsa AAAAB3N21S== user@example.net
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^^^^^ keyword.other.authorized_keys
+#       ^ punctuation.separator.sequence.ssh.common
+#        ^^^^^^^ keyword.other.authorized_keys
+#               ^ keyword.operator.assignment.authorized_keys
+#                ^ string.quoted.double.authorized_keys punctuation.definition.string.begin.authorized_keys
+#                 ^^^^^^ source.shell.embedded meta.function-call.identifier.shell meta.command.shell variable.function.shell
+#                       ^ string.quoted.double.authorized_keys punctuation.definition.string.end.authorized_keys
+#                         ^^^^^^^ support.type.key-type
+#                                 ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
+#                                              ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
 restrict,pty,command="nethack" ssh-rsa AAAAB3N21S== user@example.net
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^^^^^ keyword.other.authorized_keys
+#       ^ punctuation.separator.sequence.ssh.common
+#        ^^^ keyword.other.authorized_keys
+#           ^ punctuation.separator.sequence.ssh.common
+#            ^^^^^^^ keyword.other.authorized_keys
+#                   ^ keyword.operator.assignment.authorized_keys
+#                    ^ string.quoted.double.authorized_keys punctuation.definition.string.begin.authorized_keys
+#                     ^^^^^^^ source.shell.embedded meta.function-call.identifier.shell meta.command.shell variable.function.shell
+#                            ^ string.quoted.double.authorized_keys punctuation.definition.string.end.authorized_keys
+#                              ^^^^^^^ support.type.key-type
+#                                      ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
+#                                                   ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
 no-touch-required sk-ecdsa-sha2-nistp256@openssh.com AAAAB3N21S== user@example.net
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^^^^^^^^^^^^^^ keyword.other.authorized_keys
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type
+#                                                    ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
+#                                                                 ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
 expiry-time="20190606" ssh-rsa AAAAB3N21S== user@example.net
-# ^^^^^^^^^ keyword.other
-#          ^ keyword.operator.assignment
-#           ^ punctuation.definition.string.begin
-#            ^^^^^^^^ constant
-#           ^^^^^^^^^^ string.quoted.double
-#                    ^ punctuation.definition.string.end
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^^^^^^^^ keyword.other.authorized_keys
+#          ^ keyword.operator.assignment.authorized_keys
+#           ^^^^^^^^^^ string.quoted.double.authorized_keys
+#           ^ punctuation.definition.string.begin.authorized_keys
+#            ^^^^^^^^ constant.numeric.integer.date.authorized_keys
+#                    ^ punctuation.definition.string.end.authorized_keys
 #                      ^^^^^^^ support.type.key-type
+#                              ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
+#                                           ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
 environment="NAME=value",environment="NAME2=value2" ssh-rsa AAAAB3N21S==
-# ^^^^^^^^^ keyword.other
-#          ^ keyword.operator.assignment
-#            ^^^^ variable.other.readwrite
-#                ^ keyword.operator.assignment
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.authorized-key.authorized_keys
+#^^^^^^^^^^ keyword.other.authorized_keys
+#          ^ keyword.operator.assignment.authorized_keys
+#           ^^^^^^^^^^^^ string.quoted.double.authorized_keys
+#           ^ punctuation.definition.string.begin.authorized_keys
+#            ^^^^ variable.other.readwrite.authorized_keys
+#                ^ keyword.operator.assignment.authorized_keys
+#                      ^ punctuation.definition.string.end.authorized_keys
+#                       ^ punctuation.separator.sequence.ssh.common
+#                        ^^^^^^^^^^^ keyword.other.authorized_keys
+#                                   ^ keyword.operator.assignment.authorized_keys
+#                                    ^^^^^^^^^^^^^^ string.quoted.double.authorized_keys
+#                                    ^ punctuation.definition.string.begin.authorized_keys
+#                                     ^^^^^ variable.other.readwrite.authorized_keys
+#                                          ^ keyword.operator.assignment.authorized_keys
+#                                                 ^ punctuation.definition.string.end.authorized_keys
+#                                                   ^^^^^^^ support.type.key-type
+#                                                           ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common

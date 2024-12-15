@@ -4,9 +4,12 @@
 # https://man7.org/linux/man-pages/man5/ssh_config.5.html
 # https://man.openbsd.org/ssh_config.5
 name: SSH Config
+scope: source.ssh_config
+version: 2
+extends: SSH Crypto.sublime-syntax
+
 file_extensions:
   - ssh_config
-scope: source.ssh_config
 
 variables:
   # https://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
@@ -26,10 +29,6 @@ contexts:
     - include: match
     - include: naked-parameters
 
-  comments:
-    - include: SSH Common.sublime-syntax#comments-number-sign
-    - include: SSH Common.sublime-syntax#comments-semicolon
-
   parameters:
     - include: comments
     - include: parameter-hostname
@@ -46,7 +45,7 @@ contexts:
       scope: constant.character.escape.ssh_config
 
   pop-before-match-parameter:
-    - include: SSH Common.sublime-syntax#pop-before-nl
+    - include: pop-before-nl
     - match: '(?=[ \t]*{{match_parameters}})'
       pop: true
 
@@ -65,24 +64,6 @@ contexts:
         - meta_scope: meta.block.naked.ssh_config
         - include: pop-before-next-host
         - include: parameters
-
-  operator-exclamation:
-    - match: '!'
-      scope: keyword.operator.logical.ssh_config
-
-  wildcards:
-    - match: \*
-      scope: constant.other.wildcard.asterisk.ssh_config
-    - match: \?
-      scope: constant.other.wildcard.questionmark.ssh_config
-
-  punctuation-comma-sequence:
-    - match: ','
-      scope: punctuation.separator.sequence.ssh_config
-
-  punctuation-dot-sequence:
-    - match: \.
-      scope: punctuation.separator.sequence.ssh_config
 
   host-pattern:
     - meta_content_scope: entity.name.label.host-alias.ssh_config
@@ -187,7 +168,7 @@ contexts:
       push:
         - include: pop-before-match-parameter
         - include: punctuation-comma-sequence
-        - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
+        - include: ip-addresses-with-cidr
 
   match-body:
     - meta_scope: meta.block.match.ssh_config
@@ -203,12 +184,12 @@ contexts:
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.string.host.ssh_config
-        - include: SSH Common.sublime-syntax#pop-nl
-        - include: SSH Common.sublime-syntax#ip-addresses
+        - include: pop-nl
+        - include: ip-addresses
         - match: (?=\S+)
           push:
             - meta_content_scope: string.unquoted.hostname.ssh_config
-            - include: SSH Common.sublime-syntax#pop-before-nl
+            - include: pop-before-nl
             - include: punctuation-dot-sequence
             - match: '{{tokens_hostname}}'
               scope: constant.character.escape.ssh_config
@@ -223,7 +204,7 @@ contexts:
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl
         - include: none-command-values
         - match: '"'
           scope: string.quoted.double.ssh_config
@@ -240,7 +221,7 @@ contexts:
           embed: proxyjump-values
 
   proxyjump-values:
-    - include: SSH Common.sublime-syntax#ip-addresses
+    - include: ip-addresses
     - include: punctuation-comma-sequence
 
     # user
@@ -259,7 +240,7 @@ contexts:
       push:
         - match: (?=\D)
           pop: true
-        - include: SSH Common.sublime-syntax#port-numbers
+        - include: port-numbers
 
     # host or host nickname
     - match: (?=\S+)
@@ -278,7 +259,7 @@ contexts:
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl
         - include: none-command-values
         - match: '"'
           scope: string.quoted.double.ssh_config
@@ -289,6 +270,7 @@ contexts:
                string.quoted.double.ssh_config
                punctuation.definition.string.end.ssh_config
           embed_scope: string.quoted.double.ssh_config
+                       source.shell.embedded.ssh.proxycommand
           embed: scope:source.shell.embedded.ssh.proxycommand
         - match: (?=\S)
           escape: (?=\n|$)
@@ -301,7 +283,7 @@ contexts:
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl
         - include: none-command-values
         - match: '"'
           scope: string.quoted.double.ssh_config
@@ -312,6 +294,7 @@ contexts:
                string.quoted.double.ssh_config
                punctuation.definition.string.end.ssh_config
           embed_scope: string.quoted.double.ssh_config
+                       source.shell.embedded.ssh.localcommand
           embed: scope:source.shell.embedded.ssh.localcommand
         - match: (?=\S)
           escape: (?=$)
@@ -324,7 +307,7 @@ contexts:
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl
         - include: none-command-values
         - match: '"'
           scope: string.quoted.double.ssh_config
@@ -335,6 +318,7 @@ contexts:
                string.quoted.double.ssh_config
                punctuation.definition.string.end.ssh_config
           embed_scope: string.quoted.double.ssh_config
+                       source.shell.embedded.ssh.knownhostscommand
           embed: scope:source.shell.embedded.ssh.knownhostscommand
         - match: (?=\S)
           escape: (?=$)
@@ -351,17 +335,6 @@ contexts:
         3: constant.language.null.ssh_config
         4: punctuation.definition.string.end.ssh_config
 
-  boolean-value:
-    - match: \b(?i:yes)\b
-      scope: constant.language.boolean.true.ssh_config
-    - match: \b(?i:no)\b
-      scope: constant.language.boolean.false.ssh_config
-
-  boolean-value-with-typing:
-    - include: boolean-value
-      # Match while typing as well
-    - match: \b(?i:y(?:es?)?|no?)\b
-
   only-boolean-values:
     - meta_content_scope: meta.mapping.value.ssh_config
     - include: pop-nl-as-value
@@ -377,12 +350,12 @@ contexts:
           pop: true
         - match: '[ \t]+\S+'
           scope: invalid.illegal.ssh_config
-        - include: boolean-value-with-typing
+        - include: boolean-with-typing
         - match: \S+
           scope: invalid.illegal.ssh_config
     - match: '[ \t]+\S+'
       scope: invalid.illegal.ssh_config
-    - include: boolean-value-with-typing
+    - include: boolean-with-typing
     - match: \S+
       scope: invalid.illegal.ssh_config
 
@@ -440,7 +413,7 @@ contexts:
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - include: boolean-value
+        - include: boolean
         - include: tokens-standard
         - match: \b\d+(?=[\s,"])
           scope: constant.numeric.ssh_config
@@ -458,7 +431,7 @@ contexts:
         - match: (?=\S)
           push:
             - meta_content_scope: string.unquoted.ssh_config
-            - include: SSH Common.sublime-syntax#pop-before-nl
+            - include: pop-before-nl
             - include: generic-parameter-values
         - include: pop-nl-as-value
 
@@ -467,11 +440,11 @@ contexts:
     - include: wildcards
     - include: operator-exclamation
     - include: punctuation-comma-sequence
-    - include: SSH Crypto.sublime-syntax#ssh-key-types
-    - include: SSH Crypto.sublime-syntax#ssh-ciphers
-    - include: SSH Crypto.sublime-syntax#ssh-kex-algorithms
-    - include: SSH Crypto.sublime-syntax#ssh-mac-algorithms
-    - include: SSH Common.sublime-syntax#ipv6-square-bracket
-    - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
-    - include: SSH Common.sublime-syntax#time-values
-    - include: SSH Common.sublime-syntax#bytes-values
+    - include: ssh-key-types
+    - include: ssh-ciphers
+    - include: ssh-kex-algorithms
+    - include: ssh-mac-algorithms
+    - include: ipv6-square-bracket
+    - include: ip-addresses-with-cidr
+    - include: time-values
+    - include: bytes-values

@@ -2,22 +2,22 @@
 ---
 contexts:
   main:
-  - include: SSH Common.sublime-syntax#comments-number-sign
+  - include: comments
   - match: '^key type:'
     push:
-    - include: SSH Common.sublime-syntax#pop-before-nl
+    - include: pop-before-nl
     - include: ssh-key-types
   - match: '^cipher:'
     push:
-    - include: SSH Common.sublime-syntax#pop-before-nl
+    - include: pop-before-nl
     - include: ssh-ciphers
   - match: '^kex:'
     push:
-    - include: SSH Common.sublime-syntax#pop-before-nl
+    - include: pop-before-nl
     - include: ssh-kex-algorithms
   - match: '^mac:'
     push:
-    - include: SSH Common.sublime-syntax#pop-before-nl
+    - include: pop-before-nl
     - include: ssh-mac-algorithms
   ssh-ciphers:
   - match: \b(?:AEAD_AES_128_GCM|AEAD_AES_256_GCM|aes128\-ctr|aes128\-gcm@openssh\.com|aes128\-gcm|aes192\-gcm@openssh\.com|aes192\-ctr|aes256\-ctr|aes256\-gcm@openssh\.com|aes256\-gcm|camellia128\-ctr@openssh\.org|camellia128\-ctr|camellia192\-ctr@openssh\.org|camellia192\-ctr|camellia256\-ctr@openssh\.org|camellia256\-ctr|chacha20\-poly1305@openssh\.com|chacha20\-poly1305|crypticore128@ssh\.com|twofish128\-ctr|twofish128\-gcm@libassh\.org|twofish192\-ctr|twofish256\-ctr|twofish256\-gcm@libassh\.org|twofish\-ctr)(?=[,\s\"])
@@ -39,6 +39,8 @@ contexts:
     scope: support.function.mac-algorithm
   - match: \b(?:cbcmac\-3des|cbcmac\-blowfish|cbcmac\-des|cbcmac\-rijndael|hmac\-md5\-96|hmac\-md5\-96\-etm@openssh\.com|hmac\-md5\-etm@openssh\.com|hmac\-md5|hmac\-ripemd160\-etm@openssh\.com|hmac\-ripemd160@openssh\.com|hmac\-ripemd160\-96|hmac\-ripemd160|hmac\-ripemd|hmac\-sha1\-96\-etm@openssh\.com|hmac\-sha1\-96|hmac\-sha1\-etm@openssh\.com|hmac\-sha1|hmac\-sha2\-256\-96|hmac\-sha2\-512\-96|none|md5\-8|md5|ripemd160\-8|ripemd160|sha1\-8|sha1)(?=[,\s\"])
     scope: invalid.deprecated.mac-algorithm
+extends: SSH Common.sublime-syntax
 hidden: true
 name: SSH Crypto
 scope: text.ssh.crypto
+version: 2

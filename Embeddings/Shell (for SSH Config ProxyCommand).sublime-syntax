@@ -8,4 +8,3 @@ extends: Shell (for SSH Config).sublime-syntax
 
 variables:
   tokens: (?:%[%hnpr])
-

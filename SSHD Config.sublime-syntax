@@ -4,55 +4,12 @@
 # https://man7.org/linux/man-pages/man5/sshd_config.5.html
 # https://man.openbsd.org/sshd_config.5
 name: SSHD Config
+scope: source.sshd_config
+version: 2
+extends: SSH Crypto.sublime-syntax
+
 file_extensions:
   - sshd_config
-scope: source.sshd_config
-variables:
-  all_parameters: |-
-    \b(?xi:
-        AcceptEnv | AddressFamily
-      | Allow (?: AgentForwarding | Groups | StreamLocalForwarding
-              | TcpForwarding | Users)
-      | AuthenticationMethods
-      | Authorized (?: Keys | Principals )(?: Command | CommandUser | File )
-      | Banner
-      | CASignatureAlgorithms | ChallengeResponseAuthentication
-      | ChannelTimeout | ChrootDirectory | Ciphers | ClientAliveCountMax
-      | ClientAliveInterval | Compression
-      | DenyGroups | DenyUsers | DisableForwarding
-      | ExposeAuthInfo
-      | FingerprintHash | ForceCommand
-      | GatewayPorts | GSSAPIAuthentication | GSSAPICleanupCredentials
-      | GSSAPIStrictAcceptorCheck
-      | Hostbased (?: AcceptedAlgorithms | AcceptedKeyTypes | Authentication
-                  | UsesNameFromPacketOnly )
-      | HostCertificate | HostKey | HostKeyAgent | HostKeyAlgorithms
-      | IgnoreRhosts | IgnoreUserKnownHosts | Include | IPQoS
-      | KbdInteractiveAuthentication
-      | Kerberos (?: Authentication | GetAFSToken | OrLocalPasswd
-                 | TicketCleanup )
-      | KexAlgorithms | KeyRegenerationInterval
-      | ListenAddress | LoginGraceTime | LogLevel | LogVerbose
-      | MACs | Match | MaxAuthTries | MaxSessions | MaxStartups | ModuliFile
-      | PasswordAuthentication
-      | Permit (?: EmptyPasswords | Listen | Open | RootLogin | TTY | Tunnel
-               | UserEnvironment | UserRC )
-      | PerSource (?: MaxStartups | NetBlockSize | Penalties
-                  | PenaltyExemptList )
-      | PidFile | Port | PrintLastLog | PrintMotd | Protocol
-      | Pubkey (?: AcceptedAlgorithms | AcceptedKeyTypes | AuthOptions
-               | PubkeyAuthentication )
-      | RekeyLimit | RequiredRSASize | RevokedKeys | RDomain
-      | RhostsRSAAuthentication | RSAAuthentication
-      | SecurityKeyProvider | ServerKeyBits | SetEnv | ShowPatchLevel  # SshSessionPath is just for tests
-      | StreamLocalBindMask | StreamLocalBindUnlink
-      | StrictModes | Subsystem | SyslogFacility
-      | TCPKeepAlive | TrustedUserCAKeys
-      | UnusedConnectionTimeout | UseDNS | UseLogin | UsePAM
-      | UsePrivilegeSeparation
-      | VersionAddendum
-      | X11DisplayOffset | X11Forwarding | X11UseLocalhost | XAuthLocation
-    )\b
 
 contexts:
   main:
@@ -72,7 +29,7 @@ contexts:
         1: comment.line.number-sign.sshd_config punctuation.definition.comment.sshd_config
       push:
         - meta_content_scope: comment.line.number-sign.sshd_config
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl
         - match: '{{all_parameters}}'
           scope: meta.keyword.comment.sshd_config
     - match: ^\s*(;)
@@ -80,7 +37,7 @@ contexts:
         1: comment.line.semi-colon.sshd_config punctuation.definition.comment.sshd_config
       push:
         - meta_content_scope: comment.line.semi-colon.sshd_config
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl
         - match: '{{all_parameters}}'
           scope: meta.keyword.comment.sshd_config
 
@@ -91,7 +48,7 @@ contexts:
       scope: constant.character.escape.sshd_config
 
   pop-before-match-option:
-    - include: SSH Common.sublime-syntax#pop-before-nl
+    - include: pop-before-nl
     - match: '(?=[ \t]*(?xi: all | user | group | host | (?:local)? address | localport )\b)'
       pop: true
 
@@ -103,18 +60,6 @@ contexts:
     - match: \n
       scope: meta.mapping.value.sshd_config
       pop: true
-
-  operator-exclamation:
-    - match: '!'
-      scope: keyword.operator.logical.sshd_config
-
-  operator-wildcard:
-    - match: \*|\?
-      scope: keyword.operator.wildcard.sshd_config
-
-  punctuation-comma-sequence:
-    - match: ','
-      scope: punctuation.separator.sequence.sshd_config
 
 ###[ MATCH ]###################################################################
 
@@ -143,15 +88,15 @@ contexts:
       scope: keyword.other.sshd_config
       push:
         - include: operator-exclamation
-        - include: operator-wildcard
+        - include: wildcards
         - include: punctuation-comma-sequence
-        - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
+        - include: ip-addresses-with-cidr
         - include: pop-before-match-option
 
     - match: '\b(?xi: localport )\b'
       scope: keyword.other.sshd_config
       push:
-        - include: SSH Common.sublime-syntax#port-numbers
+        - include: port-numbers
         - include: pop-before-match-option
 
   match-body:
@@ -180,7 +125,7 @@ contexts:
         2: keyword.operator.assignment.sshd_config
       push:
         - meta_content_scope: meta.mapping.value.sshd_config
-        - include: SSH Common.sublime-syntax#pop-nl
+        - include: pop-nl
         - match: '[ \t]*((?i:none))\b[ \t]*$'
           captures:
             1: constant.language.null.sshd_config
@@ -204,17 +149,6 @@ contexts:
           escape: (?=$)
           embed: scope:source.shell
 
-  boolean-value:
-    - match: '\b(?xi: yes )\b'
-      scope: constant.language.boolean.true.sshd_config
-    - match: '\b(?xi: no )\b'
-      scope: constant.language.boolean.false.sshd_config
-
-  boolean-value-with-typing:
-    - include: boolean-value
-      # Match while typing as well
-    - match: '\b(?xi: y(?:es?)? | no? )\b'
-
   only-boolean-values:
     - meta_content_scope: meta.mapping.value.sshd_config
     - include: pop-nl-as-value
@@ -230,12 +164,12 @@ contexts:
           pop: true
         - match: '[ \t]+\S+'
           scope: invalid.illegal.sshd_config
-        - include: boolean-value-with-typing
+        - include: boolean-with-typing
         - match: \S+
           scope: invalid.illegal.sshd_config
     - match: '[ \t]+\S+'
       scope: invalid.illegal.sshd_config
-    - include: boolean-value-with-typing
+    - include: boolean-with-typing
     - match: \S+
       scope: invalid.illegal.sshd_config
 
@@ -290,29 +224,77 @@ contexts:
         - match: (?=\S)
           push:
             - meta_content_scope: string.unquoted.sshd_config
-            - include: SSH Common.sublime-syntax#pop-before-nl
+            - include: pop-before-nl
             - include: generic-parameter-values
         - include: pop-nl-as-value
 
   generic-parameter-values:
-    - include: boolean-value
+    - include: boolean
     - match: '\b(?xi: none )\b'
       scope: constant.language.null.sshd_config
     - match: '\b(?xi: any )\b'
       scope: constant.language.set.sshd_config
     - match: '\b(?xi: default )\b'
       scope: constant.language.default.sshd_config
-    - include: SSH Crypto.sublime-syntax#ssh-key-types
-    - include: SSH Crypto.sublime-syntax#ssh-ciphers
-    - include: SSH Crypto.sublime-syntax#ssh-kex-algorithms
-    - include: SSH Crypto.sublime-syntax#ssh-mac-algorithms
-    - include: SSH Common.sublime-syntax#ipv6-square-bracket
-    - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
-    - include: SSH Common.sublime-syntax#time-values
-    - include: SSH Common.sublime-syntax#bytes-values
+    - include: ssh-key-types
+    - include: ssh-ciphers
+    - include: ssh-kex-algorithms
+    - include: ssh-mac-algorithms
+    - include: ipv6-square-bracket
+    - include: ip-addresses-with-cidr
+    - include: time-values
+    - include: bytes-values
     - include: tokens
     - include: operator-exclamation
-    - include: operator-wildcard
+    - include: wildcards
     - include: punctuation-comma-sequence
     - match: \b\d+(?=[\s,"])
       scope: constant.numeric.sshd_config
+
+variables:
+  all_parameters: |-
+    \b(?xi:
+        AcceptEnv | AddressFamily
+      | Allow (?: AgentForwarding | Groups | StreamLocalForwarding
+              | TcpForwarding | Users)
+      | AuthenticationMethods
+      | Authorized (?: Keys | Principals )(?: Command | CommandUser | File )
+      | Banner
+      | CASignatureAlgorithms | ChallengeResponseAuthentication
+      | ChannelTimeout | ChrootDirectory | Ciphers | ClientAliveCountMax
+      | ClientAliveInterval | Compression
+      | DenyGroups | DenyUsers | DisableForwarding
+      | ExposeAuthInfo
+      | FingerprintHash | ForceCommand
+      | GatewayPorts | GSSAPIAuthentication | GSSAPICleanupCredentials
+      | GSSAPIStrictAcceptorCheck
+      | Hostbased (?: AcceptedAlgorithms | AcceptedKeyTypes | Authentication
+                  | UsesNameFromPacketOnly )
+      | HostCertificate | HostKey | HostKeyAgent | HostKeyAlgorithms
+      | IgnoreRhosts | IgnoreUserKnownHosts | Include | IPQoS
+      | KbdInteractiveAuthentication
+      | Kerberos (?: Authentication | GetAFSToken | OrLocalPasswd
+                 | TicketCleanup )
+      | KexAlgorithms | KeyRegenerationInterval
+      | ListenAddress | LoginGraceTime | LogLevel | LogVerbose
+      | MACs | Match | MaxAuthTries | MaxSessions | MaxStartups | ModuliFile
+      | PasswordAuthentication
+      | Permit (?: EmptyPasswords | Listen | Open | RootLogin | TTY | Tunnel
+               | UserEnvironment | UserRC )
+      | PerSource (?: MaxStartups | NetBlockSize | Penalties
+                  | PenaltyExemptList )
+      | PidFile | Port | PrintLastLog | PrintMotd | Protocol
+      | Pubkey (?: AcceptedAlgorithms | AcceptedKeyTypes | AuthOptions
+               | PubkeyAuthentication )
+      | RekeyLimit | RequiredRSASize | RevokedKeys | RDomain
+      | RhostsRSAAuthentication | RSAAuthentication
+      | SecurityKeyProvider | ServerKeyBits | SetEnv | ShowPatchLevel  # SshSessionPath is just for tests
+      | StreamLocalBindMask | StreamLocalBindUnlink
+      | StrictModes | Subsystem | SyslogFacility
+      | TCPKeepAlive | TrustedUserCAKeys
+      | UnusedConnectionTimeout | UseDNS | UseLogin | UsePAM
+      | UsePrivilegeSeparation
+      | VersionAddendum
+      | X11DisplayOffset | X11Forwarding | X11UseLocalhost | XAuthLocation
+    )\b
+

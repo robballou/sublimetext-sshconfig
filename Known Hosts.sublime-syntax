@@ -5,6 +5,8 @@
 # https://man.openbsd.org/sshd.8#SSH_KNOWN_HOSTS_FILE_FORMAT
 name: Known Hosts
 scope: text.known_hosts
+version: 2
+extends: SSH Crypto.sublime-syntax
 
 file_extensions:
   - known_hosts
@@ -13,19 +15,18 @@ hidden_file_extensions:
 
 contexts:
   main:
-    - include: SSH Common.sublime-syntax#comments-number-sign
+    - include: comments-number-sign
     - match: ^((@)(?:revoked|cert-authority))?
       captures:
         1: meta.annotation.known_hosts variable.annotation.known_hosts
         2: punctuation.definition.annotation.known_hosts
       push:
         - meta_scope: meta.line.known-host.known_hosts
-        - include: SSH Common.sublime-syntax#pop-before-nl
-        - include: SSH Common.sublime-syntax#pop-nl
-        - match: ','
-          scope: punctuation.separator.sequence.known_hosts
-        - include: SSH Common.sublime-syntax#ssh-fingerprint-with-label
-        - include: SSH Crypto.sublime-syntax#ssh-key-types
+        - include: pop-before-nl
+        - include: pop-nl
+        - include: punctuation-comma-sequence
+        - include: ssh-fingerprint-with-label
+        - include: ssh-key-types
         - include: hostname-or-ip-value
 
   hostname-or-ip-value:
@@ -33,23 +34,22 @@ contexts:
       scope: punctuation.definition.string.begin.known_hosts
       push:
         - meta_scope: meta.brackets.host.known_hosts
-        - match: (\])(?:(:)(\d{1,5}))?
+        - match: (\])(?:(:)({{zero_to_65535}}))?
           captures:
             1: punctuation.definition.string.end.known_hosts
             2: punctuation.separator.sequence.known_hosts
             3: constant.numeric.integer.decimal.known_hosts
-          pop: true
-        - match: '!'
-          scope: keyword.operator.logical.known_hosts
-        - include: SSH Common.sublime-syntax#ip-addresses
+          pop: 1
+        - include: operator-exclamation
+        - include: ip-addresses
         - match: ''
           push:
             - meta_scope: meta.string.host.known_hosts string.quoted.other.known_hosts
             - match: (?=,|\])
-              pop: true
-            - match: '[*?]'
-              scope:  keyword.operator.wildcard.known_hosts
-    - include: SSH Common.sublime-syntax#ip-addresses
+              pop: 1
+            - include: wildcards
+            - include: punctuation-dot-sequence
+    - include: ip-addresses
     - match: (\|)(\d+)(\|)([\w+/]{27}=)(\|)([\w+/]{27}=)
       scope: meta.string.host.obfuscated.known_hosts
       captures:
@@ -59,9 +59,13 @@ contexts:
         4: string.unquoted.salt.known_hosts
         5: punctuation.definition.known_hosts
         6: string.unquoted.hash.known_hosts
-    - match: '!'
-      scope: keyword.operator.logical.known_hosts
-    - match: '[*?]'
-      scope: meta.string.host.known_hosts string.unquoted.known_hosts keyword.operator.wildcard.known_hosts
-    - match: '[^,\[\s*?]+'
-      scope: meta.string.host.known_hosts string.unquoted.known_hosts
+    - include: operator-exclamation
+    - match: (?=\S)
+      push: hostname
+
+  hostname:
+    - meta_content_scope: meta.string.host.known_hosts string.unquoted.known_hosts
+    - match: (?=[,\[\s])
+      pop: 1
+    - include: wildcards
+    - include: punctuation-dot-sequence

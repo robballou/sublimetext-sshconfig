@@ -7,9 +7,24 @@
 # https://datatracker.ietf.org/doc/html/rfc4716 (OpenSSH)
 # https://datatracker.ietf.org/doc/html/rfc4880 (OpenPGP)
 
-version: 2
-scope: source.pem
 name: Private Encrypted Mail (PEM) Key
+scope: source.pem
+version: 2
+extends: SSH Common.sublime-syntax
+
+file_extensions:
+  - pem
+
+hidden_file_extensions:
+  - cer
+  - cert
+  - crt
+  - id_dsa
+  - id_ed25519
+  - id_ed448
+  - id_eddsa
+  - id_rsa
+
 first_line_match: |-
         ^(?x:
           (-{4}[ -])
@@ -28,25 +43,13 @@ first_line_match: |-
           ([ -]-{4})
         )
 
-file_extensions:
-  - pem
-
-hidden_file_extensions:
-  - cer
-  - cert
-  - crt
-  - id_dsa
-  - id_ed25519
-  - id_ed448
-  - id_eddsa
-  - id_rsa
 
 variables:
   base64_char: '[a-zA-Z0-9+/]'
 
 contexts:
   main:
-    - include: SSH Common.sublime-syntax#comments-number-sign
+    - include: comments-number-sign
     - match: |-
         ^(?x:
           (-{4}[ -])
@@ -73,7 +76,7 @@ contexts:
     - match: ^\1END \2\3
       scope: punctuation.section.block.end.pem
       pop: 1
-    - include: SSH Common.sublime-syntax#comments-number-sign
+    - include: comments-number-sign
     - match: ^{{base64_char}}{1,100}(={0,3})?$
       scope: string.unquoted.pem
       captures:

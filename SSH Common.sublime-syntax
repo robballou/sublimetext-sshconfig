@@ -3,8 +3,9 @@
 # This file is some kind of internal library which is used to store
 # common rules which are used by the visible syntax files.
 name: SSH Common
-hidden: true
 scope: text.ssh.common
+version: 2
+hidden: true
 
 variables:
   ssh_fingerprint: (?:AAAA(?:E2V|[BC]3N)[\w+/]+={0,3})
@@ -41,6 +42,10 @@ contexts:
     - match: (?=\n)
       pop: true
 
+  comments:
+    - include: comments-number-sign
+    - include: comments-semicolon
+
   comments-number-sign:
     - match: ^\s*(#)
       captures:
@@ -56,6 +61,24 @@ contexts:
       push:
         - meta_content_scope: comment.line.semi-colon.ssh.common
         - include: pop-nl
+
+  operator-exclamation:
+    - match: '!'
+      scope: keyword.operator.logical.ssh.common
+
+  wildcards:
+    - match: \*
+      scope: constant.other.wildcard.asterisk.ssh.common
+    - match: \?
+      scope: constant.other.wildcard.questionmark.ssh.common
+
+  punctuation-comma-sequence:
+    - match: ','
+      scope: punctuation.separator.sequence.ssh.common
+
+  punctuation-dot-sequence:
+    - match: \.
+      scope: punctuation.separator.sequence.ssh.common
 
   ssh-fingerprint:
     - match: '{{ssh_fingerprint}}'
@@ -135,3 +158,14 @@ contexts:
     - match: '\b{{zero_to_65535}}(?![\w:])'
       scope: meta.number.integer.decimal.ssh.common
              constant.numeric.port-number.ssh.common
+
+  boolean:
+    - match: '\b(?xi: yes )\b'
+      scope: constant.language.boolean.true.ssh.common
+    - match: '\b(?xi: no )\b'
+      scope: constant.language.boolean.false.ssh.common
+
+  boolean-with-typing:
+    - include: boolean
+      # Match while typing as well
+    - match: '\b(?xi: y(?:es?)? | no? )\b'
