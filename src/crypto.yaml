@@ -15,7 +15,7 @@ key-types:
     kind: [type, k, Key type]
     annotation: key type
   active:
-    scope: support.type.key-type
+    scope: support.type.key-type.ssh.crypto
     items:
       - dsa2048-sha224@libassh.org
       - dsa2048-sha256@libassh.org
@@ -76,7 +76,7 @@ key-types:
       - x509v3-sign-rsa-sha384@ssh.com
       - x509v3-sign-rsa-sha512@ssh.com
   deprecated:
-    scope: invalid.deprecated.key-type
+    scope: invalid.deprecated.key-type.ssh.crypto
     items:
       - ecdsa-sha2-nistb233
       - ecdsa-sha2-nistp224
@@ -117,7 +117,7 @@ ciphers:
     kind: [function, c, Cipher]
     annotation: cipher
   active:
-    scope: support.function.cipher
+    scope: support.function.cipher.ssh.crypto
     items:
       - AEAD_AES_128_GCM
       - AEAD_AES_256_GCM
@@ -145,7 +145,7 @@ ciphers:
       - twofish256-gcm@libassh.org
       - twofish-ctr
   deprecated:
-    scope: invalid.deprecated.cipher
+    scope: invalid.deprecated.cipher.ssh.crypto
     items:
       - 3des-cbc
       - 3des-cfb
@@ -230,7 +230,7 @@ kex-algorithms:
     kind: [function, k, Kex Algm]
     annotation: kex
   active:
-    scope: support.function.kex-algorithm
+    scope: support.function.kex-algorithm.ssh.crypto
     items:
       - curve25519-sha256@libssh.org
       - curve25519-sha256
@@ -326,7 +326,7 @@ kex-algorithms:
       - x25519-kyber-512r3-sha256-d00@amazon.com
       - x25519-kyber512-sha512@aws.amazon.com
   deprecated:
-    scope: invalid.deprecated.kex-algorithm
+    scope: invalid.deprecated.kex-algorithm.ssh.crypto
     items:
       - diffie-hellman-group-exchange-sha1
       - diffie-hellman-group1-sha1
@@ -367,7 +367,7 @@ mac-algorithms:
     kind: [function, m, MAC Algm]
     annotation: mac
   active:
-    scope: support.function.mac-algorithm
+    scope: support.function.mac-algorithm.ssh.crypto
     items:
       - AEAD_AES_128_GCM
       - AEAD_AES_256_GCM
@@ -403,7 +403,7 @@ mac-algorithms:
       - umac-64@openssh.com
       - umac-96@openssh.com
   deprecated:
-    scope: invalid.deprecated.mac-algorithm
+    scope: invalid.deprecated.mac-algorithm.ssh.crypto
     items:
       - cbcmac-3des
       - cbcmac-blowfish
