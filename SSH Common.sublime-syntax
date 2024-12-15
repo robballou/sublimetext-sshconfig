@@ -81,21 +81,28 @@ contexts:
     - match: \.
       scope: punctuation.separator.sequence.ssh.common
 
+  punctuation-at:
+    - match: '@'
+      scope: punctuation.separator.sequence.ssh.common
+
   ssh-fingerprint:
     - match: '{{ssh_fingerprint}}'
       scope: variable.other.fingerprint.ssh.common
 
   ssh-fingerprint-with-label:
-    # TODO: Refactor so that captures (like @) can be injected
     - match: '{{ssh_fingerprint}}'
       scope: variable.other.fingerprint.ssh.common
+      push: expect-fingerprint-label
+
+  expect-fingerprint-label:
+    - include: pop-before-nl
+    - match: (?=\S)
       push:
-        - include: pop-before-nl
-        - match: '[ \t]*(\S(?:.*\S)?)[ \t]*$'
-          captures:
-            1: meta.annotation.identifier.ssh.common
-               string.unquoted.ssh.common
+        - meta_scope: meta.annotation.identifier.ssh.common
+                      string.unquoted.ssh.common
+        - match: '(?=[ \t]*$)'
           pop: 1
+        - include: punctuation-at
 
   time-values:
     # https://man.openbsd.org/sshd_config.5#TIME_FORMATS
