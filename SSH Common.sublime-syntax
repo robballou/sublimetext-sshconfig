@@ -227,9 +227,12 @@ contexts:
           pop: 1
         - match: ~[\w\-.]*
           scope: variable.language.home.ssh.common
-        - match: /
-          scope: punctuation.separator.path.ssh.common
-        - include: punctuation-dot-sequence
+        - match: (/)(?:(\.{1,2})(?=/)|\.(?!/))?
+          captures:
+            1: punctuation.separator.path.ssh.common
+            2: constant.other.placeholder.ssh.common
+        - match: \.(?=[\w*?%])
+          scope: punctuation.separator.sequence.ssh.common
         - include: wildcards
         - include: tokens
         - include: environment-variables

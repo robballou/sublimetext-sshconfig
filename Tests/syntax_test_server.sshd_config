@@ -61,6 +61,10 @@ PubkeyAuthentication yes
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
 AuthorizedKeysFile  .ssh/authorized_keys
+#^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                   ^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common meta.path.ssh.common entity.name.ssh.common
+#                       ^ punctuation.separator.path.ssh.common
+##                   ^ - punctuation
 
 #AuthorizedPrincipalsFile none
 
@@ -108,6 +112,12 @@ AcceptEnv LANG LC_*
 
 # override default of no subsystems
  Subsystem   sftp    /usr/libexec/sftp-server
+#^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
+#                    ^^^^^^^^^^^^^^^^^^^^^^^^ meta.path.ssh.common entity.name.ssh.common
+#                    ^ punctuation.separator.path.ssh.common
+#                        ^ punctuation.separator.path.ssh.common
+#                                ^ punctuation.separator.path.ssh.common
 #@@@@@@@@@ local-definition
 
 # Example of overriding settings on a per-user basis

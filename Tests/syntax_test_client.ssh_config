@@ -14,7 +14,7 @@ Include ~/.ssh/config_*_cloud
 #       ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common meta.path.ssh.common entity.name.ssh.common
 #       ^ variable.language.home.ssh.common
 #        ^ punctuation.separator.path.ssh.common
-#         ^ punctuation.separator.sequence.ssh.common
+#         ^ - punctuation
 #             ^ punctuation.separator.path.ssh.common
 #                     ^ constant.other.wildcard.asterisk.ssh.common
 
@@ -139,7 +139,7 @@ Host server serverino !other-pat?ern
 #                ^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common meta.path.ssh.common entity.name.ssh.common
 #                ^ variable.language.home.ssh.common
 #                 ^ punctuation.separator.path.ssh.common
-#                  ^ punctuation.separator.sequence.ssh.common
+#                  ^ - punctuation
 #                      ^ punctuation.separator.path.ssh.common
 #                            ^ punctuation.separator.path.ssh.common
 #                             ^^ constant.other.placeholder.ssh_config
@@ -213,7 +213,7 @@ Host *
 #                ^^^^^^^^^^^^^ meta.mapping.value.ssh.common meta.path.ssh.common entity.name.ssh.common
 #                ^ variable.language.home.ssh.common
 #                 ^ punctuation.separator.path.ssh.common
-#                  ^ punctuation.separator.sequence.ssh.common
+#                  ^ - punctuation
 #                      ^ punctuation.separator.path.ssh.common
     Ciphers "aes128-ctr,aes192-ctr,aes256-ctr"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
