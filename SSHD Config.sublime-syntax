@@ -10,35 +10,43 @@ scope: source.sshd_config
 variables:
   all_options: |-
     \b(?xi:
-      AcceptEnv|AddressFamily|
-      Allow(?:AgentForwarding|Groups|StreamLocalForwarding|TcpForwarding|Users)|
-      AuthenticationMethods|
-      Authorized(?:Keys|Principals)(?:Command|CommandUser|File)|
-      Banner|
-      CASignatureAlgorithms|ChallengeResponseAuthentication|ChrootDirectory|
-      Ciphers|ClientAliveCountMax|ClientAliveInterval|Compression|
-      DenyGroups|DenyUsers|DisableForwarding|
-      ExposeAuthInfo|
-      FingerprintHash|ForceCommand|
-      GatewayPorts|GSSAPIAuthentication|GSSAPICleanupCredentials|GSSAPIStrictAcceptorCheck|
-      Hostbased(?:AcceptedKeyTypes|Authentication|UsesNameFromPacketOnly)|
-      HostCertificate|HostKey|HostKeyAgent|HostKeyAlgorithms|
-      IgnoreRhosts|IgnoreUserKnownHosts|IPQoS|
-      KbdInteractiveAuthentication|
-      Kerberos(?:Authentication|GetAFSToken|OrLocalPasswd|TicketCleanup)|
-      KexAlgorithms|KeyRegenerationInterval|
-      ListenAddress|LoginGraceTime|LogLevel|
-      MACs|Match|MaxAuthTries|MaxSessions|MaxStartups|
-      PasswordAuthentication|
-      Permit(?:EmptyPasswords|Listen|Open|RootLogin|TTY|Tunnel|UserEnvironment|UserRC)|
-      PidFile|Port|PrintLastLog|PrintMotd|Protocol|PubkeyAcceptedKeyTypes|PubkeyAuthentication|
-      RekeyLimit|RevokedKeys|RDomain|RhostsRSAAuthentication|RSAAuthentication|
-      ServerKeyBits|SetEnv|ShowPatchLevel|StreamLocalBindMask|StreamLocalBindUnlink|
-      StrictModes|Subsystem|SyslogFacility|
-      TCPKeepAlive|
-      UseDNS|UseLogin|UsePAM|UsePrivilegeSeparation|
-      VersionAddendum|
-      X11DisplayOffset|X11Forwarding|X11UseLocalhost|XAuthLocation
+        AcceptEnv | AddressFamily
+      | Allow (?: AgentForwarding | Groups | StreamLocalForwarding
+              | TcpForwarding | Users)
+      | AuthenticationMethods
+      | Authorized (?: Keys | Principals )(?: Command | CommandUser | File )
+      | Banner
+      | CASignatureAlgorithms | ChallengeResponseAuthentication
+      | ChrootDirectory | Ciphers | ClientAliveCountMax | ClientAliveInterval
+      | Compression
+      | DenyGroups | DenyUsers | DisableForwarding
+      | ExposeAuthInfo
+      | FingerprintHash | ForceCommand
+      | GatewayPorts | GSSAPIAuthentication | GSSAPICleanupCredentials
+      | GSSAPIStrictAcceptorCheck
+      | Hostbased (?: AcceptedKeyTypes | Authentication
+                  | UsesNameFromPacketOnly )
+      | HostCertificate | HostKey | HostKeyAgent | HostKeyAlgorithms
+      | IgnoreRhosts | IgnoreUserKnownHosts | IPQoS
+      | KbdInteractiveAuthentication
+      | Kerberos (?: Authentication | GetAFSToken | OrLocalPasswd
+                 | TicketCleanup )
+      | KexAlgorithms | KeyRegenerationInterval
+      | ListenAddress | LoginGraceTime | LogLevel
+      | MACs | Match | MaxAuthTries | MaxSessions | MaxStartups
+      | PasswordAuthentication
+      | Permit (?: EmptyPasswords | Listen | Open | RootLogin | TTY | Tunnel
+               | UserEnvironment | UserRC )
+      | PidFile | Port | PrintLastLog | PrintMotd | Protocol
+      | PubkeyAcceptedKeyTypes | PubkeyAuthentication
+      | RekeyLimit | RevokedKeys | RDomain | RhostsRSAAuthentication
+      | RSAAuthentication
+      | ServerKeyBits | SetEnv | ShowPatchLevel | StreamLocalBindMask
+      | StreamLocalBindUnlink | StrictModes | Subsystem | SyslogFacility
+      | TCPKeepAlive
+      | UseDNS | UseLogin | UsePAM | UsePrivilegeSeparation
+      | VersionAddendum
+      | X11DisplayOffset | X11Forwarding | X11UseLocalhost | XAuthLocation
     )\b
 
 contexts:
@@ -78,11 +86,11 @@ contexts:
 
   pop-before-match-option:
     - include: SSH Common.sublime-syntax#pop-before-nl
-    - match: (?=[ \t]*(?i:all|user|group|host|(?:local)?address|localport)\b)
+    - match: '(?=[ \t]*(?xi: all | user | group | host | (?:local)? address | localport )\b)'
       pop: true
 
   pop-before-next-match:
-    - match: (?=^[ \t]*(?i:match)\b)
+    - match: (?=^[ \t]*(?i:Match)\b)
       pop: true
 
   pop-nl-as-value:
@@ -105,7 +113,7 @@ contexts:
 ###[ MATCH ]###################################################################
 
   match:
-    - match: ^[ \t]*((?i:match))\b
+    - match: ^[ \t]*((?i:Match))\b
       captures:
         1: meta.block.match.sshd_config keyword.control.conditional.sshd_config
       set: match-conditions
@@ -116,16 +124,16 @@ contexts:
       set: match-body
 
     - include: operator-exclamation
-    - match: \b(?i:all)\b
+    - match: '\b(?xi: all )\b'
       scope: constant.language.boolean.sshd_config
 
-    - match: \b(?i:user|group|host)\b
+    - match: '\b(?xi: user | group | host )\b'
       scope: keyword.other.sshd_config
       push:
         - include: pop-before-match-option
         - include: string-patterns
 
-    - match: \b(?i:(?:local)?address)\b
+    - match: '\b(?xi: (?:local)? address )\b'
       scope: keyword.other.sshd_config
       push:
         - include: operator-exclamation
@@ -134,7 +142,7 @@ contexts:
         - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
         - include: pop-before-match-option
 
-    - match: \b(?i:localport)\b
+    - match: '\b(?xi: localport )\b'
       scope: keyword.other.sshd_config
       push:
         - include: SSH Common.sublime-syntax#port-numbers
@@ -197,11 +205,11 @@ contexts:
         - include: pop-nl-as-value
 
   generic-option-value:
-    - match: \b(?i:yes|no)\b
+    - match: '\b(?xi: yes | no )\b'
       scope: constant.language.boolean.sshd_config
-    - match: \b(?i:any|none)\b
+    - match: '\b(?xi: any | none )\b'
       scope: constant.language.set.sshd_config
-    - match: \b(?i:default)\b
+    - match: '\b(?xi: default )\b'
       scope: constant.language.default.sshd_config
     - include: SSH Crypto.sublime-syntax#ssh-key-types
     - include: SSH Crypto.sublime-syntax#ssh-ciphers

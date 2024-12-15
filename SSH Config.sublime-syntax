@@ -46,11 +46,11 @@ contexts:
 
   pop-before-match-parameter:
     - include: SSH Common.sublime-syntax#pop-before-nl
-    - match: (?=[ \t]*(?i:all|canonical|exec|host|originalhost|user|localuser)\b)
+    - match: '(?=[ \t]*(?xi: all | canonical | exec | host | originalhost | user | localuser )\b)'
       pop: true
 
   pop-before-next-host:
-    - match: (?=^[ \t]*(?i:host|match)\b)
+    - match: '(?=^[ \t]*(?xi: Host | Match )\b)'
       pop: true
 
   pop-nl-as-value:
@@ -130,20 +130,24 @@ contexts:
       set: match-body
 
     - include: operator-exclamation
-    - match: \b(?i:All)\b
+    # Match predicates with no arguments
+    - match: '\b(?xi: all )\b'
       scope: constant.language.boolean.ssh_config
-    - match: \b(?i:Canonical|Final)\b
+    - match: '\b(?xi: canonical | final )\b'
       scope: keyword.other.ssh_config
 
-    - match: \b((?i:Exec))\b[ \t]*(\")
+    # Match predicates with shell
+    # quoted shell
+    - match: '\b((?xi: exec ))\b[ \t]*(\")'
       captures:
         1: keyword.other.ssh_config
         2: string.quoted.double.ssh_config punctuation.definition.string.begin.ssh_config
       escape: (?<!\\)\"(?=\s*(?:#.*)?)
       escape_captures:
         0: string.quoted.double.ssh_config punctuation.definition.string.end.ssh_config
-      embed: scope:source.shell
-    - match: \b((?i:Exec))\b[ \t]+
+      embed: scope:source.shell.embedded.ssh
+    # unquoted shell
+    - match: '\b((?xi: exec ))\b[ \t]+'
       captures:
         1: keyword.other.ssh_config
       with_prototype:
@@ -153,14 +157,16 @@ contexts:
         - meta_content_scope: source.embedded.shell
         - include: scope:source.shell
 
-    - match: \b(?i:(?:Original)?Host)\b
+    # Match predicates with host arguments
+    - match: '\b(?xi: (?:original)? host )\b'
       scope: keyword.other.ssh_config
       push:
         - include: pop-before-match-parameter
         - include: punctuation-comma-sequence
         - include: host-patterns
 
-    - match: \b(?i:(?:Local)?User)\b
+    # Match predicates with generic string arguments
+    - match: '\b(?xi: (?:local)? user | tagged )\b'
       scope: keyword.other.ssh_config
       push:
         - include: pop-before-match-parameter
@@ -333,7 +339,14 @@ contexts:
       push: only-boolean-values
 
   parameter-with-boolean-values-plus-ask:
-    - match: ^\s*((?i:StrictHostKeyChecking|VerifyHostKeyDNS))\b[ \t]*(=)?
+    - match: |-
+        (?xi:
+          ^\s*
+          ( ControlMaster | StrictHostKeyChecking | UpdateHostKeys
+          | VerifyHostKeyDNS
+          )
+          \b[ \t]*(=)?
+        )
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config

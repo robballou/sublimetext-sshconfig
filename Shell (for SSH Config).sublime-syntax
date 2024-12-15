@@ -1,0 +1,17 @@
+%YAML 1.2
+---
+scope: source.shell.embedded.ssh
+version: 2
+hidden: true
+
+extends: Packages/ShellScript/Shell-Unix-Generic.sublime-syntax
+
+variables:
+  tokens_standard: (?:%[%CdhikLlnpru])
+
+contexts:
+
+  prototype:
+    - meta_prepend: true
+    - match: '{{tokens_standard}}'
+      scope: constant.character.escape.ssh
