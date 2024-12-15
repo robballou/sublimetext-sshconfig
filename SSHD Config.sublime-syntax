@@ -199,29 +199,7 @@ contexts:
       scope: invalid.illegal.sshd_config
 
   parameter-with-boolean-values:
-    - match: |-
-        (?xi:
-          ^\s*
-          ( AllowAgentForwarding
-          | ChallengeResponseAuthentication | Compression
-          | ExposeAuthInfo
-          | GSSAPIAuthentication | GSSAPICleanupCredentials
-          | GSSAPIStrictAcceptorCheck
-          | HostbasedAuthentication | HostbasedUsesNameFromPacketOnly
-          | IgnoreRhosts | IgnoreUserKnownHosts
-          | KbdInteractiveAuthentication | KerberosAuthentication
-          | KerberosGetAFSToken | KerberosOrLocalPasswd
-          | KerberosTicketCleanup
-          | PasswordAuthentication | PermitEmptyPasswords | PermitTTY
-          | PermitUserEnvironment | PermitUserRC | PrintLastLog | PrintMotd
-          | PubkeyAuthentication
-          | StreamLocalBindUnlink | StrictModes
-          | TCPKeepAlive
-          | UseDNS | UsePAM
-          | X11Forwarding | X11UseLocalhost
-          )
-          \b[ \t]*(=)?
-        )
+    - match: '^\s*({{parameters_boolean}})[ \t]*(=)?'
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
@@ -319,5 +297,25 @@ variables:
       | UsePrivilegeSeparation
       | VersionAddendum
       | X11DisplayOffset | X11Forwarding | X11UseLocalhost | XAuthLocation
+    )\b
+  parameters_boolean: |-
+    \b(?xi:
+        AllowAgentForwarding
+      | ChallengeResponseAuthentication | Compression
+      | ExposeAuthInfo
+      | GSSAPIAuthentication | GSSAPICleanupCredentials
+      | GSSAPIStrictAcceptorCheck
+      | HostbasedAuthentication | HostbasedUsesNameFromPacketOnly
+      | IgnoreRhosts | IgnoreUserKnownHosts
+      | KbdInteractiveAuthentication | KerberosAuthentication
+      | KerberosGetAFSToken | KerberosOrLocalPasswd
+      | KerberosTicketCleanup
+      | PasswordAuthentication | PermitEmptyPasswords | PermitTTY
+      | PermitUserEnvironment | PermitUserRC | PrintLastLog | PrintMotd
+      | PubkeyAuthentication
+      | StreamLocalBindUnlink | StrictModes
+      | TCPKeepAlive
+      | UseDNS | UsePAM
+      | X11Forwarding | X11UseLocalhost
     )\b
 
