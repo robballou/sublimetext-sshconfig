@@ -72,7 +72,8 @@ contexts:
       scope: meta.mapping.value.ssh_config
       pop: true
 
- # Match
+###[ MATCH ]###################################################################
+
   match:
     - match: ^[ \t]*((?i:match))\b
       captures:

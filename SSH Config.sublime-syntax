@@ -25,6 +25,10 @@ contexts:
     - include: match
     - include: naked-parameters
 
+  comments:
+    - include: SSH Common.sublime-syntax#comments-number-sign
+    - include: SSH Common.sublime-syntax#comments-semicolon
+
   parameters:
     - include: comments
     - include: parameter-hostname
@@ -65,6 +69,10 @@ contexts:
     - match: '!'
       scope: keyword.operator.logical.ssh_config
 
+  operator-wildcard:
+    - match: \*|\?
+      scope: keyword.operator.wildcard.ssh_config
+
   punctuation-comma-sequence:
     - match: ','
       scope: punctuation.separator.sequence.ssh_config
@@ -73,7 +81,8 @@ contexts:
     # https://man7.org/linux/man-pages/man5/ssh_config.5.html#ENVIRONMENT_VARIABLES
     - include: scope:source.shell#expansions-parameter
 
-  # Host
+###[ HOST ]####################################################################
+
   host:
     - match: ^[ \t]*((?i:Host))\b
       captures:
@@ -91,7 +100,8 @@ contexts:
     - include: pop-before-next-host
     - include: parameters
 
-  # Match
+###[ MATCH ]###################################################################
+
   match:
     - match: ^[ \t]*((?i:Match))\b
       captures:
@@ -147,7 +157,8 @@ contexts:
     - include: pop-before-next-host
     - include: parameters
 
-  # Parameters
+###[ PARAMETERS ]##############################################################
+
   parameter-hostname:
     - match: ^[ \t]*((?i:HostName))\b[ \t]*(=)?
       captures:
@@ -185,6 +196,7 @@ contexts:
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
         - include: pop-nl-as-value
+        - include: pop-none-value
         - include: SSH Common.sublime-syntax#ip-addresses
         - include: punctuation-comma-sequence
 
@@ -207,8 +219,6 @@ contexts:
             - include: SSH Common.sublime-syntax#port-numbers
 
         # host or host nickname
-        - match: \bNone\b
-          scope: constant.language.null.ssh_config
         - match: (?=\S+)
           push:
             - meta_content_scope: string.unquoted.hostname.ssh_config
@@ -218,6 +228,7 @@ contexts:
               scope: constant.character.escape.ssh_config
 
   parameter-proxycommand:
+    # TODO: Double-quoted version
     - match: ^\s*((?i:ProxyCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -228,13 +239,12 @@ contexts:
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
                               source.embedded.shell
-        - match: none
-          scope: constant.language.set.ssh_config
-          pop: true
+        - include: pop-none-value
         - include: scope:source.shell
         - include: pop-nl-as-value
 
   parameter-localcommand:
+    # TODO: Double-quoted version
     - match: ^\s*((?i:LocalCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -245,13 +255,12 @@ contexts:
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
                               source.embedded.shell
-        - match: none
-          scope: constant.language.set.ssh_config
-          pop: true
+        - include: pop-none-value
         - include: scope:source.shell
         - include: pop-nl-as-value
 
   parameter-knownhostscommand:
+    # TODO: Double-quoted version
     - match: ^\s*((?i:KnownHostsCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -262,9 +271,7 @@ contexts:
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
                               source.embedded.shell
-        - match: none
-          scope: constant.language.set.ssh_config
-          pop: true
+        - include: pop-none-value
         - include: scope:source.shell
         - include: pop-nl-as-value
 
@@ -276,6 +283,11 @@ contexts:
     - include: boolean-value
       # Match while typing as well
     - match: \b(?i:y(?:es?)?|no?)\b
+
+  pop-none-value:
+    - match: \b(?i:none)\b
+      scope: constant.language.set.ssh_config
+      pop: true
 
   parameter-with-boolean-values:
     - match: |-
@@ -358,8 +370,7 @@ contexts:
 
   generic-parameter-values:
     - include: tokens-standard
-    - match: \*|\?
-      scope: keyword.operator.wildcard.ssh_config
+    - include: operator-wildcard
     - include: operator-exclamation
     - include: punctuation-comma-sequence
     - include: SSH Crypto.sublime-syntax#ssh-key-types
@@ -370,7 +381,3 @@ contexts:
     - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
     - include: SSH Common.sublime-syntax#time-values
     - include: SSH Common.sublime-syntax#bytes-values
-
-  comments:
-    - include: SSH Common.sublime-syntax#comments-number-sign
-    - include: SSH Common.sublime-syntax#comments-semicolon
