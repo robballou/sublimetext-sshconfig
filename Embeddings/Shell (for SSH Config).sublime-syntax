@@ -15,3 +15,8 @@ contexts:
     - meta_prepend: true
     - match: '{{tokens}}'
       scope: constant.character.escape.ssh
+
+  string-path-pattern-body:
+    - meta_prepend: true
+    - match: '{{tokens}}'
+      scope: constant.character.escape.ssh
