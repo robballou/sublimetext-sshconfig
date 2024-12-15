@@ -128,13 +128,6 @@ contexts:
     - meta_content_scope: meta.block.match.ssh_config
                           meta.statement.conditional.ssh_config
 
-    # unquoted shell
-    - match: '\b((?xi: exec ))\b[ \t]+'
-      captures:
-        1: keyword.other.ssh_config
-      escape: '(?=[ \t]*(?:{{match_parameters}}|$))'
-      embed: scope:source.shell.embedded.ssh
-
     - match: \n
       set: match-body
 
@@ -153,7 +146,17 @@ contexts:
         2: string.quoted.double.ssh_config punctuation.definition.string.begin.ssh_config
       escape: (?<!\\)\"(?=\s*(?:#.*)?)
       escape_captures:
-        0: string.quoted.double.ssh_config punctuation.definition.string.end.ssh_config
+        0: meta.block.match.ssh_config
+           meta.statement.conditional.ssh_config
+           string.quoted.double.ssh_config
+           punctuation.definition.string.end.ssh_config
+      embed_scope: string.quoted.double.ssh_config
+      embed: scope:source.shell.embedded.ssh
+    # unquoted shell
+    - match: '\b((?xi: exec ))\b[ \t]+'
+      captures:
+        1: keyword.other.ssh_config
+      escape: '(?=[ \t]*(?:{{match_parameters}}|$))'
       embed: scope:source.shell.embedded.ssh
 
     # Match predicates with host arguments

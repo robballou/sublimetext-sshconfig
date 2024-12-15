@@ -210,11 +210,29 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #           ^ punctuation.separator.sequence.ssh_config
 #                   ^ punctuation.separator.sequence.ssh_config
 #                        ^^^^ keyword.other.ssh_config
-#                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash
+#                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.ssh_config
+#                             ^ punctuation.definition.string.begin.ssh_config
+#                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash
 #                                ^^^^ variable.function.shell
-##                             ^ punctuation.definition.quoted.begin.ssh_config
-##                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - variable.function
-##                                                                                          ^ punctuation.definition.quoted.end.ssh_config
+#                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - variable.function
+#                                                                                          ^ punctuation.definition.string.end.ssh_config - source.shell
+Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/resolv.conf" Canonical
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#^^^^ keyword.control.conditional.ssh_config
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
+#     ^^^^ keyword.other.ssh_config
+#          ^^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
+#          ^ keyword.operator.wildcard.ssh_config
+#           ^ punctuation.separator.sequence.ssh_config
+#                   ^ punctuation.separator.sequence.ssh_config
+#                        ^^^^ keyword.other.ssh_config
+#                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.ssh_config
+#                             ^ punctuation.definition.string.begin.ssh_config
+#                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash
+#                                ^^^^ variable.function.shell
+#                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - variable.function
+#                                                                                          ^ punctuation.definition.string.end.ssh_config - source.shell
+#                                                                                            ^^^^^^^^^ keyword.other.ssh_config
     ProxyJump bastion.example.com
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
