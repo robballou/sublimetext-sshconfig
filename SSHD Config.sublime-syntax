@@ -276,9 +276,11 @@ contexts:
     - include: log-level
     - include: paths
     - include: numeric-values
+    - match: ':'
+      scope: punctuation.separator.sequence.sshd_config
 
   numeric-values:
-    - match: \b\d+(?=[\s,"])
+    - match: \b\d+(?=[\s,:"])
       scope: constant.numeric.sshd_config
 
 variables:

@@ -97,8 +97,21 @@ AllowAgentForwarding no
 #ClientAliveInterval 0
 #ClientAliveCountMax 3
 #UseDNS no
-#PidFile /var/run/sshd.pid
-#MaxStartups 10:30:100
+PidFile /var/run/sshd.pid
+#^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#       ^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common meta.path.ssh.common entity.name.ssh.common
+#       ^ punctuation.separator.path.ssh.common
+#           ^ punctuation.separator.path.ssh.common
+#               ^ punctuation.separator.path.ssh.common
+#                    ^ punctuation.separator.sequence.ssh.common
+MaxStartups 10:30:100
+#^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#           ^^^^^^^^^ meta.mapping.value.ssh.common
+#           ^^ constant.numeric.sshd_config
+#             ^ punctuation.separator.sequence.sshd_config
+#              ^^ constant.numeric.sshd_config
+#                ^ punctuation.separator.sequence.sshd_config
+#                 ^^^ constant.numeric.sshd_config
 #PermitTunnel no
 #ChrootDirectory none
 #VersionAddendum none
