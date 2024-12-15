@@ -52,6 +52,24 @@ contexts:
     - include: forcecommand
     - include: generic-option
 
+  comments:
+    - match: ^\s*(#)
+      captures:
+        1: comment.line.number-sign.sshd_config punctuation.definition.comment.sshd_config
+      push:
+        - meta_content_scope: comment.line.number-sign.sshd_config
+        - include: SSH Common.sublime-syntax#pop-nl
+        - match: '{{all_parameters}}'
+          scope: meta.keyword.comment.sshd_config
+    - match: ^\s*(;)
+      captures:
+        1: comment.line.number-sign.sshd_config punctuation.definition.comment.sshd_config
+      push:
+        - meta_content_scope: comment.line.semi-colon.sshd_config
+        - include: SSH Common.sublime-syntax#pop-nl
+        - match: '{{all_parameters}}'
+          scope: meta.keyword.comment.sshd_config
+
   tokens:
     # https://man7.org/linux/man-pages/man5/sshd_config.5.html#TOKENS
     # https://man.openbsd.org/ssh_config.5#TOKENS
@@ -69,8 +87,20 @@ contexts:
 
   pop-nl-as-value:
     - match: \n
-      scope: meta.mapping.value.ssh_config
+      scope: meta.mapping.value.sshd_config
       pop: true
+
+  operator-exclamation:
+    - match: '!'
+      scope: keyword.operator.logical.sshd_config
+
+  operator-wildcard:
+    - match: \*|\?
+      scope: keyword.operator.wildcard.sshd_config
+
+  punctuation-comma-sequence:
+    - match: ','
+      scope: punctuation.separator.sequence.sshd_config
 
 ###[ MATCH ]###################################################################
 
@@ -85,8 +115,7 @@ contexts:
     - match: \n
       set: match-body
 
-    - match: '!'
-      scope: keyword.operator.logical.sshd_config
+    - include: operator-exclamation
     - match: \b(?i:all)\b
       scope: constant.language.boolean.sshd_config
 
@@ -99,20 +128,16 @@ contexts:
     - match: \b(?i:(?:local)?address)\b
       scope: keyword.other.sshd_config
       push:
-        - match: '!'
-          scope: keyword.operator.logical.sshd_config
-        - match: ','
-          scope: punctuation.separator.sequence.sshd_config
-        - match: \*|\?
-          scope: keyword.operator.wildcard.sshd_config
+        - include: operator-exclamation
+        - include: operator-wildcard
+        - include: punctuation-comma-sequence
         - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
         - include: pop-before-match-option
 
     - match: \b(?i:localport)\b
       scope: keyword.other.sshd_config
       push:
-        - match: \d+
-          scope: constant.numeric.integer.decimal.sshd_config
+        - include: SSH Common.sublime-syntax#port-numbers
         - include: pop-before-match-option
 
   match-body:
@@ -187,29 +212,8 @@ contexts:
     - include: SSH Common.sublime-syntax#time-values
     - include: SSH Common.sublime-syntax#bytes-values
     - include: tokens
-    - match: \*|\?
-      scope: keyword.operator.wildcard.sshd_config
+    - include: operator-exclamation
+    - include: operator-wildcard
+    - include: punctuation-comma-sequence
     - match: \b\d+(?=[\s,"])
       scope: constant.numeric.sshd_config
-    - match: '!'
-      scope: keyword.operator.logical.sshd_config
-    - match: ','
-      scope: punctuation.separator.sequence.sshd_config
-
-  comments:
-    - match: ^\s*(#)
-      captures:
-        1: comment.line.number-sign.sshd_config punctuation.definition.comment.sshd_config
-      push:
-        - meta_content_scope: comment.line.number-sign.sshd_config
-        - include: SSH Common.sublime-syntax#pop-nl
-        - match: '{{all_options}}'
-          scope: meta.keyword.comment.sshd_config
-    - match: ^\s*(;)
-      captures:
-        1: comment.line.number-sign.sshd_config punctuation.definition.comment.sshd_config
-      push:
-        - meta_content_scope: comment.line.semi-colon.sshd_config
-        - include: SSH Common.sublime-syntax#pop-nl
-        - match: '{{all_options}}'
-          scope: meta.keyword.comment.sshd_config
