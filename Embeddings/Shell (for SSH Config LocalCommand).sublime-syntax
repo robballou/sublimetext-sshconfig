@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+scope: source.shell.embedded.ssh.localcommand
+version: 2
+hidden: true
+
+extends: Shell (for SSH Config).sublime-syntax
+
+variables:
+  tokens: (?:%[%CdhikLlnpruT])

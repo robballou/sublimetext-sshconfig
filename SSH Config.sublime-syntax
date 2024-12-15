@@ -256,35 +256,32 @@ contexts:
   parameter-proxycommand:
     # TODO: Double-quoted version
     # TODO: Bring back "none" as a value
-    # TODO: Bring back specific tokens
     - match: ^\s*((?i:ProxyCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
       escape: (?=$)
-      embed: scope:source.shell.embedded.ssh
+      embed: scope:source.shell.embedded.ssh.proxycommand
 
   parameter-localcommand:
     # TODO: Double-quoted version
     # TODO: Bring back "none" as a value
-    # TODO: Bring back specific tokens
     - match: ^\s*((?i:LocalCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
       escape: (?=$)
-      embed: scope:source.shell.embedded.ssh
+      embed: scope:source.shell.embedded.ssh.localcommand
 
   parameter-knownhostscommand:
     # TODO: Double-quoted version
     # TODO: Bring back "none" as a value
-    # TODO: Bring back specific tokens
     - match: ^\s*((?i:KnownHostsCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
       escape: (?=$)
-      embed: scope:source.shell.embedded.ssh
+      embed: scope:source.shell.embedded.ssh.knownhostscommand
 
   boolean-value:
     - match: \b(?i:yes)\b

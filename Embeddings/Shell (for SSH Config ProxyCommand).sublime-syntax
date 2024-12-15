@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+scope: source.shell.embedded.ssh.proxycommand
+version: 2
+hidden: true
+
+extends: Shell (for SSH Config).sublime-syntax
+
+variables:
+  tokens: (?:%[%hnpr])
+

@@ -7,11 +7,11 @@ hidden: true
 extends: Packages/ShellScript/Shell-Unix-Generic.sublime-syntax
 
 variables:
-  tokens_standard: (?:%[%CdhikLlnpru])
+  tokens: (?:%[%CdhikLlnpru])
 
 contexts:
 
   prototype:
     - meta_prepend: true
-    - match: '{{tokens_standard}}'
+    - match: '{{tokens}}'
       scope: constant.character.escape.ssh
