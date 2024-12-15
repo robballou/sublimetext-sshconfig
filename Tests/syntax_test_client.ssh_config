@@ -3,15 +3,15 @@
 User foo
 #^^^^^^^ meta.block.naked.ssh_config
 #^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#    ^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
+#    ^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
 Port 22
 #^^^^^^ meta.block.naked.ssh_config
 #^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#    ^^ meta.mapping.value.ssh_config constant.numeric.ssh_config
+#    ^^ meta.mapping.value.ssh.common meta.number.integer.ssh_config constant.numeric.value.ssh_config
 Include ~/.ssh/config_*_cloud
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.naked.ssh_config
 #^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#       ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
+#       ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
 #                     ^ constant.other.wildcard.asterisk.ssh.common
 
 
@@ -77,7 +77,7 @@ Host tj
     User 2022sratna
 #^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#        ^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config - constant
+#        ^^^^^^^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common - meta.number - constant
 
 Host server serverino !other-pat?ern
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config - meta.block.match - meta.block meta.block
@@ -107,7 +107,14 @@ Host server serverino !other-pat?ern
 #^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
 #       ^ keyword.operator.assignment.ssh_config
-#        ^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
+#        ^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
+    User="will
+#^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#       ^ keyword.operator.assignment.ssh_config
+#        ^^^^^ meta.mapping.value.ssh.common string.quoted.double.ssh.common
+#        ^ punctuation.definition.string.begin.ssh.common
+#             ^ invalid.illegal.unclosed-string.ssh.common
     ProxyCommand nc -x localhost:8888 %h %p
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -125,7 +132,7 @@ Host server serverino !other-pat?ern
     IdentityFile ~/.ssh/creds/%h.pem
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#                ^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
+#                ^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
 #                             ^^ constant.character.escape.ssh_config
 
 Host *.splat?.com
@@ -142,15 +149,15 @@ Host *.splat?.com
     User tim
 #^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#        ^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
+#        ^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
     Compression yes
 #^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#               ^^^ meta.mapping.value.ssh_config constant.language.boolean.true.ssh.common
+#               ^^^ meta.mapping.value.ssh.common constant.language.boolean.true.ssh.common
     CompressionLevel 7
 #^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config - invalid
-#                    ^ meta.mapping.value.ssh_config constant.numeric.ssh_config
+#                    ^ meta.mapping.value.ssh.common meta.number.integer.ssh_config constant.numeric.value.ssh_config
 
     ProxyJump 1.1.1.1:27,jim@festival%h2:8080
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
@@ -193,34 +200,34 @@ Host *
     IdentityFile ~/.ssh/id_rsa
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#                ^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
+#                ^^^^^^^^^^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
     Ciphers "aes128-ctr,aes192-ctr,aes256-ctr"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.quoted.double.ssh_config
-#           ^ punctuation.definition.string.begin.ssh_config
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common string.quoted.double.ssh.common
+#           ^ punctuation.definition.string.begin.ssh.common
 #            ^^^^^^^^^^ support.function.cipher
 #                      ^ punctuation.separator.sequence.ssh.common
 #                       ^^^^^^^^^^ support.function.cipher
 #                                 ^ punctuation.separator.sequence.ssh.common
 #                                  ^^^^^^^^^^ support.function.cipher
-#                                            ^ punctuation.definition.string.end.ssh_config
+#                                            ^ punctuation.definition.string.end.ssh.common
     UseKeychain yes
 #^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#               ^^^ meta.mapping.value.ssh_config constant.language.boolean.true.ssh.common
+#               ^^^ meta.mapping.value.ssh.common constant.language.boolean.true.ssh.common
     UseRoaming no
 #^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#              ^^ meta.mapping.value.ssh_config constant.language.boolean.false.ssh.common
+#              ^^ meta.mapping.value.ssh.common constant.language.boolean.false.ssh.common
     StrictHostKeyChecking ask
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#                         ^^^ meta.mapping.value.ssh_config constant.language.ssh_config
+#                         ^^^ meta.mapping.value.ssh.common constant.language.ssh_config
     StrictHostKeyChecking as
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#                         ^^ meta.mapping.value.ssh_config - invalid - constant
+#                         ^^ meta.mapping.value.ssh.common - invalid - constant
 
 Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/resolv.conf"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config

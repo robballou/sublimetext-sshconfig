@@ -53,11 +53,6 @@ contexts:
     - match: '(?=^[ \t]*(?xi: Host | Match )\b)'
       pop: true
 
-  pop-nl-as-value:
-    - match: \n
-      scope: meta.mapping.value.ssh_config
-      pop: true
-
   naked-parameters:
     - match: (?=\S)
       push:
@@ -335,30 +330,6 @@ contexts:
         3: constant.language.null.ssh_config
         4: punctuation.definition.string.end.ssh_config
 
-  only-boolean-values:
-    - meta_content_scope: meta.mapping.value.ssh_config
-    - include: pop-nl-as-value
-    - match: \"
-      scope: punctuation.definition.string.begin.ssh_config
-      push:
-        - meta_scope: string.quoted.double.ssh_config
-        - match: \"
-          scope: punctuation.definition.string.end.ssh_config
-          pop: true
-        - match: \n|$
-          scope: invalid.illegal.ssh_config
-          pop: true
-        - match: '[ \t]+\S+'
-          scope: invalid.illegal.ssh_config
-        - include: boolean-with-typing
-        - match: \S+
-          scope: invalid.illegal.ssh_config
-    - match: '[ \t]+\S+'
-      scope: invalid.illegal.ssh_config
-    - include: boolean-with-typing
-    - match: \S+
-      scope: invalid.illegal.ssh_config
-
   parameter-with-boolean-values:
     - match: |-
         (?xi:
@@ -385,7 +356,11 @@ contexts:
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      push: only-boolean-values
+      with_prototype:
+        - include: boolean-with-typing
+        - match: '[^"\s]+'
+          scope: invalid.illegal.sshd_config
+      push: possibly-quoted-value
 
   parameter-with-boolean-values-plus-ask:
     - match: |-
@@ -400,10 +375,12 @@ contexts:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
       with_prototype:
-        - match: \b(?i:ask)\b
-          scope: constant.language.ssh_config
+        - include: boolean-with-typing
+        - include: ask
         - match: \b(?i:a(?:sk?)?)\b
-      push: only-boolean-values
+        - match: '[^"\s]+'
+          scope: invalid.illegal.sshd_config
+      push: possibly-quoted-value
 
   parameter-generic:
     # the `1` is for "X11"
@@ -411,34 +388,20 @@ contexts:
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      push:
-        - meta_content_scope: meta.mapping.value.ssh_config
-        - include: boolean
-        - include: tokens-standard
-        - match: \b\d+(?=[\s,"])
-          scope: constant.numeric.ssh_config
-        - match: \"
-          scope: punctuation.definition.string.begin.ssh_config
-          push:
-            - meta_scope: string.quoted.double.ssh_config
-            - match: \"
-              scope: punctuation.definition.string.end.ssh_config
-              pop: true
-            - match: \n|$
-              scope: invalid.illegal.ssh_config
-              pop: true
-            - include: generic-parameter-values
-        - match: (?=\S)
-          push:
-            - meta_content_scope: string.unquoted.ssh_config
-            - include: pop-before-nl
-            - include: generic-parameter-values
-        - include: pop-nl-as-value
+      with_prototype:
+        - include: generic-parameter-values
+      push: possibly-quoted-value
+
+  ask:
+  - match: \b(?i:ask)\b
+    scope: constant.language.ssh_config
 
   generic-parameter-values:
+    - include: environment-variables
     - include: none
     - include: boolean
     - include: any
+    - include: ask
     - include: tokens-standard
     - include: wildcards
     - include: operator-exclamation
@@ -451,3 +414,6 @@ contexts:
     - include: ip-addresses-with-cidr
     - include: time-values
     - include: bytes-values
+    - match: \b\d+(?=[\s,"])
+      scope: meta.number.integer.ssh_config
+             constant.numeric.value.ssh_config

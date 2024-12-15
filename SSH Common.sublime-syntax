@@ -177,3 +177,23 @@ contexts:
     - include: boolean
       # Match while typing as well
     - match: '\b(?xi: y(?:es?)? | no? )\b'
+
+  possibly-quoted-value:
+    - meta_content_scope: meta.mapping.value.ssh.common
+    - match: '"'
+      scope: punctuation.definition.string.begin.ssh.common
+      push:
+        - meta_scope: string.quoted.double.ssh.common
+        - match: (")(?:\s*(\S.*))?
+          captures:
+            1: punctuation.definition.string.end.ssh.common
+            2: invalid.illegal.ssh.common
+          pop: 1
+        - match: \n|$
+          scope: invalid.illegal.unclosed-string.ssh.common
+          pop: 2
+    - match: (?=\S)
+      push:
+        - meta_content_scope: string.unquoted.ssh.common
+        - include: pop-before-nl
+    - include: pop-nl

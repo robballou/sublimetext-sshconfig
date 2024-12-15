@@ -45,7 +45,7 @@ LoginGraceTime 2m
 
 PubkeyAuthentication yes
 #^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
-#                    ^^^ meta.mapping.value.sshd_config constant.language.boolean.true.ssh.common
+#                    ^^^ meta.mapping.value.ssh.common constant.language.boolean.true.ssh.common
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
@@ -59,7 +59,7 @@ AuthorizedKeysFile  .ssh/authorized_keys
 # For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
 HostbasedAuthentication no
 #^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
-#                       ^^ meta.mapping.value.sshd_config constant.language.boolean.false.ssh.common
+#                       ^^ meta.mapping.value.ssh.common constant.language.boolean.false.ssh.common
 
 # To disable tunneled clear text passwords, change to `no` here!
 PasswordAuthentication no
@@ -132,18 +132,23 @@ Match User *,!username1,!usern.ame2 Host foo.example.com
 #                                           ^ punctuation.separator.sequence.ssh.common
 #                                                   ^ punctuation.separator.sequence.ssh.common
     PasswordAuthentication yes
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement.conditional - meta.block.match meta.block.match
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement.conditional - meta.block meta.block
 #   @@@@@@@@@@@@@@@@@@@@@@ local-definition
     #^^^^^^^^^^^^^^^^^^^^^ meta.block.match meta.mapping.key keyword.other
     #                      ^^^ constant.language.boolean
+    PasswordAuthentication foo
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement.conditional - meta.block meta.block
+#   @@@@@@@@@@@@@@@@@@@@@@ local-definition
+    #^^^^^^^^^^^^^^^^^^^^^ meta.block.match meta.mapping.key keyword.other
+    #                      ^^^ invalid.illegal
     AllowTCPForwarding no
     X11Forwarding "no"
 #^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
 #   ^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
-#                 ^^^^ meta.mapping.value.sshd_config string.quoted.double.sshd_config
-#                 ^ punctuation.definition.string.begin.sshd_config
+#                 ^^^^ meta.mapping.value.ssh.common string.quoted.double.ssh.common
+#                 ^ punctuation.definition.string.begin.ssh.common
 #                  ^^ constant.language.boolean.false.ssh.common
-#                    ^ punctuation.definition.string.end.sshd_config
+#                    ^ punctuation.definition.string.end.ssh.common
     ForceCommand internal-sftp -f LOCAL0 -l INFO
     #^^^^^^^^^^^ meta.mapping.key keyword.other
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value source.shell

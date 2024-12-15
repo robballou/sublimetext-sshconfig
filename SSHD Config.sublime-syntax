@@ -54,11 +54,6 @@ contexts:
     - match: (?=^[ \t]*(?i:Match)\b)
       pop: true
 
-  pop-nl-as-value:
-    - match: \n
-      scope: meta.mapping.value.sshd_config
-      pop: true
-
 ###[ MATCH ]###################################################################
 
   match:
@@ -174,62 +169,26 @@ contexts:
           escape: (?=$)
           embed: scope:source.shell
 
-  only-boolean-values:
-    - meta_content_scope: meta.mapping.value.sshd_config
-    - include: pop-nl-as-value
-    - match: \"
-      scope: punctuation.definition.string.begin.sshd_config
-      push:
-        - meta_scope: string.quoted.double.sshd_config
-        - match: \"
-          scope: punctuation.definition.string.end.sshd_config
-          pop: true
-        - match: \n|$
-          scope: invalid.illegal.sshd_config
-          pop: true
-        - match: '[ \t]+\S+'
-          scope: invalid.illegal.sshd_config
-        - include: boolean-with-typing
-        - match: \S+
-          scope: invalid.illegal.sshd_config
-    - match: '[ \t]+\S+'
-      scope: invalid.illegal.sshd_config
-    - include: boolean-with-typing
-    - match: \S+
-      scope: invalid.illegal.sshd_config
-
   parameter-with-boolean-values:
-    - match: '^\s*({{parameters_boolean}})[ \t]*(=)?'
+    - match: ^\s*({{parameters_boolean}})[ \t]*(=)?
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
-      push: only-boolean-values
+      with_prototype:
+        - include: boolean-with-typing
+        - match: '[^"\s]+'
+          scope: invalid.illegal.sshd_config
+      push: possibly-quoted-value
 
   parameter-generic:
     - match: ^\s*([a-zA-Z1]+)\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
-      push:
-        - meta_content_scope: meta.mapping.value.sshd_config
+      with_prototype:
         - include: tokens
-        - match: \"
-          scope: punctuation.definition.string.begin.sshd_config
-          push:
-            - meta_scope: string.quoted.double.sshd_config
-            - match: \"
-              scope: punctuation.definition.string.end.sshd_config
-              pop: true
-            - match: \n|$
-              scope: invalid.illegal.sshd_config
-              pop: true
-            - include: generic-parameter-values
-        - match: (?=\S)
-          push:
-            - meta_content_scope: string.unquoted.sshd_config
-            - include: pop-before-nl
-            - include: generic-parameter-values
-        - include: pop-nl-as-value
+        - include: generic-parameter-values
+      push: possibly-quoted-value
 
   generic-parameter-values:
     - include: boolean
