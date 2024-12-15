@@ -77,6 +77,21 @@ contexts:
     - match: ','
       scope: punctuation.separator.sequence.ssh_config
 
+  punctuation-dot-sequence:
+    - match: \.
+      scope: punctuation.separator.sequence.ssh_config
+
+  host-patterns:
+    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
+    # https://man.openbsd.org/ssh_config.5#PATTERNS
+    - include: operator-exclamation
+    - match: '[^\s*?,.]+'
+      scope: entity.name.label.host-alias.ssh_config
+    - match: \.
+      scope: entity.name.label.host-alias.ssh_config punctuation.separator.sequence.ssh_config
+    - match: \*|\?
+      scope: entity.name.label.host-alias.ssh_config keyword.operator.wildcard.ssh_config
+
   environment-variables:
     # https://man7.org/linux/man-pages/man5/ssh_config.5.html#ENVIRONMENT_VARIABLES
     - include: scope:source.shell#expansions-parameter
@@ -172,20 +187,17 @@ contexts:
           push:
             - meta_content_scope: string.unquoted.hostname.ssh_config
             - include: SSH Common.sublime-syntax#pop-before-nl
+            - include: punctuation-dot-sequence
             - match: '{{tokens_hostname}}'
               scope: constant.character.escape.ssh_config
             - match: '[ \t]+(\S+)'
               captures:
                 1: invalid.illegal.ssh_config
 
-  host-patterns:
-    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
-    # https://man.openbsd.org/ssh_config.5#PATTERNS
-    - include: operator-exclamation
-    - match: '[^\s*?,]+'
-      scope: entity.name.label.host-alias.ssh_config
-    - match: \*|\?
-      scope: entity.name.label.host-alias.ssh_config keyword.operator.wildcard.ssh_config
+  pop-none-value:
+    - match: \b(?i:none)\b
+      scope: constant.language.set.ssh_config
+      pop: true
 
   parameter-proxyjump:
     # TODO: Double-quoted version
@@ -224,6 +236,7 @@ contexts:
             - meta_content_scope: string.unquoted.hostname.ssh_config
             - match: (?=[\s,:"])
               pop: true
+            - include: punctuation-dot-sequence
             - match: '{{tokens_proxycommand}}'
               scope: constant.character.escape.ssh_config
 
@@ -283,11 +296,6 @@ contexts:
     - include: boolean-value
       # Match while typing as well
     - match: \b(?i:y(?:es?)?|no?)\b
-
-  pop-none-value:
-    - match: \b(?i:none)\b
-      scope: constant.language.set.ssh_config
-      pop: true
 
   only-boolean-values:
     - meta_content_scope: meta.mapping.value.ssh_config
