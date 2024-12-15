@@ -75,16 +75,18 @@ contexts:
     # seconds, minutes, hours, days, weeks
     - match: \b(\d+)(?i:([smhdw]))(?=[\d\s,"])
       scope: meta.constant.date.ssh.common
+             meta.number.integer.decimal.ssh.common
       captures:
-        1: constant.numeric.integer.decimal.ssh.common
-        2: storage.modifier.unit.ssh.common
+        1: constant.numeric.value.ssh.common
+        2: constant.numeric.suffix.ssh.common
 
   bytes-values:
     - match: \b(\d+)([KMG])(?=[\s,"])
       scope: meta.constant.bytes.ssh.common
+             meta.number.integer.other.ssh.common
       captures:
-        1: constant.numeric.integer.decimal.ssh.common
-        2: storage.modifier.unit.ssh.common
+        1: constant.numeric.value.ssh.common
+        2: constant.numeric.suffix.ssh.common
 
   mac-addresses:
     - match: (?:[0-9a-fA-F]{2}:){5}(?:[0-9a-fA-F]{2})
@@ -130,5 +132,6 @@ contexts:
     - include: ipv4-with-cidr
 
   port-numbers:
-    - match: '\b{{zero_to_65535}}\b'
-      scope: meta.number.integer.decimal.ssh.common constant.numeric.port-number.ssh.common
+    - match: '\b{{zero_to_65535}}(?![\w:])'
+      scope: meta.number.integer.decimal.ssh.common
+             constant.numeric.port-number.ssh.common
