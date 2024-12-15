@@ -7,6 +7,17 @@ name: SSH Config
 file_extensions:
   - ssh_config
 scope: source.ssh_config
+
+variables:
+  # https://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
+  # https://man.openbsd.org/ssh_config.5#TOKENS
+  tokens_standard: (?:%[%CdhikLlnpru])
+  tokens_knownhosts: (?:{{tokens_standard}}|%[%fHIKt])
+  tokens_hostname: (?:%[%h])
+  tokens_proxycommand: (?:%[%hnpr])
+  tokens_all: (?:{{tokens_knownhosts}}|%T)
+  tokens_localcommand: '{{tokens_all}}'
+
 contexts:
   main:
     - include: comments
@@ -19,14 +30,18 @@ contexts:
     - include: hostname
     - include: localcommand
     - include: proxycommand
+    - include: proxyjump
+    - include: knownhostscommand
     - include: boolean-option
     - include: boolean-option-plus
     - include: generic-option
 
   tokens:
-    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
-    # https://man.openbsd.org/ssh_config.5#TOKENS
-    - match: '%[%CdhiLlnprTu]'
+    - match: '{{tokens_all}}'
+      scope: constant.character.escape.ssh_config
+
+  tokens-standard:
+    - match: '{{tokens_standard}}'
       scope: constant.character.escape.ssh_config
 
   pop-before-match-option:
@@ -170,13 +185,25 @@ contexts:
     - match: '%[%hiLlnpru]'
       scope: constant.character.escape.ssh_config
 
+  proxyjump:
+    - match: ^\s*((?i:ProxyJump))\b[ \t]*(=)?
+      captures:
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
+      push:
+        - meta_content_scope: meta.mapping.value.ssh_config
+        - match: '{{tokens_proxycommand}}'
+          scope: constant.character.escape.ssh_config
+        - include: hostname-or-ip-value
+        - include: pop-nl-as-value
+
   proxycommand:
-    - match: ^\s*((?i:proxycommand))\b[ \t]*(=)?
+    - match: ^\s*((?i:ProxyCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
       with_prototype:
-        - match: '%[%hpr]'
+        - match: '{{tokens_proxycommand}}'
           scope: constant.character.escape.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
@@ -187,12 +214,28 @@ contexts:
         - include: pop-nl-as-value
 
   localcommand:
-    - match: ^\s*((?i:localcommand))\b[ \t]*(=)?
+    - match: ^\s*((?i:LocalCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
       with_prototype:
-        - match: '%[%CdhilnprTu]'
+        - match: '{{tokens_localcommand}}'
+          scope: constant.character.escape.ssh_config
+      push:
+        - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
+        - match: none
+          scope: constant.language.set.ssh_config
+          pop: true
+        - include: scope:source.shell
+        - include: pop-nl-as-value
+
+  knownhostscommand:
+    - match: ^\s*((?i:KnownHostsCommand))\b[ \t]*(=)?
+      captures:
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
+      with_prototype:
+        - match: '{{tokens_knownhosts}}'
           scope: constant.character.escape.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config source.embedded.shell
