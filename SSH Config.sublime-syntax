@@ -37,7 +37,7 @@ contexts:
     - include: parameter-proxyjump
     - include: parameter-knownhostscommand
     - include: parameter-with-boolean-values
-    - include: parameter-with-boolean-values-plus
+    - include: parameter-with-boolean-values-plus-ask
     - include: parameter-generic
 
   tokens-standard:
@@ -289,6 +289,15 @@ contexts:
       scope: constant.language.set.ssh_config
       pop: true
 
+  only-boolean-values:
+    - meta_content_scope: meta.mapping.value.ssh_config
+    - include: pop-nl-as-value
+    - match: '[ \t]+\S+'
+      scope: invalid.illegal.ssh_config
+    - include: boolean-value-with-typing
+    - match: \S+
+      scope: invalid.illegal.ssh_config
+
   parameter-with-boolean-values:
     - match: |-
         (?xi:
@@ -313,32 +322,18 @@ contexts:
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      push:
-        - meta_content_scope: meta.mapping.value.ssh_config
-        - include: pop-nl-as-value
-        - match: '[ \t]+\S+'
-          scope: invalid.illegal.ssh_config
-        - include: boolean-value-with-typing
-        - match: \S+
-          scope: invalid.illegal.ssh_config
+      push: only-boolean-values
 
-  parameter-with-boolean-values-plus:
-    # ask
+  parameter-with-boolean-values-plus-ask:
     - match: ^\s*((?i:StrictHostKeyChecking|VerifyHostKeyDNS))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      push:
-        - meta_content_scope: meta.mapping.value.ssh_config
-        - include: pop-nl-as-value
-        - match: '[ \t]+\S+'
-          scope: invalid.illegal.ssh_config
-        - include: boolean-value-with-typing
+      with_prototype:
         - match: \b(?i:ask)\b
-          scope: constant.language.set.ssh_config
-        - match: \b(?i:a(?:s?k)?)\b
-        - match: \S+
-          scope: invalid.illegal.ssh_config
+          scope: constant.language.ssh_config
+        - match: \b(?i:a(?:sk?)?)\b
+      push: only-boolean-values
 
   parameter-generic:
     # the `1` is for "X11"

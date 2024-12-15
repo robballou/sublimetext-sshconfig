@@ -134,3 +134,7 @@ Host *
     # ^^^^^^^^^     keyword.other
     #           ^^^ constant.language.boolean
     UseRoaming no
+    StrictHostKeyChecking ask
+    #                     ^^^ constant.language
+    StrictHostKeyChecking as
+    #                     ^^ - invalid
