@@ -40,9 +40,11 @@ contexts:
     - include: parameter-with-boolean-values-plus-ask
     - include: parameter-generic
 
-  tokens-standard:
-    - match: '{{tokens_standard}}'
+  tokens:
+    - match: '%%'
       scope: constant.character.escape.ssh_config
+    - match: '{{tokens_standard}}'
+      scope: constant.other.placeholder.ssh_config
 
   pop-before-match-parameter:
     - include: pop-before-nl
@@ -224,8 +226,10 @@ contexts:
     - match: (?=[\w%]+@)
       push:
         - meta_content_scope: meta.string.user.ssh_config string.unquoted.ssh_config
-        - match: '{{tokens_proxycommand}}'
+        - match: '%%'
           scope: constant.character.escape.ssh_config
+        - match: '{{tokens_proxycommand}}'
+          scope: constant.other.placeholder.ssh_config
         - match: '@'
           scope: punctuation.separator.ssh_config
           pop: 1
@@ -245,8 +249,10 @@ contexts:
         - match: (?=[\s,:"])
           pop: 1
         - include: punctuation-dot-sequence
-        - match: '{{tokens_proxycommand}}'
+        - match: '%%'
           scope: constant.character.escape.ssh_config
+        - match: '{{tokens_proxycommand}}'
+          scope: constant.other.placeholder.ssh_config
 
   parameter-proxycommand:
     - match: ^\s*((?i:ProxyCommand))\b\s*(=)?
@@ -403,7 +409,7 @@ contexts:
     - include: boolean
     - include: any
     - include: ask
-    - include: tokens-standard
+    - include: tokens
     - include: wildcards
     - include: operator-exclamation
     - include: punctuation-comma-sequence

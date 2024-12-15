@@ -42,8 +42,10 @@ contexts:
   tokens:
     # https://man7.org/linux/man-pages/man5/sshd_config.5.html#TOKENS
     # https://man.openbsd.org/sshd_config.5#TOKENS
-    - match: '%[%CDFfhiKksTtUu]'
+    - match: '%%'
       scope: constant.character.escape.sshd_config
+    - match: '%[CDFfhiKksTtUu]'
+      scope: constant.other.placeholder.sshd_config
 
   pop-before-match-option:
     - include: pop-before-nl

@@ -39,8 +39,8 @@ Match Host targ?t_host Exec not_inside_network User sue
 #                    ^^ meta.parameter.option.shell variable.parameter.option.shell
 #                    ^ punctuation.definition.parameter.shell
 #                         ^^^ meta.string.shell string.unquoted.shell
-#                       ^^ constant.character.escape.ssh
-#                          ^^ constant.character.escape.ssh
+#                       ^^ constant.other.placeholder.ssh
+#                          ^^ constant.other.placeholder.ssh
 #                             ^^^^^^^^^^^^ meta.string.shell string.unquoted.shell
 #                @@@ reference
 ##                       ^^ meta.string.shell string.unquoted.shell
@@ -125,8 +125,8 @@ Host server serverino !other-pat?ern
 #                   ^^ meta.parameter.option.shell variable.parameter.option.shell
 #                   ^ punctuation.definition.parameter.shell
 #                      ^^^^^^^^^^^^^^ meta.string.shell string.unquoted.shell
-#                                     ^^ constant.character.escape.ssh
-#                                        ^^ constant.character.escape.ssh
+#                                     ^^ constant.other.placeholder.ssh
+#                                        ^^ constant.other.placeholder.ssh
 #                                          ^                            - source.shell
 #                @@ reference
     IdentityFile ~/.ssh/creds/%h.pem
@@ -170,7 +170,7 @@ Host *.splat?.com
 #                        ^^^ meta.string.user.ssh_config string.unquoted.ssh_config
 #                           ^ punctuation.separator.ssh_config
 #                            ^^^^^^^^^^^ string.unquoted.hostname.ssh_config
-#                                    ^^ constant.character.escape.ssh_config
+#                                    ^^ constant.other.placeholder.ssh_config
 #                                       ^ punctuation.separator.ssh_config
 #                                        ^^^^ meta.number.integer.decimal.ssh.common constant.numeric.port-number.ssh.common
 
@@ -285,24 +285,24 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                     ^^^^ meta.function-call.identifier.shell support.function.shell
 #                          ^^ constant.character.escape.ssh
 #                            ^^^^^^^^^^ - constant
-#                                      ^^ constant.character.escape.ssh
+#                                      ^^ constant.other.placeholder.ssh
 #                                        ^^^^ - constant
-#                                            ^^ constant.character.escape.ssh
+#                                            ^^ constant.other.placeholder.ssh
 #                                              ^^^^ - constant
-#                                                  ^^ constant.character.escape.ssh
-#                                                     ^^ constant.character.escape.ssh
+#                                                  ^^ constant.other.placeholder.ssh
+#                                                     ^^ constant.other.placeholder.ssh
 #                                                       ^^^^ - constant
-#                                                           ^^ constant.character.escape.ssh
-#                                                              ^^ constant.character.escape.ssh
+#                                                           ^^ constant.other.placeholder.ssh
+#                                                              ^^ constant.other.placeholder.ssh
 #                                                                ^^^^ - constant
-#                                                                    ^^ constant.character.escape.ssh
+#                                                                    ^^ constant.other.placeholder.ssh
 #                                                                      ^^^^ - constant
-#                                                                          ^^ constant.character.escape.ssh
+#                                                                          ^^ constant.other.placeholder.ssh
 #                                                                            ^^^^ - constant
-#                                                                                ^^ constant.character.escape.ssh
+#                                                                                ^^ constant.other.placeholder.ssh
 #                                                                                  ^^^^ - constant
-#                                                                                      ^^ constant.character.escape.ssh
-#                                                                                         ^^ constant.character.escape.ssh
+#                                                                                      ^^ constant.other.placeholder.ssh
+#                                                                                         ^^ constant.other.placeholder.ssh
 #                                                                                           ^^^^^^^^^^^^^^^ - constant
 #                     @@@@ reference
     KnownHostsCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
@@ -313,13 +313,13 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                     ^^^^ meta.function-call.identifier.shell support.function.shell
 #                          ^^ constant.character.escape.ssh
 #                            ^^^^^^^ - constant
-#                                   ^^ constant.character.escape.ssh
+#                                   ^^ constant.other.placeholder.ssh
 #                                     ^^^^^^^^^^^^^ - constant
-#                                                  ^^ constant.character.escape.ssh
-#                                                     ^^ constant.character.escape.ssh
+#                                                  ^^ constant.other.placeholder.ssh
+#                                                     ^^ constant.other.placeholder.ssh
 #                                                       ^^^^ - constant
-#                                                           ^^ constant.character.escape.ssh
-#                                                              ^^ constant.character.escape.ssh
+#                                                           ^^ constant.other.placeholder.ssh
+#                                                              ^^ constant.other.placeholder.ssh
 #                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
 #                     @@@@ reference
     KnownHostsCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
@@ -331,24 +331,24 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                      ^^^^ meta.function-call.identifier.shell support.function.shell
 #                           ^^ constant.character.escape.ssh
 #                             ^^^^^^^^^^ - constant
-#                                       ^^ constant.character.escape.ssh
+#                                       ^^ constant.other.placeholder.ssh
 #                                         ^^^^ - constant
-#                                             ^^ constant.character.escape.ssh
+#                                             ^^ constant.other.placeholder.ssh
 #                                               ^^^^ - constant
-#                                                   ^^ constant.character.escape.ssh
-#                                                      ^^ constant.character.escape.ssh
+#                                                   ^^ constant.other.placeholder.ssh
+#                                                      ^^ constant.other.placeholder.ssh
 #                                                        ^^^^ - constant
-#                                                            ^^ constant.character.escape.ssh
-#                                                               ^^ constant.character.escape.ssh
+#                                                            ^^ constant.other.placeholder.ssh
+#                                                               ^^ constant.other.placeholder.ssh
 #                                                                 ^^^^ - constant
-#                                                                     ^^ constant.character.escape.ssh
+#                                                                     ^^ constant.other.placeholder.ssh
 #                                                                       ^^^^ - constant
-#                                                                           ^^ constant.character.escape.ssh
+#                                                                           ^^ constant.other.placeholder.ssh
 #                                                                             ^^^^ - constant
-#                                                                                 ^^ constant.character.escape.ssh
+#                                                                                 ^^ constant.other.placeholder.ssh
 #                                                                                   ^^^^ - constant
-#                                                                                       ^^ constant.character.escape.ssh
-#                                                                                          ^^ constant.character.escape.ssh
+#                                                                                       ^^ constant.other.placeholder.ssh
+#                                                                                          ^^ constant.other.placeholder.ssh
 #                                                                                            ^^^^^^^^^^^^^^^ - constant
 #                                                                                                           ^ punctuation.definition.string.end.ssh_config - source.shell
 #                      @@@@ reference
@@ -360,13 +360,13 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                      ^^^^ meta.function-call.identifier.shell support.function.shell
 #                           ^^ constant.character.escape.ssh
 #                             ^^^^^^^ - constant
-#                                    ^^ constant.character.escape.ssh
+#                                    ^^ constant.other.placeholder.ssh
 #                                      ^^^^^^^^^^^^^ - constant
-#                                                   ^^ constant.character.escape.ssh
-#                                                      ^^ constant.character.escape.ssh
+#                                                   ^^ constant.other.placeholder.ssh
+#                                                      ^^ constant.other.placeholder.ssh
 #                                                        ^^^^ - constant
-#                                                            ^^ constant.character.escape.ssh
-#                                                               ^^ constant.character.escape.ssh
+#                                                            ^^ constant.other.placeholder.ssh
+#                                                               ^^ constant.other.placeholder.ssh
 #                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                                           ^ punctuation.definition.string.end.ssh_config - source.shell
 #                      @@@@ reference
@@ -388,21 +388,21 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                ^^^^ meta.function-call.identifier.shell support.function.shell
 #                     ^^ constant.character.escape.ssh
 #                       ^^^^^^^^^^ - constant
-#                                 ^^ constant.character.escape.ssh
+#                                 ^^ constant.other.placeholder.ssh
 #                                   ^^^^^^^^^^ - constant
-#                                             ^^ constant.character.escape.ssh
-#                                                ^^ constant.character.escape.ssh
+#                                             ^^ constant.other.placeholder.ssh
+#                                                ^^ constant.other.placeholder.ssh
 #                                                  ^^^^ - constant
-#                                                      ^^ constant.character.escape.ssh
-#                                                         ^^ constant.character.escape.ssh
+#                                                      ^^ constant.other.placeholder.ssh
+#                                                         ^^ constant.other.placeholder.ssh
 #                                                           ^^^^ - constant
-#                                                               ^^ constant.character.escape.ssh
+#                                                               ^^ constant.other.placeholder.ssh
 #                                                                 ^^^^ - constant
-#                                                                     ^^ constant.character.escape.ssh
+#                                                                     ^^ constant.other.placeholder.ssh
 #                                                                       ^^^^ - constant
-#                                                                           ^^ constant.character.escape.ssh
+#                                                                           ^^ constant.other.placeholder.ssh
 #                                                                             ^^^^^^^ - constant
-#                                                                                    ^^ constant.character.escape.ssh
+#                                                                                    ^^ constant.other.placeholder.ssh
 #                                                                                      ^^^^^^^^^^^^^^^ - constant
 #                @@@@ reference
     LocalCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
@@ -412,11 +412,11 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                ^^^^ meta.function-call.identifier.shell support.function.shell
 #                     ^^ constant.character.escape.ssh
 #                       ^^^^^^^ - constant
-#                              ^^ constant.character.escape.ssh
+#                              ^^ constant.other.placeholder.ssh
 #                                ^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
-#                                                         ^^ constant.character.escape.ssh
+#                                                         ^^ constant.other.placeholder.ssh
 #                                                           ^^^^^^^^^^^^^^^^^^^^^^ - constant
-#                                                                                 ^^ constant.character.escape.ssh
+#                                                                                 ^^ constant.other.placeholder.ssh
 #                                                                                   ^^^^^^^^^^^^^^^^^^ - constant
 #                @@@@ reference
     LocalCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
@@ -427,21 +427,21 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                 ^^^^ meta.function-call.identifier.shell support.function.shell
 #                      ^^ constant.character.escape.ssh
 #                        ^^^^^^^^^^ - constant
-#                                  ^^ constant.character.escape.ssh
+#                                  ^^ constant.other.placeholder.ssh
 #                                    ^^^^^^^^^^ - constant
-#                                              ^^ constant.character.escape.ssh
-#                                                 ^^ constant.character.escape.ssh
+#                                              ^^ constant.other.placeholder.ssh
+#                                                 ^^ constant.other.placeholder.ssh
 #                                                   ^^^^ - constant
-#                                                       ^^ constant.character.escape.ssh
-#                                                          ^^ constant.character.escape.ssh
+#                                                       ^^ constant.other.placeholder.ssh
+#                                                          ^^ constant.other.placeholder.ssh
 #                                                            ^^^^ - constant
-#                                                                ^^ constant.character.escape.ssh
+#                                                                ^^ constant.other.placeholder.ssh
 #                                                                  ^^^^ - constant
-#                                                                      ^^ constant.character.escape.ssh
+#                                                                      ^^ constant.other.placeholder.ssh
 #                                                                        ^^^^ - constant
-#                                                                            ^^ constant.character.escape.ssh
+#                                                                            ^^ constant.other.placeholder.ssh
 #                                                                              ^^^^^^^ - constant
-#                                                                                     ^^ constant.character.escape.ssh
+#                                                                                     ^^ constant.other.placeholder.ssh
 #                                                                                       ^^^^^^^^^^^^^^^ - constant
 #                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
 #                 @@@@ reference
@@ -453,11 +453,11 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                 ^^^^ meta.function-call.identifier.shell support.function.shell
 #                      ^^ constant.character.escape.ssh
 #                        ^^^^^^^ - constant
-#                               ^^ constant.character.escape.ssh
+#                               ^^ constant.other.placeholder.ssh
 #                                 ^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
-#                                                          ^^ constant.character.escape.ssh
+#                                                          ^^ constant.other.placeholder.ssh
 #                                                            ^^^^^^^^^^^^^^^^^^^^^^ - constant
-#                                                                                  ^^ constant.character.escape.ssh
+#                                                                                  ^^ constant.other.placeholder.ssh
 #                                                                                    ^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
 #                 @@@@ reference
@@ -480,13 +480,13 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                ^^^^ meta.function-call.identifier.shell support.function.shell
 #                     ^^ constant.character.escape.ssh
 #                       ^^^^^^^^^^^^^^^^^^^^^^ - constant
-#                                             ^^ constant.character.escape.ssh
+#                                             ^^ constant.other.placeholder.ssh
 #                                               ^^^^^^^^^^^^^^^^ - constant
-#                                                               ^^ constant.character.escape.ssh
+#                                                               ^^ constant.other.placeholder.ssh
 #                                                                 ^^^^ - constant
-#                                                                     ^^ constant.character.escape.ssh
+#                                                                     ^^ constant.other.placeholder.ssh
 #                                                                       ^^^^ - constant
-#                                                                           ^^ constant.character.escape.ssh
+#                                                                           ^^ constant.other.placeholder.ssh
 #                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^ - constant
 #                @@@@ reference
     ProxyCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
@@ -505,13 +505,13 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                 ^^^^ meta.function-call.identifier.shell support.function.shell
 #                      ^^ constant.character.escape.ssh
 #                        ^^^^^^^^^^^^^^^^^^^^^^ - constant
-#                                              ^^ constant.character.escape.ssh
+#                                              ^^ constant.other.placeholder.ssh
 #                                                ^^^^^^^^^^^^^^^^ - constant
-#                                                                ^^ constant.character.escape.ssh
+#                                                                ^^ constant.other.placeholder.ssh
 #                                                                  ^^^^ - constant
-#                                                                      ^^ constant.character.escape.ssh
+#                                                                      ^^ constant.other.placeholder.ssh
 #                                                                        ^^^^ - constant
-#                                                                            ^^ constant.character.escape.ssh
+#                                                                            ^^ constant.other.placeholder.ssh
 #                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
 #                 @@@@ reference
@@ -542,13 +542,13 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config
 #             ^^ constant.character.escape.ssh_config
 #               ^^^^^^^^^^^^^^^^^^^^^^ - constant
-#                                     ^^ constant.character.escape.ssh_config
+#                                     ^^ constant.other.placeholder.ssh_config
 #                                       ^^^^^^^^^^^^^^^^ - constant
-#                                                       ^^ constant.character.escape.ssh_config
+#                                                       ^^ constant.other.placeholder.ssh_config
 #                                                         ^^^^ - constant
-#                                                             ^^ constant.character.escape.ssh_config
+#                                                             ^^ constant.other.placeholder.ssh_config
 #                                                               ^^^^ - constant
-#                                                                   ^^ constant.character.escape.ssh_config
+#                                                                   ^^ constant.other.placeholder.ssh_config
 #                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^ - constant
     ProxyJump %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
@@ -563,13 +563,13 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config
 #              ^^ constant.character.escape.ssh_config
 #                ^^^^^^^^^^^^^^^^^^^^^^ - constant
-#                                      ^^ constant.character.escape.ssh_config
+#                                      ^^ constant.other.placeholder.ssh_config
 #                                        ^^^^^^^^^^^^^^^^ - constant
-#                                                        ^^ constant.character.escape.ssh_config
+#                                                        ^^ constant.other.placeholder.ssh_config
 #                                                          ^^^^ - constant
-#                                                              ^^ constant.character.escape.ssh_config
+#                                                              ^^ constant.other.placeholder.ssh_config
 #                                                                ^^^^ - constant
-#                                                                    ^^ constant.character.escape.ssh_config
+#                                                                    ^^ constant.other.placeholder.ssh_config
 #                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                              ^ punctuation.definition.string.end.ssh_config - source.shell
     ProxyJump "%% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"

@@ -13,10 +13,14 @@ contexts:
 
   prototype:
     - meta_prepend: true
-    - match: '{{tokens}}'
+    - match: '%%'
       scope: constant.character.escape.ssh
+    - match: '{{tokens}}'
+      scope: constant.other.placeholder.ssh
 
   string-path-pattern-body:
     - meta_prepend: true
-    - match: '{{tokens}}'
+    - match: '%%'
       scope: constant.character.escape.ssh
+    - match: '{{tokens}}'
+      scope: constant.other.placeholder.ssh
