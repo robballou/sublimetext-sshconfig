@@ -254,34 +254,84 @@ contexts:
               scope: constant.character.escape.ssh_config
 
   parameter-proxycommand:
-    # TODO: Double-quoted version
-    # TODO: Bring back "none" as a value
     - match: ^\s*((?i:ProxyCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      escape: (?=$)
-      embed: scope:source.shell.embedded.ssh.proxycommand
+      push:
+        - meta_content_scope: meta.mapping.value.ssh_config
+        - include: SSH Common.sublime-syntax#pop-nl
+        - include: none-command-values
+        - match: '"'
+          scope: string.quoted.double.ssh_config
+                 punctuation.definition.string.begin.ssh_config
+          escape: '(")|(?=\n|$)'
+          escape_captures:
+            1: meta.mapping.value.ssh_config
+               string.quoted.double.ssh_config
+               punctuation.definition.string.end.ssh_config
+          embed_scope: string.quoted.double.ssh_config
+          embed: scope:source.shell.embedded.ssh.proxycommand
+        - match: (?=\S)
+          escape: (?=\n|$)
+          embed: scope:source.shell.embedded.ssh.proxycommand
 
   parameter-localcommand:
-    # TODO: Double-quoted version
-    # TODO: Bring back "none" as a value
     - match: ^\s*((?i:LocalCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      escape: (?=$)
-      embed: scope:source.shell.embedded.ssh.localcommand
+      push:
+        - meta_content_scope: meta.mapping.value.ssh_config
+        - include: SSH Common.sublime-syntax#pop-nl
+        - include: none-command-values
+        - match: '"'
+          scope: string.quoted.double.ssh_config
+                 punctuation.definition.string.begin.ssh_config
+          escape: '(")|(?=$)'
+          escape_captures:
+            1: meta.mapping.value.ssh_config
+               string.quoted.double.ssh_config
+               punctuation.definition.string.end.ssh_config
+          embed_scope: string.quoted.double.ssh_config
+          embed: scope:source.shell.embedded.ssh.localcommand
+        - match: (?=\S)
+          escape: (?=$)
+          embed: scope:source.shell.embedded.ssh.localcommand
 
   parameter-knownhostscommand:
-    # TODO: Double-quoted version
-    # TODO: Bring back "none" as a value
     - match: ^\s*((?i:KnownHostsCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
-      escape: (?=$)
-      embed: scope:source.shell.embedded.ssh.knownhostscommand
+      push:
+        - meta_content_scope: meta.mapping.value.ssh_config
+        - include: SSH Common.sublime-syntax#pop-nl
+        - include: none-command-values
+        - match: '"'
+          scope: string.quoted.double.ssh_config
+                 punctuation.definition.string.begin.ssh_config
+          escape: '(")|(?=$)'
+          escape_captures:
+            1: meta.mapping.value.ssh_config
+               string.quoted.double.ssh_config
+               punctuation.definition.string.end.ssh_config
+          embed_scope: string.quoted.double.ssh_config
+          embed: scope:source.shell.embedded.ssh.knownhostscommand
+        - match: (?=\S)
+          escape: (?=$)
+          embed: scope:source.shell.embedded.ssh.knownhostscommand
+
+  none-command-values:
+    - match: '[ \t]*((?i:none))\b[ \t]*$'
+      captures:
+        1: constant.language.null.ssh_config
+    - match: '[ \t]*((")((?i:none))("))[ \t]*$'
+      captures:
+        1: string.quoted.double.ssh_config
+        2: punctuation.definition.string.begin.ssh_config
+        3: constant.language.null.ssh_config
+        4: punctuation.definition.string.end.ssh_config
 
   boolean-value:
     - match: \b(?i:yes)\b
