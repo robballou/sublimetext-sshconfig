@@ -306,6 +306,21 @@ contexts:
   only-boolean-values:
     - meta_content_scope: meta.mapping.value.ssh_config
     - include: pop-nl-as-value
+    - match: \"
+      scope: punctuation.definition.string.begin.ssh_config
+      push:
+        - meta_scope: string.quoted.double.ssh_config
+        - match: \"
+          scope: punctuation.definition.string.end.ssh_config
+          pop: true
+        - match: \n|$
+          scope: invalid.illegal.ssh_config
+          pop: true
+        - match: '[ \t]+\S+'
+          scope: invalid.illegal.ssh_config
+        - include: boolean-value-with-typing
+        - match: \S+
+          scope: invalid.illegal.ssh_config
     - match: '[ \t]+\S+'
       scope: invalid.illegal.ssh_config
     - include: boolean-value-with-typing

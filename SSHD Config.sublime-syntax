@@ -8,7 +8,7 @@ file_extensions:
   - sshd_config
 scope: source.sshd_config
 variables:
-  all_options: |-
+  all_parameters: |-
     \b(?xi:
         AcceptEnv | AddressFamily
       | Allow (?: AgentForwarding | Groups | StreamLocalForwarding
@@ -53,12 +53,13 @@ contexts:
   main:
     - include: comments
     - include: match
-    - include: generic-option
+    - include: parameters
 
-  options:
+  parameters:
     - include: comments
-    - include: forcecommand
-    - include: generic-option
+    - include: parameter-forcecommand
+    - include: parameter-with-boolean-values
+    - include: parameter-generic
 
   comments:
     - match: ^\s*(#)
@@ -151,7 +152,7 @@ contexts:
   match-body:
     - meta_scope: meta.block.match.sshd_config
     - include: pop-before-next-match
-    - include: options
+    - include: parameters
 
   string-patterns:
     # https://man7.org/linux/man-pages/man5/sshd_config.5.html#PATTERNS
@@ -165,8 +166,10 @@ contexts:
     - match: \*|\?
       scope: string.unquoted.sshd_config keyword.operator.wildcard.sshd_config
 
-  forcecommand:
-    - match: ^\s*((?i:forcecommand))\b[ \t]*(=)?
+###[ PARAMETERS ]##############################################################
+
+  parameter-forcecommand:
+    - match: ^\s*((?i:ForceCommand))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
@@ -178,7 +181,69 @@ contexts:
         - include: scope:source.shell
         - include: pop-nl-as-value
 
-  generic-option:
+  boolean-value:
+    - match: '\b(?xi: yes | no )\b'
+      scope: constant.language.boolean.ssh_config
+
+  boolean-value-with-typing:
+    - include: boolean-value
+      # Match while typing as well
+    - match: '\b(?xi: y(?:es?)? | no? )\b'
+
+  only-boolean-values:
+    - meta_content_scope: meta.mapping.value.sshd_config
+    - include: pop-nl-as-value
+    - match: \"
+      scope: punctuation.definition.string.begin.sshd_config
+      push:
+        - meta_scope: string.quoted.double.sshd_config
+        - match: \"
+          scope: punctuation.definition.string.end.sshd_config
+          pop: true
+        - match: \n|$
+          scope: invalid.illegal.sshd_config
+          pop: true
+        - match: '[ \t]+\S+'
+          scope: invalid.illegal.sshd_config
+        - include: boolean-value-with-typing
+        - match: \S+
+          scope: invalid.illegal.sshd_config
+    - match: '[ \t]+\S+'
+      scope: invalid.illegal.sshd_config
+    - include: boolean-value-with-typing
+    - match: \S+
+      scope: invalid.illegal.sshd_config
+
+  parameter-with-boolean-values:
+    - match: |-
+        (?xi:
+          ^\s*
+          ( AllowAgentForwarding
+          | ChallengeResponseAuthentication | Compression
+          | ExposeAuthInfo
+          | GSSAPIAuthentication | GSSAPICleanupCredentials
+          | GSSAPIStrictAcceptorCheck
+          | HostbasedAuthentication | HostbasedUsesNameFromPacketOnly
+          | IgnoreRhosts | IgnoreUserKnownHosts
+          | KbdInteractiveAuthentication | KerberosAuthentication
+          | KerberosGetAFSToken | KerberosOrLocalPasswd
+          | KerberosTicketCleanup
+          | PasswordAuthentication | PermitEmptyPasswords | PermitTTY
+          | PermitUserEnvironment | PermitUserRC | PrintLastLog | PrintMotd
+          | PubkeyAuthentication
+          | StreamLocalBindUnlink | StrictModes
+          | TCPKeepAlive
+          | UseDNS | UsePAM
+          | X11Forwarding | X11UseLocalhost
+          )
+          \b[ \t]*(=)?
+        )
+      captures:
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
+      push: only-boolean-values
+
+  parameter-generic:
     - match: ^\s*([a-zA-Z1]+)\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
@@ -196,15 +261,15 @@ contexts:
             - match: \n|$
               scope: invalid.illegal.sshd_config
               pop: true
-            - include: generic-option-value
+            - include: generic-parameter-values
         - match: (?=\S)
           push:
             - meta_content_scope: string.unquoted.sshd_config
             - include: SSH Common.sublime-syntax#pop-before-nl
-            - include: generic-option-value
+            - include: generic-parameter-values
         - include: pop-nl-as-value
 
-  generic-option-value:
+  generic-parameter-values:
     - match: '\b(?xi: yes | no )\b'
       scope: constant.language.boolean.sshd_config
     - match: '\b(?xi: any | none )\b'

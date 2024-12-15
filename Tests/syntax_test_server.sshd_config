@@ -116,7 +116,8 @@ Match User *,!username1,!username2
     #^^^^^^^^^^^^^^^^^^^^^ meta.block.match meta.mapping.key keyword.other
     #                      ^^^ constant.language.boolean
     AllowTCPForwarding no
-    X11Forwarding no
+    X11Forwarding "no"
+    #              ^^ constant.language.boolean
     ForceCommand internal-sftp -f LOCAL0 -l INFO
     #^^^^^^^^^^^ meta.mapping.key keyword.other
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value source.embedded.shell
