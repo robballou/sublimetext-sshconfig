@@ -43,10 +43,6 @@ first_line_match: |-
           ([ -]-{4})
         )
 
-
-variables:
-  base64_char: '[a-zA-Z0-9+/]'
-
 contexts:
   main:
     - include: comments-number-sign

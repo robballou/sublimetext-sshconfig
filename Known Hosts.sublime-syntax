@@ -50,7 +50,9 @@ contexts:
             - include: wildcards
             - include: punctuation-dot-sequence
     - include: ip-addresses
-    - match: (\|)(\d+)(\|)([\w+/]{27}=)(\|)([\w+/]{27}=)
+
+    # Hashed host
+    - match: (\|)(\d+)(\|)({{base64_char}}{27}=)(\|)({{base64_char}}{27}=)
       scope: meta.string.host.obfuscated.known_hosts
       captures:
         1: punctuation.definition.known_hosts
