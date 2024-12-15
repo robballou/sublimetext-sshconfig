@@ -591,6 +591,9 @@
       values:
         - 'yes'
         - 'no'
+    ChannelTimeout:
+      details: How quickly to close inactive channels
+      values: ${0:session=5m}
     ChrootDirectory:
       details: Path to <code>chroot</code> to after authentication
     Ciphers:
@@ -649,6 +652,13 @@
       values:
         - 'yes'
         - 'no'
+    HostbasedAcceptedAlgorithms:
+      details: Accepted Hostbased signature algorithms, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
     HostbasedAcceptedKeyTypes:
       details: Accepted Hostbased key type patterns, by preference
       values:
@@ -742,6 +752,9 @@
         - ERROR
         - INFO
         - '...'
+    LogVerbose:
+      details: One or more overrides to <code>LogLevel</code>
+      values: ${0:kex.c:*:1000}
     MACs:
       details: Accepted message auth code algm patterns, by preference
       values:
@@ -755,6 +768,8 @@
       details: Max open sessions per network connection
     MaxStartups:
       details: Max concurrent unauth'ed connections to <code>sshd</code>
+    ModuliFile:
+      details: Specify <code>moduli(5)</code> file for DH group exchange
     PasswordAuthentication:
       details: Disable password authentication
       values:
@@ -800,6 +815,24 @@
       values:
         - 'yes'
         - 'no'
+    PerSourceMaxStartups:
+      details: Max concurrent unauth'ed connections to <code>sshd</code> per IP
+    PerSourceNetBlockSize:
+      details: CIDR range for PerSource restrictions, IPv4:IPv6
+      values: ${0:32:128}
+    PerSourcePenalties:
+      details: Controls penalties for suspected attacks
+      values:
+        - crash:90s
+        - authfail:5s
+        - noauth:1s
+        - grace-exceeded:10s
+        - max:10m
+        - min:15s
+        - '...'
+    PerSourcePenaltyExemptList:
+      details: List of IPs to exempt from <code>PerSourcePenalties</code>
+      values: ${0:127.0.0.0/16}
     PidFile:
       details: File for proc-ID of daemon, or <code>none</code> to skip
     Port:
@@ -817,6 +850,13 @@
         - 'no'
     Protocol:
       details: <em>Deprecated</em> Protocol is 2
+    PubkeyAcceptedAlgorithms:
+      details: Accepted signature algorithms, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
     PubkeyAcceptedKeyTypes:
       details: Accepted key type patterns, by preference
       values:
@@ -829,6 +869,7 @@
       values:
         - none
         - touch-required
+        - verify-required
     PubkeyAuthentication:
       details: Disable asymmetric key authentication
       values:
@@ -837,17 +878,22 @@
     RekeyLimit:
       details: Data-length and duration before re-key
       values: ${0:2G 3h}
+    RequiredRSASize:
+      details: Minimum RSA key size in bits
     RevokedKeys:
       details: File containing revoked public keys
     RDomain:
       details: Apply explicit routing domain after auth
     RhostsRSAAuthentication:
     RSAAuthentication:
+    SecurityKeyProvider:
+      details: Path to a library for FIDO keys
     ServerKeyBits:
     SetEnv:
       details: Set one or more environment variables
       values: ${0:NAME="VALUE"}
     ShowPatchLevel:
+    # SshSessionPath:  # Just for tests
     StreamLocalBindMask:
       details: File mode <code>umask</code> when creating a forwarded port
       values: ${0:0177}
@@ -878,6 +924,9 @@
         - 'no'
     TrustedUserCAKeys:
       details: File of public keys for CAs trusted to sign user certs
+    UnusedConnectionTimeout:
+      details: How soon to close connections with no open channels
+      values: ${0:5m}
     UseDNS:
       details: Double check that reverse DNS matches IP
       values:

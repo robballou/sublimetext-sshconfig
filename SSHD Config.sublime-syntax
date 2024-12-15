@@ -17,34 +17,39 @@ variables:
       | Authorized (?: Keys | Principals )(?: Command | CommandUser | File )
       | Banner
       | CASignatureAlgorithms | ChallengeResponseAuthentication
-      | ChrootDirectory | Ciphers | ClientAliveCountMax | ClientAliveInterval
-      | Compression
+      | ChannelTimeout | ChrootDirectory | Ciphers | ClientAliveCountMax
+      | ClientAliveInterval | Compression
       | DenyGroups | DenyUsers | DisableForwarding
       | ExposeAuthInfo
       | FingerprintHash | ForceCommand
       | GatewayPorts | GSSAPIAuthentication | GSSAPICleanupCredentials
       | GSSAPIStrictAcceptorCheck
-      | Hostbased (?: AcceptedKeyTypes | Authentication
+      | Hostbased (?: AcceptedAlgorithms | AcceptedKeyTypes | Authentication
                   | UsesNameFromPacketOnly )
       | HostCertificate | HostKey | HostKeyAgent | HostKeyAlgorithms
-      | IgnoreRhosts | IgnoreUserKnownHosts | IPQoS
+      | IgnoreRhosts | IgnoreUserKnownHosts | Include | IPQoS
       | KbdInteractiveAuthentication
       | Kerberos (?: Authentication | GetAFSToken | OrLocalPasswd
                  | TicketCleanup )
       | KexAlgorithms | KeyRegenerationInterval
-      | ListenAddress | LoginGraceTime | LogLevel
-      | MACs | Match | MaxAuthTries | MaxSessions | MaxStartups
+      | ListenAddress | LoginGraceTime | LogLevel | LogVerbose
+      | MACs | Match | MaxAuthTries | MaxSessions | MaxStartups | ModuliFile
       | PasswordAuthentication
       | Permit (?: EmptyPasswords | Listen | Open | RootLogin | TTY | Tunnel
                | UserEnvironment | UserRC )
+      | PerSource (?: MaxStartups | NetBlockSize | Penalties
+                  | PenaltyExemptList )
       | PidFile | Port | PrintLastLog | PrintMotd | Protocol
-      | PubkeyAcceptedKeyTypes | PubkeyAuthentication
-      | RekeyLimit | RevokedKeys | RDomain | RhostsRSAAuthentication
-      | RSAAuthentication
-      | ServerKeyBits | SetEnv | ShowPatchLevel | StreamLocalBindMask
-      | StreamLocalBindUnlink | StrictModes | Subsystem | SyslogFacility
-      | TCPKeepAlive
-      | UseDNS | UseLogin | UsePAM | UsePrivilegeSeparation
+      | Pubkey (?: AcceptedAlgorithms | AcceptedKeyTypes | AuthOptions
+               | PubkeyAuthentication )
+      | RekeyLimit | RequiredRSASize | RevokedKeys | RDomain
+      | RhostsRSAAuthentication | RSAAuthentication
+      | SecurityKeyProvider | ServerKeyBits | SetEnv | ShowPatchLevel  # SshSessionPath is just for tests
+      | StreamLocalBindMask | StreamLocalBindUnlink
+      | StrictModes | Subsystem | SyslogFacility
+      | TCPKeepAlive | TrustedUserCAKeys
+      | UnusedConnectionTimeout | UseDNS | UseLogin | UsePAM
+      | UsePrivilegeSeparation
       | VersionAddendum
       | X11DisplayOffset | X11Forwarding | X11UseLocalhost | XAuthLocation
     )\b

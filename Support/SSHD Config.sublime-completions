@@ -152,6 +152,18 @@
             "details": "Disable chal/resp auth, like PAM or <code>login.conf</code>"
         },
         {
+            "trigger": "ChannelTimeout",
+            "contents": "ChannelTimeout",
+            "kind": "keyword",
+            "details": "How quickly to close inactive channels"
+        },
+        {
+            "trigger": "channeltimeout",
+            "contents": "ChannelTimeout ${0:session=5m}",
+            "kind": "snippet",
+            "details": "How quickly to close inactive channels"
+        },
+        {
             "trigger": "ChrootDirectory",
             "contents": "ChrootDirectory",
             "kind": "keyword",
@@ -294,6 +306,18 @@
             "contents": "GSSAPIStrictAcceptorCheck ${0:{ yes | no \\}}",
             "kind": "snippet",
             "details": "Disable auth against non-hostname keys"
+        },
+        {
+            "trigger": "HostbasedAcceptedAlgorithms",
+            "contents": "HostbasedAcceptedAlgorithms",
+            "kind": "keyword",
+            "details": "Accepted Hostbased signature algorithms, by preference"
+        },
+        {
+            "trigger": "hostbasedacceptedalgorithms",
+            "contents": "HostbasedAcceptedAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Accepted Hostbased signature algorithms, by preference"
         },
         {
             "trigger": "HostbasedAcceptedKeyTypes",
@@ -524,6 +548,18 @@
             "details": "Verbosity level when logging <code>sshd</code> messages"
         },
         {
+            "trigger": "LogVerbose",
+            "contents": "LogVerbose",
+            "kind": "keyword",
+            "details": "One or more overrides to <code>LogLevel</code>"
+        },
+        {
+            "trigger": "logverbose",
+            "contents": "LogVerbose ${0:kex.c:*:1000}",
+            "kind": "snippet",
+            "details": "One or more overrides to <code>LogLevel</code>"
+        },
+        {
             "trigger": "MACs",
             "contents": "MACs",
             "kind": "keyword",
@@ -552,6 +588,12 @@
             "contents": "MaxStartups",
             "kind": "keyword",
             "details": "Max concurrent unauth'ed connections to <code>sshd</code>"
+        },
+        {
+            "trigger": "ModuliFile",
+            "contents": "ModuliFile",
+            "kind": "keyword",
+            "details": "Specify <code>moduli(5)</code> file for DH group exchange"
         },
         {
             "trigger": "PasswordAuthentication",
@@ -662,6 +704,48 @@
             "details": "Disable execution of <code>~/.ssh/rc</code> files"
         },
         {
+            "trigger": "PerSourceMaxStartups",
+            "contents": "PerSourceMaxStartups",
+            "kind": "keyword",
+            "details": "Max concurrent unauth'ed connections to <code>sshd</code> per IP"
+        },
+        {
+            "trigger": "PerSourceNetBlockSize",
+            "contents": "PerSourceNetBlockSize",
+            "kind": "keyword",
+            "details": "CIDR range for PerSource restrictions, IPv4:IPv6"
+        },
+        {
+            "trigger": "persourcenetblocksize",
+            "contents": "PerSourceNetBlockSize ${0:32:128}",
+            "kind": "snippet",
+            "details": "CIDR range for PerSource restrictions, IPv4:IPv6"
+        },
+        {
+            "trigger": "PerSourcePenalties",
+            "contents": "PerSourcePenalties",
+            "kind": "keyword",
+            "details": "Controls penalties for suspected attacks"
+        },
+        {
+            "trigger": "persourcepenalties",
+            "contents": "PerSourcePenalties ${0:{ crash:90s | authfail:5s | noauth:1s | grace-exceeded:10s | max:10m | min:15s | ... \\}}",
+            "kind": "snippet",
+            "details": "Controls penalties for suspected attacks"
+        },
+        {
+            "trigger": "PerSourcePenaltyExemptList",
+            "contents": "PerSourcePenaltyExemptList",
+            "kind": "keyword",
+            "details": "List of IPs to exempt from <code>PerSourcePenalties</code>"
+        },
+        {
+            "trigger": "persourcepenaltyexemptlist",
+            "contents": "PerSourcePenaltyExemptList ${0:127.0.0.0/16}",
+            "kind": "snippet",
+            "details": "List of IPs to exempt from <code>PerSourcePenalties</code>"
+        },
+        {
             "trigger": "PidFile",
             "contents": "PidFile",
             "kind": "keyword",
@@ -710,6 +794,18 @@
             "details": "<em>Deprecated</em> Protocol is 2"
         },
         {
+            "trigger": "PubkeyAcceptedAlgorithms",
+            "contents": "PubkeyAcceptedAlgorithms",
+            "kind": "keyword",
+            "details": "Accepted signature algorithms, by preference"
+        },
+        {
+            "trigger": "pubkeyacceptedalgorithms",
+            "contents": "PubkeyAcceptedAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Accepted signature algorithms, by preference"
+        },
+        {
             "trigger": "PubkeyAcceptedKeyTypes",
             "contents": "PubkeyAcceptedKeyTypes",
             "kind": "keyword",
@@ -729,7 +825,7 @@
         },
         {
             "trigger": "pubkeyauthoptions",
-            "contents": "PubkeyAuthOptions ${0:{ none | touch-required \\}}",
+            "contents": "PubkeyAuthOptions ${0:{ none | touch-required | verify-required \\}}",
             "kind": "snippet",
             "details": "Require FIDO keys to be touched"
         },
@@ -758,6 +854,12 @@
             "details": "Data-length and duration before re-key"
         },
         {
+            "trigger": "RequiredRSASize",
+            "contents": "RequiredRSASize",
+            "kind": "keyword",
+            "details": "Minimum RSA key size in bits"
+        },
+        {
             "trigger": "RevokedKeys",
             "contents": "RevokedKeys",
             "kind": "keyword",
@@ -780,6 +882,12 @@
             "contents": "RSAAuthentication",
             "kind": "keyword",
             "details": ""
+        },
+        {
+            "trigger": "SecurityKeyProvider",
+            "contents": "SecurityKeyProvider",
+            "kind": "keyword",
+            "details": "Path to a library for FIDO keys"
         },
         {
             "trigger": "ServerKeyBits",
@@ -876,6 +984,18 @@
             "contents": "TrustedUserCAKeys",
             "kind": "keyword",
             "details": "File of public keys for CAs trusted to sign user certs"
+        },
+        {
+            "trigger": "UnusedConnectionTimeout",
+            "contents": "UnusedConnectionTimeout",
+            "kind": "keyword",
+            "details": "How soon to close connections with no open channels"
+        },
+        {
+            "trigger": "unusedconnectiontimeout",
+            "contents": "UnusedConnectionTimeout ${0:5m}",
+            "kind": "snippet",
+            "details": "How soon to close connections with no open channels"
         },
         {
             "trigger": "UseDNS",
