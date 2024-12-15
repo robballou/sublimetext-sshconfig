@@ -2,6 +2,26 @@
     "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - source source",
     "completions": [
         {
+            "trigger": "AEAD_AES_128_GCM\tmac",
+            "contents": "AEAD_AES_128_GCM",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "AEAD_AES_256_GCM\tmac",
+            "contents": "AEAD_AES_256_GCM",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
             "trigger": "aes128-gcm\tmac",
             "contents": "aes128-gcm",
             "annotation": "mac",
@@ -14,6 +34,26 @@
         {
             "trigger": "aes256-gcm\tmac",
             "contents": "aes256-gcm",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "cbcmac-aes\tmac",
+            "contents": "cbcmac-aes",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "cbcmac-twofish\tmac",
+            "contents": "cbcmac-twofish",
             "annotation": "mac",
             "kind": [
                 "function",
@@ -42,38 +82,8 @@
             ]
         },
         {
-            "trigger": "hmac-sha1\tmac",
-            "contents": "hmac-sha1",
-            "annotation": "mac",
-            "kind": [
-                "function",
-                "m",
-                "MAC Algm"
-            ]
-        },
-        {
-            "trigger": "hmac-sha1-etm@openssh.com\tmac",
-            "contents": "hmac-sha1-etm@openssh.com",
-            "annotation": "mac",
-            "kind": [
-                "function",
-                "m",
-                "MAC Algm"
-            ]
-        },
-        {
             "trigger": "hmac-sha2-224\tmac",
             "contents": "hmac-sha2-224",
-            "annotation": "mac",
-            "kind": [
-                "function",
-                "m",
-                "MAC Algm"
-            ]
-        },
-        {
-            "trigger": "hmac-sha2-256\tmac",
-            "contents": "hmac-sha2-256",
             "annotation": "mac",
             "kind": [
                 "function",
@@ -102,8 +112,8 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-384\tmac",
-            "contents": "hmac-sha2-384",
+            "trigger": "hmac-sha2-256\tmac",
+            "contents": "hmac-sha2-256",
             "annotation": "mac",
             "kind": [
                 "function",
@@ -112,8 +122,8 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-512\tmac",
-            "contents": "hmac-sha2-512",
+            "trigger": "hmac-sha2-384\tmac",
+            "contents": "hmac-sha2-384",
             "annotation": "mac",
             "kind": [
                 "function",
@@ -142,8 +152,8 @@
             ]
         },
         {
-            "trigger": "hmac-sha2-56\tmac",
-            "contents": "hmac-sha2-56",
+            "trigger": "hmac-sha2-512\tmac",
+            "contents": "hmac-sha2-512",
             "annotation": "mac",
             "kind": [
                 "function",
@@ -152,8 +162,8 @@
             ]
         },
         {
-            "trigger": "hmac-sha256\tmac",
-            "contents": "hmac-sha256",
+            "trigger": "hmac-sha2-56\tmac",
+            "contents": "hmac-sha2-56",
             "annotation": "mac",
             "kind": [
                 "function",
@@ -174,6 +184,16 @@
         {
             "trigger": "hmac-sha256@ssh.com\tmac",
             "contents": "hmac-sha256@ssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "hmac-sha256\tmac",
+            "contents": "hmac-sha256",
             "annotation": "mac",
             "kind": [
                 "function",
@@ -222,8 +242,8 @@
             ]
         },
         {
-            "trigger": "hmac-sha512\tmac",
-            "contents": "hmac-sha512",
+            "trigger": "hmac-sha512@ssh.com\tmac",
+            "contents": "hmac-sha512@ssh.com",
             "annotation": "mac",
             "kind": [
                 "function",
@@ -232,8 +252,8 @@
             ]
         },
         {
-            "trigger": "hmac-sha512@ssh.com\tmac",
-            "contents": "hmac-sha512@ssh.com",
+            "trigger": "hmac-sha512\tmac",
+            "contents": "hmac-sha512",
             "annotation": "mac",
             "kind": [
                 "function",
@@ -254,6 +274,16 @@
         {
             "trigger": "umac-128@openssh.com\tmac",
             "contents": "umac-128@openssh.com",
+            "annotation": "mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ]
+        },
+        {
+            "trigger": "umac-128\tmac",
+            "contents": "umac-128",
             "annotation": "mac",
             "kind": [
                 "function",
@@ -302,8 +332,41 @@
             ]
         },
         {
-            "trigger": "hmac-md5\tdeprecated mac",
-            "contents": "hmac-md5",
+            "trigger": "cbcmac-3des\tdeprecated mac",
+            "contents": "cbcmac-3des",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "cbcmac-blowfish\tdeprecated mac",
+            "contents": "cbcmac-blowfish",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "cbcmac-des\tdeprecated mac",
+            "contents": "cbcmac-des",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "cbcmac-rijndael\tdeprecated mac",
+            "contents": "cbcmac-rijndael",
             "annotation": "deprecated mac",
             "kind": [
                 "function",
@@ -346,19 +409,8 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-ripemd\tdeprecated mac",
-            "contents": "hmac-ripemd",
-            "annotation": "deprecated mac",
-            "kind": [
-                "function",
-                "m",
-                "MAC Algm"
-            ],
-            "details": "Deprecated"
-        },
-        {
-            "trigger": "hmac-ripemd160\tdeprecated mac",
-            "contents": "hmac-ripemd160",
+            "trigger": "hmac-md5\tdeprecated mac",
+            "contents": "hmac-md5",
             "annotation": "deprecated mac",
             "kind": [
                 "function",
@@ -390,8 +442,30 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "hmac-sha1-96\tdeprecated mac",
-            "contents": "hmac-sha1-96",
+            "trigger": "hmac-ripemd160-96\tdeprecated mac",
+            "contents": "hmac-ripemd160-96",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-ripemd160\tdeprecated mac",
+            "contents": "hmac-ripemd160",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-ripemd\tdeprecated mac",
+            "contents": "hmac-ripemd",
             "annotation": "deprecated mac",
             "kind": [
                 "function",
@@ -403,6 +477,39 @@
         {
             "trigger": "hmac-sha1-96-etm@openssh.com\tdeprecated mac",
             "contents": "hmac-sha1-96-etm@openssh.com",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-sha1-96\tdeprecated mac",
+            "contents": "hmac-sha1-96",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-sha1-etm@openssh.com\tdeprecated mac",
+            "contents": "hmac-sha1-etm@openssh.com",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "hmac-sha1\tdeprecated mac",
+            "contents": "hmac-sha1",
             "annotation": "deprecated mac",
             "kind": [
                 "function",
@@ -436,6 +543,72 @@
         {
             "trigger": "none\tdeprecated mac",
             "contents": "none",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "md5-8\tdeprecated mac",
+            "contents": "md5-8",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "md5\tdeprecated mac",
+            "contents": "md5",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ripemd160-8\tdeprecated mac",
+            "contents": "ripemd160-8",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ripemd160\tdeprecated mac",
+            "contents": "ripemd160",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "sha1-8\tdeprecated mac",
+            "contents": "sha1-8",
+            "annotation": "deprecated mac",
+            "kind": [
+                "function",
+                "m",
+                "MAC Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "sha1\tdeprecated mac",
+            "contents": "sha1",
             "annotation": "deprecated mac",
             "kind": [
                 "function",
