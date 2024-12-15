@@ -184,6 +184,10 @@ contexts:
       # Match while typing as well
     - match: '\b(?xi: y(?:es?)? | no? )\b'
 
+  log-level:
+    - match: '\b(?x: QUIET | FATAL | ERROR | INFO | DEBUG[1-3]? )\b'
+      scope: constant.language.log-level.ssh.common
+
   possibly-quoted-value:
     - meta_content_scope: meta.mapping.value.ssh.common
     - match: '"'

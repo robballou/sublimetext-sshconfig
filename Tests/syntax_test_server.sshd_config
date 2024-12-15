@@ -32,7 +32,7 @@ ListenAddress ::
 
 # Logging
 #SyslogFacility AUTH
-#LogLevel INFO
+#LogLevel DEBUG
 #@@@@@@@@ local-definition
 
 # Authentication:

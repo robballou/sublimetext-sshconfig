@@ -415,6 +415,7 @@ contexts:
     - include: ip-addresses-with-cidr
     - include: time-values
     - include: bytes-values
+    - include: log-level
     - match: \b\d+(?=[\s,"])
       scope: meta.number.integer.ssh_config
              constant.numeric.value.ssh_config

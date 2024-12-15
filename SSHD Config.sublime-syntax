@@ -208,6 +208,7 @@ contexts:
     - include: operator-exclamation
     - include: wildcards
     - include: punctuation-comma-sequence
+    - include: log-level
     - match: \b\d+(?=[\s,"])
       scope: constant.numeric.sshd_config
 
