@@ -20,6 +20,8 @@ contexts:
   parameters:
     - include: comments
     - include: parameter-forcecommand
+    - include: parameter-authorizedkeyscommand
+    - include: parameter-authorizedprincipalscommand
     - include: parameter-with-boolean-values
     - include: parameter-generic
 
@@ -148,15 +150,7 @@ contexts:
       push:
         - meta_content_scope: meta.mapping.value.sshd_config
         - include: pop-nl
-        - match: \s*((?i:none))\b\s*$
-          captures:
-            1: constant.language.null.sshd_config
-        - match: \s*((")((?i:none))("))\s*$
-          captures:
-            1: string.quoted.double.sshd_config
-            2: punctuation.definition.string.begin.sshd_config
-            3: constant.language.null.sshd_config
-            4: punctuation.definition.string.end.sshd_config
+        - include: none-command-values
         - match: '"'
           scope: string.quoted.double.sshd_config
                  punctuation.definition.string.begin.sshd_config
@@ -170,6 +164,52 @@ contexts:
         - match: (?=\S)
           escape: (?=$)
           embed: scope:source.shell
+
+  parameter-authorizedkeyscommand:
+    - match: ^\s*((?i:AuthorizedKeysCommand))\b\s*(=)?
+      captures:
+        1: meta.mapping.key.sshd_config keyword.other.sshd_config
+        2: keyword.operator.assignment.sshd_config
+      push:
+        - meta_content_scope: meta.mapping.value.sshd_config
+        - include: pop-nl
+        - match: '"'
+          scope: string.quoted.double.sshd_config
+                 punctuation.definition.string.begin.sshd_config
+          escape: '(")|(?=$)'
+          escape_captures:
+            1: meta.mapping.value.sshd_config
+               string.quoted.double.sshd_config
+               punctuation.definition.string.end.sshd_config
+          embed_scope: string.quoted.double.ssh_config
+                       source.shell.embedded.ssh.authorizedkeyscommand
+          embed: scope:source.shell.embedded.ssh.authorizedkeyscommand
+        - match: (?=\S)
+          escape: (?=$)
+          embed: scope:source.shell.embedded.ssh.authorizedkeyscommand
+
+  parameter-authorizedprincipalscommand:
+    - match: ^\s*((?i:AuthorizedPrincipalsCommand))\b\s*(=)?
+      captures:
+        1: meta.mapping.key.sshd_config keyword.other.sshd_config
+        2: keyword.operator.assignment.sshd_config
+      push:
+        - meta_content_scope: meta.mapping.value.sshd_config
+        - include: pop-nl
+        - match: '"'
+          scope: string.quoted.double.sshd_config
+                 punctuation.definition.string.begin.sshd_config
+          escape: '(")|(?=$)'
+          escape_captures:
+            1: meta.mapping.value.sshd_config
+               string.quoted.double.sshd_config
+               punctuation.definition.string.end.sshd_config
+          embed_scope: string.quoted.double.ssh_config
+                       source.shell.embedded.ssh.authorizedprincipalscommand
+          embed: scope:source.shell.embedded.ssh.authorizedprincipalscommand
+        - match: (?=\S)
+          escape: (?=$)
+          embed: scope:source.shell.embedded.ssh.authorizedprincipalscommand
 
   parameter-with-boolean-values:
     - match: ^\s*({{parameters_boolean}})\s*(=)?

@@ -237,5 +237,16 @@ contexts:
         - include: tokens
         - include: environment-variables
 
+  none-command-values:
+    - match: \s*(none)\b[ \t]*$
+      captures:
+        1: constant.language.null.ssh.common
+    - match: \s*((")(none)("))[ \t]*$
+      captures:
+        1: string.quoted.double.ssh.common
+        2: punctuation.definition.string.begin.ssh.common
+        3: constant.language.null.ssh.common
+        4: punctuation.definition.string.end.ssh.common
+
   tokens: []
   environment-variables: []

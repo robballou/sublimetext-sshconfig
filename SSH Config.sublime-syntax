@@ -326,17 +326,6 @@ contexts:
           escape: (?=$)
           embed: scope:source.shell.embedded.ssh.knownhostscommand
 
-  none-command-values:
-    - match: \s*(none)\b[ \t]*$
-      captures:
-        1: constant.language.null.ssh_config
-    - match: \s*((")(none)("))[ \t]*$
-      captures:
-        1: string.quoted.double.ssh_config
-        2: punctuation.definition.string.begin.ssh_config
-        3: constant.language.null.ssh_config
-        4: punctuation.definition.string.end.ssh_config
-
   parameter-with-boolean-values:
     - match: |-
         (?xi:

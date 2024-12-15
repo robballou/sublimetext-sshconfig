@@ -198,6 +198,147 @@ Match User *,!username1,!usern.ame2 Host foo.example.com
 #   ^ punctuation.definition.comment.sshd_config
 #@@@@@@@@@@@@@ none
 
+    AuthorizedKeysCommand echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config source.shell.embedded.ssh.authorizedkeyscommand source.shell
+#                         ^^^^ support.function.shell
+#                              ^^ constant.character.escape.ssh
+#                                ^^^^^^^^^^^^^^^^ - constant
+#                                                ^^ constant.other.placeholder.ssh
+#                                                  ^^^^ - constant
+#                                                      ^^ constant.other.placeholder.ssh
+#                                                        ^^^^^^^ - constant
+#                                                               ^^ constant.other.placeholder.ssh
+#                                                                 ^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                       ^^ constant.other.placeholder.ssh
+#                                                                                          ^^ constant.other.placeholder.ssh
+#                                                                                             ^^ constant.other.placeholder.ssh
+#                                                                                               ^^^^^^^^^^^^^^^ - constant
+    AuthorizedKeysCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config source.shell.embedded.ssh.authorizedkeyscommand source.shell
+#                         ^^^^ support.function.shell
+#                              ^^ constant.character.escape.ssh
+#                                ^^^^^^^ - constant
+#                                       ^^ constant.other.placeholder.ssh
+#                                          ^^ constant.other.placeholder.ssh
+#                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                             ^^ constant.other.placeholder.ssh
+#                                                                                               ^^^^^^^^^^^^^^^ - constant
+    AuthorizedKeysCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config
+#                         ^ string.quoted.double.sshd_config punctuation.definition.string.begin.sshd_config
+#                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.ssh_config source.shell.embedded.ssh.authorizedkeyscommand source.shell
+#                          ^^^^ support.function.shell
+#                               ^^ constant.character.escape.ssh
+#                                 ^^^^^^^^^^^^^^^^ - constant
+#                                                 ^^ constant.other.placeholder.ssh
+#                                                   ^^^^ - constant
+#                                                       ^^ constant.other.placeholder.ssh
+#                                                         ^^^^^^^ - constant
+#                                                                ^^ constant.other.placeholder.ssh
+#                                                                  ^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                        ^^ constant.other.placeholder.ssh
+#                                                                                           ^^ constant.other.placeholder.ssh
+#                                                                                              ^^ constant.other.placeholder.ssh
+#                                                                                                ^^^^^^^^^^^^^^^ - constant
+#                                                                                                               ^ meta.mapping.value.sshd_config string.quoted.double.sshd_config punctuation.definition.string.end.sshd_config
+    AuthorizedKeysCommand "echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config
+#                         ^ string.quoted.double.sshd_config punctuation.definition.string.begin.sshd_config
+#                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.ssh_config source.shell.embedded.ssh.authorizedkeyscommand source.shell
+#                          ^^^^ support.function.shell
+#                               ^^ constant.character.escape.ssh
+#                                 ^^^^^^^ - constant
+#                                        ^^ constant.other.placeholder.ssh
+#                                           ^^ constant.other.placeholder.ssh
+#                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                              ^^ constant.other.placeholder.ssh
+#                                                                                                ^^^^^^^^^^^^^^^ - constant
+#                                                                                                               ^ meta.mapping.value.sshd_config string.quoted.double.sshd_config punctuation.definition.string.end.sshd_config
+    AuthorizedPrincipalsCommand echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config source.shell.embedded.ssh.authorizedprincipalscommand source.shell
+#                               ^^^^ support.function.shell
+#                                    ^^ constant.character.escape.ssh
+#                                      ^^^^^^^^^^^^^^^^ - constant
+#                                                      ^^ constant.other.placeholder.ssh
+#                                                        ^^^^ - constant
+#                                                            ^^ constant.other.placeholder.ssh
+#                                                               ^^ constant.other.placeholder.ssh
+#                                                                 ^^^^ - constant
+#                                                                     ^^ constant.other.placeholder.ssh
+#                                                                       ^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                             ^^ constant.other.placeholder.ssh
+#                                                                                                ^^ constant.other.placeholder.ssh
+#                                                                                                   ^^ constant.other.placeholder.ssh
+#                                                                                                     ^^^^^^^^^^^^^^^ - constant
+    AuthorizedPrincipalsCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config source.shell.embedded.ssh.authorizedprincipalscommand source.shell
+#                               ^^^^ support.function.shell
+#                                    ^^ constant.character.escape.ssh
+#                                      ^^^^^^^ - constant
+#                                             ^^ constant.other.placeholder.ssh
+#                                                ^^ constant.other.placeholder.ssh
+#                                                  ^^^^ - constant
+#                                                      ^^ constant.other.placeholder.ssh
+#                                                        ^^^^^^^^^^^^^ - constant
+#                                                                     ^^ constant.other.placeholder.ssh
+#                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                                ^^ constant.other.placeholder.ssh
+#                                                                                                   ^^ constant.other.placeholder.ssh
+#                                                                                                     ^^^^^^^^^^^^^^^ - constant
+    AuthorizedPrincipalsCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config
+#                               ^ string.quoted.double.sshd_config punctuation.definition.string.begin.sshd_config
+#                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.ssh_config source.shell.embedded.ssh.authorizedprincipalscommand source.shell
+#                                ^^^^ support.function.shell
+#                                     ^^ constant.character.escape.ssh
+#                                       ^^^^^^^^^^^^^^^^ - constant
+#                                                       ^^ constant.other.placeholder.ssh
+#                                                         ^^^^ - constant
+#                                                             ^^ constant.other.placeholder.ssh
+#                                                                ^^ constant.other.placeholder.ssh
+#                                                                  ^^^^ - constant
+#                                                                      ^^ constant.other.placeholder.ssh
+#                                                                        ^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                              ^^ constant.other.placeholder.ssh
+#                                                                                                 ^^ constant.other.placeholder.ssh
+#                                                                                                    ^^ constant.other.placeholder.ssh
+#                                                                                                      ^^^^^^^^^^^^^^^ - constant
+#                                                                                                                     ^ meta.mapping.value.sshd_config string.quoted.double.sshd_config punctuation.definition.string.end.sshd_config
+    AuthorizedPrincipalsCommand "echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config
+#                               ^ string.quoted.double.sshd_config punctuation.definition.string.begin.sshd_config
+#                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.ssh_config source.shell.embedded.ssh.authorizedprincipalscommand source.shell
+#                                ^^^^ support.function.shell
+#                                     ^^ constant.character.escape.ssh
+#                                       ^^^^^^^ - constant
+#                                              ^^ constant.other.placeholder.ssh
+#                                                 ^^ constant.other.placeholder.ssh
+#                                                   ^^^^ - constant
+#                                                       ^^ constant.other.placeholder.ssh
+#                                                         ^^^^^^^^^^^^^ - constant
+#                                                                      ^^ constant.other.placeholder.ssh
+#                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                                 ^^ constant.other.placeholder.ssh
+#                                                                                                    ^^ constant.other.placeholder.ssh
+#                                                                                                      ^^^^^^^^^^^^^^^ - constant
+#                                                                                                                     ^ meta.mapping.value.sshd_config string.quoted.double.sshd_config punctuation.definition.string.end.sshd_config
+
 
 # Normal ssh allowed for users username1 and username2 from the local network
 Match User username1,username2 Address 192.168.0.0/16
