@@ -63,6 +63,9 @@ If these commands open the wrong file for you, open the Command Palette
     + Syntax highlighting
     + Symbol index
     + (unmapped) "Open file" commands
+- PEM, PKCS1, PKCS8, and SSH keys have
+    + Syntax
+    + Symbol index for cert bundles
 - Completion and highlighting for crypto stuff
     + Key types
     + KEX algorithms
@@ -72,12 +75,12 @@ If these commands open the wrong file for you, open the Command Palette
 ## Testing
 
 - Install this repository under Sublime Text `Packages` and name it `SSH Config`
-    + by cloning the repo or moving it or symlinking it
+    + You can clone it there directly, move it, or symlink it.
 - Open the project from under `Packages/SSH Config`
 - Open a syntax test file located in the Tests directory
-- Run `Build With: Syntax Tests` command
-    + supplied by the `PackageDev` Sublime Package
-    + available on the command palette when a test file is open
+- Run the `Build With: Syntax Tests` command, available on the command palette when a test file is open.
+
+The PackageDev package is helpful for writing tests, but not required.
 
 ## To-Do
 
