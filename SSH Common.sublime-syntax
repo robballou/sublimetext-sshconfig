@@ -130,5 +130,5 @@ contexts:
     - include: ipv4-with-cidr
 
   port-numbers:
-    - match: '{{zero_to_65535}}'
+    - match: '\b{{zero_to_65535}}\b'
       scope: meta.number.integer.decimal.ssh.common constant.numeric.port-number.ssh.common
