@@ -102,7 +102,7 @@ contexts:
   host:
     - match: ^[ \t]*((?i:Host))\b
       captures:
-        1: meta.block.host.ssh_config keyword.declaration.host-alias.ssh_config
+        1: keyword.declaration.host-alias.ssh_config
       set: host-aliases
 
   host-aliases:
@@ -287,8 +287,10 @@ contexts:
       embed: scope:source.shell.embedded.ssh
 
   boolean-value:
-    - match: \b(?i:yes|no)\b
-      scope: constant.language.boolean.ssh_config
+    - match: \b(?i:yes)\b
+      scope: constant.language.boolean.true.ssh_config
+    - match: \b(?i:no)\b
+      scope: constant.language.boolean.false.ssh_config
 
   boolean-value-with-typing:
     - include: boolean-value

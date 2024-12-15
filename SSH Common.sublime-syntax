@@ -52,7 +52,7 @@ contexts:
   comments-semicolon:
     - match: ^\s*(;)
       captures:
-        1: comment.line.number-sign.ssh.common punctuation.definition.comment.ssh.common
+        1: comment.line.semi-colon.ssh.common punctuation.definition.comment.ssh.common
       push:
         - meta_content_scope: comment.line.semi-colon.ssh.common
         - include: pop-nl

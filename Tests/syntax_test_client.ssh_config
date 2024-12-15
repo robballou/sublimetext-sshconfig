@@ -1,51 +1,54 @@
 # SYNTAX TEST "Packages/SSH Config/SSH Config.sublime-syntax"
 
 User foo
-# ^^^^^^ meta.block.naked
-# ^^     keyword.other
-#    ^^^ string.unquoted
+#^^^^^^^ meta.block.naked.ssh_config
+#^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#    ^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
 Port 22
-# ^^^^^ meta.block.naked
-# ^^    keyword.other
-#    ^^ constant.numeric
+#^^^^^^ meta.block.naked.ssh_config
+#^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#    ^^ meta.mapping.value.ssh_config constant.numeric.ssh_config
 Include ~/.ssh/config_*_cloud
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.naked
-# ^^^^^                       keyword.other
-#       ^^^^^^^^^^^^^^^^^^^^^ string.unquoted
-#                     ^       keyword.operator.wildcard
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.naked.ssh_config
+#^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#       ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
+#                     ^ keyword.operator.wildcard.ssh_config
 
 
 Match Host targ?t_host Exec not_inside_network User sue
-#<- - meta.block.naked
-# ^^^ keyword.control.conditional
-#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
-#     ^^^^             keyword.other
-#          ^^^^^^^^^^^ entity.name.label.host-alias
-#              ^       keyword.operator.wildcard
-#                      ^^^^                    keyword.other
-#                          ^                    - source.shell.embedded
-#                           ^^^^^^^^^^^^^^^^^^  source.shell.embedded meta.function-call
-#                                             ^ - source.shell.embedded
-#                                              ^^^^     keyword.other
-#                                                   ^^^ string.unquoted
+#<- - meta.block.naked - meta.block meta.block
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
+#^^^^ keyword.control.conditional.ssh_config
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
+#     ^^^^ keyword.other.ssh_config
+#          ^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
+#              ^ keyword.operator.wildcard.ssh_config
+#                      ^^^^ keyword.other.ssh_config
+#                           ^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash meta.function-call.identifier.shell meta.path.shell variable.function.shell
+#                                              ^^^^ keyword.other.ssh_config
+#                                                   ^^^ string.unquoted.ssh_config
     ProxyCommand ssh -W %h:%p proxy_server
-#<- - meta.statement
-    # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match
-    # ^^^^^^^^^^                             keyword.other
-    #           ^                            - source.shell.embedded
-    #            ^^^^^^^^^^^^^^^^^^^^^^^^^   source.shell.embedded
-    #                   ^^                   constant.character.escape
-    #                      ^^                constant.character.escape
-    #                                      ^ - source.shell.embedded
+#<- - meta.statement - meta.block meta.block
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
+#   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash
+#                ^^^ meta.function-call.identifier.shell meta.path.shell variable.function.shell
+#                   ^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.arguments.shell
+#                    ^^ meta.parameter.option.shell variable.parameter.option.shell
+#                    ^ punctuation.definition.parameter.shell
+#                       ^^^^^ meta.string.shell string.unquoted.shell
+#                       ^^ constant.character.escape.ssh
+#                          ^^ constant.character.escape.ssh
+#                             ^^^^^^^^^^^^ meta.string.shell string.unquoted.shell
 
 Match Host one,two
-# ^^^^^^^^^^^^^^^^ meta.block.match - meta.block.match meta.block.match
-# ^^^ keyword.control.conditional
-#     ^^^^^^^^^^^^ meta.statement.conditional
-#     ^^^^             keyword.other
-#          ^^^ entity.name.label.host-alias
-#             ^ punctuation.separator.sequence - entity
-#              ^^^ entity.name.label.host-alias
+#^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
+#^^^^ keyword.control.conditional.ssh_config
+#    ^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
+#     ^^^^ keyword.other.ssh_config
+#          ^^^ entity.name.label.host-alias.ssh_config
+#             ^ punctuation.separator.sequence.ssh_config - entity
+#              ^^^ entity.name.label.host-alias.ssh_config
     User bar
     Port 22
     #    ^^ constant.numeric
@@ -65,26 +68,30 @@ Match LocalNetwork 127.0.0.1/12,10.1.21.0/24
 
 Host tj
     User 2022sratna
-    #    ^^^^^^^^^^ meta.mapping.value - constant.numeric
+#^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#        ^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config - constant
 
 Host server serverino !other-pat?ern
-# <- meta.block.host - meta.block.match
-# ^^                  keyword.declaration.host-alias
-#   ^                 - entity.name.label.host-alias
-#    ^^^^^^           entity.name.label.host-alias
-#          ^          - entity.name.label.host-alias
-#           ^^^^^^^^^ entity.name.label.host-alias
-#                    ^               - entity.name.label.host-alias
-#                     ^              keyword.operator.logical
-#                      ^^^^^^^^^^^^^ entity.name.label.host-alias
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config - meta.block.match - meta.block meta.block
+#^^^ keyword.declaration.host-alias.ssh_config
+#   ^                 - entity
+#    ^^^^^^           entity.name.label.host-alias.ssh_config
+#          ^          - entity
+#           ^^^^^^^^^ entity.name.label.host-alias.ssh_config
+#                    ^               - entity
+#                     ^              keyword.operator.logical.ssh_config
+#                      ^^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
 #                               ^    keyword.operator.wildcard.ssh_config
     Hostname server%h.com
-    # ^^^^^^            keyword.declaration.host
-    #        ^^^^^^^^^^^^ string.unquoted.hostname
-    #              ^^ constant.character.escape
+#^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^ meta.mapping.key.ssh_config keyword.declaration.host.ssh_config
+#            ^^^^^^^^^^^^ meta.string.host.ssh_config string.unquoted.hostname.ssh_config
+#                  ^^ constant.character.escape.ssh_config
+#                    ^ punctuation.separator.sequence.ssh_config
     # This is meant to be a comment
-    # <- punctuation.definition.comment
-    # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign
+#   ^ punctuation.definition.comment.ssh.common
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.number-sign.ssh.common
     User=will
     # ^^      keyword.other
     #   ^     keyword.operator.assignment
@@ -102,56 +109,115 @@ Host server serverino !other-pat?ern
     #                         ^^     constant.character.escape
 
 Host *.splat?.com
-# ^^              keyword.declaration.host-alias
-#   ^             - entity.name.label.host-alias
-#    ^^^^^^^^^^^^ entity.name.label.host-alias
-#    ^            keyword.operator.wildcard
-#           ^     keyword.operator.wildcard
+#^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#^^^ keyword.declaration.host-alias.ssh_config
+#   ^             - entity
+#    ^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
+#    ^ keyword.operator.wildcard.ssh_config
+#     ^ punctuation.separator.sequence.ssh_config
+#           ^ keyword.operator.wildcard.ssh_config
+#            ^ punctuation.separator.sequence.ssh_config
+#                ^ - entity
     User tim
-    # ^^     keyword.other
-    #    ^^^ string.unquoted
+#^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#        ^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
     Compression yes
+#^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#               ^^^ meta.mapping.value.ssh_config constant.language.boolean.true.ssh_config
     CompressionLevel 7
-    # ^^^^^^^^^^^^^^ keyword.other - invalid.illegal
+#^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config - invalid
+#                    ^ meta.mapping.value.ssh_config constant.numeric.ssh_config
 
     ProxyJump 1.1.1.1:27,jim@festival%h2:8080
-#   ^^^^^^^^^ meta.mapping.key keyword.other
-#             ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value
-#             ^^^^^^^ constant.numeric.ip-address.v4
-#                    ^ punctuation.separator
-#                     ^^ meta.number.integer constant.numeric.port-number
-#                       ^ punctuation.separator.sequence
-#                        ^^^ meta.string.user string.unquoted
-#                           ^ punctuation.separator
-#                            ^^^^^^^^^^^ string.unquoted.hostname
-#                                    ^^ constant.character.escape
-#                                       ^ punctuation.separator
-#                                        ^^^^ meta.number.integer constant.numeric.port-number
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config
+#             ^^^^^^^ meta.number.integer.other.ssh.common constant.numeric.ip-address.v4.ssh.common
+#                    ^ punctuation.separator.ssh_config
+#                     ^^ meta.number.integer.decimal.ssh.common constant.numeric.port-number.ssh.common
+#                       ^ punctuation.separator.sequence.ssh_config
+#                        ^^^ meta.string.user.ssh_config string.unquoted.ssh_config
+#                           ^ punctuation.separator.ssh_config
+#                            ^^^^^^^^^^^ string.unquoted.hostname.ssh_config
+#                                    ^^ constant.character.escape.ssh_config
+#                                       ^ punctuation.separator.ssh_config
+#                                        ^^^^ meta.number.integer.decimal.ssh.common constant.numeric.port-number.ssh.common
 
 # Comment
-# <- comment.line.number-sign punctuation.definition.comment
-#^^^^^^^^ comment.line.number-sign
+# <- comment.line.number-sign.ssh.common punctuation.definition.comment.ssh.common
+#^^^^^^^^ comment.line.number-sign.ssh.common
 
     # Comment
 #^^^ - comment
-    # <- comment.line.number-sign punctuation.definition.comment
-    #^^^^^^^^ comment.line.number-sign
+#   ^^^^^^^^^ comment.line.number-sign.ssh.common
+#   ^ punctuation.definition.comment.ssh.common
+
+; Comment
+# <- comment.line.semi-colon.ssh.common punctuation.definition.comment.ssh.common
+#^^^^^^^^ comment.line.semi-colon.ssh.common
+
+    ; Comment
+#^^^ - comment
+#   ^^^^^^^^^ comment.line.semi-colon.ssh.common
+#   ^ punctuation.definition.comment.ssh.common
 
 Host *
-# ^^              keyword.declaration.host-alias
-#    ^            keyword.operator.wildcard
+#^^^^^ meta.block.host.ssh_config - meta.block meta.block
+#^^^ meta.block.host.ssh_config keyword.declaration.host-alias.ssh_config
+#    ^ entity.name.label.host-alias.ssh_config keyword.operator.wildcard.ssh_config
     IdentityFile ~/.ssh/id_rsa
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                ^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
     Ciphers "aes128-ctr,aes192-ctr,aes256-ctr"
-    #       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double
-    #       ^                                  punctuation.definition.string.begin
-    #                  ^                       punctuation.separator.sequence
-    #                             ^            punctuation.separator.sequence
-    #                                        ^ punctuation.definition.string.end
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.quoted.double.ssh_config
+#           ^ punctuation.definition.string.begin.ssh_config
+#            ^^^^^^^^^^ support.function.cipher
+#                      ^ punctuation.separator.sequence.ssh_config
+#                       ^^^^^^^^^^ support.function.cipher
+#                                 ^ punctuation.separator.sequence.ssh_config
+#                                  ^^^^^^^^^^ support.function.cipher
+#                                            ^ punctuation.definition.string.end.ssh_config
     UseKeychain yes
-    # ^^^^^^^^^     keyword.other
-    #           ^^^ constant.language.boolean
+#^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#               ^^^ meta.mapping.value.ssh_config constant.language.boolean.true.ssh_config
     UseRoaming no
+#^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#              ^^ meta.mapping.value.ssh_config constant.language.boolean.false.ssh_config
     StrictHostKeyChecking ask
-    #                     ^^^ constant.language
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                         ^^^ meta.mapping.value.ssh_config constant.language.ssh_config
     StrictHostKeyChecking as
-    #                     ^^ - invalid
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                         ^^ meta.mapping.value.ssh_config - invalid - constant
+
+Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/resolv.conf"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#^^^^ keyword.control.conditional.ssh_config
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
+#     ^^^^ keyword.other.ssh_config
+#          ^^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
+#          ^ keyword.operator.wildcard.ssh_config
+#           ^ punctuation.separator.sequence.ssh_config
+#                   ^ punctuation.separator.sequence.ssh_config
+#                        ^^^^ keyword.other.ssh_config
+#                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash
+#                                ^^^^ variable.function.shell
+##                             ^ punctuation.definition.quoted.begin.ssh_config
+##                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - variable.function
+##                                                                                          ^ punctuation.definition.quoted.end.ssh_config
+    ProxyJump bastion.example.com
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#             ^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.hostname.ssh_config
+#                    ^ punctuation.separator.sequence.ssh_config
+#                            ^ punctuation.separator.sequence.ssh_config
