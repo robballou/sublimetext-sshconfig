@@ -23,6 +23,12 @@
     LocalUser:
       details: Match if your current user in patterns
       values: ${1:user1,user2}
+    LocalNetwork:
+      details: Match if current network devices in CIDRs
+      values: ${1:10.11.12.0/24}
+    Tagged:
+      details: Match if <code>Tag</code> in patterns
+      values: ${1:foo,*.jump}
     All:
       details: Always matches
     Final:
@@ -57,8 +63,11 @@
         - 'yes'
         - 'no'
     BindAddress:
-      details: Specify source NIC
+      details: Specify source IP
       values: ${0:192.0.2.16}
+    BindInterface:
+      details: Specify source NIC
+      values: ${0:eth0}
     CanonicalDomains:
       details: List of domain suffixes
       values: ${0:local.example.com,local.example.org}
@@ -90,6 +99,9 @@
       values:
         - 'yes'
         - 'no'
+    ChannelTimeout:
+      details: TTL for active channels
+      values: ${session=5m}
     CheckHostIP:
       details: Disable comparing IP to <code>known_hosts</code>
       values:
@@ -133,6 +145,11 @@
     DynamicForward:
       details: Dynamic SSH or SOCKS port forwarding
       values: ${0:[address:]port}
+    EnableEscapeCommandLine:
+      details: Enable CLI escape char <code>~C</code>
+      values:
+        - 'yes'
+        - 'no'
     EnableSSHKeysign:
       details: Enable <code>ssh-keysign</code> for <code>HostbasedAuthentication</code>
       values:
@@ -149,6 +166,11 @@
     FingerprintHash:
       details: Key hash algorithm
       values: ${0:{ sha256 | md5 \}}
+    ForkAfterAuthentication:
+      details: Send connection to BG process
+      values:
+        - 'yes'
+        - 'no'
     ForwardAgent:
       details: Enable forwarding ssh-agent keys to outbound ssh
       values: ${0:{ yes | no | ~/path/to/socket | \$PATH_VAR \}}
@@ -192,11 +214,25 @@
       values:
         - 'yes'
         - 'no'
+    GSSAPIKexAlgorithms:
+      details: Override default KEX for GSSAPI
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
     HashKnownHosts:
       details: Obfuscate entry in <code>known_hosts</code>
       values:
         - 'yes'
         - 'no'
+    HostbasedAcceptedAlgorithms:
+      details: Override default KEX for Hostbased
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
     HostbasedAuthentication:
       details: Enable rhosts auth with public keys
       values:
@@ -219,7 +255,7 @@
     HostKeyAlias:
       details: Use an alias for this host's certs
       values: ${0:hostname}
-    HostName:
+    Hostname:
       details: Set real hostname
       values: ${0:%h.example.com}
     IdentitiesOnly:
@@ -257,6 +293,9 @@
         - +append,to,list
         - -remove,from,list
         - replace,list
+    KnownHostsCommand:
+      details: Also get host keys by running this script
+      values: ${0:echo foo}
     LocalCommand:
       details: Execute command locally when connection successful
       values: ${0:echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %T, %u"}
@@ -270,6 +309,9 @@
         - ERROR
         - INFO
         - '...'
+    LogVerbose:
+      details: Override <code>LogLevel</code> for certain tracebacks
+      values: ${0:kex.c:*:1000,*:kex_exchange_identification():*,packet.c:*}
     MACs:
       details: Permitted message auth code algm patterns, by preference
       values:
@@ -317,6 +359,13 @@
       values:
         - 'yes'
         - 'no'
+    PubkeyAcceptedAlgorithms:
+      details: Permitted kex patterns, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
     PubkeyAcceptedKeyTypes:
       details: Permitted key type patterns, by preference
       values:
@@ -345,6 +394,9 @@
         - 'no'
         - force
         - auto
+    RequiredRSASize:
+      details: Minimum key size in bits
+      values: 2048
     RevokedHostKeys:
       details: File of KRL or list of bad public keys
     RhostsRSAAuthentication:
@@ -362,9 +414,20 @@
     ServerAliveInterval:
       details: Timeout in seconds before sending check-alive messages
       values: ${0:300}
+    SessionType:
+      details: Restrict activities on the remote
+      values:
+        - default
+        - subsystem
+        - none
     SetEnv:
       details: Specify environment vars directly
       values: ${1:NAME}=${2:value}
+    StdinNull:
+      details: Prevents reading from stdin
+      values:
+        - 'yes'
+        - 'no'
     SmartcardDevice:
     StreamLocalBindMask:
       details: File mode <code>umask</code> when creating a forwarded port
@@ -395,6 +458,9 @@
       values:
         - 'yes'
         - 'no'
+    Tag:
+      details: Label to use with <code>Match</code> later
+      values: ${0:foo}
     Tunnel:
       details: Request <code>tun</code> device forwarding
       values:

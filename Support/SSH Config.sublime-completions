@@ -53,11 +53,23 @@
             "trigger": "BindAddress",
             "contents": "BindAddress",
             "kind": "keyword",
-            "details": "Specify source NIC"
+            "details": "Specify source IP"
         },
         {
             "trigger": "bindaddress",
             "contents": "BindAddress ${0:192.0.2.16}",
+            "kind": "snippet",
+            "details": "Specify source IP"
+        },
+        {
+            "trigger": "BindInterface",
+            "contents": "BindInterface",
+            "kind": "keyword",
+            "details": "Specify source NIC"
+        },
+        {
+            "trigger": "bindinterface",
+            "contents": "BindInterface ${0:eth0}",
             "kind": "snippet",
             "details": "Specify source NIC"
         },
@@ -156,6 +168,18 @@
             "contents": "ChallengeResponseAuthentication ${0:{ yes | no \\}}",
             "kind": "snippet",
             "details": "Disable challenge-response auth"
+        },
+        {
+            "trigger": "ChannelTimeout",
+            "contents": "ChannelTimeout",
+            "kind": "keyword",
+            "details": "TTL for active channels"
+        },
+        {
+            "trigger": "channeltimeout",
+            "contents": "ChannelTimeout ${session=5m}",
+            "kind": "snippet",
+            "details": "TTL for active channels"
         },
         {
             "trigger": "CheckHostIP",
@@ -278,6 +302,18 @@
             "details": "Dynamic SSH or SOCKS port forwarding"
         },
         {
+            "trigger": "EnableEscapeCommandLine",
+            "contents": "EnableEscapeCommandLine",
+            "kind": "keyword",
+            "details": "Enable CLI escape char <code>~C</code>"
+        },
+        {
+            "trigger": "enableescapecommandline",
+            "contents": "EnableEscapeCommandLine ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Enable CLI escape char <code>~C</code>"
+        },
+        {
             "trigger": "EnableSSHKeysign",
             "contents": "EnableSSHKeysign",
             "kind": "keyword",
@@ -324,6 +360,18 @@
             "contents": "FingerprintHash ${0:{ sha256 | md5 \\}}",
             "kind": "snippet",
             "details": "Key hash algorithm"
+        },
+        {
+            "trigger": "ForkAfterAuthentication",
+            "contents": "ForkAfterAuthentication",
+            "kind": "keyword",
+            "details": "Send connection to BG process"
+        },
+        {
+            "trigger": "forkafterauthentication",
+            "contents": "ForkAfterAuthentication ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Send connection to BG process"
         },
         {
             "trigger": "ForwardAgent",
@@ -458,6 +506,18 @@
             "details": ""
         },
         {
+            "trigger": "GSSAPIKexAlgorithms",
+            "contents": "GSSAPIKexAlgorithms",
+            "kind": "keyword",
+            "details": "Override default KEX for GSSAPI"
+        },
+        {
+            "trigger": "gssapikexalgorithms",
+            "contents": "GSSAPIKexAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Override default KEX for GSSAPI"
+        },
+        {
             "trigger": "HashKnownHosts",
             "contents": "HashKnownHosts",
             "kind": "keyword",
@@ -468,6 +528,18 @@
             "contents": "HashKnownHosts ${0:{ yes | no \\}}",
             "kind": "snippet",
             "details": "Obfuscate entry in <code>known_hosts</code>"
+        },
+        {
+            "trigger": "HostbasedAcceptedAlgorithms",
+            "contents": "HostbasedAcceptedAlgorithms",
+            "kind": "keyword",
+            "details": "Override default KEX for Hostbased"
+        },
+        {
+            "trigger": "hostbasedacceptedalgorithms",
+            "contents": "HostbasedAcceptedAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Override default KEX for Hostbased"
         },
         {
             "trigger": "HostbasedAuthentication",
@@ -518,14 +590,14 @@
             "details": "Use an alias for this host's certs"
         },
         {
-            "trigger": "HostName",
-            "contents": "HostName",
+            "trigger": "Hostname",
+            "contents": "Hostname",
             "kind": "keyword",
             "details": "Set real hostname"
         },
         {
             "trigger": "hostname",
-            "contents": "HostName ${0:%h.example.com}",
+            "contents": "Hostname ${0:%h.example.com}",
             "kind": "snippet",
             "details": "Set real hostname"
         },
@@ -638,6 +710,18 @@
             "details": "Permitted key exchange algm patterns, by preference"
         },
         {
+            "trigger": "KnownHostsCommand",
+            "contents": "KnownHostsCommand",
+            "kind": "keyword",
+            "details": "Also get host keys by running this script"
+        },
+        {
+            "trigger": "knownhostscommand",
+            "contents": "KnownHostsCommand ${0:echo foo}",
+            "kind": "snippet",
+            "details": "Also get host keys by running this script"
+        },
+        {
             "trigger": "LocalCommand",
             "contents": "LocalCommand",
             "kind": "keyword",
@@ -672,6 +756,18 @@
             "contents": "LogLevel ${0:{ QUIET | FATAL | ERROR | INFO | ... \\}}",
             "kind": "snippet",
             "details": ""
+        },
+        {
+            "trigger": "LogVerbose",
+            "contents": "LogVerbose",
+            "kind": "keyword",
+            "details": "Override <code>LogLevel</code> for certain tracebacks"
+        },
+        {
+            "trigger": "logverbose",
+            "contents": "LogVerbose ${0:kex.c:*:1000,*:kex_exchange_identification():*,packet.c:*}",
+            "kind": "snippet",
+            "details": "Override <code>LogLevel</code> for certain tracebacks"
         },
         {
             "trigger": "MACs",
@@ -812,6 +908,18 @@
             "details": "Pass a connected <code>fd</code> instead of continuing interactively"
         },
         {
+            "trigger": "PubkeyAcceptedAlgorithms",
+            "contents": "PubkeyAcceptedAlgorithms",
+            "kind": "keyword",
+            "details": "Permitted kex patterns, by preference"
+        },
+        {
+            "trigger": "pubkeyacceptedalgorithms",
+            "contents": "PubkeyAcceptedAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "kind": "snippet",
+            "details": "Permitted kex patterns, by preference"
+        },
+        {
             "trigger": "PubkeyAcceptedKeyTypes",
             "contents": "PubkeyAcceptedKeyTypes",
             "kind": "keyword",
@@ -884,6 +992,18 @@
             "details": "Toggle asking for a <code>pty</code>"
         },
         {
+            "trigger": "RequiredRSASize",
+            "contents": "RequiredRSASize",
+            "kind": "keyword",
+            "details": "Minimum key size in bits"
+        },
+        {
+            "trigger": "requiredrsasize",
+            "contents": "RequiredRSASize 2048",
+            "kind": "snippet",
+            "details": "Minimum key size in bits"
+        },
+        {
             "trigger": "RevokedHostKeys",
             "contents": "RevokedHostKeys",
             "kind": "keyword",
@@ -944,6 +1064,18 @@
             "details": "Timeout in seconds before sending check-alive messages"
         },
         {
+            "trigger": "SessionType",
+            "contents": "SessionType",
+            "kind": "keyword",
+            "details": "Restrict activities on the remote"
+        },
+        {
+            "trigger": "sessiontype",
+            "contents": "SessionType ${0:{ default | subsystem | none \\}}",
+            "kind": "snippet",
+            "details": "Restrict activities on the remote"
+        },
+        {
             "trigger": "SetEnv",
             "contents": "SetEnv",
             "kind": "keyword",
@@ -954,6 +1086,18 @@
             "contents": "SetEnv ${1:NAME}=${2:value}",
             "kind": "snippet",
             "details": "Specify environment vars directly"
+        },
+        {
+            "trigger": "StdinNull",
+            "contents": "StdinNull",
+            "kind": "keyword",
+            "details": "Prevents reading from stdin"
+        },
+        {
+            "trigger": "stdinnull",
+            "contents": "StdinNull ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Prevents reading from stdin"
         },
         {
             "trigger": "SmartcardDevice",
@@ -1020,6 +1164,18 @@
             "contents": "TCPKeepAlive ${0:{ yes | no \\}}",
             "kind": "snippet",
             "details": "Disable TCP keepalive messages"
+        },
+        {
+            "trigger": "Tag",
+            "contents": "Tag",
+            "kind": "keyword",
+            "details": "Label to use with <code>Match</code> later"
+        },
+        {
+            "trigger": "tag",
+            "contents": "Tag ${0:foo}",
+            "kind": "snippet",
+            "details": "Label to use with <code>Match</code> later"
         },
         {
             "trigger": "Tunnel",

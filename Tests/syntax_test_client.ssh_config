@@ -49,6 +49,19 @@ Match Host one,two
     Port 22
     #    ^^ constant.numeric
 
+Match LocalNetwork 127.0.0.1/12,10.1.21.0/24
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#^^^^ keyword.control.conditional.ssh_config
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
+#     ^^^^^^^^^^^^ keyword.other.ssh_config
+#                  ^^^^^^^^^ meta.number.integer.other.ssh.common constant.numeric.ip-address.v4.ssh.common
+#                           ^ punctuation.separator.sequence.ssh.common
+#                            ^^ constant.other.range.ssh.common
+#                              ^ punctuation.separator.sequence.ssh_config
+#                               ^^^^^^^^^ meta.number.integer.other.ssh.common constant.numeric.ip-address.v4.ssh.common
+#                                        ^ punctuation.separator.sequence.ssh.common
+#                                         ^^ constant.other.range.ssh.common
+
 Host tj
     User 2022sratna
     #    ^^^^^^^^^^ meta.mapping.value - constant.numeric
@@ -63,6 +76,7 @@ Host server serverino !other-pat?ern
 #                    ^               - entity.name.label.host-alias
 #                     ^              keyword.operator.logical
 #                      ^^^^^^^^^^^^^ entity.name.label.host-alias
+#                               ^    keyword.operator.wildcard.ssh_config
     Hostname server%h.com
     # ^^^^^^            keyword.declaration.host
     #        ^^^^^^^^^^^^ string.unquoted.hostname
@@ -78,6 +92,7 @@ Host server serverino !other-pat?ern
     # ^^^^^^^^^^                             keyword.other
     #            ^^^^^^^^^^^^^^^^^^^^^^^^^^  source.embedded.shell
     #                                 ^^     constant.character.escape
+    #                                    ^^  constant.character.escape
     #                                      ^ - source.embedded.shell
     IdentityFile ~/.ssh/creds/%h.pem
     # ^^^^^^^^^^                     keyword.other

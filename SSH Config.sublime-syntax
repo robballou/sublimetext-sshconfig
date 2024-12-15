@@ -173,6 +173,14 @@ contexts:
         - match: \S
           scope: string.unquoted.ssh_config
 
+    # Match predicates with CIDR arguments
+    - match: '\b(?xi: localnetwork )\b'
+      scope: keyword.other.ssh_config
+      push:
+        - include: pop-before-match-parameter
+        - include: punctuation-comma-sequence
+        - include: SSH Common.sublime-syntax#ip-addresses-with-cidr
+
   match-body:
     - meta_scope: meta.block.match.ssh_config
     - include: pop-before-next-host
@@ -338,10 +346,12 @@ contexts:
           | ForwardAgent | ForwardX11(?:Trusted)? | ClearAllForwardings
           | ExitOnForwardFailure # Fwds
           | BatchMode | CanonicalizeFallbackLocal | CheckHostIP | Compression
-          | EnableSSHKeySign | GatewayPorts | HashKnownHosts | IdentitiesOnly
-          | NoHostAuthenticationForLocalhost | PermitLocalCommand
-          | ProxyUseFdpass | StreamLocalBindUnlink | TCPKeepAlive | UseKeychain
-          | UsePrivilegedPort | VisualHostKey
+          | EnableEscapeCommandLine | EnableSSHKeySign
+          | ForkAfterAuthentication | GatewayPorts | HashKnownHosts
+          | IdentitiesOnly | NoHostAuthenticationForLocalhost
+          | PermitLocalCommand | ProxyUseFdpass | StdinNull
+          | StreamLocalBindUnlink | TCPKeepAlive
+          | UseKeychain | UsePrivilegedPort | VisualHostKey
           | GSSAPI (?:
               Authentication | KeyExchange | DelegateCredentials
               | RenewalForcesRekey | TrustDNS ) # GSSAPI

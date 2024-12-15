@@ -92,6 +92,38 @@
             "details": "Match if your current user in patterns"
         },
         {
+            "trigger": "LocalNetwork",
+            "contents": "LocalNetwork",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match if current network devices in CIDRs"
+        },
+        {
+            "trigger": "localnetwork",
+            "contents": "LocalNetwork ${1:10.11.12.0/24}",
+            "kind": "snippet",
+            "details": "Match if current network devices in CIDRs"
+        },
+        {
+            "trigger": "Tagged",
+            "contents": "Tagged",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match if <code>Tag</code> in patterns"
+        },
+        {
+            "trigger": "tagged",
+            "contents": "Tagged ${1:foo,*.jump}",
+            "kind": "snippet",
+            "details": "Match if <code>Tag</code> in patterns"
+        },
+        {
             "trigger": "All",
             "contents": "All",
             "kind": [
