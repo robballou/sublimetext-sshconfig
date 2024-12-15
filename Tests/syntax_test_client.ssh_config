@@ -12,7 +12,7 @@ Include ~/.ssh/config_*_cloud
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.naked.ssh_config
 #^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
 #       ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.ssh_config
-#                     ^ keyword.operator.wildcard.ssh_config
+#                     ^ constant.other.wildcard.asterisk.ssh_config
 
 
 Match Host targ?t_host Exec not_inside_network User sue
@@ -22,7 +22,7 @@ Match Host targ?t_host Exec not_inside_network User sue
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
 #     ^^^^ keyword.other.ssh_config
 #          ^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
-#              ^ keyword.operator.wildcard.ssh_config
+#              ^ constant.other.wildcard.questionmark.ssh_config
 #                      ^^^^ keyword.other.ssh_config
 #                           ^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash variable.function.shell
 #                                              ^^^^ keyword.other.ssh_config
@@ -82,7 +82,7 @@ Host server serverino !other-pat?ern
 #                    ^               - entity
 #                     ^              keyword.operator.logical.ssh_config
 #                      ^^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
-#                               ^    keyword.operator.wildcard.ssh_config
+#                               ^    constant.other.wildcard.questionmark.ssh_config
     Hostname server%h.com
 #^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^ meta.mapping.key.ssh_config keyword.declaration.host.ssh_config
@@ -113,9 +113,9 @@ Host *.splat?.com
 #^^^ keyword.declaration.host-alias.ssh_config
 #   ^             - entity
 #    ^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
-#    ^ keyword.operator.wildcard.ssh_config
+#    ^ constant.other.wildcard.asterisk.ssh_config
 #     ^ punctuation.separator.sequence.ssh_config
-#           ^ keyword.operator.wildcard.ssh_config
+#           ^ constant.other.wildcard.questionmark.ssh_config
 #            ^ punctuation.separator.sequence.ssh_config
 #                ^ - entity
     User tim
@@ -167,7 +167,7 @@ Host *.splat?.com
 Host *
 #^^^^^ meta.block.host.ssh_config - meta.block meta.block
 #^^^ meta.block.host.ssh_config keyword.declaration.host-alias.ssh_config
-#    ^ entity.name.label.host-alias.ssh_config keyword.operator.wildcard.ssh_config
+#    ^ entity.name.label.host-alias.ssh_config constant.other.wildcard.asterisk.ssh_config
     IdentityFile ~/.ssh/id_rsa
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -206,7 +206,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
 #     ^^^^ keyword.other.ssh_config
 #          ^^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
-#          ^ keyword.operator.wildcard.ssh_config
+#          ^ constant.other.wildcard.asterisk.ssh_config
 #           ^ punctuation.separator.sequence.ssh_config
 #                   ^ punctuation.separator.sequence.ssh_config
 #                        ^^^^ keyword.other.ssh_config
@@ -222,7 +222,7 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
 #     ^^^^ keyword.other.ssh_config
 #          ^^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
-#          ^ keyword.operator.wildcard.ssh_config
+#          ^ constant.other.wildcard.asterisk.ssh_config
 #           ^ punctuation.separator.sequence.ssh_config
 #                   ^ punctuation.separator.sequence.ssh_config
 #                        ^^^^ keyword.other.ssh_config

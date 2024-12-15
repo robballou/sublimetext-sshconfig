@@ -22,7 +22,7 @@ variables:
 contexts:
   main:
     - include: comments
-    - include: host
+    - include: host-block
     - include: match
     - include: naked-parameters
 
@@ -70,9 +70,11 @@ contexts:
     - match: '!'
       scope: keyword.operator.logical.ssh_config
 
-  operator-wildcard:
-    - match: \*|\?
-      scope: keyword.operator.wildcard.ssh_config
+  wildcards:
+    - match: \*
+      scope: constant.other.wildcard.asterisk.ssh_config
+    - match: \?
+      scope: constant.other.wildcard.questionmark.ssh_config
 
   punctuation-comma-sequence:
     - match: ','
@@ -82,16 +84,20 @@ contexts:
     - match: \.
       scope: punctuation.separator.sequence.ssh_config
 
+  host-pattern:
+    - meta_content_scope: entity.name.label.host-alias.ssh_config
+    - include: punctuation-dot-sequence
+    - include: wildcards
+    - match: (?=\s|,)
+      pop: 1
+
   host-patterns:
     # https://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
     # https://man.openbsd.org/ssh_config.5#PATTERNS
     - include: operator-exclamation
-    - match: '[^\s*?,.]+'
-      scope: entity.name.label.host-alias.ssh_config
-    - match: \.
-      scope: entity.name.label.host-alias.ssh_config punctuation.separator.sequence.ssh_config
-    - match: \*|\?
-      scope: entity.name.label.host-alias.ssh_config keyword.operator.wildcard.ssh_config
+    - include: punctuation-comma-sequence
+    - match: (?=\S)
+      push: host-pattern
 
   environment-variables:
     # https://man7.org/linux/man-pages/man5/ssh_config.5.html#ENVIRONMENT_VARIABLES
@@ -99,7 +105,7 @@ contexts:
 
 ###[ HOST ]####################################################################
 
-  host:
+  host-block:
     - match: ^[ \t]*((?i:Host))\b
       captures:
         1: keyword.declaration.host-alias.ssh_config
@@ -458,7 +464,7 @@ contexts:
 
   generic-parameter-values:
     - include: tokens-standard
-    - include: operator-wildcard
+    - include: wildcards
     - include: operator-exclamation
     - include: punctuation-comma-sequence
     - include: SSH Crypto.sublime-syntax#ssh-key-types
