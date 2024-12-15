@@ -66,7 +66,9 @@ AuthorizedKeysFile  .ssh/authorized_keys
 #                       ^ punctuation.separator.path.ssh.common
 ##                   ^ - punctuation
 
-#AuthorizedPrincipalsFile none
+AuthorizedPrincipalsFile none
+#^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                        ^^^^ meta.mapping.value.ssh.common constant.language.null.ssh.common
 
 #AuthorizedKeysCommand none
 #AuthorizedKeysCommandUser nobody

@@ -22,6 +22,8 @@ contexts:
     - include: parameter-forcecommand
     - include: parameter-authorizedkeyscommand
     - include: parameter-authorizedprincipalscommand
+    - include: parameter-path-with-tokens
+    - include: parameter-routingdomain
     - include: parameter-with-boolean-values
     - include: parameter-generic
 
@@ -44,9 +46,10 @@ contexts:
   tokens:
     # https://man7.org/linux/man-pages/man5/sshd_config.5.html#TOKENS
     # https://man.openbsd.org/sshd_config.5#TOKENS
+    # Skipping the ones injected into shell commands
     - match: '%%'
       scope: constant.character.escape.sshd_config
-    - match: '%[CDFfhiKksTtUu]'
+    - match: '%[hUu]'
       scope: constant.other.placeholder.sshd_config
 
   pop-before-match-option:
@@ -211,6 +214,28 @@ contexts:
           escape: (?=$)
           embed: scope:source.shell.embedded.ssh.authorizedprincipalscommand
 
+  parameter-path-with-tokens:
+    - match: '^\s*((?ix: AuthorizedKeysFile | AuthorizedPrincipalsFile | ChrootDirectory ))\b\s*(=)?'
+      captures:
+        1: meta.mapping.key.sshd_config keyword.other.sshd_config
+        2: keyword.operator.assignment.sshd_config
+      with_prototype:
+        - include: tokens
+        - include: none
+        - include: paths
+      push: possibly-quoted-value
+
+  parameter-routingdomain:
+    - match: ^\s*((?i:RoutingDomain))\b\s*(=)?
+      captures:
+        1: meta.mapping.key.sshd_config keyword.other.sshd_config
+        2: keyword.operator.assignment.sshd_config
+      with_prototype:
+        - include: '%D'
+          scope: constant.other.placeholder.sshd_config
+        - include: numeric-values
+      push: possibly-quoted-value
+
   parameter-with-boolean-values:
     - match: ^\s*({{parameters_boolean}})\s*(=)?
       captures:
@@ -228,7 +253,6 @@ contexts:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
       with_prototype:
-        - include: tokens
         - include: generic-parameter-values
       push: possibly-quoted-value
 
@@ -246,12 +270,14 @@ contexts:
     - include: ip-addresses-with-cidr
     - include: time-values
     - include: bytes-values
-    - include: tokens
     - include: operator-exclamation
     - include: wildcards
     - include: punctuation-comma-sequence
     - include: log-level
     - include: paths
+    - include: numeric-values
+
+  numeric-values:
     - match: \b\d+(?=[\s,"])
       scope: constant.numeric.sshd_config
 
