@@ -131,10 +131,10 @@ contexts:
   value-option-body:
     - include: strings
     - match: (?=,|\s)
-      pop: true
+      pop: 1
     - match: .
       scope: invalid.illegal.authorized_keys
-      pop: true
+      pop: 1
 
   strings:
     - match: '"'
@@ -145,4 +145,4 @@ contexts:
           scope: constant.character.escape.authorized_keys
         - match: '"'
           scope: punctuation.definition.string.end.authorized_keys
-          pop: true
+          pop: 1

@@ -36,11 +36,11 @@ contexts:
 
   pop-nl:
     - match: \n
-      pop: true
+      pop: 1
 
   pop-before-nl:
     - match: (?=\n)
-      pop: true
+      pop: 1
 
   comments:
     - include: comments-number-sign
@@ -91,8 +91,9 @@ contexts:
         - include: pop-before-nl
         - match: '[ \t]*(\S(?:.*\S)?)[ \t]*$'
           captures:
-            1: meta.annotation.identifier.ssh.common string.unquoted.ssh.common
-          pop: true
+            1: meta.annotation.identifier.ssh.common
+               string.unquoted.ssh.common
+          pop: 1
 
   time-values:
     # seconds, minutes, hours, days, weeks

@@ -48,11 +48,11 @@ contexts:
   pop-before-match-option:
     - include: pop-before-nl
     - match: '(?=[ \t]*(?xi: all | user | group | host | (?:local)? address | localport )\b)'
-      pop: true
+      pop: 1
 
   pop-before-next-match:
     - match: (?=^[ \t]*(?i:Match)\b)
-      pop: true
+      pop: 1
 
 ###[ MATCH ]###################################################################
 

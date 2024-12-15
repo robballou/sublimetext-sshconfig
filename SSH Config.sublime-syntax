@@ -47,11 +47,11 @@ contexts:
   pop-before-match-parameter:
     - include: pop-before-nl
     - match: '(?=[ \t]*{{match_parameters}})'
-      pop: true
+      pop: 1
 
   pop-before-next-host:
     - match: '(?=^[ \t]*(?xi: Host | Match )\b)'
-      pop: true
+      pop: 1
 
   naked-parameters:
     - match: (?=\S)
@@ -103,12 +103,12 @@ contexts:
   match:
     - match: ^[ \t]*((?i:Match))\b
       captures:
-        1: meta.block.match.ssh_config keyword.control.conditional.ssh_config
+        1: keyword.control.conditional.ssh_config
       set: match-conditions
 
   match-conditions:
-    - meta_content_scope: meta.block.match.ssh_config
-                          meta.statement.conditional.ssh_config
+    - meta_scope: meta.block.match.ssh_config
+    - meta_content_scope: meta.statement.conditional.ssh_config
 
     - match: \n
       set: match-body
@@ -125,7 +125,8 @@ contexts:
     - match: '\b((?xi: exec ))\b[ \t]*(\")'
       captures:
         1: keyword.other.ssh_config
-        2: string.quoted.double.ssh_config punctuation.definition.string.begin.ssh_config
+        2: string.quoted.double.ssh_config
+           punctuation.definition.string.begin.ssh_config
       escape: (?<!\\)\"(?=\s*(?:#.*)?)
       escape_captures:
         0: meta.block.match.ssh_config
@@ -227,14 +228,14 @@ contexts:
           scope: constant.character.escape.ssh_config
         - match: '@'
           scope: punctuation.separator.ssh_config
-          pop: true
+          pop: 1
 
     # port
     - match: ':(?=\d{1,5}\b)'
       scope: punctuation.separator.ssh_config
       push:
         - match: (?=\D)
-          pop: true
+          pop: 1
         - include: port-numbers
 
     # host or host nickname
@@ -242,7 +243,7 @@ contexts:
       push:
         - meta_content_scope: string.unquoted.hostname.ssh_config
         - match: (?=[\s,:"])
-          pop: true
+          pop: 1
         - include: punctuation-dot-sequence
         - match: '{{tokens_proxycommand}}'
           scope: constant.character.escape.ssh_config
