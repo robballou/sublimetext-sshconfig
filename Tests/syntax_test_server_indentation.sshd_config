@@ -1,0 +1,52 @@
+# SYNTAX TEST reindent-unchanged "Packages/SSH Config/SSHD Config.sublime-syntax"
+
+# This is the sshd server system-wide configuration file.  See
+# sshd_config(5) for more information.
+
+# The strategy used for options in the default sshd_config shipped with
+# OpenSSH is to specify options with their default value where
+# possible, but leave them commented.  Uncommented options override the
+# default value.
+
+Port 22
+AddressFamily any
+ListenAddress 0.0.0.0
+ListenAddress ::
+
+#HostKey /etc/ssh/ssh_host_rsa_key
+#HostKey /etc/ssh/ssh_host_ecdsa_key
+#HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Ciphers and keying
+#RekeyLimit default none
+
+# Logging
+#SyslogFacility AUTH
+#LogLevel DEBUG
+
+## https://stackoverflow.com/a/36072674
+# All users except username1 and username2 default to sftp
+Match User *,!username1,!usern.ame2 Host foo.example.com
+    PasswordAuthentication yes
+    AllowTCPForwarding no
+    X11Forwarding "no"
+    ForceCommand internal-sftp -f LOCAL0 -l INFO
+
+# Comment
+
+    # Comment
+
+; Comment
+
+    ; Comment
+
+# Normal ssh allowed for users username1 and username2 from the local network
+Match User username1,username2 Address 192.168.0.0/16
+    PasswordAuthentication yes
+
+# Users username1 and username2 not allowed from other networks
+Match User username1,username2 Address *,!192.168.0.0/16
+    PasswordAuthentication yes
+    AllowTCPForwarding no
+    X11Forwarding no
+    ForceCommand /usr/sbin/nologin

@@ -1,0 +1,46 @@
+# SYNTAX TEST reindent-unchanged "Packages/SSH Config/SSH Config.sublime-syntax"
+
+User foo
+Port 22
+Include ~/.ssh/config_*_cloud
+
+
+Match Host targ?t_host Exec not_inside_network User sue
+    ProxyCommand ssh -W %h:%p proxy_server
+
+Match Host one,two
+    User bar
+    Port 22
+
+Match LocalNetwork 127.0.0.1/12,10.1.21.0/24
+
+Host tj
+    User 2022sratna
+
+Host server serverino !other-pat?ern
+    Hostname server%h.com
+    User=will
+    ProxyCommand nc -x localhost:8888 %h %p
+    IdentityFile ~/.ssh/creds/%h.pem
+
+# Comment can be dedented
+Host *.splat?.com
+    User tim
+    Compression yes
+    CompressionLevel 7
+    ProxyJump 1.1.1.1:27,jim@festival%h2:8080
+
+    # Comment can also be indented
+
+    ; Comment with semicolon
+
+Host *
+    IdentityFile ~/.ssh/id_rsa
+    Ciphers "aes128-ctr,aes192-ctr,aes256-ctr"
+    UseKeychain yes
+    UseRoaming no
+
+    StrictHostKeyChecking ask
+
+Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/resolv.conf"
+    User fred
