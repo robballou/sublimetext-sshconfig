@@ -1,0 +1,65 @@
+# SYNTAX TEST "Packages/SSH Config/PEM.sublime-syntax"
+# https://datatracker.ietf.org/doc/html/rfc4716#section-3.6
+
+---- BEGIN SSH2 PUBLIC KEY ----
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem punctuation.section.block.begin.pem
+Comment: "1024-bit RSA, converted from OpenSSH by me@example.com"
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem comment.line.pem
+# ^^^^^^ punctuation.definition.comment.begin.pem
+x-command: /home/me/bin/lock-in-guest.sh
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem meta.mapping.pem
+#^^^^^^^^ meta.mapping.key.pem keyword.other.pem
+#^ variable.annotation.pem
+#        ^ punctuation.separator.key-value.pem
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.pem meta.mapping.value.pem
+AAAAB3NzaC1yc2EAAAABIwAAAIEA1on8gxCGJJWSRT4uOrR13mUaUk0hRf4RzxSZ1zRb
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem string.unquoted.pem
+YYFw8pfGesIFoEuVth4HKyF8k1y4mRUnYHP1XNMNMJl1JcEArC2asV8sHf6zSPVffozZ
+5TT4SfsUu/iKy9lUcCfXzwre4WWZSXXcPff+EHtWshahu3WzBdnGxm5Xoi89zcE=
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem string.unquoted.pem
+#                                                              ^ punctuation.definition.string.end.pem
+---- END SSH2 PUBLIC KEY ----
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem punctuation.section.block.end.pem
+#                            ^ - meta.block
+
+
+---- BEGIN SSH2 PUBLIC KEY ----
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem punctuation.section.block.begin.pem
+Comment: This is my public key for use on \
+servers which I don't like.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem comment.line.pem
+AAAAB3NzaC1kc3MAAACBAPY8ZOHY2yFSJA6XYC9HRwNHxaehvx5wOJ0rzZdzoSOXxbET
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem string.unquoted.pem
+W6ToHv8D1UJ/z+zHo9Fiko5XybZnDIaBDHtblQ+Yp7StxyltHnXF1YLfKD1G4T6JYrdH
+YI14Om1eg9e4NnCRleaqoZPF3UGfZia6bXrGTQf3gJq2e7Yisk/gF+1VAAAAFQDb8D5c
+vwHWTZDPfX0D2s9Rd7NBvQAAAIEAlN92+Bb7D4KLYk3IwRbXblwXdkPggA4pfdtW9vGf
+J0/RHd+NjB4eo1D+0dix6tXwYGN7PKS5R/FXPNwxHPapcj9uL1Jn2AWQ2dsknf+i/FAA
+vioUPkmdMc0zuWoSOEsSNhVDtX3WdvVcGcBq9cetzrtOKWOocJmJ80qadxTRHtUAAACB
+AN7CY+KKv1gHpRzFwdQm7HK9bb1LAo2KwaoXnadFgeptNBQeSXG1vO+JsvphVMBJc9HS
+n24VYtYtsMu74qXviYjziVucWKjjKEb11juqnF0GDlB3VVmxHLmxnAz643WK42Z7dLM5
+sY29ouezv4Xz2PuMch5VGPP+CDqzCM4loWgV
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem string.unquoted.pem
+---- END SSH2 PUBLIC KEY ----
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem punctuation.section.block.end.pem
+#                            ^ - meta.block
+
+
+---- BEGIN SSH2 PUBLIC KEY ----
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem punctuation.section.block.begin.pem
+Comment: DSA Public Key for use with MyIsp
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem comment.line.pem
+# ^^^^^^ punctuation.definition.comment.begin.pem
+AAAAB3NzaC1kc3MAAACBAPY8ZOHY2yFSJA6XYC9HRwNHxaehvx5wOJ0rzZdzoSOXxbET
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem string.unquoted.pem
+W6ToHv8D1UJ/z+zHo9Fiko5XybZnDIaBDHtblQ+Yp7StxyltHnXF1YLfKD1G4T6JYrdH
+YI14Om1eg9e4NnCRleaqoZPF3UGfZia6bXrGTQf3gJq2e7Yisk/gF+1VAAAAFQDb8D5c
+vwHWTZDPfX0D2s9Rd7NBvQAAAIEAlN92+Bb7D4KLYk3IwRbXblwXdkPggA4pfdtW9vGf
+J0/RHd+NjB4eo1D+0dix6tXwYGN7PKS5R/FXPNwxHPapcj9uL1Jn2AWQ2dsknf+i/FAA
+vioUPkmdMc0zuWoSOEsSNhVDtX3WdvVcGcBq9cetzrtOKWOocJmJ80qadxTRHtUAAACB
+AN7CY+KKv1gHpRzFwdQm7HK9bb1LAo2KwaoXnadFgeptNBQeSXG1vO+JsvphVMBJc9HS
+n24VYtYtsMu74qXviYjziVucWKjjKEb11juqnF0GDlB3VVmxHLmxnAz643WK42Z7dLM5
+sY29ouezv4Xz2PuMch5VGPP+CDqzCM4loWgV
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem string.unquoted.pem
+---- END SSH2 PUBLIC KEY ----
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.pem punctuation.section.block.end.pem
+#                            ^ - meta.block

@@ -1,0 +1,134 @@
+%YAML 1.2
+---
+# Not strictly just PEM. Includes some other stuff, just to be helpful.
+
+# https://www.sublimetext.com/docs/syntax.html
+# https://datatracker.ietf.org/doc/html/rfc7468 (PEM)
+# https://datatracker.ietf.org/doc/html/rfc4716 (OpenSSH)
+# https://datatracker.ietf.org/doc/html/rfc4880 (OpenPGP)
+
+version: 2
+scope: source.pem
+name: Private Encrypted Mail (PEM) Key
+first_line_match: |-
+        ^(?x:
+          (-{4}[ -])
+          BEGIN [ ]
+          ( (?:[0-9A-Z -]+[ ])? (?: PUBLIC | PRIVATE ) [ ] KEY
+          | (?:[0-9A-Z -]+[ ])? CERTIFICATE (?:[ ] REQUEST )?
+          | (?:[0-9A-Z -]+[ ])? PARAMETERS
+          | X509 [ ] CRL
+          | PKCS7
+          | PKCS [ ] #7 [ ] SIGNED [ ] DATA
+          | CMS
+          | PGP [ ] MESSAGE (?:,[ ] PART [ ] \d+(?:/\d+)?)?
+          | PGP [ ] (?: PUBLIC | PRIVATE ) [ ] KEY [ ] BLOCK
+          | PGP [ ] SIGNATURE
+          )
+          ([ -]-{4})
+        )
+
+file_extensions:
+  - pem
+
+hidden_file_extensions:
+  - cer
+  - cert
+  - crt
+  - id_dsa
+  - id_ed25519
+  - id_ed448
+  - id_eddsa
+  - id_rsa
+
+variables:
+  base64_char: '[a-zA-Z0-9+/]'
+
+contexts:
+  main:
+    - include: SSH Common.sublime-syntax#comments-number-sign
+    - match: |-
+        ^(?x:
+          (-{4}[ -])
+          BEGIN [ ]
+          ( (?:[0-9A-Z -]+[ ])? (?: PUBLIC | PRIVATE ) [ ] KEY
+          | (?:[0-9A-Z -]+[ ])? CERTIFICATE (?:[ ] REQUEST )?
+          | (?:[0-9A-Z -]+[ ])? PARAMETERS
+          | X509 [ ] CRL
+          | PKCS7
+          | PKCS [ ] #7 [ ] SIGNED [ ] DATA
+          | CMS
+          | PGP [ ] MESSAGE (?:,[ ] PART [ ] \d+(?:/\d+)?)?
+          | PGP [ ] (?: PUBLIC | PRIVATE ) [ ] KEY [ ] BLOCK
+          | PGP [ ] SIGNATURE
+          )
+          ([ -]-{4})
+        )
+      scope: punctuation.section.block.begin.pem
+      push: pem-key
+    - include: setext-headings
+
+  pem-key:
+    - meta_scope: meta.block.pem
+    - match: ^\1END \2\3
+      scope: punctuation.section.block.end.pem
+      pop: 1
+    - include: SSH Common.sublime-syntax#comments-number-sign
+    - match: ^{{base64_char}}{1,100}(={0,3})?$
+      scope: string.unquoted.pem
+      captures:
+        1: punctuation.definition.string.end.pem
+    - include: headers
+
+  headers:
+    - match: ^(?i:Comment:)
+      scope: punctuation.definition.comment.begin.pem
+      push:
+        - meta_scope: comment.line.pem
+        - include: header-end
+    - match: ^((x-)?[\w-]+)(:)
+      captures:
+        1: meta.mapping.key.pem keyword.other.pem
+        2: variable.annotation.pem
+        3: punctuation.separator.key-value.pem
+      push: header-value
+
+  header-value:
+    - meta_scope: meta.mapping.pem
+    - meta_content_scope: meta.mapping.value.pem
+    - include: header-end
+    - match: \,
+      scope: punctuation.separator.pem
+    - match: =
+      scope: punctuation.separator.key-value.pem
+
+  header-end:
+    - match: \\\r?\n
+      scope: punctuation.separator.continuation.line.pem
+      push:
+        - match: ^
+          pop: 1
+    - match: (?=$)
+      pop: 1
+
+  setext-headings:
+    - match: ^(?:=+|(?=\S))
+      branch_point: maybe-heading
+      branch:
+        - setext-heading
+        - not-heading
+
+  setext-heading:
+    - meta_scope: markup.heading.pem
+    - meta_content_scope: entity.name.section.pem
+    - match: ^(={5,})[ \t]*$(\n?)
+      captures:
+        1: punctuation.definition.heading.setext.pem
+        2: meta.whitespace.newline.pem
+      pop: 1
+    - match: ^(?!=+)$
+      fail: maybe-heading
+
+  not-heading:
+    - match: ''
+      pop: 1

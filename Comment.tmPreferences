@@ -6,6 +6,7 @@
 	<string>Comments</string>
 	<key>scope</key>
 	<string>
+		source.pem,
 		source.ssh_config,
 		source.sshd_config,
 		text.authorized_keys,
