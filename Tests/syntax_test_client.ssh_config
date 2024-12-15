@@ -233,12 +233,6 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - variable.function
 #                                                                                          ^ punctuation.definition.string.end.ssh_config - source.shell
 #                                                                                            ^^^^^^^^^ keyword.other.ssh_config
-    ProxyJump bastion.example.com
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
-#   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#             ^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config string.unquoted.hostname.ssh_config
-#                    ^ punctuation.separator.sequence.ssh_config
-#                            ^ punctuation.separator.sequence.ssh_config
     KnownHostsCommand none
 #^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #   ^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
@@ -486,3 +480,58 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                      ^^ constant.character.escape.ssh
 #                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
+    ProxyJump none
+#^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
+#   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#             ^^^^ meta.mapping.value.ssh_config constant.language.null.ssh_config
+    ProxyJump "none"
+#^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
+#   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#             ^^^^^^ meta.mapping.value.ssh_config string.quoted.double.ssh_config
+#             ^ punctuation.definition.string.begin.ssh_config
+#              ^^^^ constant.language.null.ssh_config
+#                  ^ punctuation.definition.string.end.ssh_config
+    ProxyJump %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config
+#             ^^ constant.character.escape.ssh_config
+#               ^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                     ^^ constant.character.escape.ssh_config
+#                                       ^^^^^^^^^^^^^^^^ - constant
+#                                                       ^^ constant.character.escape.ssh_config
+#                                                         ^^^^ - constant
+#                                                             ^^ constant.character.escape.ssh_config
+#                                                               ^^^^ - constant
+#                                                                   ^^ constant.character.escape.ssh_config
+#                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+    ProxyJump %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config
+#             ^^ constant.character.escape.ssh_config
+#               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+    ProxyJump "%% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#             ^ punctuation.definition.string.begin.ssh_config - source.shell
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config
+#              ^^ constant.character.escape.ssh_config
+#                ^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                      ^^ constant.character.escape.ssh_config
+#                                        ^^^^^^^^^^^^^^^^ - constant
+#                                                        ^^ constant.character.escape.ssh_config
+#                                                          ^^^^ - constant
+#                                                              ^^ constant.character.escape.ssh_config
+#                                                                ^^^^ - constant
+#                                                                    ^^ constant.character.escape.ssh_config
+#                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                              ^ punctuation.definition.string.end.ssh_config - source.shell
+    ProxyJump "%% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#             ^ punctuation.definition.string.begin.ssh_config - source.shell
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config
+#              ^^ constant.character.escape.ssh_config
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                              ^ punctuation.definition.string.end.ssh_config - source.shell

@@ -210,51 +210,60 @@ contexts:
               captures:
                 1: invalid.illegal.ssh_config
 
-  pop-none-value:
-    - match: \b(?i:none)\b
-      scope: constant.language.set.ssh_config
-      pop: true
-
   parameter-proxyjump:
-    # TODO: Double-quoted version
     - match: ^\s*((?i:ProxyJump))\b[ \t]*(=)?
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
         2: keyword.operator.assignment.ssh_config
       push:
         - meta_content_scope: meta.mapping.value.ssh_config
-        - include: pop-nl-as-value
-        - include: pop-none-value
-        - include: SSH Common.sublime-syntax#ip-addresses
-        - include: punctuation-comma-sequence
+        - include: SSH Common.sublime-syntax#pop-nl
+        - include: none-command-values
+        - match: '"'
+          scope: string.quoted.double.ssh_config
+                 punctuation.definition.string.begin.ssh_config
+          escape: '(")|(?=\n|$)'
+          escape_captures:
+            1: meta.mapping.value.ssh_config
+               string.quoted.double.ssh_config
+               punctuation.definition.string.end.ssh_config
+          embed_scope: string.quoted.double.ssh_config
+          embed: proxyjump-values
+        - match: (?=\S)
+          escape: (?=\n|$)
+          embed: proxyjump-values
 
-        # user
-        - match: (?=[\w%]+@)
-          push:
-            - meta_content_scope: meta.string.user.ssh_config string.unquoted.ssh_config
-            - match: '{{tokens_proxycommand}}'
-              scope: constant.character.escape.ssh_config
-            - match: '@'
-              scope: punctuation.separator.ssh_config
-              pop: true
+  proxyjump-values:
+    - include: SSH Common.sublime-syntax#ip-addresses
+    - include: punctuation-comma-sequence
 
-        # port
-        - match: ':(?=\d{1,5}\b)'
+    # user
+    - match: (?=[\w%]+@)
+      push:
+        - meta_content_scope: meta.string.user.ssh_config string.unquoted.ssh_config
+        - match: '{{tokens_proxycommand}}'
+          scope: constant.character.escape.ssh_config
+        - match: '@'
           scope: punctuation.separator.ssh_config
-          push:
-            - match: (?=\D)
-              pop: true
-            - include: SSH Common.sublime-syntax#port-numbers
+          pop: true
 
-        # host or host nickname
-        - match: (?=\S+)
-          push:
-            - meta_content_scope: string.unquoted.hostname.ssh_config
-            - match: (?=[\s,:"])
-              pop: true
-            - include: punctuation-dot-sequence
-            - match: '{{tokens_proxycommand}}'
-              scope: constant.character.escape.ssh_config
+    # port
+    - match: ':(?=\d{1,5}\b)'
+      scope: punctuation.separator.ssh_config
+      push:
+        - match: (?=\D)
+          pop: true
+        - include: SSH Common.sublime-syntax#port-numbers
+
+    # host or host nickname
+    - match: (?=\S+)
+      push:
+        - meta_content_scope: string.unquoted.hostname.ssh_config
+        - match: (?=[\s,:"])
+          pop: true
+        - include: punctuation-dot-sequence
+        - match: '{{tokens_proxycommand}}'
+          scope: constant.character.escape.ssh_config
 
   parameter-proxycommand:
     - match: ^\s*((?i:ProxyCommand))\b[ \t]*(=)?
