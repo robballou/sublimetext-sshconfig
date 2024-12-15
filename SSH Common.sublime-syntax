@@ -47,7 +47,7 @@ contexts:
     - include: comments-semicolon
 
   comments-number-sign:
-    - match: ^\s*(#)
+    - match: ^\s*(#+)
       captures:
         1: comment.line.number-sign.ssh.common punctuation.definition.comment.ssh.common
       push:
@@ -55,7 +55,7 @@ contexts:
         - include: pop-nl
 
   comments-semicolon:
-    - match: ^\s*(;)
+    - match: ^\s*(;+)
       captures:
         1: comment.line.semi-colon.ssh.common punctuation.definition.comment.ssh.common
       push:
