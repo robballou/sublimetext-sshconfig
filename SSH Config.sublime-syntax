@@ -291,21 +291,24 @@ contexts:
 
   parameter-with-boolean-values:
     - match: |-
-        (?x:
-          ^\s*((?i:
-            (?:Pubkey|HostBased|Password|ChallengeResponse|
-             KbdInteractive|(?:Rhosts)?RSA)
-              Authentication| # Auth
-            ForwardAgent|ForwardX11(?:Trusted)?|ClearAllForwardings|
-              ExitOnForwardFailure| # Fwds
-            BatchMode|CanonicalizeFallbackLocal|CheckHostIP|Compression|
-            EnableSSHKeySign|GatewayPorts|HashKnownHosts|IdentitiesOnly|
-            NoHostAuthenticationForLocalhost|PermitLocalCommand|ProxyUseFdpass|
-            StreamLocalBindUnlink|TCPKeepAlive|UseKeychain|UsePrivilegedPort|
-            VisualHostKey|
-            GSSAPI(?:Authentication|KeyExchange|DelegateCredentials|
-                   RenewalForcesRekey|TrustDNS) # GSSAPI
-          ))\b[ \t]*(=)?
+        (?xi:
+          ^\s*
+          (
+            (?: Pubkey | HostBased | Password | ChallengeResponse
+            | KbdInteractive | (?:Rhosts)? RSA
+            ) Authentication # Auth
+          | ForwardAgent | ForwardX11(?:Trusted)? | ClearAllForwardings
+          | ExitOnForwardFailure # Fwds
+          | BatchMode | CanonicalizeFallbackLocal | CheckHostIP | Compression
+          | EnableSSHKeySign | GatewayPorts | HashKnownHosts | IdentitiesOnly
+          | NoHostAuthenticationForLocalhost | PermitLocalCommand
+          | ProxyUseFdpass | StreamLocalBindUnlink | TCPKeepAlive | UseKeychain
+          | UsePrivilegedPort | VisualHostKey
+          | GSSAPI (?:
+              Authentication | KeyExchange | DelegateCredentials
+              | RenewalForcesRekey | TrustDNS ) # GSSAPI
+          )
+          \b[ \t]*(=)?
         )
       captures:
         1: meta.mapping.key.ssh_config keyword.other.ssh_config
