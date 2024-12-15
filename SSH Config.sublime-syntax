@@ -373,7 +373,8 @@ contexts:
       with_prototype:
         - include: boolean-with-typing
         - include: ask
-        - match: \ba(?:sk?)?\b
+        # Consume "ask" while typing as well, but unscoped
+        - match: \bas?\b
         - match: '[^"\s]+'
           scope: invalid.illegal.sshd_config
       push: possibly-quoted-value

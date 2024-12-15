@@ -190,8 +190,8 @@ contexts:
 
   boolean-with-typing:
     - include: boolean
-      # Match while typing as well
-    - match: '\b(?x: y(?:es?)? | no? )\b'
+    # Consume while typing as well, but unscoped
+    - match: \b(?:ye?|n)\b
 
   log-level:
     - match: '\b(?x: QUIET | FATAL | ERROR | INFO | DEBUG[1-3]? )\b'
