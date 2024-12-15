@@ -41,6 +41,8 @@ LoginGraceTime 2m
 #MaxSessions 10
 
 PubkeyAuthentication yes
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                    ^^^ meta.mapping.value.sshd_config constant.language.boolean.true.sshd_config
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
@@ -53,6 +55,8 @@ AuthorizedKeysFile  .ssh/authorized_keys
 
 # For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
 HostbasedAuthentication no
+#^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                       ^^ meta.mapping.value.sshd_config constant.language.boolean.false.sshd_config
 
 # To disable tunneled clear text passwords, change to `no` here!
 PasswordAuthentication no
@@ -117,25 +121,40 @@ Match User *,!username1,!username2
     #                      ^^^ constant.language.boolean
     AllowTCPForwarding no
     X11Forwarding "no"
-    #              ^^ constant.language.boolean
+#^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                 ^^^^ meta.mapping.value.sshd_config string.quoted.double.sshd_config
+#                 ^ punctuation.definition.string.begin.sshd_config
+#                  ^^ constant.language.boolean.false.sshd_config
+#                    ^ punctuation.definition.string.end.sshd_config
     ForceCommand internal-sftp -f LOCAL0 -l INFO
     #^^^^^^^^^^^ meta.mapping.key keyword.other
-    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value source.embedded.shell
+    #            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value source.shell
     #            ^^^^^^^^^^^^^ meta.function-call variable.function.shell
-    #                                           ^ - source.embedded
+    #                                           ^ - source.shell
 
 # Comment
-# <- comment.line.number-sign punctuation.definition.comment
-#^^^^^^^^ comment.line.number-sign
+# <- comment.line.number-sign.sshd_config punctuation.definition.comment.sshd_config
+#^^^^^^^^ comment.line.number-sign.sshd_config
 
     # Comment
 #^^^ - comment
-    # <- comment.line.number-sign punctuation.definition.comment
-    #^^^^^^^^ comment.line.number-sign
+#   ^^^^^^^^^ comment.line.number-sign.sshd_config
+#   ^ punctuation.definition.comment.sshd_config
+
+; Comment
+# <- comment.line.semi-colon.sshd_config punctuation.definition.comment.sshd_config
+#^^^^^^^^ comment.line.semi-colon.sshd_config
+
+    ; Comment
+#^^^ - comment
+#   ^^^^^^^^^ comment.line.semi-colon.sshd_config
+#   ^ punctuation.definition.comment.sshd_config
+
 
 # Normal ssh allowed for users username1 and username2 from the local network
 Match User username1,username2 Address 192.168.0.0/16
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.block.match meta.block.match
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.block meta.block
 #^^^^ meta.block.match keyword.control.conditional
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^ keyword.other
@@ -147,11 +166,11 @@ Match User username1,username2 Address 192.168.0.0/16
 #                                                 ^ punctuation.separator.sequence
 #                                                  ^^ constant.other.range
     PasswordAuthentication yes
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement.conditional - meta.block.match meta.block.match
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement - meta.block meta.block
 
 # Users username1 and username2 not allowed from other networks
 Match User username1,username2 Address *,!192.168.0.0/16
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.block.match meta.block.match
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.block meta.block
 #^^^^ meta.block.match keyword.control.conditional
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^ keyword.other
@@ -166,7 +185,10 @@ Match User username1,username2 Address *,!192.168.0.0/16
 #                                                    ^ punctuation.separator.sequence
 #                                                     ^^ constant.other.range
     PasswordAuthentication yes
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement.conditional - meta.block.match meta.block.match
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement.conditional - meta.block meta.block
     AllowTCPForwarding no
     X11Forwarding no
     ForceCommand /usr/sbin/nologin
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                ^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config source.shell meta.function-call.identifier.shell meta.command.shell variable.function.shell

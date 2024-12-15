@@ -72,7 +72,7 @@ contexts:
           scope: meta.keyword.comment.sshd_config
     - match: ^\s*(;)
       captures:
-        1: comment.line.number-sign.sshd_config punctuation.definition.comment.sshd_config
+        1: comment.line.semi-colon.sshd_config punctuation.definition.comment.sshd_config
       push:
         - meta_content_scope: comment.line.semi-colon.sshd_config
         - include: SSH Common.sublime-syntax#pop-nl
@@ -81,8 +81,8 @@ contexts:
 
   tokens:
     # https://man7.org/linux/man-pages/man5/sshd_config.5.html#TOKENS
-    # https://man.openbsd.org/ssh_config.5#TOKENS
-    - match: '%[%DFfhiKksTtUu]'
+    # https://man.openbsd.org/sshd_config.5#TOKENS
+    - match: '%[%CDFfhiKksTtUu]'
       scope: constant.character.escape.sshd_config
 
   pop-before-match-option:
@@ -174,16 +174,36 @@ contexts:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
       push:
-        - meta_content_scope: meta.mapping.value.sshd_config source.embedded.shell
-        - match: none
-          scope: constant.language.set.sshd_config
-          pop: true
-        - include: scope:source.shell
-        - include: pop-nl-as-value
+        - meta_content_scope: meta.mapping.value.sshd_config
+        - include: SSH Common.sublime-syntax#pop-nl
+        - match: '[ \t]*((?i:none))\b[ \t]*$'
+          captures:
+            1: constant.language.null.sshd_config
+        - match: '[ \t]*((")((?i:none))("))[ \t]*$'
+          captures:
+            1: string.quoted.double.sshd_config
+            2: punctuation.definition.string.begin.sshd_config
+            3: constant.language.null.sshd_config
+            4: punctuation.definition.string.end.sshd_config
+        - match: '"'
+          scope: string.quoted.double.sshd_config
+                 punctuation.definition.string.begin.sshd_config
+          escape: '(")|(?=$)'
+          escape_captures:
+            1: meta.mapping.value.sshd_config
+               string.quoted.double.sshd_config
+               punctuation.definition.string.end.sshd_config
+          embed_scope: string.quoted.double.sshd_config
+          embed: scope:source.shell
+        - match: (?=\S)
+          escape: (?=$)
+          embed: scope:source.shell
 
   boolean-value:
-    - match: '\b(?xi: yes | no )\b'
-      scope: constant.language.boolean.ssh_config
+    - match: '\b(?xi: yes )\b'
+      scope: constant.language.boolean.true.sshd_config
+    - match: '\b(?xi: no )\b'
+      scope: constant.language.boolean.false.sshd_config
 
   boolean-value-with-typing:
     - include: boolean-value
@@ -239,8 +259,8 @@ contexts:
           \b[ \t]*(=)?
         )
       captures:
-        1: meta.mapping.key.ssh_config keyword.other.ssh_config
-        2: keyword.operator.assignment.ssh_config
+        1: meta.mapping.key.sshd_config keyword.other.sshd_config
+        2: keyword.operator.assignment.sshd_config
       push: only-boolean-values
 
   parameter-generic:
@@ -270,9 +290,10 @@ contexts:
         - include: pop-nl-as-value
 
   generic-parameter-values:
-    - match: '\b(?xi: yes | no )\b'
-      scope: constant.language.boolean.sshd_config
-    - match: '\b(?xi: any | none )\b'
+    - include: boolean-value
+    - match: '\b(?xi: none )\b'
+      scope: constant.language.null.sshd_config
+    - match: '\b(?xi: any )\b'
       scope: constant.language.set.sshd_config
     - match: '\b(?xi: default )\b'
       scope: constant.language.default.sshd_config
