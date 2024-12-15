@@ -96,13 +96,18 @@ contexts:
           pop: 1
 
   time-values:
+    # https://man.openbsd.org/sshd_config.5#TIME_FORMATS
     # seconds, minutes, hours, days, weeks
-    - match: \b(\d+)(?i:([smhdw]))(?=[\d\s,"])
-      scope: meta.constant.date.ssh.common
-             meta.number.integer.decimal.ssh.common
-      captures:
-        1: constant.numeric.value.ssh.common
-        2: constant.numeric.suffix.ssh.common
+    - match: \b(?=[\dsmhdw]*\d[smhdw][\s,"])
+      push:
+        - meta_scope: meta.constant.time.ssh.common
+                      meta.number.integer.decimal.ssh.common
+        - match: (?=[\s,"])
+          pop: 1
+        - match: (\d+)([smhdw])
+          captures:
+            1: constant.numeric.value.ssh.common
+            2: constant.numeric.suffix.ssh.common
 
   bytes-values:
     - match: \b(\d+)([KMG])(?=[\s,"])

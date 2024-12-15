@@ -38,6 +38,17 @@ ListenAddress ::
 # Authentication:
 
 LoginGraceTime 2m
+#^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#              ^^ meta.mapping.value.ssh.common meta.constant.time.ssh.common meta.number.integer.decimal.ssh.common
+#              ^ constant.numeric.value.ssh.common
+#               ^ constant.numeric.suffix.ssh.common
+LoginGraceTime 1h30m
+#^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#              ^^^^^ meta.mapping.value.ssh.common meta.constant.time.ssh.common meta.number.integer.decimal.ssh.common
+#              ^ constant.numeric.value.ssh.common
+#               ^ constant.numeric.suffix.ssh.common
+#                ^^ constant.numeric.value.ssh.common
+#                  ^ constant.numeric.suffix.ssh.common
 #PermitRootLogin prohibit-password
 #StrictModes yes
 #MaxAuthTries 6
