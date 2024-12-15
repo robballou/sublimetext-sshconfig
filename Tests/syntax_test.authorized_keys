@@ -60,7 +60,7 @@ permitopen="192.0.2.1:80",permitopen="192.0.2.2:25" ssh-rsa AAAAB3N21S==
 #          ^ punctuation.definition.string.begin.authorized_keys
 #           ^^^^^^^^^ meta.string.host.authorized_keys
 #                    ^ punctuation.separator.sequence.authorized_keys
-#                     ^^ constant.numeric.integer.decimal.authorized_keys
+#                     ^^ meta.number.integer.decimal.authorized_keys constant.numeric.port-number.authorized_keys
 #                       ^ punctuation.definition.string.end.authorized_keys
 #                        ^ punctuation.separator.sequence.ssh.common
 #                         ^^^^^^^^^^ keyword.other.authorized_keys
@@ -69,7 +69,7 @@ permitopen="192.0.2.1:80",permitopen="192.0.2.2:25" ssh-rsa AAAAB3N21S==
 #                                    ^ punctuation.definition.string.begin.authorized_keys
 #                                     ^^^^^^^^^ meta.string.host.authorized_keys
 #                                              ^ punctuation.separator.sequence.authorized_keys
-#                                               ^^ constant.numeric.integer.decimal.authorized_keys
+#                                               ^^ meta.number.integer.decimal.authorized_keys constant.numeric.port-number.authorized_keys
 #                                                 ^ punctuation.definition.string.end.authorized_keys
 #                                                   ^^^^^^^ support.type.key-type
 #                                                           ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
@@ -81,7 +81,7 @@ permitlisten="localhost:8080",permitopen="localhost:22000" ssh-rsa AAAAB3N21S==
 #            ^ punctuation.definition.string.begin.authorized_keys
 #             ^^^^^^^^^ meta.string.host.authorized_keys
 #                      ^ punctuation.separator.sequence.authorized_keys
-#                       ^^^^ constant.numeric.integer.decimal.authorized_keys
+#                       ^^^^ meta.number.integer.decimal.authorized_keys constant.numeric.port-number.authorized_keys
 #                           ^ punctuation.definition.string.end.authorized_keys
 #                            ^ punctuation.separator.sequence.ssh.common
 #                             ^^^^^^^^^^ keyword.other.authorized_keys
@@ -90,7 +90,7 @@ permitlisten="localhost:8080",permitopen="localhost:22000" ssh-rsa AAAAB3N21S==
 #                                        ^ punctuation.definition.string.begin.authorized_keys
 #                                         ^^^^^^^^^ meta.string.host.authorized_keys
 #                                                  ^ punctuation.separator.sequence.authorized_keys
-#                                                   ^^^^^ constant.numeric.integer.decimal.authorized_keys
+#                                                   ^^^^^ meta.number.integer.decimal.authorized_keys constant.numeric.port-number.authorized_keys
 #                                                        ^ punctuation.definition.string.end.authorized_keys
 #                                                          ^^^^^^^ support.type.key-type
 #                                                                  ^^^^^^^^^^^^ variable.other.fingerprint.ssh.common

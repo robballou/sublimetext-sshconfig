@@ -10,6 +10,7 @@ extends: SSH Crypto.sublime-syntax
 
 file_extensions:
   - known_hosts
+
 hidden_file_extensions:
   - known_hosts.old
 
@@ -18,7 +19,8 @@ contexts:
     - include: comments-number-sign
     - match: ^((@)(?:revoked|cert-authority))?
       captures:
-        1: meta.annotation.known_hosts variable.annotation.known_hosts
+        1: meta.annotation.known_hosts
+           variable.annotation.known_hosts
         2: punctuation.definition.annotation.known_hosts
       push:
         - meta_scope: meta.line.known-host.known_hosts
@@ -30,6 +32,10 @@ contexts:
         - include: hostname-or-ip-value
 
   hostname-or-ip-value:
+    # Negation
+    - include: operator-exclamation
+
+    # Bracketed host
     - match: \[
       scope: punctuation.definition.string.begin.known_hosts
       push:
@@ -38,17 +44,21 @@ contexts:
           captures:
             1: punctuation.definition.string.end.known_hosts
             2: punctuation.separator.sequence.known_hosts
-            3: constant.numeric.integer.decimal.known_hosts
+            3: meta.number.integer.decimal.known_hosts
+               constant.numeric.port-number.known_hosts
           pop: 1
         - include: operator-exclamation
         - include: ip-addresses
         - match: ''
           push:
-            - meta_scope: meta.string.host.known_hosts string.quoted.other.known_hosts
+            - meta_scope: meta.string.host.known_hosts
+                          string.quoted.other.known_hosts
             - match: (?=,|\])
               pop: 1
             - include: wildcards
             - include: punctuation-dot-sequence
+
+    # IP
     - include: ip-addresses
 
     # Hashed host
@@ -61,12 +71,14 @@ contexts:
         4: string.unquoted.salt.known_hosts
         5: punctuation.definition.known_hosts
         6: string.unquoted.hash.known_hosts
-    - include: operator-exclamation
+
+    # Normal host
     - match: (?=\S)
       push: hostname
 
   hostname:
-    - meta_content_scope: meta.string.host.known_hosts string.unquoted.known_hosts
+    - meta_content_scope: meta.string.host.known_hosts
+                          string.unquoted.known_hosts
     - match: (?=[,\[\s])
       pop: 1
     - include: wildcards

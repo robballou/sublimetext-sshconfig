@@ -88,7 +88,8 @@ contexts:
           captures:
             1: meta.string.host.authorized_keys
             2: punctuation.separator.sequence.authorized_keys
-            3: constant.numeric.integer.decimal.authorized_keys
+            3: meta.number.integer.decimal.authorized_keys
+               constant.numeric.port-number.authorized_keys
             4: constant.other.wildcard.asterisk.authorized_keys
       push: value-option-body
 
@@ -102,7 +103,8 @@ contexts:
           captures:
             1: meta.string.host.authorized_keys
             2: punctuation.separator.sequence.authorized_keys
-            3: constant.numeric.integer.decimal.authorized_keys
+            3: meta.number.integer.decimal.authorized_keys
+               constant.numeric.port-number.authorized_keys
             4: constant.other.wildcard.asterisk.authorized_keys
       push: value-option-body
 
