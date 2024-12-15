@@ -21,7 +21,7 @@ Include ~/.ssh/config_*_cloud
 
 Match Host targ?t_host Exec not_inside_network User sue
 #<- - meta.block.naked - meta.block meta.block
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #^^^^ keyword.control.conditional.ssh_config
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
 #     ^^^^ keyword.other.ssh_config
@@ -49,14 +49,15 @@ Match Host targ?t_host Exec not_inside_network User sue
 #                @@@ reference
 ##                       ^^ meta.string.shell string.unquoted.shell
 
-Match Host one,two
-#^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
+Match Host one,two All
+#^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #^^^^ keyword.control.conditional.ssh_config
-#    ^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
+#    ^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
 #     ^^^^ keyword.other.ssh_config
 #          ^^^ entity.name.label.host-alias.ssh_config
 #             ^ punctuation.separator.sequence.ssh.common - entity
 #              ^^^ entity.name.label.host-alias.ssh_config
+#                  ^^^ constant.language.boolean.true.ssh.common
 #          @@@ local-definition
 #              @@@ local-definition
     User bar

@@ -117,8 +117,7 @@ contexts:
 
     - include: operator-exclamation
     # Match predicates with no arguments
-    - match: '\b(?xi: all )\b'
-      scope: constant.language.boolean.ssh_config
+    - include: match-all
     - match: '\b(?xi: canonical | final )\b'
       scope: keyword.other.ssh_config
 
@@ -169,7 +168,7 @@ contexts:
         - include: ip-addresses-with-cidr
 
   match-body:
-    - meta_scope: meta.block.match.ssh_config
+    - meta_content_scope: meta.block.match.ssh_config
     - include: pop-before-next-host
     - include: parameters
 

@@ -357,8 +357,8 @@ Match User *,!username1,!usern.ame2 Host foo.example.com
 
 # Normal ssh allowed for users username1 and username2 from the local network
 Match User username1,username2 Address 192.168.0.0/16
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.block meta.block
-#^^^^ meta.block.match keyword.control.conditional
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.block meta.block
+#^^^^ keyword.control.conditional
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^ keyword.other
 #          ^^^^^^^^^ string.unquoted
@@ -373,10 +373,10 @@ Match User username1,username2 Address 192.168.0.0/16
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement - meta.block meta.block
 
 # Users username1 and username2 not allowed from other networks
-Match User username1,username2 Address *,!192.168.0.0/16
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - meta.block meta.block
-#^^^^ meta.block.match keyword.control.conditional
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
+Match User username1,username2 Address *,!192.168.0.0/16 All
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.block meta.block
+#^^^^ keyword.control.conditional
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional
 #     ^^^^ keyword.other
 #          ^^^^^^^^^ string.unquoted
 #                   ^ punctuation.separator.sequence
@@ -389,6 +389,7 @@ Match User username1,username2 Address *,!192.168.0.0/16
 #                                         ^^^^^^^^^^^ constant.numeric.ip-address.v4
 #                                                    ^ punctuation.separator.sequence
 #                                                     ^^ constant.other.range
+#                                                        ^^^ constant.language.boolean.true.ssh.common
     PasswordAuthentication yes
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match - meta.statement.conditional - meta.block meta.block
     AllowTCPForwarding no
