@@ -2,8 +2,8 @@
     "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - source source",
     "completions": [
         {
-            "trigger": "curve25519-sha256\tkex",
-            "contents": "curve25519-sha256",
+            "trigger": "curve25519-sha256@libssh.org\tkex",
+            "contents": "curve25519-sha256@libssh.org",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -12,8 +12,8 @@
             ]
         },
         {
-            "trigger": "curve25519-sha256@libssh.org\tkex",
-            "contents": "curve25519-sha256@libssh.org",
+            "trigger": "curve25519-sha256\tkex",
+            "contents": "curve25519-sha256",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -32,6 +32,16 @@
             ]
         },
         {
+            "trigger": "curve448-sha512@libssh.org\tkex",
+            "contents": "curve448-sha512@libssh.org",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "curve448-sha512\tkex",
             "contents": "curve448-sha512",
             "annotation": "kex",
@@ -42,8 +52,8 @@
             ]
         },
         {
-            "trigger": "diffie-hellman-group-exchange-sha256\tkex",
-            "contents": "diffie-hellman-group-exchange-sha256",
+            "trigger": "diffie-hellman-group-exchange-sha256@ssh.com\tkex",
+            "contents": "diffie-hellman-group-exchange-sha256@ssh.com",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -52,8 +62,8 @@
             ]
         },
         {
-            "trigger": "diffie-hellman-group-exchange-sha256@ssh.com\tkex",
-            "contents": "diffie-hellman-group-exchange-sha256@ssh.com",
+            "trigger": "diffie-hellman-group-exchange-sha256\tkex",
+            "contents": "diffie-hellman-group-exchange-sha256",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -82,6 +92,16 @@
             ]
         },
         {
+            "trigger": "diffie-hellman-group14-sha224@ssh.com\tkex",
+            "contents": "diffie-hellman-group14-sha224@ssh.com",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "diffie-hellman-group14-sha256\tkex",
             "contents": "diffie-hellman-group14-sha256",
             "annotation": "kex",
@@ -102,8 +122,8 @@
             ]
         },
         {
-            "trigger": "diffie-hellman-group15-sha256\tkex",
-            "contents": "diffie-hellman-group15-sha256",
+            "trigger": "diffie-hellman-group15-sha256@ssh.com\tkex",
+            "contents": "diffie-hellman-group15-sha256@ssh.com",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -112,8 +132,8 @@
             ]
         },
         {
-            "trigger": "diffie-hellman-group15-sha256@ssh.com\tkex",
-            "contents": "diffie-hellman-group15-sha256@ssh.com",
+            "trigger": "diffie-hellman-group15-sha256\tkex",
+            "contents": "diffie-hellman-group15-sha256",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -162,8 +182,8 @@
             ]
         },
         {
-            "trigger": "diffie-hellman-group16-sha512\tkex",
-            "contents": "diffie-hellman-group16-sha512",
+            "trigger": "diffie-hellman-group16-sha512@ssh.com\tkex",
+            "contents": "diffie-hellman-group16-sha512@ssh.com",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -172,8 +192,8 @@
             ]
         },
         {
-            "trigger": "diffie-hellman-group16-sha512@ssh.com\tkex",
-            "contents": "diffie-hellman-group16-sha512@ssh.com",
+            "trigger": "diffie-hellman-group16-sha512\tkex",
+            "contents": "diffie-hellman-group16-sha512",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -192,8 +212,8 @@
             ]
         },
         {
-            "trigger": "diffie-hellman-group18-sha512\tkex",
-            "contents": "diffie-hellman-group18-sha512",
+            "trigger": "diffie-hellman_group17-sha512\tkex",
+            "contents": "diffie-hellman_group17-sha512",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -212,8 +232,208 @@
             ]
         },
         {
+            "trigger": "diffie-hellman-group18-sha512\tkex",
+            "contents": "diffie-hellman-group18-sha512",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "diffie-hellman-group-exchange-sha224@ssh.com\tkex",
+            "contents": "diffie-hellman-group-exchange-sha224@ssh.com",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "diffie-hellman-group-exchange-sha256@ssh.com\tkex",
+            "contents": "diffie-hellman-group-exchange-sha256@ssh.com",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "diffie-hellman-group-exchange-sha256\tkex",
+            "contents": "diffie-hellman-group-exchange-sha256",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "diffie-hellman-group-exchange-sha384@ssh.com\tkex",
+            "contents": "diffie-hellman-group-exchange-sha384@ssh.com",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "diffie-hellman-group-exchange-sha512@ssh.com\tkex",
+            "contents": "diffie-hellman-group-exchange-sha512@ssh.com",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-nistp256-kyber-512r3-sha256-d00@openquantumsafe.org\tkex",
+            "contents": "ecdh-nistp256-kyber-512r3-sha256-d00@openquantumsafe.org",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-nistp384-kyber-768r3-sha384-d00@openquantumsafe.org\tkex",
+            "contents": "ecdh-nistp384-kyber-768r3-sha384-d00@openquantumsafe.org",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-nistp521-kyber-1024r3-sha512-d00@openquantumsafe.org\tkex",
+            "contents": "ecdh-nistp521-kyber-1024r3-sha512-d00@openquantumsafe.org",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-1.2.840.10045.3.1.7\tkex",
+            "contents": "ecdh-sha2-1.2.840.10045.3.1.7",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "ecdh-sha2-1.3.132.0.10\tkex",
             "contents": "ecdh-sha2-1.3.132.0.10",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-1.3.132.0.16\tkex",
+            "contents": "ecdh-sha2-1.3.132.0.16",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-1.3.132.0.34\tkex",
+            "contents": "ecdh-sha2-1.3.132.0.34",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-1.3.132.0.35\tkex",
+            "contents": "ecdh-sha2-1.3.132.0.35",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-1.3.132.0.36\tkex",
+            "contents": "ecdh-sha2-1.3.132.0.36",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-1.3.132.0.37\tkex",
+            "contents": "ecdh-sha2-1.3.132.0.37",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-1.3.132.0.38\tkex",
+            "contents": "ecdh-sha2-1.3.132.0.38",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-9UzNcgwTlEnSCECZa7V1mw==\tkex",
+            "contents": "ecdh-sha2-9UzNcgwTlEnSCECZa7V1mw==",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-brainpoolp256r1@genua.de\tkex",
+            "contents": "ecdh-sha2-brainpoolp256r1@genua.de",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-brainpoolp384r1@genua.de\tkex",
+            "contents": "ecdh-sha2-brainpoolp384r1@genua.de",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-brainpoolp521r1@genua.de\tkex",
+            "contents": "ecdh-sha2-brainpoolp521r1@genua.de",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -232,8 +452,38 @@
             ]
         },
         {
-            "trigger": "ecdh-sha2-nistb233\tkex",
-            "contents": "ecdh-sha2-nistb233",
+            "trigger": "ecdh-sha2-D3FefCjYoJ/kfXgAyLddYA==\tkex",
+            "contents": "ecdh-sha2-D3FefCjYoJ/kfXgAyLddYA==",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-h/SsxnLCtRBh7I9ATyeB3A==\tkex",
+            "contents": "ecdh-sha2-h/SsxnLCtRBh7I9ATyeB3A==",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-m/FtSAmrV4j/Wy6RVUaK7A==\tkex",
+            "contents": "ecdh-sha2-m/FtSAmrV4j/Wy6RVUaK7A==",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-mNVwCXAoS1HGmHpLvBC94w==\tkex",
+            "contents": "ecdh-sha2-mNVwCXAoS1HGmHpLvBC94w==",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -244,26 +494,6 @@
         {
             "trigger": "ecdh-sha2-nistb409\tkex",
             "contents": "ecdh-sha2-nistb409",
-            "annotation": "kex",
-            "kind": [
-                "function",
-                "k",
-                "Kex Algm"
-            ]
-        },
-        {
-            "trigger": "ecdh-sha2-nistk163\tkex",
-            "contents": "ecdh-sha2-nistk163",
-            "annotation": "kex",
-            "kind": [
-                "function",
-                "k",
-                "Kex Algm"
-            ]
-        },
-        {
-            "trigger": "ecdh-sha2-nistk233\tkex",
-            "contents": "ecdh-sha2-nistk233",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -352,6 +582,36 @@
             ]
         },
         {
+            "trigger": "ecdh-sha2-qcFQaMAMGhTziMT0z+Tuzw==\tkex",
+            "contents": "ecdh-sha2-qcFQaMAMGhTziMT0z+Tuzw==",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecdh-sha2-wiRIU8TKjMZ418sMqlqtvQ==\tkex",
+            "contents": "ecdh-sha2-wiRIU8TKjMZ418sMqlqtvQ==",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "ecmqv-sha2\tkex",
+            "contents": "ecmqv-sha2",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "ext-info-c\tkex",
             "contents": "ext-info-c",
             "annotation": "kex",
@@ -372,6 +632,16 @@
             ]
         },
         {
+            "trigger": "gss-13.3.132.0.10-sha256-\tkex",
+            "contents": "gss-13.3.132.0.10-sha256-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "gss-curve25519-sha256-\tkex",
             "contents": "gss-curve25519-sha256-",
             "annotation": "kex",
@@ -382,8 +652,18 @@
             ]
         },
         {
-            "trigger": "gss-group14-sha256-\tkex",
-            "contents": "gss-group14-sha256-",
+            "trigger": "gss-curve448-sha512-\tkex",
+            "contents": "gss-curve448-sha512-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "gss-gex-sha256-\tkex",
+            "contents": "gss-gex-sha256-",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -402,8 +682,8 @@
             ]
         },
         {
-            "trigger": "gss-group15-sha512-\tkex",
-            "contents": "gss-group15-sha512-",
+            "trigger": "gss-group14-sha256-\tkex",
+            "contents": "gss-group14-sha256-",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -422,8 +702,38 @@
             ]
         },
         {
+            "trigger": "gss-group15-sha512-\tkex",
+            "contents": "gss-group15-sha512-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "gss-group16-sha512-\tkex",
             "contents": "gss-group16-sha512-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "gss-group17-sha512-\tkex",
+            "contents": "gss-group17-sha512-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "gss-group18-sha512-\tkex",
+            "contents": "gss-group18-sha512-",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -442,8 +752,68 @@
             ]
         },
         {
+            "trigger": "gss-nistp384-sha256-\tkex",
+            "contents": "gss-nistp384-sha256-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "gss-nistp384-sha384-\tkex",
+            "contents": "gss-nistp384-sha384-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "gss-nistp521-sha512-\tkex",
+            "contents": "gss-nistp521-sha512-",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "kexAlgoCurve25519SHA256\tkex",
             "contents": "kexAlgoCurve25519SHA256",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "kexAlgoECDH256\tkex",
+            "contents": "kexAlgoECDH256",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "kexAlgoECDH384\tkex",
+            "contents": "kexAlgoECDH384",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "kexAlgoECDH521\tkex",
+            "contents": "kexAlgoECDH521",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -462,8 +832,38 @@
             ]
         },
         {
-            "trigger": "rsa1024-sha1\tkex",
-            "contents": "rsa1024-sha1",
+            "trigger": "kex-strict-c-v00@openssh.com\tkex",
+            "contents": "kex-strict-c-v00@openssh.com",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "kex-strict-s-v00@openssh.com\tkex",
+            "contents": "kex-strict-s-v00@openssh.com",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "m383-sha384@libassh.org\tkex",
+            "contents": "m383-sha384@libassh.org",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "m511-sha512@libassh.org\tkex",
+            "contents": "m511-sha512@libassh.org",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -482,8 +882,48 @@
             ]
         },
         {
+            "trigger": "sm2kep-sha2-nistp256\tkex",
+            "contents": "sm2kep-sha2-nistp256",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "sntrup4591761x25519-sha512@tinyssh.org\tkex",
             "contents": "sntrup4591761x25519-sha512@tinyssh.org",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "sntrup761x25519-sha512@openssh.com\tkex",
+            "contents": "sntrup761x25519-sha512@openssh.com",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "x25519-kyber-512r3-sha256-d00@amazon.com\tkex",
+            "contents": "x25519-kyber-512r3-sha256-d00@amazon.com",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "x25519-kyber512-sha512@aws.amazon.com\tkex",
+            "contents": "x25519-kyber512-sha512@aws.amazon.com",
             "annotation": "kex",
             "kind": [
                 "function",
@@ -525,8 +965,140 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "gss-gex-sha1-\tdeprecated kex",
-            "contents": "gss-gex-sha1-",
+            "trigger": "ecdh-sha2-1.2.840.10045.3.1.1\tdeprecated kex",
+            "contents": "ecdh-sha2-1.2.840.10045.3.1.1",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-1.3.132.0.1\tdeprecated kex",
+            "contents": "ecdh-sha2-1.3.132.0.1",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-1.3.132.0.26\tdeprecated kex",
+            "contents": "ecdh-sha2-1.3.132.0.26",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-1.3.132.0.27\tdeprecated kex",
+            "contents": "ecdh-sha2-1.3.132.0.27",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-1.3.132.0.33\tdeprecated kex",
+            "contents": "ecdh-sha2-1.3.132.0.33",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-4MHB+NBt3AlaSRQ7MnB4cg==\tdeprecated kex",
+            "contents": "ecdh-sha2-4MHB+NBt3AlaSRQ7MnB4cg==",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-5pPrSUQtIaTjUSt5VZNBjg==\tdeprecated kex",
+            "contents": "ecdh-sha2-5pPrSUQtIaTjUSt5VZNBjg==",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-nistb233\tdeprecated kex",
+            "contents": "ecdh-sha2-nistb233",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-nistk163\tdeprecated kex",
+            "contents": "ecdh-sha2-nistk163",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-nistk233\tdeprecated kex",
+            "contents": "ecdh-sha2-nistk233",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-qCbG5Cn/jjsZ7nBeR7EnOA==\tdeprecated kex",
+            "contents": "ecdh-sha2-qCbG5Cn/jjsZ7nBeR7EnOA==",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-VqBg4QRPjxx1EXZdV0GdWQ==\tdeprecated kex",
+            "contents": "ecdh-sha2-VqBg4QRPjxx1EXZdV0GdWQ==",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ecdh-sha2-zD/b3hu/71952ArpUG4OjQ==\tdeprecated kex",
+            "contents": "ecdh-sha2-zD/b3hu/71952ArpUG4OjQ==",
             "annotation": "deprecated kex",
             "kind": [
                 "function",
@@ -547,8 +1119,8 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "gss-group1-sha1-\tdeprecated kex",
-            "contents": "gss-group1-sha1-",
+            "trigger": "gss-gex-sha1-\tdeprecated kex",
+            "contents": "gss-gex-sha1-",
             "annotation": "deprecated kex",
             "kind": [
                 "function",
@@ -569,8 +1141,8 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "gss-group14-sha1-\tdeprecated kex",
-            "contents": "gss-group14-sha1-",
+            "trigger": "gss-group1-sha1-\tdeprecated kex",
+            "contents": "gss-group1-sha1-",
             "annotation": "deprecated kex",
             "kind": [
                 "function",
@@ -582,6 +1154,50 @@
         {
             "trigger": "gss-group14-sha1-toWM5Slw5Ew8Mqkay+al2g==\tdeprecated kex",
             "contents": "gss-group14-sha1-toWM5Slw5Ew8Mqkay+al2g==",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "gss-group14-sha1-\tdeprecated kex",
+            "contents": "gss-group14-sha1-",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "kexAlgoDH14SHA1\tdeprecated kex",
+            "contents": "kexAlgoDH14SHA1",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "kexAlgoDH1SHA1\tdeprecated kex",
+            "contents": "kexAlgoDH1SHA1",
+            "annotation": "deprecated kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "rsa1024-sha1\tdeprecated kex",
+            "contents": "rsa1024-sha1",
             "annotation": "deprecated kex",
             "kind": [
                 "function",
