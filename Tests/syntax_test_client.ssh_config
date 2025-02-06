@@ -63,6 +63,10 @@ Match Host one,two All
     User bar
     Port 22
     #    ^^ constant.numeric
+    ProxyCommand none
+#^^^^^^^^^^^^^^^^^^^^ meta.block.match
+#   ^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                ^^^^ meta.mapping.value constant.language.null.ssh.common
 
 Match LocalNetwork 127.0.0.1/12,10.1.21.0/24
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config

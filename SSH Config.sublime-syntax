@@ -140,8 +140,8 @@ contexts:
     - match: '\b((?xi: exec ))\b[ \t]+'
       captures:
         1: keyword.other.ssh_config
-      escape: '(?=\s*(?:{{match_parameters}}|$))'
       embed: scope:source.shell.embedded.ssh
+      escape: '(?=\s*(?:{{match_parameters}}|$))'
 
     # Match predicates with host arguments
     - match: '\b(?xi: (?:original)? host )\b'

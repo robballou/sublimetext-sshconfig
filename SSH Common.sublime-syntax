@@ -55,7 +55,9 @@ contexts:
         1: comment.line.number-sign.ssh.common punctuation.definition.comment.ssh.common
       push:
         - meta_content_scope: comment.line.number-sign.ssh.common
-        - include: pop-nl
+        - match: \n
+          scope: comment.line.number-sign.ssh.common
+          pop: true
 
   comments-semicolon:
     - match: ^\s*(;+)

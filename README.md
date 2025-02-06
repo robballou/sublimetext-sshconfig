@@ -78,7 +78,9 @@ If these commands open the wrong file for you, open the Command Palette
     + You can clone it there directly, move it, or symlink it.
 - Open the project from under `Packages/SSH Config`
 - Open a syntax test file located in the Tests directory
-- Run the `Build With: Syntax Tests` command, available on the command palette when a test file is open.
+- Run `Build With: Syntax Tests` command
+    + supplied by the `Default` Sublime Package
+    + available on the command palette when a test file is open
 
 The PackageDev package is helpful for writing tests, but not required.
 
