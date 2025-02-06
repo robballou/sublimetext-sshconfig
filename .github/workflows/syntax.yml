@@ -1,13 +1,16 @@
 name: Syntax Tests
+# https://github.com/sublimetext/syntax-test-action
 
 on:
   push:
     paths:
+      - '.github/workflows/*'
       - '**.sublime-syntax'
       - '**/syntax_test*'
       - '**.tmPreferences'
   pull_request:
     paths:
+      - '.github/workflows/*'
       - '**.sublime-syntax'
       - '**/syntax_test*'
       - '**.tmPreferences'
@@ -15,16 +18,17 @@ on:
 jobs:
   main:
     name: Syntax Tests (${{ matrix.build }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
     strategy:
       matrix:
         include:
-          - build: 4183
+          - build: 'latest'
             packages: master
           - build: 4180
             packages: v4180
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: SublimeText/syntax-test-action@v2
         with:
           build: ${{ matrix.build }}
