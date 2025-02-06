@@ -25,8 +25,8 @@ jobs:
         include:
           - build: 'latest'
             packages: master
-          - build: 4180
-            packages: v4180
+          - build: 'stable'
+            packages: binary
     steps:
       - uses: actions/checkout@v4
       - uses: SublimeText/syntax-test-action@v2
