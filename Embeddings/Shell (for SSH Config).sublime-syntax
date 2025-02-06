@@ -8,7 +8,7 @@ extends: Packages/ShellScript/Shell-Unix-Generic.sublime-syntax
 
 contexts:
 
-  parameter-expansions:
+  expansions-parameter:
     - meta_prepend: true
     - include: ssh-config-char-escapes
 
