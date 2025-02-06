@@ -230,7 +230,7 @@ contexts:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
       with_prototype:
-        - include: '%D'
+        - match: '%D'
           scope: constant.other.placeholder.sshd_config
         - include: numeric-values
       push: possibly-quoted-value
