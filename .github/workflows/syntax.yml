@@ -24,7 +24,7 @@ jobs:
       matrix:
         include:
           - build: 'latest'
-            packages: master
+            packages: binary
           - build: 'stable'
             packages: binary
     steps:
