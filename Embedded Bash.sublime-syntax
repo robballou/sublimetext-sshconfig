@@ -12,7 +12,7 @@ contexts:
     - meta_prepend: true
     - include: ssh-config-none
 
-  expansions-parameter:
+  parameter-expansions:
     - meta_prepend: true
     - include: ssh-config-char-escapes
 

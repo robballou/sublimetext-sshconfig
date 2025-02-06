@@ -24,9 +24,9 @@ jobs:
       matrix:
         include:
           - build: 'latest'
-            packages: binary
+            packages: master
           - build: 'stable'
-            packages: binary
+            packages: master  # revert to 'stable' when Bash drops
     steps:
       - uses: actions/checkout@v4
       - uses: SublimeText/syntax-test-action@v2
