@@ -21,14 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
-      fail-fast: false
+      # fail-fast: false
       matrix:
         include:
           - build: 'latest'
             packages: master
           - build: 'stable'
             packages: master  # revert to 'binary' when Bash rewrite drops in stable
-          - build: 4107
+          - build: 4185  # Required for symbol transformation tests
             packages: master  # set to specific tag when Bash rewrite drops in dev
     steps:
       - uses: actions/checkout@v4
