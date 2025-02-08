@@ -26,7 +26,9 @@ jobs:
           - build: 'latest'
             packages: master
           - build: 'stable'
-            packages: master  # revert to 'stable' when Bash drops
+            packages: master  # revert to 'binary' when Bash rewrite drops in stable
+          - build: 4107
+            packages: master  # set to specific tag when Bash rewrite drops in dev
     steps:
       - uses: actions/checkout@v4
       - uses: SublimeText/syntax-test-action@v2
