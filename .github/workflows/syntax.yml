@@ -27,9 +27,9 @@ jobs:
           - build: 'latest'
             packages: master
           - build: 'stable'
-            packages: master  # revert to 'binary' when Bash rewrite drops in stable
+            packages: v4193  # revert to 'binary' when Bash rewrite drops in stable
           - build: 4185  # Required for symbol transformation tests
-            packages: master  # set to specific tag when Bash rewrite drops in dev
+            packages: v4193  # Bash rewrite
     steps:
       - uses: actions/checkout@v4
       - uses: SublimeText/syntax-test-action@v2
