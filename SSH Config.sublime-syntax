@@ -11,17 +11,6 @@ extends: SSH Crypto.sublime-syntax
 file_extensions:
   - ssh_config
 
-variables:
-  # https://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
-  # https://man.openbsd.org/ssh_config.5#TOKENS
-  tokens_standard: (?:%[%CdhikLlnpru])
-  tokens_knownhosts: (?:{{tokens_standard}}|%[%fHIKt])
-  tokens_hostname: (?:%[%h])
-  tokens_proxycommand: (?:%[%hnpr])
-  tokens_all: (?:{{tokens_knownhosts}}|%T)
-  tokens_localcommand: '{{tokens_all}}'
-  match_parameters: '\b(?xi: all | canonical | exec | host | originalhost | user | localuser )\b'
-
 contexts:
   main:
     - include: comments
@@ -415,3 +404,16 @@ contexts:
     - match: \b\d+(?=[\s,"])
       scope: meta.number.integer.ssh_config
              constant.numeric.value.ssh_config
+
+###############################################################################
+
+variables:
+  # https://man7.org/linux/man-pages/man5/ssh_config.5.html#TOKENS
+  # https://man.openbsd.org/ssh_config.5#TOKENS
+  tokens_standard: (?:%[%CdhikLlnpru])
+  tokens_knownhosts: (?:{{tokens_standard}}|%[%fHIKt])
+  tokens_hostname: (?:%[%h])
+  tokens_proxycommand: (?:%[%hnpr])
+  tokens_all: (?:{{tokens_knownhosts}}|%T)
+  tokens_localcommand: '{{tokens_all}}'
+  match_parameters: '\b(?xi: all | canonical | exec | host | originalhost | user | localuser )\b'
