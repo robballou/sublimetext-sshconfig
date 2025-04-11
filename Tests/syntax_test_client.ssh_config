@@ -23,7 +23,7 @@ Match Version Op?nSSH_10.0
 #^^^^ keyword.control.conditional.ssh_config
 #    ^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
 #     ^^^^^^^ keyword.other.ssh_config
-#             ^^^^^^^^^^^^ string.unquoted.ssh_config
+#             ^^^^^^^^^^^^ string.unquoted.ssh.common
 #               ^ constant.other.wildcard.questionmark.ssh.common
 
 
@@ -38,7 +38,7 @@ Match Host targ?t_host Exec not_inside_network User sue
 #                      ^^^^ keyword.other.ssh_config
 #                           ^^^^^^^^^^^^^^^^^^ source.shell.embedded.ssh source.shell.bash variable.function.shell
 #                                              ^^^^ keyword.other.ssh_config
-#                                                   ^^^ string.unquoted.ssh_config
+#                                                   ^^^ string.unquoted.ssh.common
 #          @@@@@@@@@@@ local-definition "Alias: targ?t_host"
 #                           @@@@@@@@@@@@@@@@@@ reference
     ProxyCommand ssh -W %h:%p proxy_server
