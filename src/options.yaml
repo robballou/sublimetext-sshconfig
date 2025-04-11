@@ -26,9 +26,22 @@
     LocalNetwork:
       details: Match if current network devices in CIDRs
       values: ${1:10.11.12.0/24}
+    Command:
+      details: Match <code>RemoteCommand</code> to be run
+      values: ${1:sftp}
+    SessionType:
+      details: Match <code>SessionType</code> for host
+      values:
+        - shell
+        - exec
+        - subsystem
+        - none
     Tagged:
       details: Match if <code>Tag</code> in patterns
       values: ${1:foo,*.jump}
+    Version:
+      details: Match version string of SSH client
+      values: ${1:OpenSSH_10.0}
     All:
       details: Always matches
     Final:

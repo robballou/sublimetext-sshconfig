@@ -18,6 +18,14 @@ Include ~/.ssh/config_*_cloud
 #             ^ punctuation.separator.path.ssh.common
 #                     ^ constant.other.wildcard.asterisk.ssh.common
 
+Match Version Op?nSSH_10.0
+#^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#^^^^ keyword.control.conditional.ssh_config
+#    ^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.ssh_config
+#     ^^^^^^^ keyword.other.ssh_config
+#             ^^^^^^^^^^^^ string.unquoted.ssh_config
+#               ^ constant.other.wildcard.questionmark.ssh.common
+
 
 Match Host targ?t_host Exec not_inside_network User sue
 #<- - meta.block.naked - meta.block meta.block

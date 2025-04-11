@@ -108,6 +108,38 @@
             "details": "Match if current network devices in CIDRs"
         },
         {
+            "trigger": "Command",
+            "contents": "Command",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match <code>RemoteCommand</code> to be run"
+        },
+        {
+            "trigger": "command",
+            "contents": "Command ${1:sftp}",
+            "kind": "snippet",
+            "details": "Match <code>RemoteCommand</code> to be run"
+        },
+        {
+            "trigger": "SessionType",
+            "contents": "SessionType",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match <code>SessionType</code> for host"
+        },
+        {
+            "trigger": "sessiontype",
+            "contents": "SessionType ${0:{ shell | exec | subsystem | none \\}}",
+            "kind": "snippet",
+            "details": "Match <code>SessionType</code> for host"
+        },
+        {
             "trigger": "Tagged",
             "contents": "Tagged",
             "kind": [
@@ -122,6 +154,22 @@
             "contents": "Tagged ${1:foo,*.jump}",
             "kind": "snippet",
             "details": "Match if <code>Tag</code> in patterns"
+        },
+        {
+            "trigger": "Version",
+            "contents": "Version",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match version string of SSH client"
+        },
+        {
+            "trigger": "version",
+            "contents": "Version ${1:OpenSSH_10.0}",
+            "kind": "snippet",
+            "details": "Match version string of SSH client"
         },
         {
             "trigger": "All",
