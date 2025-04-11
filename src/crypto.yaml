@@ -319,6 +319,7 @@ kex-algorithms:
       - kex-strict-s-v00@openssh.com
       - m383-sha384@libassh.org
       - m511-sha512@libassh.org
+      - mlkem768x25519-sha256
       - rsa2048-sha256
       - sm2kep-sha2-nistp256
       - sntrup4591761x25519-sha512@tinyssh.org
