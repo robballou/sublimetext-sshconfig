@@ -872,6 +872,16 @@
             ]
         },
         {
+            "trigger": "mlkem768x25519-sha256\tkex",
+            "contents": "mlkem768x25519-sha256",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "rsa2048-sha256\tkex",
             "contents": "rsa2048-sha256",
             "annotation": "kex",
