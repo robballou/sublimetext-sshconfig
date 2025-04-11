@@ -8,6 +8,14 @@
         "command": "open_sshd_config_file",
     },
     {
+        "caption": "SSH Config: Open Authorized Keys File",
+        "command": "open_authorized_keys_file",
+    },
+    {
+        "caption": "SSH Config: Open Known Hosts File",
+        "command": "open_known_hosts_file",
+    },
+    {
         "caption": "SSH Config: Settings",
         "command": "edit_settings",
         "args": {

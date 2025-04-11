@@ -25,9 +25,9 @@ Here are three ways to change that:
     sets the right highlighting unless you disable it.
 2. Choose "Open all with current extension as..." from the syntax highlighting
     selection menu.
-3. Install and configure [ApplySyntax][] to examine the whole path of the file
-    and set the syntax highlighting after load. Sample configuration
-    [shown here][applysyntax-config]
+3. Install and configure [ApplySyntax][] or [AutoSetSyntax][] to examine the
+    whole path of the file and set the syntax highlighting after load. Sample
+    configuration for ApplySyntax is [shown here][applysyntax-config].
 
 ### SSHD Config
 
@@ -62,7 +62,7 @@ If these commands open the wrong file for you, open the Command Palette
 - `authorized_keys` and `known_hosts` also have
     + Syntax highlighting
     + Symbol index
-    + (unmapped) "Open file" commands
+    + "Open file" commands
 - PEM, PKCS1, PKCS8, and SSH keys have
     + Syntax
     + Symbol index for cert bundles
@@ -74,15 +74,15 @@ If these commands open the wrong file for you, open the Command Palette
 
 ## Testing
 
-- Install this repository under Sublime Text `Packages` and name it `SSH Config`
+- Install this repository under Sublime Text `Packages` and name it `SSH Config`.
     + You can clone it there directly, move it, or symlink it.
-- Open the project from under `Packages/SSH Config`
-- Open a syntax test file located in the Tests directory
-- Run `Build With: Syntax Tests` command
-    + supplied by the `Default` Sublime Package
-    + available on the command palette when a test file is open
+- Open the project from under `Packages/SSH Config`.
+- Open a syntax test file located in the Tests directory.
+- Run the `Build With: Syntax Tests` command.
+    + This is supplied by the `Default` Sublime Package, shipped with ST.
+    + It is available on the Command Palette when a test file is open.
 
-The PackageDev package is helpful for writing tests, but not required.
+The PackageDev package is helpful for writing tests but not required.
 
 
 [man-ssh-config]: https://man7.org/linux/man-pages/man5/ssh_config.5.html
@@ -90,4 +90,5 @@ The PackageDev package is helpful for writing tests, but not required.
 [pkg]: https://packagecontrol.io/packages/SSH%20Config
 [pkg-ctrl]: https://packagecontrol.io
 [applysyntax]: https://packagecontrol.io/packages/ApplySyntax
+[autosetsyntax]: https://packagecontrol.io/packages/AutoSetSyntax
 [applysyntax-config]: https://github.com/robballou/sublimetext-sshconfig/issues/8#issuecomment-686492850
