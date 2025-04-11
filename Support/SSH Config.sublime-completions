@@ -1262,6 +1262,12 @@
             "details": ""
         },
         {
+            "trigger": "VersionAddendum",
+            "contents": "VersionAddendum",
+            "kind": "keyword",
+            "details": "Append text to the SSH protocol banner"
+        },
+        {
             "trigger": "VisualHostKey",
             "contents": "VisualHostKey",
             "kind": "keyword",

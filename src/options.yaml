@@ -504,6 +504,8 @@
         - 'yes'
         - 'no'
         - ask
+    VersionAddendum:
+      details: Append text to the SSH protocol banner
     VisualHostKey:
       details: Show ASCII art for host's key
       values:
