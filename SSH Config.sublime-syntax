@@ -416,4 +416,8 @@ variables:
   tokens_proxycommand: (?:%[%hnpr])
   tokens_all: (?:{{tokens_knownhosts}}|%T)
   tokens_localcommand: '{{tokens_all}}'
-  match_parameters: '\b(?xi: all | canonical | exec | host | originalhost | user | localuser )\b'
+  match_parameters: |-
+    \b(?xi:
+      all | canonical | final | exec | localnetwork | host | originalhost
+    | tagged | user | localuser
+    )\b
