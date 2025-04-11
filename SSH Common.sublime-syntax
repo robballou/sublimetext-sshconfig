@@ -193,6 +193,28 @@ contexts:
         - include: pop-before-nl
     - include: pop-nl
 
+  string-patterns:
+    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
+    # https://man.openbsd.org/ssh_config.5#PATTERNS
+    # https://man7.org/linux/man-pages/man5/sshd_config.5.html#PATTERNS
+    # https://man.openbsd.org/sshd_config.5#PATTERNS
+    - include: punctuation-comma-sequence
+    - include: operator-exclamation
+    - match: '"'
+      scope: punctuation.definition.string.begin.ssh.common
+      push:
+        - meta_content_scope: string.quoted.double.ssh.common
+        - match: '"'
+          scope: punctuation.definition.string.end.ssh.common
+          pop: 1
+        - include: wildcards
+    - match: (?=\S)
+      push:
+        - meta_content_scope: string.unquoted.ssh.common
+        - match: (?=[,!\s])
+          pop: 1
+        - include: wildcards
+
   paths:
     # This is just heuristic. Expect failures.
     - match: (?=~?[\w.\-?*${}%]*/[\w.\-?*${}%]?)

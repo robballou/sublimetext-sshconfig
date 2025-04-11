@@ -155,16 +155,16 @@ Match User *,!username1,!usern.ame2 Host foo.example.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.statement.conditional.sshd_config
 #     ^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config
-#          ^ string.unquoted.sshd_config constant.other.wildcard.asterisk.ssh.common
+#          ^ string.unquoted.ssh.common constant.other.wildcard.asterisk.ssh.common
 #           ^ punctuation.separator.sequence.ssh.common
 #            ^ keyword.operator.logical.ssh.common
-#             ^^^^^^^^^ string.unquoted.sshd_config
+#             ^^^^^^^^^ string.unquoted.ssh.common
 #                      ^ punctuation.separator.sequence.ssh.common
 #                       ^ keyword.operator.logical.ssh.common
-#                        ^^^^^^^^^^ string.unquoted.sshd_config - punctuation
+#                        ^^^^^^^^^^ string.unquoted.ssh.common - punctuation
 #                                   ^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
 #                                       ^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config
-#                                        ^^^^^^^^^^^^^^^ string.unquoted.sshd_config
+#                                        ^^^^^^^^^^^^^^^ string.unquoted.ssh.common
 #                                           ^ punctuation.separator.sequence.ssh.common
 #                                                   ^ punctuation.separator.sequence.ssh.common
     PasswordAuthentication yes
