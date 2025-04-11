@@ -141,12 +141,24 @@ contexts:
         - include: host-patterns
 
     # Match predicates with generic string arguments
-    - match: '\b(?xi: (?:local)? user | tagged )\b'
+    - match: '\b(?xi: (?:local)? user | tagged | version | command | sessiontype )\b'
       scope: keyword.other.ssh_config
       push:
         - include: pop-before-match-parameter
-        - match: \S
-          scope: string.unquoted.ssh_config
+        - match: '"'
+          scope: punctuation.definition.string.begin.ssh_config
+          push:
+            - meta_scope: meta.string.ssh_config string.quoted.double.ssh_config
+            - match: '"'
+              scope: punctuation.definition.string.end.ssh_config
+              pop: 1
+            - include: wildcards
+        - match: (?=\S)
+          push:
+            - meta_scope: string.unquoted.ssh_config
+            - match: (?=\s)
+              pop: 1
+            - include: wildcards
 
     # Match predicates with CIDR arguments
     - match: '\b(?xi: localnetwork )\b'
@@ -419,5 +431,5 @@ variables:
   match_parameters: |-
     \b(?xi:
       all | canonical | final | exec | localnetwork | host | originalhost
-    | tagged | user | localuser
+    | tagged | command | user | localuser | version | sessiontype
     )\b
