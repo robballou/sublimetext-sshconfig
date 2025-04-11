@@ -282,6 +282,8 @@ contexts:
     - match: \b\d+(?=[\s,:"])
       scope: constant.numeric.sshd_config
 
+###############################################################################
+
 variables:
   all_parameters: |-
     \b(?xi:
