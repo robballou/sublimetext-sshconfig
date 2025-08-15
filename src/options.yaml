@@ -340,6 +340,12 @@
     NumberOfPasswordPrompts:
       details: Number of password attempts before deny
       values: ${0:1}
+    ObscureKeystrokeTiming:
+      details: Burst keystrokes and send fake packets
+      values:
+        - 'yes'
+        - 'no'
+        - interval:80
     PasswordAuthentication:
       details: Disable CLI password entry
       values:
@@ -350,6 +356,9 @@
       values:
         - 'yes'
         - 'no'
+    PermitRemoteOpen:
+      details: Destinations allowed for <code>RemoteForward</code>
+      values: ${0:host:port}
     PKCS11Provider:
       details: Specify a PKCS#11 provider
     Port:
@@ -391,6 +400,11 @@
       values:
         - 'yes'
         - 'no'
+    RefuseConnection:
+      details: Terminate without connecting
+      values:
+        - 'yes'
+        - 'no'
     RekeyLimit:
       details: Data-length and duration before rekey
       values: ${0:2G 3h}
@@ -421,6 +435,7 @@
       details: Path to alternative library for FIDO keys
     SendEnv:
       details: Patterns for environment vars to send to remote
+      values: ${0:Lang LC_*}
     ServerAliveCountMax:
       details: Number of check-alive messages to send before giving up
       values: ${0:3}
@@ -511,6 +526,12 @@
       values:
         - 'yes'
         - 'no'
+    WarnWeakCrypto:
+      details: Warn about crypto recommendations
+      values:
+        - 'yes'
+        - no-pq-kex
+        - 'no'
     XAuthLocation:
       details: Full pathname of the <code>xauth</code> program
       values: ${0:/usr/X11R6/bin/xauth}
@@ -521,6 +542,10 @@
     annotation: match condition
     kind: [keyword, c, Condition]
   items:
+    All:
+      details: Always matches
+    Invalid-User:
+      details: Match if no local account matches the user
     User:
       details: Match if user matches patterns
       values: ${1:user1,user2}
@@ -536,6 +561,8 @@
     LocalPort:
       details: Match if listening port matches patterns
       values: ${1:22,2222}
+    Version:
+      details: Match version of SSHD server
     RDomain:
       details: Match if in the routing domain
       values: ${0:4}
@@ -892,6 +919,11 @@
       values:
         - 'yes'
         - 'no'
+    RefuseConnection:
+      details: Immediately terminate the connection
+      values:
+        - 'yes'
+        - 'no'
     RekeyLimit:
       details: Data-length and duration before re-key
       values: ${0:2G 3h}
@@ -911,6 +943,7 @@
       details: Set one or more environment variables
       values: ${0:NAME="VALUE"}
     ShowPatchLevel:
+    # SshdAuthPath:  # Just for tests
     # SshSessionPath:  # Just for tests
     StreamLocalBindMask:
       details: File mode <code>umask</code> when creating a forwarded port

@@ -327,7 +327,7 @@ contexts:
           | EnableEscapeCommandLine | EnableSSHKeySign
           | ForkAfterAuthentication | GatewayPorts | HashKnownHosts
           | IdentitiesOnly | NoHostAuthenticationForLocalhost
-          | PermitLocalCommand | ProxyUseFdpass | StdinNull
+          | PermitLocalCommand | ProxyUseFdpass | RefuseConnection | StdinNull
           | StreamLocalBindUnlink | TCPKeepAlive
           | UseKeychain | UsePrivilegedPort | VisualHostKey
           | GSSAPI (?:

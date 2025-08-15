@@ -2,6 +2,26 @@
     "scope": "source.sshd_config meta.block.match meta.statement.conditional",
     "completions": [
         {
+            "trigger": "All",
+            "contents": "All",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Always matches"
+        },
+        {
+            "trigger": "Invalid-User",
+            "contents": "Invalid-User",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match if no local account matches the user"
+        },
+        {
             "trigger": "User",
             "contents": "User",
             "kind": [
@@ -80,6 +100,16 @@
             "contents": "LocalPort ${1:22,2222}",
             "kind": "snippet",
             "details": "Match if listening port matches patterns"
+        },
+        {
+            "trigger": "Version",
+            "contents": "Version",
+            "kind": [
+                "keyword",
+                "c",
+                "Condition"
+            ],
+            "details": "Match version of SSHD server"
         },
         {
             "trigger": "RDomain",

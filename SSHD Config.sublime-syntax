@@ -78,6 +78,9 @@ contexts:
     - include: operator-exclamation
     - include: match-all
 
+    - match: '\b(?xi: invalid-user )\b'
+      scope: constant.language.null.sshd_config
+
     - match: '\b(?xi: host )\b'
       scope: meta.mapping.key.sshd_config
              keyword.other.sshd_config
@@ -309,7 +312,8 @@ variables:
                | PubkeyAuthentication )
       | RekeyLimit | RequiredRSASize | RevokedKeys | RDomain
       | RhostsRSAAuthentication | RSAAuthentication
-      | SecurityKeyProvider | ServerKeyBits | SetEnv | ShowPatchLevel  # SshSessionPath is just for tests
+      | SecurityKeyProvider | ServerKeyBits | SetEnv | ShowPatchLevel
+      # SshdAuthPath and SshSessionPath are just for tests
       | StreamLocalBindMask | StreamLocalBindUnlink
       | StrictModes | Subsystem | SyslogFacility
       | TCPKeepAlive | TrustedUserCAKeys
@@ -333,6 +337,7 @@ variables:
       | PasswordAuthentication | PermitEmptyPasswords | PermitTTY
       | PermitUserEnvironment | PermitUserRC | PrintLastLog | PrintMotd
       | PubkeyAuthentication
+      | RefuseConnection
       | StreamLocalBindUnlink | StrictModes
       | TCPKeepAlive
       | UseDNS | UsePAM

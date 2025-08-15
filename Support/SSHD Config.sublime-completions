@@ -842,6 +842,18 @@
             "details": "Disable asymmetric key authentication"
         },
         {
+            "trigger": "RefuseConnection",
+            "contents": "RefuseConnection",
+            "kind": "keyword",
+            "details": "Immediately terminate the connection"
+        },
+        {
+            "trigger": "refuseconnection",
+            "contents": "RefuseConnection ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Immediately terminate the connection"
+        },
+        {
             "trigger": "RekeyLimit",
             "contents": "RekeyLimit",
             "kind": "keyword",

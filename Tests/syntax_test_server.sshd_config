@@ -398,3 +398,17 @@ Match User username1,username2 Address *,!192.168.0.0/16 All
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
 #   ^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
 #                ^^^^^^^^^^^^^^^^^ meta.mapping.value.sshd_config source.shell meta.function-call.identifier.shell meta.command.shell variable.function.shell
+
+Match Invalid-User
+#^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#^^^^ keyword.control.conditional.sshd_config
+#    ^^^^^^^^^^^^^ meta.statement.conditional.sshd_config
+#     ^^^^^^^^^^^^ constant.language.null.sshd_config
+    RefuseConnection yes
+#^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                    ^^^ meta.mapping.value.ssh.common constant.language.boolean.true.ssh.common
+    RefuseConnection foo
+#^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.sshd_config
+#   ^^^^^^^^^^^^^^^^ meta.mapping.key.sshd_config keyword.other.sshd_config
+#                    ^^^ meta.mapping.value.ssh.common invalid.illegal.sshd_config

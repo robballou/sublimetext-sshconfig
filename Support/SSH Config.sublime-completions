@@ -806,6 +806,18 @@
             "details": "Number of password attempts before deny"
         },
         {
+            "trigger": "ObscureKeystrokeTiming",
+            "contents": "ObscureKeystrokeTiming",
+            "kind": "keyword",
+            "details": "Burst keystrokes and send fake packets"
+        },
+        {
+            "trigger": "obscurekeystroketiming",
+            "contents": "ObscureKeystrokeTiming ${0:{ yes | no | interval:80 \\}}",
+            "kind": "snippet",
+            "details": "Burst keystrokes and send fake packets"
+        },
+        {
             "trigger": "PasswordAuthentication",
             "contents": "PasswordAuthentication",
             "kind": "keyword",
@@ -828,6 +840,18 @@
             "contents": "PermitLocalCommand ${0:{ yes | no \\}}",
             "kind": "snippet",
             "details": "Enable <code>LocalCommand</code> execution"
+        },
+        {
+            "trigger": "PermitRemoteOpen",
+            "contents": "PermitRemoteOpen",
+            "kind": "keyword",
+            "details": "Destinations allowed for <code>RemoteForward</code>"
+        },
+        {
+            "trigger": "permitremoteopen",
+            "contents": "PermitRemoteOpen ${0:host:port}",
+            "kind": "snippet",
+            "details": "Destinations allowed for <code>RemoteForward</code>"
         },
         {
             "trigger": "PKCS11Provider",
@@ -944,6 +968,18 @@
             "details": "Disable asymmetric key authentication"
         },
         {
+            "trigger": "RefuseConnection",
+            "contents": "RefuseConnection",
+            "kind": "keyword",
+            "details": "Terminate without connecting"
+        },
+        {
+            "trigger": "refuseconnection",
+            "contents": "RefuseConnection ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Terminate without connecting"
+        },
+        {
             "trigger": "RekeyLimit",
             "contents": "RekeyLimit",
             "kind": "keyword",
@@ -1037,6 +1073,12 @@
             "trigger": "SendEnv",
             "contents": "SendEnv",
             "kind": "keyword",
+            "details": "Patterns for environment vars to send to remote"
+        },
+        {
+            "trigger": "sendenv",
+            "contents": "SendEnv ${0:Lang LC_*}",
+            "kind": "snippet",
             "details": "Patterns for environment vars to send to remote"
         },
         {
@@ -1278,6 +1320,18 @@
             "contents": "VisualHostKey ${0:{ yes | no \\}}",
             "kind": "snippet",
             "details": "Show ASCII art for host's key"
+        },
+        {
+            "trigger": "WarnWeakCrypto",
+            "contents": "WarnWeakCrypto",
+            "kind": "keyword",
+            "details": "Warn about crypto recommendations"
+        },
+        {
+            "trigger": "warnweakcrypto",
+            "contents": "WarnWeakCrypto ${0:{ yes | no-pq-kex | no \\}}",
+            "kind": "snippet",
+            "details": "Warn about crypto recommendations"
         },
         {
             "trigger": "XAuthLocation",
