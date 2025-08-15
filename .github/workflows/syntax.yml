@@ -27,7 +27,7 @@ jobs:
           - build: 'latest'
             packages: master
           - build: 'stable'
-            packages: v4193  # revert to 'binary' when Bash rewrite drops in stable
+            packages: binary
           - build: 4185  # Required for symbol transformation tests
             packages: v4193  # Bash rewrite
     steps:
