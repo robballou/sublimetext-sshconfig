@@ -4,11 +4,16 @@
     <key>name</key>
     <string>Symbol List: SSH Hostnames</string>
     <key>scope</key>
-    <string>source.ssh_config meta.string.host</string>
+    <string>
+        source.ssh_config meta.string.host,
+        source.ssh_config entity.name.label.host-alias
+    </string>
     <key>settings</key>
     <dict>
         <key>showInSymbolList</key>
         <integer>1</integer>
+        <key>showInIndexedSymbolList</key>
+        <integer>0</integer>
         <key>symbolTransformation</key>
         <string>
         s/(.+)/Host: $1/g;
