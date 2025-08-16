@@ -22,6 +22,26 @@
             ]
         },
         {
+            "trigger": "AEAD_CAMELLIA_128_GCM\tcipher",
+            "contents": "AEAD_CAMELLIA_128_GCM",
+            "annotation": "cipher",
+            "kind": [
+                "function",
+                "c",
+                "Cipher"
+            ]
+        },
+        {
+            "trigger": "AEAD_CAMELLIA_256_GCM\tcipher",
+            "contents": "AEAD_CAMELLIA_256_GCM",
+            "annotation": "cipher",
+            "kind": [
+                "function",
+                "c",
+                "Cipher"
+            ]
+        },
+        {
             "trigger": "aes128-ctr\tcipher",
             "contents": "aes128-ctr",
             "annotation": "cipher",
@@ -694,6 +714,17 @@
         {
             "trigger": "des\tdeprecated cipher",
             "contents": "des",
+            "annotation": "deprecated cipher",
+            "kind": [
+                "function",
+                "c",
+                "Cipher"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "grasshopper-ctr128\tdeprecated cipher",
+            "contents": "grasshopper-ctr128",
             "annotation": "deprecated cipher",
             "kind": [
                 "function",

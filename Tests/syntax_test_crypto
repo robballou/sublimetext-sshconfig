@@ -176,6 +176,10 @@ cipher: AEAD_AES_128_GCM
 #       ^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: AEAD_AES_256_GCM
 #       ^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
+cipher: AEAD_CAMELLIA_128_GCM
+#       ^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
+cipher: AEAD_CAMELLIA_256_GCM
+#       ^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: aes128-ctr
 #       ^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: aes128-gcm@openssh.com
@@ -304,6 +308,8 @@ cipher: des-ofb
 #       ^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: des
 #       ^^^ invalid.deprecated.cipher.ssh.crypto
+cipher: grasshopper-ctr128
+#       ^^^^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: idea-cbc
 #       ^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: idea-cfb
@@ -537,6 +543,10 @@ kex: m383-sha384@libassh.org
 #    ^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: m511-sha512@libassh.org
 #    ^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: mlkem768nistp256-sha256
+#    ^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: mlkem1024nistp384-sha384
+#    ^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: mlkem768x25519-sha256
 #    ^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: rsa2048-sha256

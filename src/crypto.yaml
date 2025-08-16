@@ -121,6 +121,8 @@ ciphers:
     items:
       - AEAD_AES_128_GCM
       - AEAD_AES_256_GCM
+      - AEAD_CAMELLIA_128_GCM
+      - AEAD_CAMELLIA_256_GCM
       - aes128-ctr
       - aes128-gcm@openssh.com
       - aes128-gcm
@@ -188,6 +190,7 @@ ciphers:
       - des-ecb
       - des-ofb
       - des
+      - grasshopper-ctr128  # https://eprint.iacr.org/2016/071.pdf
       - idea-cbc
       - idea-cfb
       - idea-ctr
@@ -319,6 +322,8 @@ kex-algorithms:
       - kex-strict-s-v00@openssh.com
       - m383-sha384@libassh.org
       - m511-sha512@libassh.org
+      - mlkem768nistp256-sha256
+      - mlkem1024nistp384-sha384
       - mlkem768x25519-sha256
       - rsa2048-sha256
       - sm2kep-sha2-nistp256

@@ -872,6 +872,26 @@
             ]
         },
         {
+            "trigger": "mlkem768nistp256-sha256\tkex",
+            "contents": "mlkem768nistp256-sha256",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
+            "trigger": "mlkem1024nistp384-sha384\tkex",
+            "contents": "mlkem1024nistp384-sha384",
+            "annotation": "kex",
+            "kind": [
+                "function",
+                "k",
+                "Kex Algm"
+            ]
+        },
+        {
             "trigger": "mlkem768x25519-sha256\tkex",
             "contents": "mlkem768x25519-sha256",
             "annotation": "kex",
