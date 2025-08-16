@@ -435,7 +435,7 @@
       details: Path to alternative library for FIDO keys
     SendEnv:
       details: Patterns for environment vars to send to remote
-      values: ${0:Lang LC_*}
+      values: ${0:LANG LC_*}
     ServerAliveCountMax:
       details: Number of check-alive messages to send before giving up
       values: ${0:3}

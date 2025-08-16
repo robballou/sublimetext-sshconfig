@@ -1077,7 +1077,7 @@
         },
         {
             "trigger": "sendenv",
-            "contents": "SendEnv ${0:Lang LC_*}",
+            "contents": "SendEnv ${0:LANG LC_*}",
             "kind": "snippet",
             "details": "Patterns for environment vars to send to remote"
         },
