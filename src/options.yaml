@@ -290,7 +290,7 @@
       values: ${0:~/.ssh/config_*_cloud}
     IPQoS:
       details: IPv4 type-of-service or DSCP class for connections
-      values: ${0:{ af11 | af12 | ... | lowdelay | throughput | reliability \}}
+      values: ${0:{ af11 | af12 | ... | none \}}
     KbdInteractiveAuthentication:
       details: Disable interactive login on the CLI
       values:
@@ -749,7 +749,7 @@
       values: ${0:/etc/ssh/sshd_config_*}
     IPQoS:
       details: IPv4 type-of-service or DSCP class for the connection
-      values: ${0:{ af11 | af12 | ... | lowdelay | throughput | reliability \}}
+      values: ${0:{ af11 | af12 | ... | none \}}
     KbdInteractiveAuthentication:
       details: Allow keyboard-interactive authentication
       values:

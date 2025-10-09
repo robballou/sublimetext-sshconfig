@@ -402,26 +402,6 @@
             ]
         },
         {
-            "trigger": "ssh-xmss-cert-v01@openssh.com\tkey type",
-            "contents": "ssh-xmss-cert-v01@openssh.com",
-            "annotation": "key type",
-            "kind": [
-                "type",
-                "k",
-                "Key type"
-            ]
-        },
-        {
-            "trigger": "ssh-xmss@openssh.com\tkey type",
-            "contents": "ssh-xmss@openssh.com",
-            "annotation": "key type",
-            "kind": [
-                "type",
-                "k",
-                "Key type"
-            ]
-        },
-        {
             "trigger": "webauthn-sk-ecdsa-sha2-nistp256@openssh.com\tkey type",
             "contents": "webauthn-sk-ecdsa-sha2-nistp256@openssh.com",
             "annotation": "key type",
@@ -782,6 +762,28 @@
         {
             "trigger": "ssh-rsa1\tdeprecated key type",
             "contents": "ssh-rsa1",
+            "annotation": "deprecated key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ssh-xmss-cert-v01@openssh.com\tdeprecated key type",
+            "contents": "ssh-xmss-cert-v01@openssh.com",
+            "annotation": "deprecated key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ],
+            "details": "Deprecated"
+        },
+        {
+            "trigger": "ssh-xmss@openssh.com\tdeprecated key type",
+            "contents": "ssh-xmss@openssh.com",
             "annotation": "deprecated key type",
             "kind": [
                 "type",

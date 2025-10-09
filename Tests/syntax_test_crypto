@@ -83,10 +83,6 @@ key type: ssh-rsa-sha512@ssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-rsa
 #         ^^^^^^^ support.type.key-type.ssh.crypto
-key type: ssh-xmss-cert-v01@openssh.com
-#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: ssh-xmss@openssh.com
-#         ^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: webauthn-sk-ecdsa-sha2-nistp256@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: x509v3-ecdsa-sha2-1.3.132.0.10
@@ -157,6 +153,10 @@ key type: ssh-rsa-cert-v01@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: ssh-rsa1
 #         ^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
+key type: ssh-xmss-cert-v01@openssh.com
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
+key type: ssh-xmss@openssh.com
+#         ^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: x509v3-sign-dss-sha1
 #         ^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: x509v3-sign-dss

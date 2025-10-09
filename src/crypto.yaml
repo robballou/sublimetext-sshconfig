@@ -57,8 +57,6 @@ key-types:
       - ssh-rsa-sha384@ssh.com
       - ssh-rsa-sha512@ssh.com
       - ssh-rsa
-      - ssh-xmss-cert-v01@openssh.com
-      - ssh-xmss@openssh.com
       - webauthn-sk-ecdsa-sha2-nistp256@openssh.com
       - x509v3-ecdsa-sha2-1.3.132.0.10
       - x509v3-ecdsa-sha2-nistp256
@@ -97,6 +95,8 @@ key-types:
       - ssh-rsa-cert-v00@openssh.com
       - ssh-rsa-cert-v01@openssh.com
       - ssh-rsa1
+      - ssh-xmss-cert-v01@openssh.com
+      - ssh-xmss@openssh.com
       - x509v3-sign-dss-sha1
       - x509v3-sign-dss
       - x509v3-sign-rsa-sha1

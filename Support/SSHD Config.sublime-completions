@@ -435,7 +435,7 @@
         },
         {
             "trigger": "ipqos",
-            "contents": "IPQoS ${0:{ af11 | af12 | ... | lowdelay | throughput | reliability \\}}",
+            "contents": "IPQoS ${0:{ af11 | af12 | ... | none \\}}",
             "kind": "snippet",
             "details": "IPv4 type-of-service or DSCP class for the connection"
         },
