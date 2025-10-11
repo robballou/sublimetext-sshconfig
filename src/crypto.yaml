@@ -20,50 +20,49 @@ key-types:
       - dsa2048-sha224@libassh.org
       - dsa2048-sha256@libassh.org
       - dsa3072-sha256@libassh.org
-      - ecdsa-sha2-1.3.132.0.10-cert-v01@openssh.com
       - ecdsa-sha2-1.3.132.0.10 # ECDSA over secp256k1 (i.e. the Bitcoin curve)
+      - ecdsa-sha2-1.3.132.0.10-cert-v01@openssh.com
       - ecdsa-sha2-curve25519
       - ecdsa-sha2-nistb409
       - ecdsa-sha2-nistk163
       - ecdsa-sha2-nistk233
       - ecdsa-sha2-nistk283
       - ecdsa-sha2-nistk409
-      - ecdsa-sha2-nistp256-cert-v01@openssh.com
       - ecdsa-sha2-nistp256
-      - ecdsa-sha2-nistp384-cert-v01@openssh.com
+      - ecdsa-sha2-nistp256-cert-v01@openssh.com
       - ecdsa-sha2-nistp384
-      - ecdsa-sha2-nistp521-cert-v01@openssh.com
+      - ecdsa-sha2-nistp384-cert-v01@openssh.com
       - ecdsa-sha2-nistp521
+      - ecdsa-sha2-nistp521-cert-v01@openssh.com
       - ecdsa-sha2-nistt571
       - eddsa-e382-shake256@libassh.org
       - eddsa-e521-shake256@libassh.org
-      - rsa-sha2-256-cert-v01@openssh.com
       - rsa-sha2-256
-      - rsa-sha2-512-cert-v01@openssh.com
+      - rsa-sha2-256-cert-v01@openssh.com
       - rsa-sha2-512
+      - rsa-sha2-512-cert-v01@openssh.com
       - sk-ecdsa-sha2-nistp256-cert-v01@openssh.com
       - sk-ecdsa-sha2-nistp256@openssh.com
       - spi-sign-rsa
-      - ssh-ed25519-cert-v01@openssh.com
       - ssh-ed25519
+      - ssh-ed25519-cert-v01@openssh.com
       - ssh-ed448
       - ssh-gost-2001
       - ssh-gost-2012-256
       - ssh-gost-2012-512
-      - ssh-rsa-sha256@ssh.com
+      - ssh-rsa
       - ssh-rsa-sha2-256
       - ssh-rsa-sha2-512
       - ssh-rsa-sha256@ssh.com
+      - ssh-rsa-sha256@ssh.com
       - ssh-rsa-sha384@ssh.com
       - ssh-rsa-sha512@ssh.com
-      - ssh-rsa
       - webauthn-sk-ecdsa-sha2-nistp256@openssh.com
       - x509v3-ecdsa-sha2-1.3.132.0.10
       - x509v3-ecdsa-sha2-nistp256
       - x509v3-ecdsa-sha2-nistp384
       - x509v3-ecdsa-sha2-nistp521
       - x509v3-rsa2048-sha256
-      - x509v3-sign-rsa-sha256@ssh.com
       - x509v3-sign-dss-sha224@ssh.com
       - x509v3-sign-dss-sha256@ssh.com
       - x509v3-sign-dss-sha384@ssh.com
@@ -71,15 +70,16 @@ key-types:
       - x509v3-sign-rsa-sha224@ssh.com
       - x509v3-sign-rsa-sha256
       - x509v3-sign-rsa-sha256@ssh.com
+      - x509v3-sign-rsa-sha256@ssh.com
       - x509v3-sign-rsa-sha384@ssh.com
       - x509v3-sign-rsa-sha512@ssh.com
   deprecated:
     scope: invalid.deprecated.key-type.ssh.crypto
     items:
-      - ecdsa-sha2-nistb233
-      - ecdsa-sha2-nistp224
-      - ecdsa-sha2-nistp192
       - 'null'
+      - ecdsa-sha2-nistb233
+      - ecdsa-sha2-nistp192
+      - ecdsa-sha2-nistp224
       - pgp-sign-dss
       - pgp-sign-rsa
       - spki-sign-dss
@@ -97,10 +97,10 @@ key-types:
       - ssh-rsa1
       - ssh-xmss-cert-v01@openssh.com
       - ssh-xmss@openssh.com
-      - x509v3-sign-dss-sha1
       - x509v3-sign-dss
-      - x509v3-sign-rsa-sha1
+      - x509v3-sign-dss-sha1
       - x509v3-sign-rsa
+      - x509v3-sign-rsa-sha1
       - x509v3-ssh-dss
       - x509v3-ssh-rsa
 
@@ -124,55 +124,55 @@ ciphers:
       - AEAD_CAMELLIA_128_GCM
       - AEAD_CAMELLIA_256_GCM
       - aes128-ctr
-      - aes128-gcm@openssh.com
       - aes128-gcm
-      - aes192-gcm@openssh.com
+      - aes128-gcm@openssh.com
       - aes192-ctr
+      - aes192-gcm@openssh.com
       - aes256-ctr
-      - aes256-gcm@openssh.com
       - aes256-gcm
-      - camellia128-ctr@openssh.org
+      - aes256-gcm@openssh.com
       - camellia128-ctr
-      - camellia192-ctr@openssh.org
+      - camellia128-ctr@openssh.org
       - camellia192-ctr
-      - camellia256-ctr@openssh.org
+      - camellia192-ctr@openssh.org
       - camellia256-ctr
-      - chacha20-poly1305@openssh.com
+      - camellia256-ctr@openssh.org
       - chacha20-poly1305
+      - chacha20-poly1305@openssh.com
       - crypticore128@ssh.com
+      - twofish-ctr
       - twofish128-ctr
       - twofish128-gcm@libassh.org
       - twofish192-ctr
       - twofish256-ctr
       - twofish256-gcm@libassh.org
-      - twofish-ctr
   deprecated:
     scope: invalid.deprecated.cipher.ssh.crypto
     items:
+      - 3des
       - 3des-cbc
       - 3des-cfb
       - 3des-ctr
       - 3des-ecb
       - 3des-ofb
-      - 3des
       - aes128-cbc
+      - aes128-ocb@libassh.org
       - aes192-cbc
       - aes256-cbc
-      - aes128-ocb@libassh.org
+      - arcfour
       - arcfour128
       - arcfour256
-      - arcfour
+      - blowfish
       - blowfish-cbc
       - blowfish-cfb
       - blowfish-ctr
       - blowfish-ecb
-      - blowfish
-      - camellia128-cbc@openssh.org
       - camellia128-cbc
-      - camellia192-cbc@openssh.org
+      - camellia128-cbc@openssh.org
       - camellia192-cbc
-      - camellia256-cbc@openssh.org
+      - camellia192-cbc@openssh.org
       - camellia256-cbc
+      - camellia256-cbc@openssh.org
       - cast128-12-cbc
       - cast128-12-cfb
       - cast128-12-ctr
@@ -183,13 +183,13 @@ ciphers:
       - cast128-ctr
       - cast128-ecb
       - cast128-ofb
+      - des
+      - des-cbc
       - des-cbc-ssh1
       - des-cbc@ssh.com
-      - des-cbc
       - des-cfb
       - des-ecb
       - des-ofb
-      - des
       - grasshopper-ctr128  # https://eprint.iacr.org/2016/071.pdf
       - idea-cbc
       - idea-cfb
@@ -212,13 +212,13 @@ ciphers:
       - serpent256-cbc
       - serpent256-ctr
       - serpent256-gcm@libassh.org
-      - twofish128-cbc
-      - twofish192-cbc
-      - twofish256-cbc
       - twofish-cbc
       - twofish-cfb
       - twofish-ecb
       - twofish-ofb
+      - twofish128-cbc
+      - twofish192-cbc
+      - twofish256-cbc
 
 
 kex-algorithms:
@@ -235,35 +235,35 @@ kex-algorithms:
   active:
     scope: support.function.kex-algorithm.ssh.crypto
     items:
-      - curve25519-sha256@libssh.org
-      - curve25519-sha256
       - Curve25519SHA256
-      - curve448-sha512@libssh.org
+      - curve25519-sha256
+      - curve25519-sha256@libssh.org
       - curve448-sha512
-      - diffie-hellman-group-exchange-sha256@ssh.com
+      - curve448-sha512@libssh.org
+      - diffie-hellman-group-exchange-sha224@ssh.com
       - diffie-hellman-group-exchange-sha256
+      - diffie-hellman-group-exchange-sha256
+      - diffie-hellman-group-exchange-sha256@ssh.com
+      - diffie-hellman-group-exchange-sha256@ssh.com
+      - diffie-hellman-group-exchange-sha384@ssh.com
+      - diffie-hellman-group-exchange-sha512@ssh.com
       - diffie-hellman-group-exchange-sha512@ssh.com
       - diffie-hellman-group1-sha256
       - diffie-hellman-group14-sha224@ssh.com
       - diffie-hellman-group14-sha256
       - diffie-hellman-group14-sha256@ssh.com
-      - diffie-hellman-group15-sha256@ssh.com
       - diffie-hellman-group15-sha256
+      - diffie-hellman-group15-sha256@ssh.com
       - diffie-hellman-group15-sha384@ssh.com
       - diffie-hellman-group15-sha512
       - diffie-hellman-group16-sha256
       - diffie-hellman-group16-sha384@ssh.com
-      - diffie-hellman-group16-sha512@ssh.com
       - diffie-hellman-group16-sha512
+      - diffie-hellman-group16-sha512@ssh.com
       - diffie-hellman-group17-sha512
-      - diffie-hellman_group17-sha512
-      - diffie-hellman-group18-sha512@ssh.com
       - diffie-hellman-group18-sha512
-      - diffie-hellman-group-exchange-sha224@ssh.com
-      - diffie-hellman-group-exchange-sha256@ssh.com
-      - diffie-hellman-group-exchange-sha256
-      - diffie-hellman-group-exchange-sha384@ssh.com
-      - diffie-hellman-group-exchange-sha512@ssh.com
+      - diffie-hellman-group18-sha512@ssh.com
+      - diffie-hellman_group17-sha512
       - ecdh-nistp256-kyber-512r3-sha256-d00@openquantumsafe.org
       - ecdh-nistp384-kyber-768r3-sha384-d00@openquantumsafe.org
       - ecdh-nistp521-kyber-1024r3-sha512-d00@openquantumsafe.org
@@ -276,11 +276,11 @@ kex-algorithms:
       - ecdh-sha2-1.3.132.0.37
       - ecdh-sha2-1.3.132.0.38
       - ecdh-sha2-9UzNcgwTlEnSCECZa7V1mw==
+      - ecdh-sha2-D3FefCjYoJ/kfXgAyLddYA==
       - ecdh-sha2-brainpoolp256r1@genua.de
       - ecdh-sha2-brainpoolp384r1@genua.de
       - ecdh-sha2-brainpoolp521r1@genua.de
       - ecdh-sha2-curve25519
-      - ecdh-sha2-D3FefCjYoJ/kfXgAyLddYA==
       - ecdh-sha2-h/SsxnLCtRBh7I9ATyeB3A==
       - ecdh-sha2-m/FtSAmrV4j/Wy6RVUaK7A==
       - ecdh-sha2-mNVwCXAoS1HGmHpLvBC94w==
@@ -302,10 +302,10 @@ kex-algorithms:
       - gss-curve25519-sha256-
       - gss-curve448-sha512-
       - gss-gex-sha256-
-      - gss-group14-sha256-toWM5Slw5Ew8Mqkay+al2g==
       - gss-group14-sha256-
-      - gss-group15-sha512-toWM5Slw5Ew8Mqkay+al2g==
+      - gss-group14-sha256-toWM5Slw5Ew8Mqkay+al2g==
       - gss-group15-sha512-
+      - gss-group15-sha512-toWM5Slw5Ew8Mqkay+al2g==
       - gss-group16-sha512-
       - gss-group17-sha512-
       - gss-group18-sha512-
@@ -313,17 +313,17 @@ kex-algorithms:
       - gss-nistp384-sha256-
       - gss-nistp384-sha384-
       - gss-nistp521-sha512-
+      - kex-strict-c-v00@openssh.com
+      - kex-strict-s-v00@openssh.com
       - kexAlgoCurve25519SHA256
       - kexAlgoECDH256
       - kexAlgoECDH384
       - kexAlgoECDH521
       - kexguess2@matt.ucc.asn.au
-      - kex-strict-c-v00@openssh.com
-      - kex-strict-s-v00@openssh.com
       - m383-sha384@libassh.org
       - m511-sha512@libassh.org
-      - mlkem768nistp256-sha256
       - mlkem1024nistp384-sha384
+      - mlkem768nistp256-sha256
       - mlkem768x25519-sha256
       - rsa2048-sha256
       - sm2kep-sha2-nistp256
@@ -344,18 +344,18 @@ kex-algorithms:
       - ecdh-sha2-1.3.132.0.33
       - ecdh-sha2-4MHB+NBt3AlaSRQ7MnB4cg==
       - ecdh-sha2-5pPrSUQtIaTjUSt5VZNBjg==
+      - ecdh-sha2-VqBg4QRPjxx1EXZdV0GdWQ==
       - ecdh-sha2-nistb233
       - ecdh-sha2-nistk163
       - ecdh-sha2-nistk233
       - ecdh-sha2-qCbG5Cn/jjsZ7nBeR7EnOA==
-      - ecdh-sha2-VqBg4QRPjxx1EXZdV0GdWQ==
       - ecdh-sha2-zD/b3hu/71952ArpUG4OjQ==
-      - gss-gex-sha1-toWM5Slw5Ew8Mqkay+al2g==
       - gss-gex-sha1-
-      - gss-group1-sha1-toWM5Slw5Ew8Mqkay+al2g==
+      - gss-gex-sha1-toWM5Slw5Ew8Mqkay+al2g==
       - gss-group1-sha1-
-      - gss-group14-sha1-toWM5Slw5Ew8Mqkay+al2g==
+      - gss-group1-sha1-toWM5Slw5Ew8Mqkay+al2g==
       - gss-group14-sha1-
+      - gss-group14-sha1-toWM5Slw5Ew8Mqkay+al2g==
       - kexAlgoDH14SHA1
       - kexAlgoDH1SHA1
       - rsa1024-sha1
@@ -384,26 +384,26 @@ mac-algorithms:
       - chacha20-poly1305@openssh.com
       - crypticore-mac@ssh.com
       - hmac-sha2-224
+      - hmac-sha2-256
       - hmac-sha2-256-96-etm@openssh.com
       - hmac-sha2-256-etm@openssh.com
-      - hmac-sha2-256
       - hmac-sha2-384
+      - hmac-sha2-512
       - hmac-sha2-512-96-etm@openssh.com
       - hmac-sha2-512-etm@openssh.com
-      - hmac-sha2-512
       - hmac-sha2-56
+      - hmac-sha256
       - hmac-sha256-96@ssh.com
       - hmac-sha256@ssh.com
-      - hmac-sha256
       - hmac-sha3-224
       - hmac-sha3-256
       - hmac-sha3-384
       - hmac-sha3-512
-      - hmac-sha512@ssh.com
       - hmac-sha512
+      - hmac-sha512@ssh.com
+      - umac-128
       - umac-128-etm@openssh.com
       - umac-128@openssh.com
-      - umac-128
       - umac-32@openssh.com
       - umac-64-etm@openssh.com
       - umac-64@openssh.com
@@ -415,27 +415,27 @@ mac-algorithms:
       - cbcmac-blowfish
       - cbcmac-des
       - cbcmac-rijndael
+      - hmac-md5
       - hmac-md5-96
       - hmac-md5-96-etm@openssh.com
       - hmac-md5-etm@openssh.com
-      - hmac-md5
+      - hmac-ripemd
+      - hmac-ripemd160
+      - hmac-ripemd160-96
       - hmac-ripemd160-etm@openssh.com
       - hmac-ripemd160@openssh.com
-      - hmac-ripemd160-96
-      - hmac-ripemd160
-      - hmac-ripemd
-      - hmac-sha1-96-etm@openssh.com
-      - hmac-sha1-96
-      - hmac-sha1-etm@openssh.com
       - hmac-sha1
+      - hmac-sha1-96
+      - hmac-sha1-96-etm@openssh.com
+      - hmac-sha1-etm@openssh.com
       - hmac-sha2-256-96
       - hmac-sha2-512-96
-      - none
-      - md5-8
       - md5
-      - ripemd160-8
+      - md5-8
+      - none
       - ripemd160
-      - sha1-8
+      - ripemd160-8
       - sha1
+      - sha1-8
 
 ...
