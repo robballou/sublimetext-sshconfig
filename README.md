@@ -101,9 +101,6 @@ Several solutions are [available on the wiki][wiki-activation].
   Its only requirement is `pyyaml`.
 - Changes to any of the above
   should be modified in YAML and rebuilt.
-- Crypto items are sorted alphabetically,
-  but any strings that are stems
-  of longer names are sorted to the bottom.
 - Changes to syntaxes do not need rebuilding,
   but do need regression testing.
 

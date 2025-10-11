@@ -9,10 +9,10 @@ key type: dsa2048-sha256@libassh.org
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: dsa3072-sha256@libassh.org
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: ecdsa-sha2-1.3.132.0.10-cert-v01@openssh.com
-#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ecdsa-sha2-1.3.132.0.10
 #         ^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
+key type: ecdsa-sha2-1.3.132.0.10-cert-v01@openssh.com
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ecdsa-sha2-curve25519
 #         ^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ecdsa-sha2-nistb409
@@ -25,42 +25,42 @@ key type: ecdsa-sha2-nistk283
 #         ^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ecdsa-sha2-nistk409
 #         ^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: ecdsa-sha2-nistp256-cert-v01@openssh.com
-#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ecdsa-sha2-nistp256
 #         ^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: ecdsa-sha2-nistp384-cert-v01@openssh.com
+key type: ecdsa-sha2-nistp256-cert-v01@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ecdsa-sha2-nistp384
 #         ^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: ecdsa-sha2-nistp521-cert-v01@openssh.com
+key type: ecdsa-sha2-nistp384-cert-v01@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ecdsa-sha2-nistp521
 #         ^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
+key type: ecdsa-sha2-nistp521-cert-v01@openssh.com
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ecdsa-sha2-nistt571
 #         ^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: eddsa-e382-shake256@libassh.org
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: eddsa-e521-shake256@libassh.org
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: rsa-sha2-256-cert-v01@openssh.com
-#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: rsa-sha2-256
 #         ^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: rsa-sha2-512-cert-v01@openssh.com
+key type: rsa-sha2-256-cert-v01@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: rsa-sha2-512
 #         ^^^^^^^^^^^^ support.type.key-type.ssh.crypto
+key type: rsa-sha2-512-cert-v01@openssh.com
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: sk-ecdsa-sha2-nistp256-cert-v01@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: sk-ecdsa-sha2-nistp256@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: spi-sign-rsa
 #         ^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: ssh-ed25519-cert-v01@openssh.com
-#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-ed25519
 #         ^^^^^^^^^^^ support.type.key-type.ssh.crypto
+key type: ssh-ed25519-cert-v01@openssh.com
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-ed448
 #         ^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-gost-2001
@@ -69,20 +69,20 @@ key type: ssh-gost-2012-256
 #         ^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-gost-2012-512
 #         ^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: ssh-rsa-sha256@ssh.com
-#         ^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
+key type: ssh-rsa
+#         ^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-rsa-sha2-256
 #         ^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-rsa-sha2-512
 #         ^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-rsa-sha256@ssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
+key type: ssh-rsa-sha256@ssh.com
+#         ^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-rsa-sha384@ssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-rsa-sha512@ssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: ssh-rsa
-#         ^^^^^^^ support.type.key-type.ssh.crypto
 key type: webauthn-sk-ecdsa-sha2-nistp256@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: x509v3-ecdsa-sha2-1.3.132.0.10
@@ -95,8 +95,6 @@ key type: x509v3-ecdsa-sha2-nistp521
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: x509v3-rsa2048-sha256
 #         ^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
-key type: x509v3-sign-rsa-sha256@ssh.com
-#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: x509v3-sign-dss-sha224@ssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: x509v3-sign-dss-sha256@ssh.com
@@ -111,18 +109,20 @@ key type: x509v3-sign-rsa-sha256
 #         ^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: x509v3-sign-rsa-sha256@ssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
+key type: x509v3-sign-rsa-sha256@ssh.com
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: x509v3-sign-rsa-sha384@ssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: x509v3-sign-rsa-sha512@ssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
+key type: null
+#         ^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: ecdsa-sha2-nistb233
-#         ^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
-key type: ecdsa-sha2-nistp224
 #         ^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: ecdsa-sha2-nistp192
 #         ^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
-key type: null
-#         ^^^^ invalid.deprecated.key-type.ssh.crypto
+key type: ecdsa-sha2-nistp224
+#         ^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: pgp-sign-dss
 #         ^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: pgp-sign-rsa
@@ -157,14 +157,14 @@ key type: ssh-xmss-cert-v01@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: ssh-xmss@openssh.com
 #         ^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
-key type: x509v3-sign-dss-sha1
-#         ^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: x509v3-sign-dss
 #         ^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
-key type: x509v3-sign-rsa-sha1
+key type: x509v3-sign-dss-sha1
 #         ^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: x509v3-sign-rsa
 #         ^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
+key type: x509v3-sign-rsa-sha1
+#         ^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: x509v3-ssh-dss
 #         ^^^^^^^^^^^^^^ invalid.deprecated.key-type.ssh.crypto
 key type: x509v3-ssh-rsa
@@ -182,38 +182,40 @@ cipher: AEAD_CAMELLIA_256_GCM
 #       ^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: aes128-ctr
 #       ^^^^^^^^^^ support.function.cipher.ssh.crypto
-cipher: aes128-gcm@openssh.com
-#       ^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: aes128-gcm
 #       ^^^^^^^^^^ support.function.cipher.ssh.crypto
-cipher: aes192-gcm@openssh.com
+cipher: aes128-gcm@openssh.com
 #       ^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: aes192-ctr
 #       ^^^^^^^^^^ support.function.cipher.ssh.crypto
+cipher: aes192-gcm@openssh.com
+#       ^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: aes256-ctr
+#       ^^^^^^^^^^ support.function.cipher.ssh.crypto
+cipher: aes256-gcm
 #       ^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: aes256-gcm@openssh.com
 #       ^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
-cipher: aes256-gcm
-#       ^^^^^^^^^^ support.function.cipher.ssh.crypto
-cipher: camellia128-ctr@openssh.org
-#       ^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: camellia128-ctr
 #       ^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
-cipher: camellia192-ctr@openssh.org
+cipher: camellia128-ctr@openssh.org
 #       ^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: camellia192-ctr
 #       ^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
-cipher: camellia256-ctr@openssh.org
+cipher: camellia192-ctr@openssh.org
 #       ^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: camellia256-ctr
 #       ^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
-cipher: chacha20-poly1305@openssh.com
-#       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
+cipher: camellia256-ctr@openssh.org
+#       ^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: chacha20-poly1305
 #       ^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
+cipher: chacha20-poly1305@openssh.com
+#       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: crypticore128@ssh.com
 #       ^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
+cipher: twofish-ctr
+#       ^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: twofish128-ctr
 #       ^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: twofish128-gcm@libassh.org
@@ -224,8 +226,8 @@ cipher: twofish256-ctr
 #       ^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
 cipher: twofish256-gcm@libassh.org
 #       ^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.cipher.ssh.crypto
-cipher: twofish-ctr
-#       ^^^^^^^^^^^ support.function.cipher.ssh.crypto
+cipher: 3des
+#       ^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: 3des-cbc
 #       ^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: 3des-cfb
@@ -236,22 +238,22 @@ cipher: 3des-ecb
 #       ^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: 3des-ofb
 #       ^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: 3des
-#       ^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: aes128-cbc
 #       ^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
+cipher: aes128-ocb@libassh.org
+#       ^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: aes192-cbc
 #       ^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: aes256-cbc
 #       ^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: aes128-ocb@libassh.org
-#       ^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
+cipher: arcfour
+#       ^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: arcfour128
 #       ^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: arcfour256
 #       ^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: arcfour
-#       ^^^^^^^ invalid.deprecated.cipher.ssh.crypto
+cipher: blowfish
+#       ^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: blowfish-cbc
 #       ^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: blowfish-cfb
@@ -260,20 +262,18 @@ cipher: blowfish-ctr
 #       ^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: blowfish-ecb
 #       ^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: blowfish
-#       ^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: camellia128-cbc@openssh.org
-#       ^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: camellia128-cbc
 #       ^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: camellia192-cbc@openssh.org
+cipher: camellia128-cbc@openssh.org
 #       ^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: camellia192-cbc
 #       ^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: camellia256-cbc@openssh.org
+cipher: camellia192-cbc@openssh.org
 #       ^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: camellia256-cbc
 #       ^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
+cipher: camellia256-cbc@openssh.org
+#       ^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: cast128-12-cbc
 #       ^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: cast128-12-cfb
@@ -294,20 +294,20 @@ cipher: cast128-ecb
 #       ^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: cast128-ofb
 #       ^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
+cipher: des
+#       ^^^ invalid.deprecated.cipher.ssh.crypto
+cipher: des-cbc
+#       ^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: des-cbc-ssh1
 #       ^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: des-cbc@ssh.com
 #       ^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: des-cbc
-#       ^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: des-cfb
 #       ^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: des-ecb
 #       ^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: des-ofb
 #       ^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: des
-#       ^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: grasshopper-ctr128
 #       ^^^^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: idea-cbc
@@ -352,12 +352,6 @@ cipher: serpent256-ctr
 #       ^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: serpent256-gcm@libassh.org
 #       ^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: twofish128-cbc
-#       ^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: twofish192-cbc
-#       ^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
-cipher: twofish256-cbc
-#       ^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: twofish-cbc
 #       ^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: twofish-cfb
@@ -366,23 +360,39 @@ cipher: twofish-ecb
 #       ^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 cipher: twofish-ofb
 #       ^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
+cipher: twofish128-cbc
+#       ^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
+cipher: twofish192-cbc
+#       ^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
+cipher: twofish256-cbc
+#       ^^^^^^^^^^^^^^ invalid.deprecated.cipher.ssh.crypto
 
 ###[ kex-algorithms ]##########################################################
 
-kex: curve25519-sha256@libssh.org
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: curve25519-sha256
-#    ^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: Curve25519SHA256
 #    ^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: curve448-sha512@libssh.org
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: curve25519-sha256
+#    ^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: curve25519-sha256@libssh.org
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: curve448-sha512
 #    ^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: diffie-hellman-group-exchange-sha256@ssh.com
+kex: curve448-sha512@libssh.org
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: diffie-hellman-group-exchange-sha224@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group-exchange-sha256
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: diffie-hellman-group-exchange-sha256
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: diffie-hellman-group-exchange-sha256@ssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: diffie-hellman-group-exchange-sha256@ssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: diffie-hellman-group-exchange-sha384@ssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: diffie-hellman-group-exchange-sha512@ssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group-exchange-sha512@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group1-sha256
@@ -393,10 +403,10 @@ kex: diffie-hellman-group14-sha256
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group14-sha256@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: diffie-hellman-group15-sha256@ssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group15-sha256
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: diffie-hellman-group15-sha256@ssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group15-sha384@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group15-sha512
@@ -405,28 +415,18 @@ kex: diffie-hellman-group16-sha256
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group16-sha384@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: diffie-hellman-group16-sha512@ssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group16-sha512
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: diffie-hellman-group16-sha512@ssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group17-sha512
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: diffie-hellman_group17-sha512
+kex: diffie-hellman-group18-sha512
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: diffie-hellman-group18-sha512@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: diffie-hellman-group18-sha512
+kex: diffie-hellman_group17-sha512
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: diffie-hellman-group-exchange-sha224@ssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: diffie-hellman-group-exchange-sha256@ssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: diffie-hellman-group-exchange-sha256
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: diffie-hellman-group-exchange-sha384@ssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: diffie-hellman-group-exchange-sha512@ssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: ecdh-nistp256-kyber-512r3-sha256-d00@openquantumsafe.org
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: ecdh-nistp384-kyber-768r3-sha384-d00@openquantumsafe.org
@@ -451,6 +451,8 @@ kex: ecdh-sha2-1.3.132.0.38
 #    ^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-9UzNcgwTlEnSCECZa7V1mw==
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: ecdh-sha2-D3FefCjYoJ/kfXgAyLddYA==
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-brainpoolp256r1@genua.de
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-brainpoolp384r1@genua.de
@@ -459,8 +461,6 @@ kex: ecdh-sha2-brainpoolp521r1@genua.de
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-curve25519
 #    ^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: ecdh-sha2-D3FefCjYoJ/kfXgAyLddYA==
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-h/SsxnLCtRBh7I9ATyeB3A==
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-m/FtSAmrV4j/Wy6RVUaK7A==
@@ -503,14 +503,14 @@ kex: gss-curve448-sha512-
 #    ^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: gss-gex-sha256-
 #    ^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: gss-group14-sha256-toWM5Slw5Ew8Mqkay+al2g==
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: gss-group14-sha256-
 #    ^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: gss-group15-sha512-toWM5Slw5Ew8Mqkay+al2g==
+kex: gss-group14-sha256-toWM5Slw5Ew8Mqkay+al2g==
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: gss-group15-sha512-
 #    ^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: gss-group15-sha512-toWM5Slw5Ew8Mqkay+al2g==
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: gss-group16-sha512-
 #    ^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: gss-group17-sha512-
@@ -525,6 +525,10 @@ kex: gss-nistp384-sha384-
 #    ^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: gss-nistp521-sha512-
 #    ^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: kex-strict-c-v00@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: kex-strict-s-v00@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: kexAlgoCurve25519SHA256
 #    ^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: kexAlgoECDH256
@@ -535,18 +539,14 @@ kex: kexAlgoECDH521
 #    ^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: kexguess2@matt.ucc.asn.au
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: kex-strict-c-v00@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: kex-strict-s-v00@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: m383-sha384@libassh.org
 #    ^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: m511-sha512@libassh.org
 #    ^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
-kex: mlkem768nistp256-sha256
-#    ^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: mlkem1024nistp384-sha384
 #    ^^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
+kex: mlkem768nistp256-sha256
+#    ^^^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: mlkem768x25519-sha256
 #    ^^^^^^^^^^^^^^^^^^^^^ support.function.kex-algorithm.ssh.crypto
 kex: rsa2048-sha256
@@ -581,6 +581,8 @@ kex: ecdh-sha2-4MHB+NBt3AlaSRQ7MnB4cg==
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-5pPrSUQtIaTjUSt5VZNBjg==
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
+kex: ecdh-sha2-VqBg4QRPjxx1EXZdV0GdWQ==
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-nistb233
 #    ^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-nistk163
@@ -589,22 +591,20 @@ kex: ecdh-sha2-nistk233
 #    ^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-qCbG5Cn/jjsZ7nBeR7EnOA==
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
-kex: ecdh-sha2-VqBg4QRPjxx1EXZdV0GdWQ==
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
 kex: ecdh-sha2-zD/b3hu/71952ArpUG4OjQ==
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
-kex: gss-gex-sha1-toWM5Slw5Ew8Mqkay+al2g==
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
 kex: gss-gex-sha1-
 #    ^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
-kex: gss-group1-sha1-toWM5Slw5Ew8Mqkay+al2g==
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
+kex: gss-gex-sha1-toWM5Slw5Ew8Mqkay+al2g==
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
 kex: gss-group1-sha1-
 #    ^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
-kex: gss-group14-sha1-toWM5Slw5Ew8Mqkay+al2g==
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
+kex: gss-group1-sha1-toWM5Slw5Ew8Mqkay+al2g==
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
 kex: gss-group14-sha1-
 #    ^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
+kex: gss-group14-sha1-toWM5Slw5Ew8Mqkay+al2g==
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
 kex: kexAlgoDH14SHA1
 #    ^^^^^^^^^^^^^^^ invalid.deprecated.kex-algorithm.ssh.crypto
 kex: kexAlgoDH1SHA1
@@ -632,28 +632,28 @@ mac: crypticore-mac@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha2-224
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
+mac: hmac-sha2-256
+#    ^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha2-256-96-etm@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha2-256-etm@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
-mac: hmac-sha2-256
-#    ^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha2-384
+#    ^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
+mac: hmac-sha2-512
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha2-512-96-etm@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha2-512-etm@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
-mac: hmac-sha2-512
-#    ^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha2-56
 #    ^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
+mac: hmac-sha256
+#    ^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha256-96@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha256@ssh.com
 #    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
-mac: hmac-sha256
-#    ^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha3-224
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha3-256
@@ -662,16 +662,16 @@ mac: hmac-sha3-384
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha3-512
 #    ^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
-mac: hmac-sha512@ssh.com
-#    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: hmac-sha512
 #    ^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
+mac: hmac-sha512@ssh.com
+#    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
+mac: umac-128
+#    ^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: umac-128-etm@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: umac-128@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
-mac: umac-128
-#    ^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: umac-32@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^ support.function.mac-algorithm.ssh.crypto
 mac: umac-64-etm@openssh.com
@@ -688,47 +688,47 @@ mac: cbcmac-des
 #    ^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: cbcmac-rijndael
 #    ^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: hmac-md5
+#    ^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: hmac-md5-96
 #    ^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: hmac-md5-96-etm@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: hmac-md5-etm@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: hmac-md5
-#    ^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: hmac-ripemd
+#    ^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: hmac-ripemd160
+#    ^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: hmac-ripemd160-96
+#    ^^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: hmac-ripemd160-etm@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: hmac-ripemd160@openssh.com
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: hmac-ripemd160-96
-#    ^^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: hmac-ripemd160
-#    ^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: hmac-ripemd
-#    ^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: hmac-sha1-96-etm@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: hmac-sha1-96
-#    ^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: hmac-sha1-etm@openssh.com
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: hmac-sha1
 #    ^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: hmac-sha1-96
+#    ^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: hmac-sha1-96-etm@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: hmac-sha1-etm@openssh.com
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: hmac-sha2-256-96
 #    ^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: hmac-sha2-512-96
 #    ^^^^^^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: none
-#    ^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: md5-8
-#    ^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: md5
 #    ^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: ripemd160-8
-#    ^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: md5-8
+#    ^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: none
+#    ^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: ripemd160
 #    ^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
-mac: sha1-8
-#    ^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: ripemd160-8
+#    ^^^^^^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
 mac: sha1
 #    ^^^^ invalid.deprecated.mac-algorithm.ssh.crypto
+mac: sha1-8
+#    ^^^^^^ invalid.deprecated.mac-algorithm.ssh.crypto

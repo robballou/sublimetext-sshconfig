@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 
 import json
-import os
 import re
-import sys
 import yaml
 
 
@@ -93,13 +91,15 @@ def build_crypto():
         syntax_content['contexts'][f'ssh-{domain}'] = [
             {
                 'match': fr"""\b(?:{'|'.join(
-                    re.escape(i) for i in settings['active']['items']
+                    re.escape(i) for i in
+                    sorted(settings['active']['items'], reverse=True)
                 )})(?=[,\s\"])""",
                 'scope': active_scope,
             },
             {
                 'match': fr"""\b(?:{'|'.join(
-                    re.escape(i) for i in settings['deprecated']['items']
+                    re.escape(i) for i in
+                    sorted(settings['deprecated']['items'], reverse=True)
                 )})(?=[,\s\"])""",
                 'scope': deprec_scope,
             },
