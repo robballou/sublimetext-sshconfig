@@ -309,8 +309,8 @@ variables:
                   | PenaltyExemptList )
       | PidFile | Port | PrintLastLog | PrintMotd | Protocol
       | Pubkey (?: AcceptedAlgorithms | AcceptedKeyTypes | AuthOptions
-               | PubkeyAuthentication )
-      | RekeyLimit | RequiredRSASize | RevokedKeys | RDomain
+               | Authentication )
+      | RefuseConnection | RekeyLimit | RequiredRSASize | RevokedKeys | RDomain
       | RhostsRSAAuthentication | RSAAuthentication
       | SecurityKeyProvider | ServerKeyBits | SetEnv | ShowPatchLevel
       # SshdAuthPath and SshSessionPath are just for tests

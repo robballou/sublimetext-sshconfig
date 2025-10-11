@@ -1,0 +1,559 @@
+# SYNTAX TEST "Packages/SSH Config/SSHD Config.sublime-syntax"
+
+ AcceptEnv no
+#@@@@@@@@@ local-definition
+#AcceptEnv no
+#@@@@@@@@@ local-definition
+
+ AddressFamily no
+#@@@@@@@@@@@@@ local-definition
+#AddressFamily no
+#@@@@@@@@@@@@@ local-definition
+
+ AllowAgentForwarding no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+#AllowAgentForwarding no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ AllowGroups no
+#@@@@@@@@@@@ local-definition
+#AllowGroups no
+#@@@@@@@@@@@ local-definition
+
+ AllowStreamLocalForwarding no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#AllowStreamLocalForwarding no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ AllowTcpForwarding no
+#@@@@@@@@@@@@@@@@@@ local-definition
+#AllowTcpForwarding no
+#@@@@@@@@@@@@@@@@@@ local-definition
+
+ AllowUsers no
+#@@@@@@@@@@ local-definition
+#AllowUsers no
+#@@@@@@@@@@ local-definition
+
+ AuthenticationMethods no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+#AuthenticationMethods no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ AuthorizedKeysCommand no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+#                      @@ reference
+#AuthorizedKeysCommand no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ AuthorizedKeysCommandUser no
+#@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#AuthorizedKeysCommandUser no
+#@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ AuthorizedKeysFile no
+#@@@@@@@@@@@@@@@@@@ local-definition
+#AuthorizedKeysFile no
+#@@@@@@@@@@@@@@@@@@ local-definition
+
+ AuthorizedPrincipalsCommand no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#                            @@ reference
+#AuthorizedPrincipalsCommand no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ AuthorizedPrincipalsCommandUser no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#AuthorizedPrincipalsCommandUser no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ AuthorizedPrincipalsFile no
+#@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#AuthorizedPrincipalsFile no
+#@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ Banner no
+#@@@@@@ local-definition
+#Banner no
+#@@@@@@ local-definition
+
+ CASignatureAlgorithms no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+#CASignatureAlgorithms no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ ChallengeResponseAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#ChallengeResponseAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ ChannelTimeout no
+#@@@@@@@@@@@@@@ local-definition
+#ChannelTimeout no
+#@@@@@@@@@@@@@@ local-definition
+
+ ChrootDirectory no
+#@@@@@@@@@@@@@@@ local-definition
+#ChrootDirectory no
+#@@@@@@@@@@@@@@@ local-definition
+
+ Ciphers no
+#@@@@@@@ local-definition
+#Ciphers no
+#@@@@@@@ local-definition
+
+ ClientAliveCountMax no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+#ClientAliveCountMax no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+
+ ClientAliveInterval no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+#ClientAliveInterval no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+
+ Compression no
+#@@@@@@@@@@@ local-definition
+#Compression no
+#@@@@@@@@@@@ local-definition
+
+ DenyGroups no
+#@@@@@@@@@@ local-definition
+#DenyGroups no
+#@@@@@@@@@@ local-definition
+
+ DenyUsers no
+#@@@@@@@@@ local-definition
+#DenyUsers no
+#@@@@@@@@@ local-definition
+
+ DisableForwarding no
+#@@@@@@@@@@@@@@@@@ local-definition
+#DisableForwarding no
+#@@@@@@@@@@@@@@@@@ local-definition
+
+ ExposeAuthInfo no
+#@@@@@@@@@@@@@@ local-definition
+#ExposeAuthInfo no
+#@@@@@@@@@@@@@@ local-definition
+
+ FingerprintHash no
+#@@@@@@@@@@@@@@@ local-definition
+#FingerprintHash no
+#@@@@@@@@@@@@@@@ local-definition
+
+ ForceCommand no
+#@@@@@@@@@@@@ local-definition
+#             @@ reference
+#ForceCommand no
+#@@@@@@@@@@@@ local-definition
+
+ GatewayPorts no
+#@@@@@@@@@@@@ local-definition
+#GatewayPorts no
+#@@@@@@@@@@@@ local-definition
+
+ GSSAPIAuthentication no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+#GSSAPIAuthentication no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ GSSAPICleanupCredentials no
+#@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#GSSAPICleanupCredentials no
+#@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ GSSAPIStrictAcceptorCheck no
+#@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#GSSAPIStrictAcceptorCheck no
+#@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ HostbasedAcceptedAlgorithms no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#HostbasedAcceptedAlgorithms no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ HostbasedAcceptedKeyTypes no
+#@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#HostbasedAcceptedKeyTypes no
+#@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ HostbasedAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#HostbasedAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ HostbasedUsesNameFromPacketOnly no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#HostbasedUsesNameFromPacketOnly no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ HostCertificate no
+#@@@@@@@@@@@@@@@ local-definition
+#HostCertificate no
+#@@@@@@@@@@@@@@@ local-definition
+
+ HostKey no
+#@@@@@@@ local-definition
+#HostKey no
+#@@@@@@@ local-definition
+
+ HostKeyAgent no
+#@@@@@@@@@@@@ local-definition
+#HostKeyAgent no
+#@@@@@@@@@@@@ local-definition
+
+ HostKeyAlgorithms no
+#@@@@@@@@@@@@@@@@@ local-definition
+#HostKeyAlgorithms no
+#@@@@@@@@@@@@@@@@@ local-definition
+
+ IgnoreRhosts no
+#@@@@@@@@@@@@ local-definition
+#IgnoreRhosts no
+#@@@@@@@@@@@@ local-definition
+
+ IgnoreUserKnownHosts no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+#IgnoreUserKnownHosts no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ Include no
+#@@@@@@@ local-definition
+#Include no
+#@@@@@@@ local-definition
+
+ IPQoS no
+#@@@@@ local-definition
+#IPQoS no
+#@@@@@ local-definition
+
+ KbdInteractiveAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#KbdInteractiveAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ KerberosAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#KerberosAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ KerberosGetAFSToken no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+#KerberosGetAFSToken no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+
+ KerberosOrLocalPasswd no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+#KerberosOrLocalPasswd no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ KerberosTicketCleanup no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+#KerberosTicketCleanup no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ KexAlgorithms no
+#@@@@@@@@@@@@@ local-definition
+#KexAlgorithms no
+#@@@@@@@@@@@@@ local-definition
+
+ KeyRegenerationInterval no
+#@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#KeyRegenerationInterval no
+#@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ ListenAddress no
+#@@@@@@@@@@@@@ local-definition
+#ListenAddress no
+#@@@@@@@@@@@@@ local-definition
+
+ LoginGraceTime no
+#@@@@@@@@@@@@@@ local-definition
+#LoginGraceTime no
+#@@@@@@@@@@@@@@ local-definition
+
+ LogLevel no
+#@@@@@@@@ local-definition
+#LogLevel no
+#@@@@@@@@ local-definition
+
+ LogVerbose no
+#@@@@@@@@@@ local-definition
+#LogVerbose no
+#@@@@@@@@@@ local-definition
+
+ MACs no
+#@@@@ local-definition
+#MACs no
+#@@@@ local-definition
+
+ MaxAuthTries no
+#@@@@@@@@@@@@ local-definition
+#MaxAuthTries no
+#@@@@@@@@@@@@ local-definition
+
+ MaxSessions no
+#@@@@@@@@@@@ local-definition
+#MaxSessions no
+#@@@@@@@@@@@ local-definition
+
+ MaxStartups no
+#@@@@@@@@@@@ local-definition
+#MaxStartups no
+#@@@@@@@@@@@ local-definition
+
+ ModuliFile no
+#@@@@@@@@@@ local-definition
+#ModuliFile no
+#@@@@@@@@@@ local-definition
+
+ PasswordAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#PasswordAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ PermitEmptyPasswords no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+#PermitEmptyPasswords no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ PermitListen no
+#@@@@@@@@@@@@ local-definition
+#PermitListen no
+#@@@@@@@@@@@@ local-definition
+
+ PermitOpen no
+#@@@@@@@@@@ local-definition
+#PermitOpen no
+#@@@@@@@@@@ local-definition
+
+ PermitRootLogin no
+#@@@@@@@@@@@@@@@ local-definition
+#PermitRootLogin no
+#@@@@@@@@@@@@@@@ local-definition
+
+ PermitTTY no
+#@@@@@@@@@ local-definition
+#PermitTTY no
+#@@@@@@@@@ local-definition
+
+ PermitTunnel no
+#@@@@@@@@@@@@ local-definition
+#PermitTunnel no
+#@@@@@@@@@@@@ local-definition
+
+ PermitUserEnvironment no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+#PermitUserEnvironment no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ PermitUserRC no
+#@@@@@@@@@@@@ local-definition
+#PermitUserRC no
+#@@@@@@@@@@@@ local-definition
+
+ PerSourceMaxStartups no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+#PerSourceMaxStartups no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ PerSourceNetBlockSize no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+#PerSourceNetBlockSize no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ PerSourcePenalties no
+#@@@@@@@@@@@@@@@@@@ local-definition
+#PerSourcePenalties no
+#@@@@@@@@@@@@@@@@@@ local-definition
+
+ PerSourcePenaltyExemptList no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#PerSourcePenaltyExemptList no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ PidFile no
+#@@@@@@@ local-definition
+#PidFile no
+#@@@@@@@ local-definition
+
+ Port no
+#@@@@ local-definition
+#Port no
+#@@@@ local-definition
+
+ PrintLastLog no
+#@@@@@@@@@@@@ local-definition
+#PrintLastLog no
+#@@@@@@@@@@@@ local-definition
+
+ PrintMotd no
+#@@@@@@@@@ local-definition
+#PrintMotd no
+#@@@@@@@@@ local-definition
+
+ Protocol no
+#@@@@@@@@ local-definition
+#Protocol no
+#@@@@@@@@ local-definition
+
+ PubkeyAcceptedAlgorithms no
+#@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#PubkeyAcceptedAlgorithms no
+#@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ PubkeyAcceptedKeyTypes no
+#@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#PubkeyAcceptedKeyTypes no
+#@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ PubkeyAuthOptions no
+#@@@@@@@@@@@@@@@@@ local-definition
+#PubkeyAuthOptions no
+#@@@@@@@@@@@@@@@@@ local-definition
+
+ PubkeyAuthentication no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+#PubkeyAuthentication no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ RefuseConnection no
+#@@@@@@@@@@@@@@@@ local-definition
+#RefuseConnection no
+#@@@@@@@@@@@@@@@@ local-definition
+
+ RekeyLimit no
+#@@@@@@@@@@ local-definition
+#RekeyLimit no
+#@@@@@@@@@@ local-definition
+
+ RequiredRSASize no
+#@@@@@@@@@@@@@@@ local-definition
+#RequiredRSASize no
+#@@@@@@@@@@@@@@@ local-definition
+
+ RevokedKeys no
+#@@@@@@@@@@@ local-definition
+#RevokedKeys no
+#@@@@@@@@@@@ local-definition
+
+ RDomain no
+#@@@@@@@ local-definition
+#RDomain no
+#@@@@@@@ local-definition
+
+ RhostsRSAAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#RhostsRSAAuthentication no
+#@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ RSAAuthentication no
+#@@@@@@@@@@@@@@@@@ local-definition
+#RSAAuthentication no
+#@@@@@@@@@@@@@@@@@ local-definition
+
+ SecurityKeyProvider no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+#SecurityKeyProvider no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+
+ ServerKeyBits no
+#@@@@@@@@@@@@@ local-definition
+#ServerKeyBits no
+#@@@@@@@@@@@@@ local-definition
+
+ SetEnv no
+#@@@@@@ local-definition
+#SetEnv no
+#@@@@@@ local-definition
+
+ ShowPatchLevel no
+#@@@@@@@@@@@@@@ local-definition
+#ShowPatchLevel no
+#@@@@@@@@@@@@@@ local-definition
+
+ StreamLocalBindMask no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+#StreamLocalBindMask no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+
+ StreamLocalBindUnlink no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+#StreamLocalBindUnlink no
+#@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ StrictModes no
+#@@@@@@@@@@@ local-definition
+#StrictModes no
+#@@@@@@@@@@@ local-definition
+
+ Subsystem no
+#@@@@@@@@@ local-definition
+#Subsystem no
+#@@@@@@@@@ local-definition
+
+ SyslogFacility no
+#@@@@@@@@@@@@@@ local-definition
+#SyslogFacility no
+#@@@@@@@@@@@@@@ local-definition
+
+ TCPKeepAlive no
+#@@@@@@@@@@@@ local-definition
+#TCPKeepAlive no
+#@@@@@@@@@@@@ local-definition
+
+ TrustedUserCAKeys no
+#@@@@@@@@@@@@@@@@@ local-definition
+#TrustedUserCAKeys no
+#@@@@@@@@@@@@@@@@@ local-definition
+
+ UnusedConnectionTimeout no
+#@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#UnusedConnectionTimeout no
+#@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ UseDNS no
+#@@@@@@ local-definition
+#UseDNS no
+#@@@@@@ local-definition
+
+ UseLogin no
+#@@@@@@@@ local-definition
+#UseLogin no
+#@@@@@@@@ local-definition
+
+ UsePAM no
+#@@@@@@ local-definition
+#UsePAM no
+#@@@@@@ local-definition
+
+ UsePrivilegeSeparation no
+#@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#UsePrivilegeSeparation no
+#@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ VersionAddendum no
+#@@@@@@@@@@@@@@@ local-definition
+#VersionAddendum no
+#@@@@@@@@@@@@@@@ local-definition
+
+ X11DisplayOffset no
+#@@@@@@@@@@@@@@@@ local-definition
+#X11DisplayOffset no
+#@@@@@@@@@@@@@@@@ local-definition
+
+ X11Forwarding no
+#@@@@@@@@@@@@@ local-definition
+#X11Forwarding no
+#@@@@@@@@@@@@@ local-definition
+
+ X11UseLocalhost no
+#@@@@@@@@@@@@@@@ local-definition
+#X11UseLocalhost no
+#@@@@@@@@@@@@@@@ local-definition
+
+ XAuthLocation no
+#@@@@@@@@@@@@@ local-definition
+#XAuthLocation no
+#@@@@@@@@@@@@@ local-definition

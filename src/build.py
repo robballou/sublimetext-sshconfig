@@ -47,6 +47,33 @@ def build_ssh_options():
             json.dump(completions, f, indent=4)
 
 
+def build_sshd_index_test():
+    with open('options.yaml', 'r') as stream:
+        ssh_options_input: dict[str, CompletionSet] = yaml.load(
+            stream, Loader=yaml.BaseLoader)
+
+    test_content = [
+        '# SYNTAX TEST "Packages/SSH Config/SSHD Config.sublime-syntax"\n',
+    ]
+
+    for item in ssh_options_input['SSHD Config']['items']:
+        if item in {'Match'}:
+            continue
+
+        test_content.append(f' {item} no')
+        test_content.append(
+            f'#{"@" * len(item)} local-definition')
+        if item.endswith('Command'):
+            test_content.append(
+                f'#{" " * len(item)} @@ reference')
+        test_content.append(f'#{item} no')
+        test_content.append(
+            f'#{"@" * len(item)} local-definition\n')
+
+    with open('../Tests/syntax_test_server_index.sshd_config', 'w') as test_file:
+        test_file.write('\n'.join(test_content))
+
+
 def build_crypto():
     with open('crypto.yaml', 'r') as stream:
         crypto_input = yaml.load(stream, Loader=yaml.BaseLoader)
@@ -141,6 +168,7 @@ def build_crypto():
 
 def main():
     build_ssh_options()
+    build_sshd_index_test()
     build_crypto()
 
 
