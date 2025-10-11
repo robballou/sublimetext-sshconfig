@@ -1,26 +1,33 @@
 #!/usr/bin/env python
 
+from __future__ import annotations
 import json
 import re
 import yaml
 
+CompletionItem: dict[str, str | list[str]]
+CompletionMetadata: dict[str, str | list[str]]
+CompletionSet: dict[str, CompletionItem | CompletionMetadata]
+CryptoSet: dict[str, str | list[str]]
+
 
 def build_ssh_options():
     with open('options.yaml', 'r') as stream:
-        ssh_options_input = yaml.load(stream, Loader=yaml.BaseLoader)
+        ssh_options_input: dict[str, CompletionSet] = yaml.load(
+            stream, Loader=yaml.BaseLoader)
 
     for domain, settings in ssh_options_input.items():
-        completions = {
+        completions: CompletionItem = {
             'scope': settings['completions']['scope'],
             'completions': [],
         }
-        snippet_spacer = settings['completions'].get('snippet_spacer', ' ')
-        default_kind = settings['completions']['kind']
-        annotation = settings['completions']['annotation']
+        snippet_spacer: str = settings['completions'].get('snippet_spacer', ' ')
+        default_kind: list[str] = settings['completions']['kind']
+        annotation: str = settings['completions']['annotation']
 
         for keyword, options in settings['items'].items():
-            details = options.get('details', '') if options else ''
-            completions['completions'].append({
+            details: str = options.get('details', '') if options else ''
+            _ = completions['completions'].append({
                 'trigger': keyword,
                 'contents': keyword,
                 # 'annotation': annotation,
@@ -102,13 +109,13 @@ def build_crypto():
             'scope': settings['completions']['scope'].strip(),
             'completions': [],
         }
-        default_kind = settings['completions']['kind']
-        annotation = settings['completions']['annotation']
-        active_scope = settings['active']['scope']
-        deprec_scope = settings['deprecated']['scope']
+        default_kind: list[str] = settings['completions']['kind']
+        annotation: str = settings['completions']['annotation']
+        active_scope: str = settings['active']['scope']
+        deprec_scope: str = settings['deprecated']['scope']
 
         test_content.append(f'\n###[ {domain + " ]":#<74}\n')
-        syntax_content['contexts']['main'].append({
+        _ = syntax_content['contexts']['main'].append({
             'match': fr'^{annotation}:',
             'push': [
                 {'include': 'pop-before-nl'},
@@ -133,7 +140,7 @@ def build_crypto():
         ]
 
         for item in settings['active']['items']:
-            completions['completions'].append({
+            _ = completions['completions'].append({
                 'trigger': f'{item}\t{annotation}',
                 'contents': item,
                 'annotation': annotation,
@@ -144,7 +151,7 @@ def build_crypto():
                 f'#{" " * len(annotation)} {"^" * len(item)} {active_scope}')
 
         for item in settings['deprecated']['items']:
-            completions['completions'].append({
+            _ = completions['completions'].append({
                 'trigger': f'{item}\tdeprecated {annotation}',
                 'contents': item,
                 'annotation': f'deprecated {annotation}',
