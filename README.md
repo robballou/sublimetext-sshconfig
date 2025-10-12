@@ -6,6 +6,8 @@ for [*~/.ssh/config*][ssh-config],
 [*/etc/ssh/sshd_config*][sshd-config],
 and some other SSH-related files.
 
+![Sample screenshot](demo/demo.png)
+
 
 ## Installation
 
