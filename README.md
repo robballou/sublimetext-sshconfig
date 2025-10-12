@@ -149,10 +149,10 @@ PAGER='less -p ^"SSH_KNOWN_HOSTS"' man 8 sshd
     + Syntax highlighting
     + Symbol index for cert bundles
 - Completion and highlighting for crypto stuff
-    + Key types
-    + KEX algorithms
-    + Encryption ciphers
-    + MACs
+    + Key types (`ssh -Q key`)
+    + KEX algorithms (`ssh -Q kex`)
+    + Encryption ciphers (`ssh -Q ciphers`)
+    + MACs (`ssh -Q mac`)
 
 
 ## Building
