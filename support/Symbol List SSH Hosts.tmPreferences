@@ -5,6 +5,7 @@
     <string>Symbol List: SSH Hostnames</string>
     <key>scope</key>
     <string>
+        text.known_hosts meta.string.host,
         source.ssh_config meta.string.host,
         source.ssh_config entity.name.label.host-alias
     </string>
