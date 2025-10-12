@@ -1,7 +1,7 @@
 <snippet>
 	<content><![CDATA[
 Match ${1:conditions}
-    ${2:ProxyCommand ssh -W %h:%p proxy_server}
+	${2:ProxyCommand ssh -W %h:%p proxy_server}
 
 ]]></content>
 	<tabTrigger>match</tabTrigger>
