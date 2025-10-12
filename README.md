@@ -186,14 +186,14 @@ The [PackageDev][] package is helpful for writing tests but not required.
 [st]: https://www.sublimetext.com
 [ssh-config]: #ssh-config-files
 [sshd-config]: #sshd-config-files
-[man-linux-ssh-config]: https://man7.org/linux/man-pages/man5/ssh_config.5.html
-[man-linux-sshd-config]: https://man7.org/linux/man-pages/man5/sshd_config.5.html
-[man-linux-authorized-keys]: https://www.man7.org/linux/man-pages/man8/sshd.8.html#AUTHORIZED_KEYS_FILE_FORMAT
-[man-linux-known-hosts]: https://www.man7.org/linux/man-pages/man8/sshd.8.html#SSH_KNOWN_HOSTS_FILE_FORMAT
-[man-bsd-ssh-config]: https://man.openbsd.org/ssh_config.5
-[man-bsd-sshd-config]: https://man.openbsd.org/sshd_config.5
-[man-bsd-authorized-keys]: https://man.openbsd.org/sshd.8#AUTHORIZED_KEYS_FILE_FORMAT
-[man-bsd-known-hosts]: https://man.openbsd.org/sshd.8#SSH_KNOWN_HOSTS_FILE_FORMAT
+[man-linux-ssh-config]: https://man7.org/linux/man-pages/man5/ssh_config.5.html "Linux Man page for SSH Config"
+[man-linux-sshd-config]: https://man7.org/linux/man-pages/man5/sshd_config.5.html "Linux Man page for SSHD Config"
+[man-linux-authorized-keys]: https://www.man7.org/linux/man-pages/man8/sshd.8.html#AUTHORIZED_KEYS_FILE_FORMAT "Linux Man page for Authorized Keys"
+[man-linux-known-hosts]: https://www.man7.org/linux/man-pages/man8/sshd.8.html#SSH_KNOWN_HOSTS_FILE_FORMAT "Linux Man page for Known Hosts"
+[man-bsd-ssh-config]: https://man.openbsd.org/ssh_config.5 "BSD Man page for SSH Config"
+[man-bsd-sshd-config]: https://man.openbsd.org/sshd_config.5 "BSD Man page for SSHD Config"
+[man-bsd-authorized-keys]: https://man.openbsd.org/sshd.8#AUTHORIZED_KEYS_FILE_FORMAT "BSD Man page for Authorized Keys"
+[man-bsd-known-hosts]: https://man.openbsd.org/sshd.8#SSH_KNOWN_HOSTS_FILE_FORMAT "BSD Man page for Known Hosts"
 [pkg]: https://packagecontrol.io/packages/SSH%20Config
 [pkg-ctrl]: https://packagecontrol.io
 [wiki-activation]: https://github.com/robballou/sublimetext-sshconfig/wiki/Activate-SSH-Config-highlighting
