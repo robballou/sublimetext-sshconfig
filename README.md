@@ -173,7 +173,7 @@ PAGER='less -p ^"SSH_KNOWN_HOSTS"' man 8 sshd
   and name it *SSH Config*.
     + You can clone it there directly, move it there, or symlink it.
 - Open the project from under *Packages/SSH Config*.
-- Open a syntax test file located in the *Tests* directory.
+- Open a syntax test file located in the *test* directory.
 - Run the **Build With: Syntax Tests** command.
     + This is supplied by the **Default** Package,
       which is shipped with Sublime Text.
