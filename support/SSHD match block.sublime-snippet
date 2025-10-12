@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+Match ${1:Invalid-User}
+	${2:RefuseConnection yes}
+
+]]></content>
+	<tabTrigger>match</tabTrigger>
+	<scope>source.sshd_config</scope>
+	<description>Create new Match entry</description>
+</snippet>
