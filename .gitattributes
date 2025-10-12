@@ -1,4 +1,5 @@
 /.git* export-ignore
+/demo/ export-ignore
 /src/ export-ignore
 /test/ export-ignore
 README.md export-ignore
