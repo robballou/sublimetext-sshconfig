@@ -14,10 +14,10 @@ Host favorite-ip
 
 # Tokenized wildcard shortcuts
 Host host? host?? app
-  HostName %h.example.com
-  CanonicalizeHostname yes
+    HostName %h.example.com
+    CanonicalizeHostname yes
 Host *.example.com
-  User myusername
+    User myusername
 
 # Well-defined Match rules
 Match Host targ?t_host LocalNetwork 10.1.21.0/24
