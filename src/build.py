@@ -17,7 +17,7 @@ def build_ssh_options():
             stream, Loader=yaml.BaseLoader)
 
     for domain, settings in ssh_options_input.items():
-        completions: CompletionItem = {
+        completions = {
             'scope': settings['completions']['scope'],
             'completions': [],
         }
@@ -37,12 +37,12 @@ def build_ssh_options():
             if not options or 'values' not in options:
                 continue
 
-            values = options['values']
+            values: str | list[str] = options['values']
             if isinstance(values, (str)):
                 value_string = values
             else:
                 value_string = f'${{0:{{ {" | ".join(values)} \\}}}}'
-            completions['completions'].append({
+            _ = completions['completions'].append({
                 'trigger': keyword.lower(),
                 'contents': f'{keyword}{snippet_spacer}{value_string}',
                 # 'annotation': annotation,
@@ -78,7 +78,7 @@ def build_sshd_index_test():
             f'#{"@" * len(item)} local-definition\n')
 
     with open('../Tests/syntax_test_server_index.sshd_config', 'w') as test_file:
-        test_file.write('\n'.join(test_content))
+        _ = test_file.write('\n'.join(test_content))
 
 
 def build_crypto():
@@ -166,11 +166,11 @@ def build_crypto():
             json.dump(completions, f, indent=4)
 
     with open('../SSH Crypto.sublime-syntax', 'w') as syntax_file:
-        syntax_file.write('%YAML 1.2\n---\n')
+        _ = syntax_file.write('%YAML 1.2\n---\n')
         yaml.dump(syntax_content, syntax_file)
 
     with open('../Tests/syntax_test_crypto', 'w') as test_file:
-        test_file.write('\n'.join(test_content))
+        _ = test_file.write('\n'.join(test_content))
 
 
 def main():
