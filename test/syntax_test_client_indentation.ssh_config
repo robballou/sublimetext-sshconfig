@@ -1,4 +1,4 @@
-# SYNTAX TEST reindent-unchanged "Packages/SSH Config/SSH Config.sublime-syntax"
+# SYNTAX TEST reindent-unchanged "Packages/SSH Config/syntax/SSH Config.sublime-syntax"
 
 User foo
 Port 22

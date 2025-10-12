@@ -1,4 +1,4 @@
-# SYNTAX TEST "Packages/SSH Config/SSHD Config.sublime-syntax"
+# SYNTAX TEST "Packages/SSH Config/syntax/SSHD Config.sublime-syntax"
 
  AcceptEnv no
 #@@@@@@@@@ local-definition

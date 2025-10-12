@@ -1,4 +1,4 @@
-# SYNTAX TEST "Packages/SSH Config/PEM.sublime-syntax"
+# SYNTAX TEST "Packages/SSH Config/syntax/PEM.sublime-syntax"
 # https://datatracker.ietf.org/doc/html/rfc4716#section-3.6
 
 ---- BEGIN SSH2 PUBLIC KEY ----

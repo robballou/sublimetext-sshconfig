@@ -1,4 +1,4 @@
-# SYNTAX TEST reindent-unchanged "Packages/SSH Config/SSHD Config.sublime-syntax"
+# SYNTAX TEST reindent-unchanged "Packages/SSH Config/syntax/SSHD Config.sublime-syntax"
 
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
