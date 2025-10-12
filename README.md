@@ -1,9 +1,10 @@
 # SSH Config Language
 
 Provides highlighting and snippets
-for [*~/.ssh/config*][man-linux-ssh-config]
-and [*/etc/ssh/sshd_config*][man-linux-sshd-config] files
-in [Sublime Text][st].
+in [Sublime Text][st]
+for [*~/.ssh/config*][ssh-config],
+[*/etc/ssh/sshd_config*][sshd-config],
+and some other SSH-related files.
 
 
 ## Installation
@@ -35,7 +36,7 @@ open the Command Palette
 search for **SSH Config: Settings**,
 and put in content like this:
 
-``` jsonc
+```jsonc
 {
     "file_locations": {
         "ssh_config": "~/.ssh/config",
@@ -49,13 +50,14 @@ and put in content like this:
 
 ### SSH Config files
 
+- Syntax highlighting
 - `host` snippet creates a new **Host** entry
 - `match` snippet creates a new **Match** entry
-- Keyword completion for many [Linux][man-linux-ssh-config]
-  and [BSD options][man-bsd-ssh-config]
+- Keyword completion for many parameters
+  on Linux and BSD
 - Symbol Index for hosts and aliases
-    (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
-     <kbd>Cmd</kbd>+<kbd>R</kbd>)
+  (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
+   <kbd>Cmd</kbd>+<kbd>R</kbd>)
 - Automatic indentation
 
 Note that *~/.ssh/config* is not linked
@@ -63,26 +65,86 @@ to the SSH Config syntax highlighting
 out of the box.
 This is because the filename is shared
 by other formats
-(e.g. *.git/config*)
+(notably *.git/config*)
 and we don't want to set the wrong highlighting for those.
 Several solutions are [available on the wiki][wiki-activation].
+
+#### Documentation
+
+Consult `man` pages on the web
+for [Linux][man-linux-ssh-config]
+or [BSD][man-bsd-ssh-config],
+or locally on your machine with
+
+```sh
+man 5 ssh_config
+```
 
 
 ### SSHD Config files
 
-- Keyword completion for many [Linux][man-linux-sshd-config]
-  and [BSD options][man-bsd-sshd-config]
+- Syntax highlighting
+- Keyword completion for many parameters
+  on Linux and BSD
 - Symbol Index for active and commented-out config options
-    (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
-     <kbd>Cmd</kbd>+<kbd>R</kbd>)
+  (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
+   <kbd>Cmd</kbd>+<kbd>R</kbd>)
 - Automatic indentation
+
+#### Documentation
+
+Consult `man` pages on the web
+for [Linux][man-linux-sshd-config]
+or [BSD][man-bsd-sshd-config],
+or locally on your machine with
+
+```sh
+man 5 sshd_config
+```
+
+
+### Authorized Keys files
+
+- Syntax highlighting
+- Keyword completion for access restrictions
+- Symbol Index for annotations,
+  which are typically the `user@host`,
+  (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
+   <kbd>Cmd</kbd>+<kbd>R</kbd>)
+
+#### Documentation
+
+Consult `man` pages on the web
+for [Linux][man-linux-authorized-keys]
+or [BSD][man-bsd-authorized-keys],
+or locally on your machine with
+
+```sh
+PAGER='less -p ^"AUTHORIZED_KEYS"' man 8 sshd
+```
+
+
+### Known Hosts files
+
+- Syntax highlighting
+- Symbol Index for hosts and IPs
+  (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
+   <kbd>Cmd</kbd>+<kbd>R</kbd>)
+
+#### Documentation
+
+Consult `man` pages on the web
+for [Linux][man-linux-known-hosts]
+or [BSD][man-bsd-known-hosts],
+or locally on your machine with
+
+```sh
+PAGER='less -p ^"SSH_KNOWN_HOSTS"' man 8 sshd
+```
 
 
 ### Extras
 
-- Authorized Keys and Known Hosts files also have
-    + Syntax highlighting
-    + Symbol index
 - PEM, PKCS1, PKCS8, and SSH keys have
     + Syntax highlighting
     + Symbol index for cert bundles
@@ -121,11 +183,17 @@ Several solutions are [available on the wiki][wiki-activation].
 The [PackageDev][] package is helpful for writing tests but not required.
 
 
+[st]: https://www.sublimetext.com
+[ssh-config]: #ssh-config-files
+[sshd-config]: #sshd-config-files
 [man-linux-ssh-config]: https://man7.org/linux/man-pages/man5/ssh_config.5.html
 [man-linux-sshd-config]: https://man7.org/linux/man-pages/man5/sshd_config.5.html
+[man-linux-authorized-keys]: https://www.man7.org/linux/man-pages/man8/sshd.8.html#AUTHORIZED_KEYS_FILE_FORMAT
+[man-linux-known-hosts]: https://www.man7.org/linux/man-pages/man8/sshd.8.html#SSH_KNOWN_HOSTS_FILE_FORMAT
 [man-bsd-ssh-config]: https://man.openbsd.org/ssh_config.5
 [man-bsd-sshd-config]: https://man.openbsd.org/sshd_config.5
-[st]: https://www.sublimetext.com
+[man-bsd-authorized-keys]: https://man.openbsd.org/sshd.8#AUTHORIZED_KEYS_FILE_FORMAT
+[man-bsd-known-hosts]: https://man.openbsd.org/sshd.8#SSH_KNOWN_HOSTS_FILE_FORMAT
 [pkg]: https://packagecontrol.io/packages/SSH%20Config
 [pkg-ctrl]: https://packagecontrol.io
 [wiki-activation]: https://github.com/robballou/sublimetext-sshconfig/wiki/Activate-SSH-Config-highlighting
