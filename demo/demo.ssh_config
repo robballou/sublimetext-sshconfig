@@ -1,0 +1,26 @@
+
+# Include external config files
+Include ~/.ssh/config_*_cloud
+
+# Shortcut GitHub SSH test
+Host github.com gh
+    HostName github.com
+    User git
+    RequestTTY no
+
+# Conscientious IP matching
+Host favorite-ip
+    HostName 1.2.3.4
+
+# Tokenized wildcard shortcuts
+Host host? host?? app
+  HostName %h.example.com
+  CanonicalizeHostname yes
+Host *.example.com
+  User myusername
+
+# Well-defined Match rules
+Match Host targ?t_host LocalNetwork 10.1.21.0/24
+    # Shell highlighting in commands
+    ProxyCommand ssh -W %h:%p proxy_server
+
