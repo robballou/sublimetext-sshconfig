@@ -71,9 +71,8 @@ by other formats
 and we don't want to set the wrong highlighting for those.
 Several solutions are [available on the wiki][wiki-activation].
 
-#### Documentation
-
-Consult `man` pages on the web
+For file format information,
+consult `man` pages on the web
 for [Linux][man-linux-ssh-config]
 or [BSD][man-bsd-ssh-config],
 or locally on your machine with
@@ -93,9 +92,8 @@ man 5 ssh_config
    <kbd>Cmd</kbd>+<kbd>R</kbd>)
 - Automatic indentation
 
-#### Documentation
-
-Consult `man` pages on the web
+For file format information,
+consult `man` pages on the web
 for [Linux][man-linux-sshd-config]
 or [BSD][man-bsd-sshd-config],
 or locally on your machine with
@@ -114,9 +112,9 @@ man 5 sshd_config
   (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
    <kbd>Cmd</kbd>+<kbd>R</kbd>)
 
-#### Documentation
 
-Consult `man` pages on the web
+For file format information,
+consult `man` pages on the web
 for [Linux][man-linux-authorized-keys]
 or [BSD][man-bsd-authorized-keys],
 or locally on your machine with
@@ -133,9 +131,8 @@ PAGER='less -p ^"AUTHORIZED_KEYS"' man 8 sshd
   (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
    <kbd>Cmd</kbd>+<kbd>R</kbd>)
 
-#### Documentation
-
-Consult `man` pages on the web
+For file format information,
+consult `man` pages on the web
 for [Linux][man-linux-known-hosts]
 or [BSD][man-bsd-known-hosts],
 or locally on your machine with
