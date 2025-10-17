@@ -596,6 +596,12 @@
             "details": "Specify <code>moduli(5)</code> file for DH group exchange"
         },
         {
+            "trigger": "PAMServiceName",
+            "contents": "PAMServiceName",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
             "trigger": "PasswordAuthentication",
             "contents": "PasswordAuthentication",
             "kind": "keyword",

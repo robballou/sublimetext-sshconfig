@@ -308,6 +308,11 @@
 #ModuliFile no
 #@@@@@@@@@@ local-definition
 
+ PAMServiceName no
+#@@@@@@@@@@@@@@ local-definition
+#PAMServiceName no
+#@@@@@@@@@@@@@@ local-definition
+
  PasswordAuthentication no
 #@@@@@@@@@@@@@@@@@@@@@@ local-definition
 #PasswordAuthentication no

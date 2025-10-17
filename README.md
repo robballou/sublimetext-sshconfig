@@ -55,8 +55,7 @@ and put in content like this:
 - Syntax highlighting
 - `host` snippet creates a new **Host** entry
 - `match` snippet creates a new **Match** entry
-- Keyword completion for many parameters
-  on Linux and BSD
+- Snippets and Keyword completion for most parameters
 - Symbol Index for hosts and aliases
   (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
    <kbd>Cmd</kbd>+<kbd>R</kbd>)
@@ -73,8 +72,9 @@ Several solutions are [available on the wiki][wiki-activation].
 
 For file format information,
 consult `man` pages on the web
-for [Linux][man-linux-ssh-config]
-or [BSD][man-bsd-ssh-config],
+([Linux][man-linux-ssh-config],
+[BSD][man-bsd-ssh-config],
+or [Mac][man-mac-ssh-config]),
 or locally on your machine with
 
 ```sh
@@ -85,8 +85,7 @@ man 5 ssh_config
 ### SSHD Config files
 
 - Syntax highlighting
-- Keyword completion for many parameters
-  on Linux and BSD
+- Snippets and Keyword completion for most parameters
 - Symbol Index for active and commented-out config options
   (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
    <kbd>Cmd</kbd>+<kbd>R</kbd>)
@@ -94,8 +93,9 @@ man 5 ssh_config
 
 For file format information,
 consult `man` pages on the web
-for [Linux][man-linux-sshd-config]
-or [BSD][man-bsd-sshd-config],
+([Linux][man-linux-sshd-config],
+[BSD][man-bsd-sshd-config],
+or [Mac][man-mac-sshd-config]),
 or locally on your machine with
 
 ```sh
@@ -108,7 +108,7 @@ man 5 sshd_config
 - Syntax highlighting
 - Keyword completion for access restrictions
 - Symbol Index for annotations,
-  which are typically the `user@host`,
+  which are typically the `user@host`
   (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
    <kbd>Cmd</kbd>+<kbd>R</kbd>)
 
@@ -118,8 +118,9 @@ is basically a strict superset of them.
 
 For file format information,
 consult `man` pages on the web
-for [Linux][man-linux-authorized-keys]
-or [BSD][man-bsd-authorized-keys],
+([Linux][man-linux-authorized-keys],
+[BSD][man-bsd-authorized-keys],
+or [Mac][man-mac-authorized-keys]),
 or locally on your machine with
 
 ```sh
@@ -136,8 +137,9 @@ PAGER='less -p ^"AUTHORIZED_KEYS"' man 8 sshd
 
 For file format information,
 consult `man` pages on the web
-for [Linux][man-linux-known-hosts]
-or [BSD][man-bsd-known-hosts],
+([Linux][man-linux-known-hosts],
+[BSD][man-bsd-known-hosts],
+or [Mac][man-mac-known-hosts]),
 or locally on your machine with
 
 ```sh
@@ -188,14 +190,22 @@ The [PackageDev][] package is helpful for writing tests but not required.
 [st]: https://www.sublimetext.com
 [ssh-config]: #ssh-config-files
 [sshd-config]: #sshd-config-files
+
 [man-linux-ssh-config]: https://man7.org/linux/man-pages/man5/ssh_config.5.html "Linux Man page for SSH Config"
 [man-linux-sshd-config]: https://man7.org/linux/man-pages/man5/sshd_config.5.html "Linux Man page for SSHD Config"
 [man-linux-authorized-keys]: https://www.man7.org/linux/man-pages/man8/sshd.8.html#AUTHORIZED_KEYS_FILE_FORMAT "Linux Man page for Authorized Keys"
 [man-linux-known-hosts]: https://www.man7.org/linux/man-pages/man8/sshd.8.html#SSH_KNOWN_HOSTS_FILE_FORMAT "Linux Man page for Known Hosts"
+
 [man-bsd-ssh-config]: https://man.openbsd.org/ssh_config.5 "BSD Man page for SSH Config"
 [man-bsd-sshd-config]: https://man.openbsd.org/sshd_config.5 "BSD Man page for SSHD Config"
 [man-bsd-authorized-keys]: https://man.openbsd.org/sshd.8#AUTHORIZED_KEYS_FILE_FORMAT "BSD Man page for Authorized Keys"
 [man-bsd-known-hosts]: https://man.openbsd.org/sshd.8#SSH_KNOWN_HOSTS_FILE_FORMAT "BSD Man page for Known Hosts"
+
+[man-mac-ssh-config]: https://manp.gs/mac/5/ssh_config "MacOS Man page for SSH Config"
+[man-mac-sshd-config]: https://manp.gs/mac/5/sshd_config "MacOS Man page for SSHD Config"
+[man-mac-authorized-keys]: https://manp.gs/mac/8/sshd#AUTHORIZED_KEYS_FILE_FORMAT "MacOS Man page for Authorized Keys"
+[man-mac-known-hosts]: https://manp.gs/mac/8/sshd#SSH_KNOWN_HOSTS_FILE_FORMAT "MacOS Man page for Known Hosts"
+
 [pkg]: https://packagecontrol.io/packages/SSH%20Config
 [pkg-ctrl]: https://packagecontrol.io
 [wiki-activation]: https://github.com/robballou/sublimetext-sshconfig/wiki/Activate-SSH-Config-highlighting

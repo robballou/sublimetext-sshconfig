@@ -794,6 +794,12 @@
             "details": "Let <code>localhost</code> pretend to be anyone it wants"
         },
         {
+            "trigger": "NoHostAuthenticationForProxyCommand",
+            "contents": "NoHostAuthenticationForProxyCommand",
+            "kind": "keyword",
+            "details": "Disable host authentication when using <code>ProxyCommand</code>."
+        },
+        {
             "trigger": "NumberOfPasswordPrompts",
             "contents": "NumberOfPasswordPrompts",
             "kind": "keyword",

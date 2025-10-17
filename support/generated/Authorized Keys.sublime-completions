@@ -214,6 +214,16 @@
             "details": "Skip security key touch"
         },
         {
+            "trigger": "verify-required",
+            "contents": "verify-required",
+            "kind": [
+                "keyword",
+                "o",
+                "Options"
+            ],
+            "details": "Require PIN entry for security key"
+        },
+        {
             "trigger": "restrict",
             "contents": "restrict",
             "kind": [

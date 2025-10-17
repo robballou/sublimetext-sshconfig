@@ -337,6 +337,8 @@
       values:
         - 'yes'
         - 'no'
+    NoHostAuthenticationForProxyCommand:
+      details: Disable host authentication when using <code>ProxyCommand</code>.
     NumberOfPasswordPrompts:
       details: Number of password attempts before deny
       values: ${0:1}
@@ -814,6 +816,7 @@
       details: Max concurrent unauth'ed connections to <code>sshd</code>
     ModuliFile:
       details: Specify <code>moduli(5)</code> file for DH group exchange
+    PAMServiceName:
     PasswordAuthentication:
       details: Disable password authentication
       values:
@@ -1057,6 +1060,8 @@
       details: Reenable <code>restrict</code>ed tty allocation
     no-touch-required:
       details: Skip security key touch
+    verify-required:
+      details: Require PIN entry for security key
     restrict:
       details: Enable <b>all</b> restrictions
     tunnel:

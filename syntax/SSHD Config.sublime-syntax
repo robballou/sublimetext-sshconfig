@@ -302,7 +302,7 @@ variables:
       | KexAlgorithms | KeyRegenerationInterval
       | ListenAddress | LoginGraceTime | LogLevel | LogVerbose
       | MACs | Match | MaxAuthTries | MaxSessions | MaxStartups | ModuliFile
-      | PasswordAuthentication
+      | PasswordAuthentication | PAMServiceName
       | Permit (?: EmptyPasswords | Listen | Open | RootLogin | TTY | Tunnel
                | UserEnvironment | UserRC )
       | PerSource (?: MaxStartups | NetBlockSize | Penalties
