@@ -85,6 +85,7 @@ man 5 ssh_config
 ### SSHD Config files
 
 - Syntax highlighting
+- `match` snippet creates a new **Match** entry
 - Snippets and Keyword completion for most parameters
 - Symbol Index for active and commented-out config options
   (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
