@@ -16,6 +16,7 @@ file_extensions:
   - pem
 
 hidden_file_extensions:
+  - asc
   - cer
   - cert
   - crt
@@ -78,6 +79,15 @@ contexts:
       captures:
         1: punctuation.definition.string.end.pem
     - include: headers
+    - include: checksum
+
+  checksum:
+    # CRC-24 ASCII-armor checksum
+    - match: ^(=)({{base64_char}}{4})$
+      scope: meta.annotation.checksum.pem
+      captures:
+        1: keyword.other.assertion.pem
+        2: meta.number.integer.other.pem constant.numeric.value.pem
 
   headers:
     - match: ^(?i:(Comment))(:)
