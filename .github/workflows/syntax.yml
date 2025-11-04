@@ -28,8 +28,8 @@ jobs:
             packages: master
           - build: 'stable'
             packages: binary
-          - build: 4185  # Required for symbol transformation tests
-            packages: v4193  # Bash rewrite
+          - build: 4194  # Required for variables in first_line_match
+            packages: binary
     steps:
       - uses: actions/checkout@v4
       - uses: SublimeText/syntax-test-action@v2

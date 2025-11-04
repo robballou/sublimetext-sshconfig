@@ -25,44 +25,12 @@ hidden_file_extensions:
   - id_eddsa
   - id_rsa
 
-first_line_match: |-
-        ^(?x:
-          (-{4}[ -])
-          BEGIN [ ]
-          ( (?:[0-9A-Z -]+[ ])? (?: PUBLIC | PRIVATE ) [ ] KEY
-          | (?:[0-9A-Z -]+[ ])? CERTIFICATE (?:[ ] REQUEST )?
-          | (?:[0-9A-Z -]+[ ])? PARAMETERS
-          | X509 [ ] CRL
-          | PKCS7
-          | PKCS [ ] \#7 [ ] SIGNED [ ] DATA
-          | CMS
-          | PGP [ ] MESSAGE (?:,[ ] PART [ ] \d+(?:/\d+)?)?
-          | PGP [ ] (?: PUBLIC | PRIVATE ) [ ] KEY [ ] BLOCK
-          | PGP [ ] SIGNATURE
-          )
-          ([ -]-{4})
-        )
+first_line_match: '{{first_line_match}}'
 
 contexts:
   main:
     - include: comments-number-sign
-    - match: |-
-        ^(?x:
-          (-{4}[ -])
-          BEGIN [ ]
-          ( (?:[0-9A-Z -]+[ ])? (?: PUBLIC | PRIVATE ) [ ] KEY
-          | (?:[0-9A-Z -]+[ ])? CERTIFICATE (?:[ ] REQUEST )?
-          | (?:[0-9A-Z -]+[ ])? PARAMETERS
-          | X509 [ ] CRL
-          | PKCS7
-          | PKCS [ ] \#7 [ ] SIGNED [ ] DATA
-          | CMS
-          | PGP [ ] MESSAGE (?:,[ ] PART [ ] \d+(?:/\d+)?)?
-          | PGP [ ] (?: PUBLIC | PRIVATE ) [ ] KEY [ ] BLOCK
-          | PGP [ ] SIGNATURE
-          )
-          ([ -]-{4})
-        )
+    - match: '{{first_line_match}}'
       scope: punctuation.section.block.begin.pem
       push: pem-key
     - include: setext-headings
@@ -146,3 +114,24 @@ contexts:
   not-heading:
     - match: ''
       pop: 1
+
+###############################################################################
+
+variables:
+  first_line_match: |-
+    ^(?x:
+      (-{4}[ -])
+      BEGIN [ ]
+      ( (?:[0-9A-Z -]+[ ])? (?: PUBLIC | PRIVATE ) [ ] KEY
+      | (?:[0-9A-Z -]+[ ])? CERTIFICATE (?:[ ] REQUEST )?
+      | (?:[0-9A-Z -]+[ ])? PARAMETERS
+      | X509 [ ] CRL
+      | PKCS7
+      | PKCS [ ] \#7 [ ] SIGNED [ ] DATA
+      | CMS
+      | PGP [ ] MESSAGE (?:,[ ] PART [ ] \d+(?:/\d+)?)?
+      | PGP [ ] (?: PUBLIC | PRIVATE ) [ ] KEY [ ] BLOCK
+      | PGP [ ] SIGNATURE
+      )
+      ([ -]-{4})
+    )
