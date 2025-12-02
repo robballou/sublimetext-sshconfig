@@ -6,6 +6,13 @@ for [*~/.ssh/config*][ssh-config],
 [*/etc/ssh/sshd_config*][sshd-config],
 and some other SSH-related files.
 
+The highlighting is not automatically activated
+on *~/.ssh/config*
+because of a Sublime Text limitation.
+Use **SSH Config: Open SSH Config File**
+from the command palette
+or [see the wiki for other options][wiki-activation].
+
 ![Sample screenshot](demo/demo.png)
 
 
