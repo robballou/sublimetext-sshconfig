@@ -120,10 +120,6 @@ man 5 sshd_config
   (<kbd>Ctrl</kbd>+<kbd>R</kbd> or
    <kbd>Cmd</kbd>+<kbd>R</kbd>)
 
-Public keys are also associated with this syntax,
-since the *authorized_keys* format
-is basically a strict superset of them.
-
 For file format information,
 consult `man` pages on the web
 ([Linux][man-linux-authorized-keys],

@@ -6,31 +6,24 @@
 name: Authorized Keys
 scope: source.authorized_keys
 version: 2
-extends: SSH Crypto.sublime-syntax
+extends: Public Key.sublime-syntax
 
 file_extensions:
   - authorized_keys
-  - pub
 
 hidden_file_extensions:
   - authorized_keys2
 
 contexts:
-  main:
-    - include: comments-number-sign
-    - match: ^
-      push:
-        - meta_scope: meta.line.authorized-key.authorized_keys
-        - include: pop-before-nl
-        - include: pop-nl
-        - include: ssh-key-types
-        - include: ssh-fingerprint-with-label
-        - include: flag-options
-        - include: value-options
-        - include: strings
-        - match: =
-          scope: keyword.operator.assignment.authorized_keys
-        - include: punctuation-comma-sequence
+
+  restrictions:
+    - meta_prepend: true
+    - include: flag-options
+    - include: value-options
+    - include: strings
+    - match: =
+      scope: keyword.operator.assignment.authorized_keys
+    - include: punctuation-comma-sequence
 
   flag-options:
     - match: (?:no-)?(?:pty|user-rc|(?:agent|port|X11)-forwarding)

@@ -1,0 +1,21 @@
+# SYNTAX TEST "Packages/SSH Config/syntax/Public Key.sublime-syntax"
+
+# Comment
+# <- comment.line.number-sign.ssh.common punctuation.definition.comment.ssh.common
+#^^^^^^^^ comment.line.number-sign.ssh.common
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHeDxE1jPGCLo51RSF7CeJbp4raIc3xo6TBiqkz4WRWI you@example.com
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.key.pubkey
+#                                                                                               ^ - meta.line.authorized-key
+# ^^^^^^^^^ support.type.key-type
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ variable.other.fingerprint
+#                                                                                ^^^^^^^^^^^^^^^ meta.annotation.identifier string.unquoted
+
+# Comments allowed at start of line
+ssh-rsa AAAAB3NzaLiPk== user@example.net   
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.line.key.pubkey
+#^^^^^^ support.type.key-type.ssh.crypto
+#       ^^^^^^^^^^^^^^^ variable.other.fingerprint.ssh.common
+#                       ^^^^^^^^^^^^^^^^ meta.annotation.identifier.ssh.common string.unquoted.ssh.common
+#                           ^ punctuation.separator.sequence.ssh.common
+#                                       ^^^ - meta.annotation - string
