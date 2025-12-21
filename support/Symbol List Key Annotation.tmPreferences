@@ -5,8 +5,8 @@
     <string>Symbol List</string>
     <key>scope</key>
     <string>
-        text.authorized_keys meta.annotation.identifier,
-        text.known_hosts meta.annotation.identifier
+        source.authorized_keys meta.annotation.identifier,
+        source.known_hosts meta.annotation.identifier
     </string>
     <key>settings</key>
     <dict>

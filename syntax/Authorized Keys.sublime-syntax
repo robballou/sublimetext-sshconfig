@@ -4,7 +4,7 @@
 # https://man7.org/linux/man-pages/man8/sshd.8.html#AUTHORIZED_KEYS_FILE_FORMAT
 # https://man.openbsd.org/sshd.8#AUTHORIZED_KEYS_FILE_FORMAT
 name: Authorized Keys
-scope: text.authorized_keys
+scope: source.authorized_keys
 version: 2
 extends: SSH Crypto.sublime-syntax
 
