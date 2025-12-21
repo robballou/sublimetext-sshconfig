@@ -1,5 +1,6 @@
 {
     "install": "messages/install.md",
+    "8.0.0": "messages/8.0.0.md",
     "7.0.0": "messages/7.0.0.md",
     "6.0.0": "messages/6.0.0.md",
     "5.0.0": "messages/5.0.0.md",
