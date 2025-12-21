@@ -1,0 +1,26 @@
+%YAML 1.2
+---
+# https://www.sublimetext.com/docs/syntax.html
+name: Public Key
+scope: source.pubkey
+version: 2
+extends: SSH Crypto.sublime-syntax
+
+file_extensions:
+  - pub
+
+contexts:
+  main:
+    - include: comments-number-sign
+    - match: ^(?=\S)
+      push: [key, restrictions]
+
+  key:
+    - meta_scope: meta.line.key.pubkey
+    - include: pop-before-nl
+    - include: ssh-key-types
+    - include: ssh-fingerprint-with-label
+
+  restrictions:
+    - include: else-pop
+    - include: pop-before-nl
