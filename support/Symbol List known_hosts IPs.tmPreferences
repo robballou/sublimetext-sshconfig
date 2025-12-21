@@ -4,7 +4,7 @@
     <key>name</key>
     <string>Symbol List: IP Addresses</string>
     <key>scope</key>
-    <string>text.known_hosts constant.numeric.ip-address</string>
+    <string>source.known_hosts constant.numeric.ip-address</string>
     <key>settings</key>
     <dict>
         <key>showInSymbolList</key>
