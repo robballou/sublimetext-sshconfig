@@ -33,7 +33,7 @@ class OpenSshConfigFileCommand(sublime_plugin.TextCommand):
 
         if sublime.load_settings('SSH Config.sublime-settings').get(
                 'force_ssh_config_syntax'):
-            syntax = 'Packages/SSH Config/SSH Config.sublime-syntax'
+            syntax = 'Packages/SSH Config/syntax/SSH Config.sublime-syntax'
             view.settings().set('syntax', syntax)
 
 
