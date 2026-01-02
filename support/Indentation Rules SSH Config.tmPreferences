@@ -8,9 +8,9 @@
     <key>settings</key>
     <dict>
         <key>decreaseIndentPattern</key>
-        <string>^\s*(?i:Host|Match)(\s|$)</string>
+        <string>^\s*(?i:Host|Match)(?=[ \t])</string>
         <key>increaseIndentPattern</key>
-        <string>^\s*(?i:Host|Match)(\s|$)</string>
+        <string>^\s*(?i:Host|Match)(?=[ \t])</string>
         <key>unIndentedLinePattern</key>
         <string>^\s*([#;].*)?$</string>
     </dict>
