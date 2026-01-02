@@ -11,11 +11,6 @@ extends: SSH Crypto.sublime-syntax
 file_extensions:
   - sshd_config
 
-hidden_file_extensions:
-  - ssh_host_ecdsa_key
-  - ssh_host_ed25519_key
-  - ssh_host_rsa_key
-
 contexts:
   main:
     - include: comments

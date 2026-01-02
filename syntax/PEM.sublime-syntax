@@ -25,6 +25,9 @@ hidden_file_extensions:
   - id_ed448
   - id_eddsa
   - id_rsa
+  - ssh_host_ecdsa_key
+  - ssh_host_ed25519_key
+  - ssh_host_rsa_key
 
 first_line_match: |-
         ^(?x:
