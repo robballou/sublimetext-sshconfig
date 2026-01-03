@@ -7,6 +7,6 @@ Host ${1:hostname}
 
 ]]></content>
 	<tabTrigger>host</tabTrigger>
-	<scope>source.ssh_config</scope>
+	<scope>source.ssh_config - meta.mapping.value - comment</scope>
 	<description>Create new Host entry</description>
 </snippet>

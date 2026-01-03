@@ -7,6 +7,7 @@ key-types:
     scope: "
       (source.ssh_config | source.sshd_config)
         & meta.mapping.value
+        - meta.mapping.value.host-aliases
         - source source,
       (text.authorized_keys | text.known_hosts)
         - comment
@@ -112,6 +113,7 @@ ciphers:
     scope: "
       (source.ssh_config | source.sshd_config)
         & meta.mapping.value
+        - meta.mapping.value.host-aliases
         - source source
       "
     kind: [function, c, Cipher]
@@ -228,6 +230,7 @@ kex-algorithms:
     scope: "
       (source.ssh_config | source.sshd_config)
         & meta.mapping.value
+        - meta.mapping.value.host-aliases
         - source source
       "
     kind: [function, k, Kex Algm]
@@ -368,6 +371,7 @@ mac-algorithms:
     scope: "
       (source.ssh_config | source.sshd_config)
         & meta.mapping.value
+        - meta.mapping.value.host-aliases
         - source source
       "
     kind: [function, m, MAC Algm]

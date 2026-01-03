@@ -75,17 +75,19 @@ contexts:
   host-block:
     - match: ^\s*((?i:Host))\b
       captures:
-        1: keyword.declaration.host-alias.ssh_config
+        1: meta.mapping.key.ssh_config keyword.declaration.host-alias.ssh_config
       set: host-aliases
 
   host-aliases:
     - meta_scope: meta.block.host.ssh_config
-    - match: (?=\n)
+    - meta_content_scope: meta.mapping.value.host-aliases.ssh_config
+    - match: \n
+      scope: meta.mapping.value.host-aliases.ssh_config
       set: host-body
     - include: host-patterns
 
   host-body:
-    - meta_scope: meta.block.host.ssh_config
+    - meta_content_scope: meta.block.host.ssh_config
     - include: pop-before-next-host
     - include: parameters
 

@@ -97,16 +97,17 @@ Host tj
 #        ^^^^^^^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common - meta.number - constant
 
 Host server serverino !other-pat?ern
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config - meta.block.match - meta.block meta.block
-#^^^ keyword.declaration.host-alias.ssh_config
-#   ^                 - entity
-#    ^^^^^^           entity.name.label.host-alias.ssh_config
-#          ^          - entity
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config - meta.block.match - meta.block meta.block
+#^^^ meta.mapping.key.ssh_config keyword.declaration.host-alias.ssh_config
+#   ^ - entity
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.host-aliases.ssh_config
+#    ^^^^^^ entity.name.label.host-alias.ssh_config
+#          ^ - entity
 #           ^^^^^^^^^ entity.name.label.host-alias.ssh_config
-#                    ^               - entity
-#                     ^              keyword.operator.logical.ssh.common
+#                    ^ - entity
+#                     ^ keyword.operator.logical.ssh.common
 #                      ^^^^^^^^^^^^^ entity.name.label.host-alias.ssh_config
-#                               ^    constant.other.wildcard.questionmark.ssh.common
+#                               ^ constant.other.wildcard.questionmark.ssh.common
 #    @@@@@@ local-definition "Alias: server"
 #           @@@@@@@@@ local-definition "Alias: serverino"
 #                      @@@@@@@@@@@@@ local-definition "Alias: other-pat?ern"

@@ -1,5 +1,5 @@
 {
-    "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - source source",
+    "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - meta.mapping.value.host-aliases - source source",
     "completions": [
         {
             "trigger": "Curve25519SHA256\tkex",

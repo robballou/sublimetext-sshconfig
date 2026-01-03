@@ -1,5 +1,5 @@
 {
-    "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - comment - source source",
+    "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - meta.mapping.value.host-aliases - comment - source source",
     "completions": [
         {
             "trigger": "yes",

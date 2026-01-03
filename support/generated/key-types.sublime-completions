@@ -1,5 +1,5 @@
 {
-    "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - source source, (text.authorized_keys | text.known_hosts) - comment - string",
+    "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - meta.mapping.value.host-aliases - source source, (text.authorized_keys | text.known_hosts) - comment - string",
     "completions": [
         {
             "trigger": "dsa2048-sha224@libassh.org\tkey type",
