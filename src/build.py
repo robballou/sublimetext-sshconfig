@@ -15,8 +15,8 @@ TEST_STEM = '../test/generated/syntax_test_'
 SUPPORT_STEM = '../support/generated/'
 
 
-def build_ssh_options():
-    with open('options.yaml', 'r') as stream:
+def build_ssh_options() -> None:
+    with open('options.yaml', 'r', encoding="utf-8") as stream:
         ssh_options_input: dict[str, CompletionSet] = yaml.load(
             stream, Loader=yaml.BaseLoader)
 
@@ -54,12 +54,12 @@ def build_ssh_options():
                 'details': details,
             })
 
-        with open(f'{SUPPORT_STEM}{domain}.sublime-completions', 'w') as f:
+        with open(f'{SUPPORT_STEM}{domain}.sublime-completions', 'w', encoding="utf-8") as f:
             json.dump(completions, f, indent=4)
 
 
-def build_sshd_index_test():
-    with open('options.yaml', 'r') as stream:
+def build_sshd_index_test() -> None:
+    with open('options.yaml', 'r', encoding="utf-8") as stream:
         ssh_options_input: dict[str, CompletionSet] = yaml.load(
             stream, Loader=yaml.BaseLoader)
 
@@ -81,12 +81,12 @@ def build_sshd_index_test():
         test_content.append(
             f'#{"@" * len(item)} local-definition\n')
 
-    with open(f'{TEST_STEM}server_index.sshd_config', 'w') as test_file:
+    with open(f'{TEST_STEM}server_index.sshd_config', 'w', encoding="utf-8") as test_file:
         _ = test_file.write('\n'.join(test_content))
 
 
-def build_crypto():
-    with open('crypto.yaml', 'r') as stream:
+def build_crypto() -> None:
+    with open('crypto.yaml', 'r', encoding="utf-8") as stream:
         crypto_input = yaml.load(stream, Loader=yaml.BaseLoader)
 
     test_content = [
@@ -166,18 +166,18 @@ def build_crypto():
             test_content.append(
                 f'#{" " * len(annotation)} {"^" * len(item)} {deprec_scope}')
 
-        with open(f'{SUPPORT_STEM}{domain}.sublime-completions', 'w') as f:
+        with open(f'{SUPPORT_STEM}{domain}.sublime-completions', 'w', encoding="utf-8") as f:
             json.dump(completions, f, indent=4)
 
-    with open('../syntax/SSH Crypto.sublime-syntax', 'w') as syntax_file:
+    with open('../syntax/SSH Crypto.sublime-syntax', 'w', encoding="utf-8") as syntax_file:
         _ = syntax_file.write('%YAML 1.2\n---\n')
         yaml.dump(syntax_content, syntax_file)
 
-    with open(f'{TEST_STEM}crypto', 'w') as test_file:
+    with open(f'{TEST_STEM}crypto', 'w', encoding="utf-8") as test_file:
         _ = test_file.write('\n'.join(test_content))
 
 
-def main():
+def main() -> None:
     build_ssh_options()
     build_sshd_index_test()
     build_crypto()

@@ -4,6 +4,7 @@ from os.path import expandvars
 
 
 def get_file_location(identifier):
+    # TODO: add type annotations for parameters/return type
     settings = sublime.load_settings('SSH Config.sublime-settings')
     user_setting = settings.get('file_locations')
     if user_setting:
@@ -16,7 +17,8 @@ def get_file_location(identifier):
         'default_file_locations')[sublime.platform()][identifier])
 
 
-def open_new_view(instance, identifier):
+def open_new_view(instance, identifier) -> None:
+    # TODO: add type annotations for remaining parameters/return type
     window = instance.view.window()
     if not window:
         print('Missing window for view')
@@ -26,7 +28,8 @@ def open_new_view(instance, identifier):
 
 
 class OpenSshConfigFileCommand(sublime_plugin.TextCommand):
-    def run(self, edit):
+    def run(self, edit) -> None:
+        # TODO: add type annotations for remaining parameters/return type
         view = open_new_view(self, 'ssh_config')
         if not view:
             return
@@ -38,15 +41,18 @@ class OpenSshConfigFileCommand(sublime_plugin.TextCommand):
 
 
 class OpenSshdConfigFileCommand(sublime_plugin.TextCommand):
-    def run(self, edit):
+    def run(self, edit) -> None:
+        # TODO: add type annotations for remaining parameters/return type
         view = open_new_view(self, 'sshd_config')
 
 
 class OpenKnownHostsFileCommand(sublime_plugin.TextCommand):
-    def run(self, edit):
+    def run(self, edit) -> None:
+        # TODO: add type annotations for remaining parameters/return type
         view = open_new_view(self, 'known_hosts')
 
 
 class OpenAuthorizedKeysFileCommand(sublime_plugin.TextCommand):
-    def run(self, edit):
+    def run(self, edit) -> None:
+        # TODO: add type annotations for remaining parameters/return type
         view = open_new_view(self, 'authorized_keys')
