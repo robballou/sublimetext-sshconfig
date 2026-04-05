@@ -3,3 +3,6 @@
 /src/ export-ignore
 /test/ export-ignore
 README.md export-ignore
+
+generated/ linguist-generated
+SSH Crypto.sublime-syntax linguist-generated
