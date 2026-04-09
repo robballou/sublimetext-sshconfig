@@ -427,7 +427,7 @@
       details: Minimum key size in bits
       values: 2048
     RevokedHostKeys:
-      details: File of KRL or list of bad public keys
+      details: File(s) of KRL or list of bad public keys
     RhostsRSAAuthentication:
     RSAAuthentication:
       values:
@@ -693,6 +693,11 @@
       values:
         - 'yes'
         - 'no'
+    GSSAPIDelegateCredentials:
+      details: Accept delegated creds from client
+      values:
+        - 'yes'
+        - 'no'
     GSSAPIStrictAcceptorCheck:
       details: Disable auth against non-hostname keys
       values:
@@ -933,7 +938,7 @@
     RequiredRSASize:
       details: Minimum RSA key size in bits
     RevokedKeys:
-      details: File containing revoked public keys
+      details: File(s) containing revoked public keys
     RDomain:
       details: Apply explicit routing domain after auth
       values: ${0:4}

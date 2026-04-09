@@ -163,6 +163,11 @@
 #GSSAPICleanupCredentials no
 #@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
 
+ GSSAPIDelegateCredentials no
+#@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#GSSAPIDelegateCredentials no
+#@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
  GSSAPIStrictAcceptorCheck no
 #@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
 #GSSAPIStrictAcceptorCheck no

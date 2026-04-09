@@ -1049,7 +1049,7 @@
             "trigger": "RevokedHostKeys",
             "contents": "RevokedHostKeys",
             "kind": "keyword",
-            "details": "File of KRL or list of bad public keys"
+            "details": "File(s) of KRL or list of bad public keys"
         },
         {
             "trigger": "RhostsRSAAuthentication",

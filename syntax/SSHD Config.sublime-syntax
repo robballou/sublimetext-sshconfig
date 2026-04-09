@@ -290,8 +290,9 @@ variables:
       | DenyGroups | DenyUsers | DisableForwarding
       | ExposeAuthInfo
       | FingerprintHash | ForceCommand
-      | GatewayPorts | GSSAPIAuthentication | GSSAPICleanupCredentials
-      | GSSAPIStrictAcceptorCheck
+      | GatewayPorts
+      | GSSAPI (?: Authentication | CleanupCredentials | DelegateCredentials
+               | StrictAcceptorCheck )
       | Hostbased (?: AcceptedAlgorithms | AcceptedKeyTypes | Authentication
                   | UsesNameFromPacketOnly )
       | HostCertificate | HostKey | HostKeyAgent | HostKeyAlgorithms

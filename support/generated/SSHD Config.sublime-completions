@@ -296,6 +296,18 @@
             "details": "Destroy creds on logout"
         },
         {
+            "trigger": "GSSAPIDelegateCredentials",
+            "contents": "GSSAPIDelegateCredentials",
+            "kind": "keyword",
+            "details": "Accept delegated creds from client"
+        },
+        {
+            "trigger": "gssapidelegatecredentials",
+            "contents": "GSSAPIDelegateCredentials ${0:{ yes | no \\}}",
+            "kind": "snippet",
+            "details": "Accept delegated creds from client"
+        },
+        {
             "trigger": "GSSAPIStrictAcceptorCheck",
             "contents": "GSSAPIStrictAcceptorCheck",
             "kind": "keyword",
@@ -881,7 +893,7 @@
             "trigger": "RevokedKeys",
             "contents": "RevokedKeys",
             "kind": "keyword",
-            "details": "File containing revoked public keys"
+            "details": "File(s) containing revoked public keys"
         },
         {
             "trigger": "RDomain",
