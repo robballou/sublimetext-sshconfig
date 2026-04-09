@@ -31,7 +31,7 @@ jobs:
           - build: 4185  # Required for symbol transformation tests
             packages: v4193  # Bash rewrite
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: SublimeText/syntax-test-action@v2
         with:
           build: ${{ matrix.build }}
