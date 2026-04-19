@@ -6,4 +6,4 @@
 
 # Mark some files as generated
 **/generated/* linguist-generated
-SSH[[:space:]]Crypto.sublime-syntax linguist-generated
+"SSH Crypto.sublime-syntax" linguist-generated
