@@ -1,8 +1,9 @@
+# Skip packaging for ST download
 /.git* export-ignore
-/demo/ export-ignore
-/src/ export-ignore
-/test/ export-ignore
-README.md export-ignore
+/.github/** export-ignore
+/demo/** export-ignore
+/src/** export-ignore
 
+# Mark some files as generated
 **/generated/* linguist-generated
 SSH[[:space:]]Crypto.sublime-syntax linguist-generated
