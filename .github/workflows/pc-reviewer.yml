@@ -1,0 +1,19 @@
+name: Package Review
+# https://github.com/kaste/st_package_reviewer/tree/main/gh_action_package
+
+on:
+  workflow_dispatch:
+
+jobs:
+  package-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Review this package repository
+        uses: kaste/st_package_reviewer/gh_action_package@81e964270472dae33e904a15a354976b99d7b2f2
+        with:
+          # path: .
+          package-name: SSH Config
+          # st-build: 4180
+          # fail-on-warnings: "true"
