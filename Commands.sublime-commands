@@ -16,7 +16,7 @@
         "command": "open_known_hosts_file",
     },
     {
-        "caption": "SSH Config: Settings",
+        "caption": "Preferences: SSH Config Settings",
         "command": "edit_settings",
         "args": {
             "base_file": "${packages}/SSH Config/SSH Config.sublime-settings",
