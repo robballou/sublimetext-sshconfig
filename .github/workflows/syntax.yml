@@ -4,13 +4,13 @@ name: Syntax Tests
 on:
   push:
     paths:
-      - '.github/workflows/*'
+      - '.github/workflows/syntax.yml'
       - '**.sublime-syntax'
       - '**/syntax_test_*'
       - '**.tmPreferences'
   pull_request:
     paths:
-      - '.github/workflows/*'
+      - '.github/workflows/syntax.yml'
       - '**.sublime-syntax'
       - '**/syntax_test_*'
       - '**.tmPreferences'
