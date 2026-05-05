@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: Review this package repository
-        uses: kaste/st_package_reviewer/gh_action_package@81e964270472dae33e904a15a354976b99d7b2f2
+        uses: kaste/st_package_reviewer/gh_action_package@111c4a811349e6a34201c71b54d283e8e76040d3
         with:
           # path: .
           package-name: SSH Config
