@@ -1,0 +1,24 @@
+[{
+    "id": "preferences",
+    "children": [
+        {
+            "id": "package-settings",
+            "children": [
+                {
+                    "caption": "SSH Config",
+                    "children": [
+                        {
+                            "caption": "Settings",
+                            "id": "ssh-config-settings",
+                            "command": "edit_settings",
+                            "args": {
+                                "base_file": "${packages}/SSH Config/SSH Config.sublime-settings",
+                                "default": "/* See the left pane for the list of settings and valid values. */\n{\n\t$0\n}\n",
+                            },
+                        },
+                    ]
+                },
+            ]
+        },
+    ]
+}]
