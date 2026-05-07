@@ -42,7 +42,7 @@ If the file-open commands open the wrong file for you,
 open the Command Palette
 (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or
  <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>),
-search for **SSH Config: Settings**,
+search for **Preferences: SSH Config Settings**,
 and put in content like this:
 
 ```jsonc
