@@ -4,1350 +4,1575 @@
         {
             "trigger": "Host",
             "contents": "Host",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Define rules for a host"
         },
         {
             "trigger": "Match",
             "contents": "Match",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Define rules with multiple conditions"
         },
         {
             "trigger": "AddKeysToAgent",
             "contents": "AddKeysToAgent",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Add keys to a running <code>ssh-agent</code>"
         },
         {
             "trigger": "addkeystoagent",
             "contents": "AddKeysToAgent ${0:{ yes | no | confirm | ask \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Add keys to a running <code>ssh-agent</code>"
         },
         {
             "trigger": "AddressFamily",
             "contents": "AddressFamily",
+            "annotation": "option",
             "kind": "keyword",
             "details": "IPv4/IPv6 switch"
         },
         {
             "trigger": "addressfamily",
             "contents": "AddressFamily ${0:{ inet4 | inet6 | any \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "IPv4/IPv6 switch"
         },
         {
             "trigger": "BatchMode",
             "contents": "BatchMode",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Disable UI prompts"
         },
         {
             "trigger": "batchmode",
             "contents": "BatchMode ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Disable UI prompts"
         },
         {
             "trigger": "BindAddress",
             "contents": "BindAddress",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Specify source IP"
         },
         {
             "trigger": "bindaddress",
             "contents": "BindAddress ${0:192.0.2.16}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Specify source IP"
         },
         {
             "trigger": "BindInterface",
             "contents": "BindInterface",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Specify source NIC"
         },
         {
             "trigger": "bindinterface",
             "contents": "BindInterface ${0:eth0}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Specify source NIC"
         },
         {
             "trigger": "CanonicalDomains",
             "contents": "CanonicalDomains",
+            "annotation": "option",
             "kind": "keyword",
             "details": "List of domain suffixes"
         },
         {
             "trigger": "canonicaldomains",
             "contents": "CanonicalDomains ${0:local.example.com,local.example.org}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "List of domain suffixes"
         },
         {
             "trigger": "CanonicalizeFallbackLocal",
             "contents": "CanonicalizeFallbackLocal",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Fallback for domain lookup failure"
         },
         {
             "trigger": "canonicalizefallbacklocal",
             "contents": "CanonicalizeFallbackLocal ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Fallback for domain lookup failure"
         },
         {
             "trigger": "CanonicalizeHostname",
             "contents": "CanonicalizeHostname",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Enable explicit hostname lookups"
         },
         {
             "trigger": "canonicalizehostname",
             "contents": "CanonicalizeHostname ${0:{ yes | no | always \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Enable explicit hostname lookups"
         },
         {
             "trigger": "CanonicalizeMaxDots",
             "contents": "CanonicalizeMaxDots",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Number of <code>.</code>s to disable domain lookup"
         },
         {
             "trigger": "canonicalizemaxdots",
             "contents": "CanonicalizeMaxDots ${0:1}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Number of <code>.</code>s to disable domain lookup"
         },
         {
             "trigger": "CanonicalizePermittedCNAMEs",
             "contents": "CanonicalizePermittedCNAMEs",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Map of allowlisted CNAMEs to follow on lookup"
         },
         {
             "trigger": "canonicalizepermittedcnames",
             "contents": "CanonicalizePermittedCNAMEs ${0:*.source.com,source.org:dest.org,*.local.dest.com}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Map of allowlisted CNAMEs to follow on lookup"
         },
         {
             "trigger": "CASignatureAlgorithms",
             "contents": "CASignatureAlgorithms",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Permitted algms for CAs"
         },
         {
             "trigger": "casignaturealgorithms",
             "contents": "CASignatureAlgorithms ${0:ssh-ed25519,rsa-sha2-512}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Permitted algms for CAs"
         },
         {
             "trigger": "CertificateFile",
             "contents": "CertificateFile",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Path to user certificate"
         },
         {
             "trigger": "certificatefile",
             "contents": "CertificateFile ${0:~/.ssh/pem_%h}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Path to user certificate"
         },
         {
             "trigger": "ChallengeResponseAuthentication",
             "contents": "ChallengeResponseAuthentication",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Disable challenge-response auth"
         },
         {
             "trigger": "challengeresponseauthentication",
             "contents": "ChallengeResponseAuthentication ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Disable challenge-response auth"
         },
         {
             "trigger": "ChannelTimeout",
             "contents": "ChannelTimeout",
+            "annotation": "option",
             "kind": "keyword",
             "details": "TTL for active channels"
         },
         {
             "trigger": "channeltimeout",
             "contents": "ChannelTimeout ${session=5m}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "TTL for active channels"
         },
         {
             "trigger": "CheckHostIP",
             "contents": "CheckHostIP",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Disable comparing IP to <code>known_hosts</code>"
         },
         {
             "trigger": "checkhostip",
             "contents": "CheckHostIP ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Disable comparing IP to <code>known_hosts</code>"
         },
         {
             "trigger": "Ciphers",
             "contents": "Ciphers",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Permitted cipher patterns, by preference"
         },
         {
             "trigger": "ciphers",
             "contents": "Ciphers ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Permitted cipher patterns, by preference"
         },
         {
             "trigger": "ClearAllForwardings",
             "contents": "ClearAllForwardings",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Clear port forwarding"
         },
         {
             "trigger": "clearallforwardings",
             "contents": "ClearAllForwardings ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Clear port forwarding"
         },
         {
             "trigger": "Compression",
             "contents": "Compression",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Disable compression"
         },
         {
             "trigger": "compression",
             "contents": "Compression ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Disable compression"
         },
         {
             "trigger": "ConnectionAttempts",
             "contents": "ConnectionAttempts",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Set retry for intermittent connections"
         },
         {
             "trigger": "connectionattempts",
             "contents": "ConnectionAttempts ${0:1}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Set retry for intermittent connections"
         },
         {
             "trigger": "ConnectTimeout",
             "contents": "ConnectTimeout",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Timeout in seconds"
         },
         {
             "trigger": "connecttimeout",
             "contents": "ConnectTimeout ${0:5}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Timeout in seconds"
         },
         {
             "trigger": "ControlMaster",
             "contents": "ControlMaster",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Set connection sharing for multiple sessions on <code>ControlPath</code>"
         },
         {
             "trigger": "controlmaster",
             "contents": "ControlMaster ${0:{ yes | no | ask \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Set connection sharing for multiple sessions on <code>ControlPath</code>"
         },
         {
             "trigger": "ControlPath",
             "contents": "ControlPath",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Tokenized path to connection sharing file"
         },
         {
             "trigger": "controlpath",
             "contents": "ControlPath ${0:~/.ssh/control-%h-%p-%r}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Tokenized path to connection sharing file"
         },
         {
             "trigger": "ControlPersist",
             "contents": "ControlPersist",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Keep connection on disconnect of sessions"
         },
         {
             "trigger": "controlpersist",
             "contents": "ControlPersist ${0:{ yes | no | 300 (seconds to timeout) \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Keep connection on disconnect of sessions"
         },
         {
             "trigger": "DynamicForward",
             "contents": "DynamicForward",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Dynamic SSH or SOCKS port forwarding"
         },
         {
             "trigger": "dynamicforward",
             "contents": "DynamicForward ${0:[address:]port}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Dynamic SSH or SOCKS port forwarding"
         },
         {
             "trigger": "EnableEscapeCommandLine",
             "contents": "EnableEscapeCommandLine",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Enable CLI escape char <code>~C</code>"
         },
         {
             "trigger": "enableescapecommandline",
             "contents": "EnableEscapeCommandLine ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Enable CLI escape char <code>~C</code>"
         },
         {
             "trigger": "EnableSSHKeysign",
             "contents": "EnableSSHKeysign",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Enable <code>ssh-keysign</code> for <code>HostbasedAuthentication</code>"
         },
         {
             "trigger": "enablesshkeysign",
             "contents": "EnableSSHKeysign ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Enable <code>ssh-keysign</code> for <code>HostbasedAuthentication</code>"
         },
         {
             "trigger": "EscapeChar",
             "contents": "EscapeChar",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Default <code>~</code>"
         },
         {
             "trigger": "escapechar",
             "contents": "EscapeChar ${0:{ ^E | none \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Default <code>~</code>"
         },
         {
             "trigger": "ExitOnForwardFailure",
             "contents": "ExitOnForwardFailure",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Enable termination if port forwarding fails"
         },
         {
             "trigger": "exitonforwardfailure",
             "contents": "ExitOnForwardFailure ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Enable termination if port forwarding fails"
         },
         {
             "trigger": "FingerprintHash",
             "contents": "FingerprintHash",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Key hash algorithm"
         },
         {
             "trigger": "fingerprinthash",
             "contents": "FingerprintHash ${0:{ sha256 | md5 \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Key hash algorithm"
         },
         {
             "trigger": "ForkAfterAuthentication",
             "contents": "ForkAfterAuthentication",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Send connection to BG process"
         },
         {
             "trigger": "forkafterauthentication",
             "contents": "ForkAfterAuthentication ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Send connection to BG process"
         },
         {
             "trigger": "ForwardAgent",
             "contents": "ForwardAgent",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Enable forwarding ssh-agent keys to outbound ssh"
         },
         {
             "trigger": "forwardagent",
             "contents": "ForwardAgent ${0:{ yes | no | ~/path/to/socket | \\$PATH_VAR \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Enable forwarding ssh-agent keys to outbound ssh"
         },
         {
             "trigger": "ForwardX11",
             "contents": "ForwardX11",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Enable X11 forwarding"
         },
         {
             "trigger": "forwardx11",
             "contents": "ForwardX11 ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Enable X11 forwarding"
         },
         {
             "trigger": "ForwardX11Timeout",
             "contents": "ForwardX11Timeout",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "forwardx11timeout",
             "contents": "ForwardX11Timeout ${0:2h}",
+            "annotation": "option",
             "kind": "snippet",
             "details": ""
         },
         {
             "trigger": "ForwardX11Trusted",
             "contents": "ForwardX11Trusted",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Consider the remote X11 to be \"trusted\""
         },
         {
             "trigger": "forwardx11trusted",
             "contents": "ForwardX11Trusted ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Consider the remote X11 to be \"trusted\""
         },
         {
             "trigger": "GatewayPorts",
             "contents": "GatewayPorts",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Present local port forwards to remote host"
         },
         {
             "trigger": "gatewayports",
             "contents": "GatewayPorts ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Present local port forwards to remote host"
         },
         {
             "trigger": "GlobalKnownHostsFile",
             "contents": "GlobalKnownHostsFile",
+            "annotation": "option",
             "kind": "keyword",
             "details": "File(s) with global host keys"
         },
         {
             "trigger": "globalknownhostsfile",
             "contents": "GlobalKnownHostsFile ${0:/etc/ssh/ssh_known_hosts}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "File(s) with global host keys"
         },
         {
             "trigger": "GSSAPIAuthentication",
             "contents": "GSSAPIAuthentication",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Enable auth with GSSAPI"
         },
         {
             "trigger": "gssapiauthentication",
             "contents": "GSSAPIAuthentication ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Enable auth with GSSAPI"
         },
         {
             "trigger": "GSSAPIClientIdentity",
             "contents": "GSSAPIClientIdentity",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "GSSAPIDelegateCredentials",
             "contents": "GSSAPIDelegateCredentials",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Forward credentials to the server"
         },
         {
             "trigger": "gssapidelegatecredentials",
             "contents": "GSSAPIDelegateCredentials ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Forward credentials to the server"
         },
         {
             "trigger": "GSSAPIKeyExchange",
             "contents": "GSSAPIKeyExchange",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "GSSAPIRenewalForcesRekey",
             "contents": "GSSAPIRenewalForcesRekey",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "gssapirenewalforcesrekey",
             "contents": "GSSAPIRenewalForcesRekey ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": ""
         },
         {
             "trigger": "GSSAPITrustDns",
             "contents": "GSSAPITrustDns",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "gssapitrustdns",
             "contents": "GSSAPITrustDns ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": ""
         },
         {
             "trigger": "GSSAPIKexAlgorithms",
             "contents": "GSSAPIKexAlgorithms",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Override default KEX for GSSAPI"
         },
         {
             "trigger": "gssapikexalgorithms",
             "contents": "GSSAPIKexAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Override default KEX for GSSAPI"
         },
         {
             "trigger": "HashKnownHosts",
             "contents": "HashKnownHosts",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Obfuscate entry in <code>known_hosts</code>"
         },
         {
             "trigger": "hashknownhosts",
             "contents": "HashKnownHosts ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Obfuscate entry in <code>known_hosts</code>"
         },
         {
             "trigger": "HostbasedAcceptedAlgorithms",
             "contents": "HostbasedAcceptedAlgorithms",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Override default KEX for Hostbased"
         },
         {
             "trigger": "hostbasedacceptedalgorithms",
             "contents": "HostbasedAcceptedAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Override default KEX for Hostbased"
         },
         {
             "trigger": "HostbasedAuthentication",
             "contents": "HostbasedAuthentication",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Enable rhosts auth with public keys"
         },
         {
             "trigger": "hostbasedauthentication",
             "contents": "HostbasedAuthentication ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Enable rhosts auth with public keys"
         },
         {
             "trigger": "HostbasedKeyTypes",
             "contents": "HostbasedKeyTypes",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Permitted key type patterns, by preference"
         },
         {
             "trigger": "hostbasedkeytypes",
             "contents": "HostbasedKeyTypes ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Permitted key type patterns, by preference"
         },
         {
             "trigger": "HostKeyAlgorithms",
             "contents": "HostKeyAlgorithms",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Permitted key algm patterns, by preference"
         },
         {
             "trigger": "hostkeyalgorithms",
             "contents": "HostKeyAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Permitted key algm patterns, by preference"
         },
         {
             "trigger": "HostKeyAlias",
             "contents": "HostKeyAlias",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Use an alias for this host's certs"
         },
         {
             "trigger": "hostkeyalias",
             "contents": "HostKeyAlias ${0:hostname}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Use an alias for this host's certs"
         },
         {
             "trigger": "Hostname",
             "contents": "Hostname",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Set real hostname"
         },
         {
             "trigger": "hostname",
             "contents": "Hostname ${0:%h.example.com}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Set real hostname"
         },
         {
             "trigger": "IdentitiesOnly",
             "contents": "IdentitiesOnly",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Suppress keys from ~/.ssh"
         },
         {
             "trigger": "identitiesonly",
             "contents": "IdentitiesOnly ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Suppress keys from ~/.ssh"
         },
         {
             "trigger": "IdentityAgent",
             "contents": "IdentityAgent",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Socket to communicate with auth agent"
         },
         {
             "trigger": "identityagent",
             "contents": "IdentityAgent ${0:{ SSH_AUTH_SOCK | ~/.ssh/socket/path | \\$PATH_VAR | none \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Socket to communicate with auth agent"
         },
         {
             "trigger": "IdentityFile",
             "contents": "IdentityFile",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Path to key file; Multiple allowed"
         },
         {
             "trigger": "identityfile",
             "contents": "IdentityFile ${0:~/.ssh/id_rsa_%h}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Path to key file; Multiple allowed"
         },
         {
             "trigger": "IgnoreUnknown",
             "contents": "IgnoreUnknown",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Pattern for config options to ignore"
         },
         {
             "trigger": "ignoreunknown",
             "contents": "IgnoreUnknown ${0:FooBar*}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Pattern for config options to ignore"
         },
         {
             "trigger": "Include",
             "contents": "Include",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Configuration files to inject"
         },
         {
             "trigger": "include",
             "contents": "Include ${0:~/.ssh/config_*_cloud}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Configuration files to inject"
         },
         {
             "trigger": "IPQoS",
             "contents": "IPQoS",
+            "annotation": "option",
             "kind": "keyword",
             "details": "IPv4 type-of-service or DSCP class for connections"
         },
         {
             "trigger": "ipqos",
             "contents": "IPQoS ${0:{ af11 | af12 | ... | none \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "IPv4 type-of-service or DSCP class for connections"
         },
         {
             "trigger": "KbdInteractiveAuthentication",
             "contents": "KbdInteractiveAuthentication",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Disable interactive login on the CLI"
         },
         {
             "trigger": "kbdinteractiveauthentication",
             "contents": "KbdInteractiveAuthentication ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Disable interactive login on the CLI"
         },
         {
             "trigger": "KbdInteractiveDevices",
             "contents": "KbdInteractiveDevices",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Methods to use in keyboard-interactive auth"
         },
         {
             "trigger": "kbdinteractivedevices",
             "contents": "KbdInteractiveDevices ${0:bsdauth,pam,skey}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Methods to use in keyboard-interactive auth"
         },
         {
             "trigger": "KexAlgorithms",
             "contents": "KexAlgorithms",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Permitted key exchange algm patterns, by preference"
         },
         {
             "trigger": "kexalgorithms",
             "contents": "KexAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Permitted key exchange algm patterns, by preference"
         },
         {
             "trigger": "KnownHostsCommand",
             "contents": "KnownHostsCommand",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Also get host keys by running this script"
         },
         {
             "trigger": "knownhostscommand",
             "contents": "KnownHostsCommand ${0:echo foo}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Also get host keys by running this script"
         },
         {
             "trigger": "LocalCommand",
             "contents": "LocalCommand",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Execute command locally when connection successful"
         },
         {
             "trigger": "localcommand",
             "contents": "LocalCommand ${0:echo \"tada! %C, %d, %h, %i, %l, %n, %p, %r, %T, %u\"}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Execute command locally when connection successful"
         },
         {
             "trigger": "LocalForward",
             "contents": "LocalForward",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Forward local port over <code>ssh</code> to third party"
         },
         {
             "trigger": "localforward",
             "contents": "LocalForward ${1:[bind_address:]port} ${2:host}:${3:hostport}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Forward local port over <code>ssh</code> to third party"
         },
         {
             "trigger": "LogLevel",
             "contents": "LogLevel",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "loglevel",
             "contents": "LogLevel ${0:{ QUIET | FATAL | ERROR | INFO | ... \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": ""
         },
         {
             "trigger": "LogVerbose",
             "contents": "LogVerbose",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Override <code>LogLevel</code> for certain tracebacks"
         },
         {
             "trigger": "logverbose",
             "contents": "LogVerbose ${0:kex.c:*:1000,*:kex_exchange_identification():*,packet.c:*}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Override <code>LogLevel</code> for certain tracebacks"
         },
         {
             "trigger": "MACs",
             "contents": "MACs",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Permitted message auth code algm patterns, by preference"
         },
         {
             "trigger": "macs",
             "contents": "MACs ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Permitted message auth code algm patterns, by preference"
         },
         {
             "trigger": "NoHostAuthenticationForLocalhost",
             "contents": "NoHostAuthenticationForLocalhost",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Let <code>localhost</code> pretend to be anyone it wants"
         },
         {
             "trigger": "nohostauthenticationforlocalhost",
             "contents": "NoHostAuthenticationForLocalhost ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Let <code>localhost</code> pretend to be anyone it wants"
         },
         {
             "trigger": "NoHostAuthenticationForProxyCommand",
             "contents": "NoHostAuthenticationForProxyCommand",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Disable host authentication when using <code>ProxyCommand</code>."
         },
         {
             "trigger": "NumberOfPasswordPrompts",
             "contents": "NumberOfPasswordPrompts",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Number of password attempts before deny"
         },
         {
             "trigger": "numberofpasswordprompts",
             "contents": "NumberOfPasswordPrompts ${0:1}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Number of password attempts before deny"
         },
         {
             "trigger": "ObscureKeystrokeTiming",
             "contents": "ObscureKeystrokeTiming",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Burst keystrokes and send fake packets"
         },
         {
             "trigger": "obscurekeystroketiming",
             "contents": "ObscureKeystrokeTiming ${0:{ yes | no | interval:80 \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Burst keystrokes and send fake packets"
         },
         {
             "trigger": "PasswordAuthentication",
             "contents": "PasswordAuthentication",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Disable CLI password entry"
         },
         {
             "trigger": "passwordauthentication",
             "contents": "PasswordAuthentication ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Disable CLI password entry"
         },
         {
             "trigger": "PermitLocalCommand",
             "contents": "PermitLocalCommand",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Enable <code>LocalCommand</code> execution"
         },
         {
             "trigger": "permitlocalcommand",
             "contents": "PermitLocalCommand ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Enable <code>LocalCommand</code> execution"
         },
         {
             "trigger": "PermitRemoteOpen",
             "contents": "PermitRemoteOpen",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Destinations allowed for <code>RemoteForward</code>"
         },
         {
             "trigger": "permitremoteopen",
             "contents": "PermitRemoteOpen ${0:host:port}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Destinations allowed for <code>RemoteForward</code>"
         },
         {
             "trigger": "PKCS11Provider",
             "contents": "PKCS11Provider",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Specify a PKCS#11 provider"
         },
         {
             "trigger": "Port",
             "contents": "Port",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Connect on this port"
         },
         {
             "trigger": "port",
             "contents": "Port ${0:22}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Connect on this port"
         },
         {
             "trigger": "PreferredAuthentications",
             "contents": "PreferredAuthentications",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Auth methods, by preference"
         },
         {
             "trigger": "preferredauthentications",
             "contents": "PreferredAuthentications ${0:gssapi-with-mic,hostbased,publickey,keyboard-interactive,password}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Auth methods, by preference"
         },
         {
             "trigger": "Protocol",
             "contents": "Protocol",
+            "annotation": "option",
             "kind": "keyword",
             "details": "<em>Deprecated</em> Protocol is 2"
         },
         {
             "trigger": "protocol",
             "contents": "Protocol ${0:2}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "<em>Deprecated</em> Protocol is 2"
         },
         {
             "trigger": "ProxyCommand",
             "contents": "ProxyCommand",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Run command to establish proxy"
         },
         {
             "trigger": "proxycommand",
             "contents": "ProxyCommand ${0:/usr/bin/nc -X connect -x 192.0.2.0:8080 %h %p}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Run command to establish proxy"
         },
         {
             "trigger": "ProxyJump",
             "contents": "ProxyJump",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Use <code>ssh</code> on <code>host</code> as proxy"
         },
         {
             "trigger": "proxyjump",
             "contents": "ProxyJump ${0:[user@]host[:port]}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Use <code>ssh</code> on <code>host</code> as proxy"
         },
         {
             "trigger": "ProxyUseFdpass",
             "contents": "ProxyUseFdpass",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Pass a connected <code>fd</code> instead of continuing interactively"
         },
         {
             "trigger": "proxyusefdpass",
             "contents": "ProxyUseFdpass ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Pass a connected <code>fd</code> instead of continuing interactively"
         },
         {
             "trigger": "PubkeyAcceptedAlgorithms",
             "contents": "PubkeyAcceptedAlgorithms",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Permitted kex patterns, by preference"
         },
         {
             "trigger": "pubkeyacceptedalgorithms",
             "contents": "PubkeyAcceptedAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Permitted kex patterns, by preference"
         },
         {
             "trigger": "PubkeyAcceptedKeyTypes",
             "contents": "PubkeyAcceptedKeyTypes",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Permitted key type patterns, by preference"
         },
         {
             "trigger": "pubkeyacceptedkeytypes",
             "contents": "PubkeyAcceptedKeyTypes ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Permitted key type patterns, by preference"
         },
         {
             "trigger": "PubkeyAuthentication",
             "contents": "PubkeyAuthentication",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Disable asymmetric key authentication"
         },
         {
             "trigger": "pubkeyauthentication",
             "contents": "PubkeyAuthentication ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Disable asymmetric key authentication"
         },
         {
             "trigger": "RefuseConnection",
             "contents": "RefuseConnection",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Terminate without connecting"
         },
         {
             "trigger": "refuseconnection",
             "contents": "RefuseConnection ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Terminate without connecting"
         },
         {
             "trigger": "RekeyLimit",
             "contents": "RekeyLimit",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Data-length and duration before rekey"
         },
         {
             "trigger": "rekeylimit",
             "contents": "RekeyLimit ${0:2G 3h}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Data-length and duration before rekey"
         },
         {
             "trigger": "RemoteCommand",
             "contents": "RemoteCommand",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Run command on server after connecting"
         },
         {
             "trigger": "remotecommand",
             "contents": "RemoteCommand ${0:echo \"tada! %C, %d, %h, %i, %l, %n, %p, %r, %u\"}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Run command on server after connecting"
         },
         {
             "trigger": "RemoteForward",
             "contents": "RemoteForward",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Forward ports (<code>-R</code>) from server to client"
         },
         {
             "trigger": "remoteforward",
             "contents": "RemoteForward ${1:[bind_address:]port}${2: [host:hostport]}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Forward ports (<code>-R</code>) from server to client"
         },
         {
             "trigger": "RequestTTY",
             "contents": "RequestTTY",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Toggle asking for a <code>pty</code>"
         },
         {
             "trigger": "requesttty",
             "contents": "RequestTTY ${0:{ yes | no | force | auto \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Toggle asking for a <code>pty</code>"
         },
         {
             "trigger": "RequiredRSASize",
             "contents": "RequiredRSASize",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Minimum key size in bits"
         },
         {
             "trigger": "requiredrsasize",
             "contents": "RequiredRSASize 2048",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Minimum key size in bits"
         },
         {
             "trigger": "RevokedHostKeys",
             "contents": "RevokedHostKeys",
+            "annotation": "option",
             "kind": "keyword",
             "details": "File(s) of KRL or list of bad public keys"
         },
         {
             "trigger": "RhostsRSAAuthentication",
             "contents": "RhostsRSAAuthentication",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "RSAAuthentication",
             "contents": "RSAAuthentication",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "rsaauthentication",
             "contents": "RSAAuthentication ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": ""
         },
         {
             "trigger": "SecurityKeyProvider",
             "contents": "SecurityKeyProvider",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Path to alternative library for FIDO keys"
         },
         {
             "trigger": "SendEnv",
             "contents": "SendEnv",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Patterns for environment vars to send to remote"
         },
         {
             "trigger": "sendenv",
             "contents": "SendEnv ${0:LANG LC_*}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Patterns for environment vars to send to remote"
         },
         {
             "trigger": "ServerAliveCountMax",
             "contents": "ServerAliveCountMax",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Number of check-alive messages to send before giving up"
         },
         {
             "trigger": "serveralivecountmax",
             "contents": "ServerAliveCountMax ${0:3}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Number of check-alive messages to send before giving up"
         },
         {
             "trigger": "ServerAliveInterval",
             "contents": "ServerAliveInterval",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Timeout in seconds before sending check-alive messages"
         },
         {
             "trigger": "serveraliveinterval",
             "contents": "ServerAliveInterval ${0:300}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Timeout in seconds before sending check-alive messages"
         },
         {
             "trigger": "SessionType",
             "contents": "SessionType",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Restrict activities on the remote"
         },
         {
             "trigger": "sessiontype",
             "contents": "SessionType ${0:{ default | subsystem | none \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Restrict activities on the remote"
         },
         {
             "trigger": "SetEnv",
             "contents": "SetEnv",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Specify environment vars directly"
         },
         {
             "trigger": "setenv",
             "contents": "SetEnv ${1:NAME}=${2:value}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Specify environment vars directly"
         },
         {
             "trigger": "StdinNull",
             "contents": "StdinNull",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Prevents reading from stdin"
         },
         {
             "trigger": "stdinnull",
             "contents": "StdinNull ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Prevents reading from stdin"
         },
         {
             "trigger": "SmartcardDevice",
             "contents": "SmartcardDevice",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "StreamLocalBindMask",
             "contents": "StreamLocalBindMask",
+            "annotation": "option",
             "kind": "keyword",
             "details": "File mode <code>umask</code> when creating a forwarded port"
         },
         {
             "trigger": "streamlocalbindmask",
             "contents": "StreamLocalBindMask ${0:0177}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "File mode <code>umask</code> when creating a forwarded port"
         },
         {
             "trigger": "StreamLocalBindUnlink",
             "contents": "StreamLocalBindUnlink",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Enable overwriting existing ports with forwarding"
         },
         {
             "trigger": "streamlocalbindunlink",
             "contents": "StreamLocalBindUnlink ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Enable overwriting existing ports with forwarding"
         },
         {
             "trigger": "StrictHostKeyChecking",
             "contents": "StrictHostKeyChecking",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Set behavior for new and unmatched <code>known_hosts</code> entries"
         },
         {
             "trigger": "stricthostkeychecking",
             "contents": "StrictHostKeyChecking ${0:{ yes | no | ask | accept-new | off \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Set behavior for new and unmatched <code>known_hosts</code> entries"
         },
         {
             "trigger": "SyslogFacility",
             "contents": "SyslogFacility",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Facility code used when logging <code>ssh</code> messages"
         },
         {
             "trigger": "syslogfacility",
             "contents": "SyslogFacility ${0:{ DAEMON | USER | AUTH | LOCAL0 | ... \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Facility code used when logging <code>ssh</code> messages"
         },
         {
             "trigger": "TCPKeepAlive",
             "contents": "TCPKeepAlive",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Disable TCP keepalive messages"
         },
         {
             "trigger": "tcpkeepalive",
             "contents": "TCPKeepAlive ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Disable TCP keepalive messages"
         },
         {
             "trigger": "Tag",
             "contents": "Tag",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Label to use with <code>Match</code> later"
         },
         {
             "trigger": "tag",
             "contents": "Tag ${0:foo}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Label to use with <code>Match</code> later"
         },
         {
             "trigger": "Tunnel",
             "contents": "Tunnel",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Request <code>tun</code> device forwarding"
         },
         {
             "trigger": "tunnel",
             "contents": "Tunnel ${0:{ yes | no | ethernet | point-to-point \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Request <code>tun</code> device forwarding"
         },
         {
             "trigger": "TunnelDevice",
             "contents": "TunnelDevice",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Specify <code>tun</code> devices to open on client and server"
         },
         {
             "trigger": "tunneldevice",
             "contents": "TunnelDevice ${0:local_tun[:remote_tun]}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Specify <code>tun</code> devices to open on client and server"
         },
         {
             "trigger": "UpdateHostKeys",
             "contents": "UpdateHostKeys",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Update <code>known_hosts</code> after auth"
         },
         {
             "trigger": "updatehostkeys",
             "contents": "UpdateHostKeys ${0:{ yes | no | ask \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Update <code>known_hosts</code> after auth"
         },
         {
             "trigger": "UseKeychain",
             "contents": "UseKeychain",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Use macOS keychain to manage passphrases"
         },
         {
             "trigger": "UsePrivilegePort",
             "contents": "UsePrivilegePort",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "User",
             "contents": "User",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Set user to log in as"
         },
         {
             "trigger": "user",
             "contents": "User ${0:username}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Set user to log in as"
         },
         {
             "trigger": "UserKnownHostsFile",
             "contents": "UserKnownHostsFile",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Path to <code>known_hosts</code> file(s)"
         },
         {
             "trigger": "userknownhostsfile",
             "contents": "UserKnownHostsFile ${0:~/.ssh/known_hosts}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Path to <code>known_hosts</code> file(s)"
         },
         {
             "trigger": "VerifyHostKeyDNS",
             "contents": "VerifyHostKeyDNS",
+            "annotation": "option",
             "kind": "keyword",
             "details": ""
         },
         {
             "trigger": "verifyhostkeydns",
             "contents": "VerifyHostKeyDNS ${0:{ yes | no | ask \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": ""
         },
         {
             "trigger": "VersionAddendum",
             "contents": "VersionAddendum",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Append text to the SSH protocol banner"
         },
         {
             "trigger": "VisualHostKey",
             "contents": "VisualHostKey",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Show ASCII art for host's key"
         },
         {
             "trigger": "visualhostkey",
             "contents": "VisualHostKey ${0:{ yes | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Show ASCII art for host's key"
         },
         {
             "trigger": "WarnWeakCrypto",
             "contents": "WarnWeakCrypto",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Warn about crypto recommendations"
         },
         {
             "trigger": "warnweakcrypto",
             "contents": "WarnWeakCrypto ${0:{ yes | no-pq-kex | no \\}}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Warn about crypto recommendations"
         },
         {
             "trigger": "XAuthLocation",
             "contents": "XAuthLocation",
+            "annotation": "option",
             "kind": "keyword",
             "details": "Full pathname of the <code>xauth</code> program"
         },
         {
             "trigger": "xauthlocation",
             "contents": "XAuthLocation ${0:/usr/X11R6/bin/xauth}",
+            "annotation": "option",
             "kind": "snippet",
             "details": "Full pathname of the <code>xauth</code> program"
         }

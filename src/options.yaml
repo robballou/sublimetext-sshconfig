@@ -3,7 +3,7 @@
 'SSH Config - Match Conditions':
   completions:
     scope: source.ssh_config meta.block.match meta.statement.conditional
-    annotation: match condition
+    annotation: condition
     kind: [keyword, c, Condition]
   items:
     Canonical:
@@ -50,7 +50,7 @@
 'SSH Config':
   completions:
     scope: source.ssh_config - meta.statement - meta.mapping.value - comment
-    annotation: keyword
+    annotation: option
     kind: keyword
   items:
     Host:
@@ -541,7 +541,7 @@
 'SSHD Config - Match Conditions':
   completions:
     scope: source.sshd_config meta.block.match meta.statement.conditional
-    annotation: match condition
+    annotation: condition
     kind: [keyword, c, Condition]
   items:
     All:
@@ -575,7 +575,7 @@
 'SSHD Config':
   completions:
     scope: source.sshd_config - meta.statement - meta.mapping.value
-    annotation: keyword
+    annotation: option
     kind: keyword
   items:
     Match:

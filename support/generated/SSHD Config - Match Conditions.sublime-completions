@@ -4,6 +4,7 @@
         {
             "trigger": "All",
             "contents": "All",
+            "annotation": "condition",
             "kind": [
                 "keyword",
                 "c",
@@ -14,6 +15,7 @@
         {
             "trigger": "Invalid-User",
             "contents": "Invalid-User",
+            "annotation": "condition",
             "kind": [
                 "keyword",
                 "c",
@@ -24,6 +26,7 @@
         {
             "trigger": "User",
             "contents": "User",
+            "annotation": "condition",
             "kind": [
                 "keyword",
                 "c",
@@ -34,12 +37,14 @@
         {
             "trigger": "user",
             "contents": "User ${1:user1,user2}",
+            "annotation": "condition",
             "kind": "snippet",
             "details": "Match if user matches patterns"
         },
         {
             "trigger": "Group",
             "contents": "Group",
+            "annotation": "condition",
             "kind": [
                 "keyword",
                 "c",
@@ -50,12 +55,14 @@
         {
             "trigger": "group",
             "contents": "Group ${1:group1,group2}",
+            "annotation": "condition",
             "kind": "snippet",
             "details": "Match if user's <code>group</code>s match patterns"
         },
         {
             "trigger": "Host",
             "contents": "Host",
+            "annotation": "condition",
             "kind": [
                 "keyword",
                 "c",
@@ -66,12 +73,14 @@
         {
             "trigger": "host",
             "contents": "Host ${1:*.example.com,*.example.org}",
+            "annotation": "condition",
             "kind": "snippet",
             "details": "Match if hostname in patterns"
         },
         {
             "trigger": "LocalAddress",
             "contents": "LocalAddress",
+            "annotation": "condition",
             "kind": [
                 "keyword",
                 "c",
@@ -82,12 +91,14 @@
         {
             "trigger": "localaddress",
             "contents": "LocalAddress ${1:192.0.2.0,2001:db8::}",
+            "annotation": "condition",
             "kind": "snippet",
             "details": "Match if listening NIC matches patterns"
         },
         {
             "trigger": "LocalPort",
             "contents": "LocalPort",
+            "annotation": "condition",
             "kind": [
                 "keyword",
                 "c",
@@ -98,12 +109,14 @@
         {
             "trigger": "localport",
             "contents": "LocalPort ${1:22,2222}",
+            "annotation": "condition",
             "kind": "snippet",
             "details": "Match if listening port matches patterns"
         },
         {
             "trigger": "Version",
             "contents": "Version",
+            "annotation": "condition",
             "kind": [
                 "keyword",
                 "c",
@@ -114,6 +127,7 @@
         {
             "trigger": "RDomain",
             "contents": "RDomain",
+            "annotation": "condition",
             "kind": [
                 "keyword",
                 "c",
@@ -124,12 +138,14 @@
         {
             "trigger": "rdomain",
             "contents": "RDomain ${0:4}",
+            "annotation": "condition",
             "kind": "snippet",
             "details": "Match if in the routing domain"
         },
         {
             "trigger": "Address",
             "contents": "Address",
+            "annotation": "condition",
             "kind": [
                 "keyword",
                 "c",
@@ -140,6 +156,7 @@
         {
             "trigger": "address",
             "contents": "Address ${1:192.0.2.0/24,2001:db8::/32}",
+            "annotation": "condition",
             "kind": "snippet",
             "details": "Match if connecting IP in CIDRs"
         }

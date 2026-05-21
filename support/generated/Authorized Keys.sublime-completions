@@ -4,6 +4,7 @@
         {
             "trigger": "agent-forwarding",
             "contents": "agent-forwarding",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -14,6 +15,7 @@
         {
             "trigger": "cert-authority",
             "contents": "cert-authority",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -24,6 +26,7 @@
         {
             "trigger": "command",
             "contents": "command",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -34,12 +37,14 @@
         {
             "trigger": "command",
             "contents": "command=\"${0}\"",
+            "annotation": "options",
             "kind": "snippet",
             "details": "Run command when key is used"
         },
         {
             "trigger": "environment",
             "contents": "environment",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -50,12 +55,14 @@
         {
             "trigger": "environment",
             "contents": "environment=\"${1:NAME}=${2:value}\"",
+            "annotation": "options",
             "kind": "snippet",
             "details": "Set one environment var"
         },
         {
             "trigger": "expiry-time",
             "contents": "expiry-time",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -66,12 +73,14 @@
         {
             "trigger": "expiry-time",
             "contents": "expiry-time=\"${0:YYYYMMDD}\"",
+            "annotation": "options",
             "kind": "snippet",
             "details": "Give this key an expiration"
         },
         {
             "trigger": "from",
             "contents": "from",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -82,12 +91,14 @@
         {
             "trigger": "from",
             "contents": "from=\"${0:hosts}\"",
+            "annotation": "options",
             "kind": "snippet",
             "details": "Allowlist remote hosts"
         },
         {
             "trigger": "no-agent-forwarding",
             "contents": "no-agent-forwarding",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -98,6 +109,7 @@
         {
             "trigger": "no-port-forwarding",
             "contents": "no-port-forwarding",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -108,6 +120,7 @@
         {
             "trigger": "no-pty",
             "contents": "no-pty",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -118,6 +131,7 @@
         {
             "trigger": "no-user-rc",
             "contents": "no-user-rc",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -128,6 +142,7 @@
         {
             "trigger": "no-X11-forwarding",
             "contents": "no-X11-forwarding",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -138,6 +153,7 @@
         {
             "trigger": "permitlisten",
             "contents": "permitlisten",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -148,12 +164,14 @@
         {
             "trigger": "permitlisten",
             "contents": "permitlisten=\"${1:[host:]port}\"",
+            "annotation": "options",
             "kind": "snippet",
             "details": "Allowlist remote (<code>-R</code>) port forwarding"
         },
         {
             "trigger": "permitopen",
             "contents": "permitopen",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -164,12 +182,14 @@
         {
             "trigger": "permitopen",
             "contents": "permitopen=\"${1:host}:${2:port}\"",
+            "annotation": "options",
             "kind": "snippet",
             "details": "Allowlist local (<code>-L</code>) port forwarding"
         },
         {
             "trigger": "port-forwarding",
             "contents": "port-forwarding",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -180,6 +200,7 @@
         {
             "trigger": "principals",
             "contents": "principals",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -190,12 +211,14 @@
         {
             "trigger": "principals",
             "contents": "principals=\"${0:principals}\"",
+            "annotation": "options",
             "kind": "snippet",
             "details": "Allowlist CA principals"
         },
         {
             "trigger": "pty",
             "contents": "pty",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -206,6 +229,7 @@
         {
             "trigger": "no-touch-required",
             "contents": "no-touch-required",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -216,6 +240,7 @@
         {
             "trigger": "verify-required",
             "contents": "verify-required",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -226,6 +251,7 @@
         {
             "trigger": "restrict",
             "contents": "restrict",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -236,6 +262,7 @@
         {
             "trigger": "tunnel",
             "contents": "tunnel",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -246,12 +273,14 @@
         {
             "trigger": "tunnel",
             "contents": "tunnel=\"${0:N}\"",
+            "annotation": "options",
             "kind": "snippet",
             "details": "Force specific <code>tun</code> device"
         },
         {
             "trigger": "user-rc",
             "contents": "user-rc",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",
@@ -262,6 +291,7 @@
         {
             "trigger": "X11-forwarding",
             "contents": "X11-forwarding",
+            "annotation": "options",
             "kind": [
                 "keyword",
                 "o",

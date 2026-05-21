@@ -34,7 +34,7 @@ def build_ssh_options():
             _ = completions['completions'].append({
                 'trigger': keyword,
                 'contents': keyword,
-                # 'annotation': annotation,
+                'annotation': annotation,
                 'kind': default_kind,
                 'details': details,
             })
@@ -49,7 +49,7 @@ def build_ssh_options():
             _ = completions['completions'].append({
                 'trigger': keyword.lower(),
                 'contents': f'{keyword}{snippet_spacer}{value_string}',
-                # 'annotation': annotation,
+                'annotation': annotation,
                 'kind': 'snippet',
                 'details': details,
             })
