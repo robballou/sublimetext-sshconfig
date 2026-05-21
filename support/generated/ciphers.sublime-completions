@@ -2,7 +2,7 @@
     "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - meta.mapping.value.host-aliases - source source",
     "completions": [
         {
-            "trigger": "AEAD_AES_128_GCM\tcipher",
+            "trigger": "AEAD_AES_128_GCM",
             "contents": "AEAD_AES_128_GCM",
             "annotation": "cipher",
             "kind": [
@@ -12,7 +12,7 @@
             ]
         },
         {
-            "trigger": "AEAD_AES_256_GCM\tcipher",
+            "trigger": "AEAD_AES_256_GCM",
             "contents": "AEAD_AES_256_GCM",
             "annotation": "cipher",
             "kind": [
@@ -22,7 +22,7 @@
             ]
         },
         {
-            "trigger": "AEAD_CAMELLIA_128_GCM\tcipher",
+            "trigger": "AEAD_CAMELLIA_128_GCM",
             "contents": "AEAD_CAMELLIA_128_GCM",
             "annotation": "cipher",
             "kind": [
@@ -32,7 +32,7 @@
             ]
         },
         {
-            "trigger": "AEAD_CAMELLIA_256_GCM\tcipher",
+            "trigger": "AEAD_CAMELLIA_256_GCM",
             "contents": "AEAD_CAMELLIA_256_GCM",
             "annotation": "cipher",
             "kind": [
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "trigger": "aes128-ctr\tcipher",
+            "trigger": "aes128-ctr",
             "contents": "aes128-ctr",
             "annotation": "cipher",
             "kind": [
@@ -52,7 +52,7 @@
             ]
         },
         {
-            "trigger": "aes128-gcm\tcipher",
+            "trigger": "aes128-gcm",
             "contents": "aes128-gcm",
             "annotation": "cipher",
             "kind": [
@@ -62,7 +62,7 @@
             ]
         },
         {
-            "trigger": "aes128-gcm@openssh.com\tcipher",
+            "trigger": "aes128-gcm@openssh.com",
             "contents": "aes128-gcm@openssh.com",
             "annotation": "cipher",
             "kind": [
@@ -72,7 +72,7 @@
             ]
         },
         {
-            "trigger": "aes192-ctr\tcipher",
+            "trigger": "aes192-ctr",
             "contents": "aes192-ctr",
             "annotation": "cipher",
             "kind": [
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "trigger": "aes192-gcm@openssh.com\tcipher",
+            "trigger": "aes192-gcm@openssh.com",
             "contents": "aes192-gcm@openssh.com",
             "annotation": "cipher",
             "kind": [
@@ -92,7 +92,7 @@
             ]
         },
         {
-            "trigger": "aes256-ctr\tcipher",
+            "trigger": "aes256-ctr",
             "contents": "aes256-ctr",
             "annotation": "cipher",
             "kind": [
@@ -102,7 +102,7 @@
             ]
         },
         {
-            "trigger": "aes256-gcm\tcipher",
+            "trigger": "aes256-gcm",
             "contents": "aes256-gcm",
             "annotation": "cipher",
             "kind": [
@@ -112,7 +112,7 @@
             ]
         },
         {
-            "trigger": "aes256-gcm@openssh.com\tcipher",
+            "trigger": "aes256-gcm@openssh.com",
             "contents": "aes256-gcm@openssh.com",
             "annotation": "cipher",
             "kind": [
@@ -122,7 +122,7 @@
             ]
         },
         {
-            "trigger": "camellia128-ctr\tcipher",
+            "trigger": "camellia128-ctr",
             "contents": "camellia128-ctr",
             "annotation": "cipher",
             "kind": [
@@ -132,7 +132,7 @@
             ]
         },
         {
-            "trigger": "camellia128-ctr@openssh.org\tcipher",
+            "trigger": "camellia128-ctr@openssh.org",
             "contents": "camellia128-ctr@openssh.org",
             "annotation": "cipher",
             "kind": [
@@ -142,7 +142,7 @@
             ]
         },
         {
-            "trigger": "camellia192-ctr\tcipher",
+            "trigger": "camellia192-ctr",
             "contents": "camellia192-ctr",
             "annotation": "cipher",
             "kind": [
@@ -152,7 +152,7 @@
             ]
         },
         {
-            "trigger": "camellia192-ctr@openssh.org\tcipher",
+            "trigger": "camellia192-ctr@openssh.org",
             "contents": "camellia192-ctr@openssh.org",
             "annotation": "cipher",
             "kind": [
@@ -162,7 +162,7 @@
             ]
         },
         {
-            "trigger": "camellia256-ctr\tcipher",
+            "trigger": "camellia256-ctr",
             "contents": "camellia256-ctr",
             "annotation": "cipher",
             "kind": [
@@ -172,7 +172,7 @@
             ]
         },
         {
-            "trigger": "camellia256-ctr@openssh.org\tcipher",
+            "trigger": "camellia256-ctr@openssh.org",
             "contents": "camellia256-ctr@openssh.org",
             "annotation": "cipher",
             "kind": [
@@ -182,7 +182,7 @@
             ]
         },
         {
-            "trigger": "chacha20-poly1305\tcipher",
+            "trigger": "chacha20-poly1305",
             "contents": "chacha20-poly1305",
             "annotation": "cipher",
             "kind": [
@@ -192,7 +192,7 @@
             ]
         },
         {
-            "trigger": "chacha20-poly1305@openssh.com\tcipher",
+            "trigger": "chacha20-poly1305@openssh.com",
             "contents": "chacha20-poly1305@openssh.com",
             "annotation": "cipher",
             "kind": [
@@ -202,7 +202,7 @@
             ]
         },
         {
-            "trigger": "crypticore128@ssh.com\tcipher",
+            "trigger": "crypticore128@ssh.com",
             "contents": "crypticore128@ssh.com",
             "annotation": "cipher",
             "kind": [
@@ -212,7 +212,7 @@
             ]
         },
         {
-            "trigger": "twofish-ctr\tcipher",
+            "trigger": "twofish-ctr",
             "contents": "twofish-ctr",
             "annotation": "cipher",
             "kind": [
@@ -222,7 +222,7 @@
             ]
         },
         {
-            "trigger": "twofish128-ctr\tcipher",
+            "trigger": "twofish128-ctr",
             "contents": "twofish128-ctr",
             "annotation": "cipher",
             "kind": [
@@ -232,7 +232,7 @@
             ]
         },
         {
-            "trigger": "twofish128-gcm@libassh.org\tcipher",
+            "trigger": "twofish128-gcm@libassh.org",
             "contents": "twofish128-gcm@libassh.org",
             "annotation": "cipher",
             "kind": [
@@ -242,7 +242,7 @@
             ]
         },
         {
-            "trigger": "twofish192-ctr\tcipher",
+            "trigger": "twofish192-ctr",
             "contents": "twofish192-ctr",
             "annotation": "cipher",
             "kind": [
@@ -252,7 +252,7 @@
             ]
         },
         {
-            "trigger": "twofish256-ctr\tcipher",
+            "trigger": "twofish256-ctr",
             "contents": "twofish256-ctr",
             "annotation": "cipher",
             "kind": [
@@ -262,7 +262,7 @@
             ]
         },
         {
-            "trigger": "twofish256-gcm@libassh.org\tcipher",
+            "trigger": "twofish256-gcm@libassh.org",
             "contents": "twofish256-gcm@libassh.org",
             "annotation": "cipher",
             "kind": [
@@ -272,7 +272,7 @@
             ]
         },
         {
-            "trigger": "3des\tdeprecated cipher",
+            "trigger": "3des",
             "contents": "3des",
             "annotation": "deprecated cipher",
             "kind": [
@@ -283,7 +283,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "3des-cbc\tdeprecated cipher",
+            "trigger": "3des-cbc",
             "contents": "3des-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -294,7 +294,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "3des-cfb\tdeprecated cipher",
+            "trigger": "3des-cfb",
             "contents": "3des-cfb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -305,7 +305,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "3des-ctr\tdeprecated cipher",
+            "trigger": "3des-ctr",
             "contents": "3des-ctr",
             "annotation": "deprecated cipher",
             "kind": [
@@ -316,7 +316,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "3des-ecb\tdeprecated cipher",
+            "trigger": "3des-ecb",
             "contents": "3des-ecb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -327,7 +327,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "3des-ofb\tdeprecated cipher",
+            "trigger": "3des-ofb",
             "contents": "3des-ofb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -338,7 +338,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "aes128-cbc\tdeprecated cipher",
+            "trigger": "aes128-cbc",
             "contents": "aes128-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -349,7 +349,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "aes128-ocb@libassh.org\tdeprecated cipher",
+            "trigger": "aes128-ocb@libassh.org",
             "contents": "aes128-ocb@libassh.org",
             "annotation": "deprecated cipher",
             "kind": [
@@ -360,7 +360,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "aes192-cbc\tdeprecated cipher",
+            "trigger": "aes192-cbc",
             "contents": "aes192-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -371,7 +371,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "aes256-cbc\tdeprecated cipher",
+            "trigger": "aes256-cbc",
             "contents": "aes256-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -382,7 +382,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "arcfour\tdeprecated cipher",
+            "trigger": "arcfour",
             "contents": "arcfour",
             "annotation": "deprecated cipher",
             "kind": [
@@ -393,7 +393,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "arcfour128\tdeprecated cipher",
+            "trigger": "arcfour128",
             "contents": "arcfour128",
             "annotation": "deprecated cipher",
             "kind": [
@@ -404,7 +404,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "arcfour256\tdeprecated cipher",
+            "trigger": "arcfour256",
             "contents": "arcfour256",
             "annotation": "deprecated cipher",
             "kind": [
@@ -415,7 +415,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "blowfish\tdeprecated cipher",
+            "trigger": "blowfish",
             "contents": "blowfish",
             "annotation": "deprecated cipher",
             "kind": [
@@ -426,7 +426,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "blowfish-cbc\tdeprecated cipher",
+            "trigger": "blowfish-cbc",
             "contents": "blowfish-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -437,7 +437,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "blowfish-cfb\tdeprecated cipher",
+            "trigger": "blowfish-cfb",
             "contents": "blowfish-cfb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -448,7 +448,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "blowfish-ctr\tdeprecated cipher",
+            "trigger": "blowfish-ctr",
             "contents": "blowfish-ctr",
             "annotation": "deprecated cipher",
             "kind": [
@@ -459,7 +459,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "blowfish-ecb\tdeprecated cipher",
+            "trigger": "blowfish-ecb",
             "contents": "blowfish-ecb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -470,7 +470,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "camellia128-cbc\tdeprecated cipher",
+            "trigger": "camellia128-cbc",
             "contents": "camellia128-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -481,7 +481,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "camellia128-cbc@openssh.org\tdeprecated cipher",
+            "trigger": "camellia128-cbc@openssh.org",
             "contents": "camellia128-cbc@openssh.org",
             "annotation": "deprecated cipher",
             "kind": [
@@ -492,7 +492,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "camellia192-cbc\tdeprecated cipher",
+            "trigger": "camellia192-cbc",
             "contents": "camellia192-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -503,7 +503,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "camellia192-cbc@openssh.org\tdeprecated cipher",
+            "trigger": "camellia192-cbc@openssh.org",
             "contents": "camellia192-cbc@openssh.org",
             "annotation": "deprecated cipher",
             "kind": [
@@ -514,7 +514,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "camellia256-cbc\tdeprecated cipher",
+            "trigger": "camellia256-cbc",
             "contents": "camellia256-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -525,7 +525,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "camellia256-cbc@openssh.org\tdeprecated cipher",
+            "trigger": "camellia256-cbc@openssh.org",
             "contents": "camellia256-cbc@openssh.org",
             "annotation": "deprecated cipher",
             "kind": [
@@ -536,7 +536,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "cast128-12-cbc\tdeprecated cipher",
+            "trigger": "cast128-12-cbc",
             "contents": "cast128-12-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -547,7 +547,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "cast128-12-cfb\tdeprecated cipher",
+            "trigger": "cast128-12-cfb",
             "contents": "cast128-12-cfb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -558,7 +558,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "cast128-12-ctr\tdeprecated cipher",
+            "trigger": "cast128-12-ctr",
             "contents": "cast128-12-ctr",
             "annotation": "deprecated cipher",
             "kind": [
@@ -569,7 +569,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "cast128-12-ecb\tdeprecated cipher",
+            "trigger": "cast128-12-ecb",
             "contents": "cast128-12-ecb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -580,7 +580,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "cast128-12-ofb\tdeprecated cipher",
+            "trigger": "cast128-12-ofb",
             "contents": "cast128-12-ofb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -591,7 +591,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "cast128-cbc\tdeprecated cipher",
+            "trigger": "cast128-cbc",
             "contents": "cast128-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -602,7 +602,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "cast128-cfb\tdeprecated cipher",
+            "trigger": "cast128-cfb",
             "contents": "cast128-cfb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -613,7 +613,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "cast128-ctr\tdeprecated cipher",
+            "trigger": "cast128-ctr",
             "contents": "cast128-ctr",
             "annotation": "deprecated cipher",
             "kind": [
@@ -624,7 +624,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "cast128-ecb\tdeprecated cipher",
+            "trigger": "cast128-ecb",
             "contents": "cast128-ecb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -635,7 +635,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "cast128-ofb\tdeprecated cipher",
+            "trigger": "cast128-ofb",
             "contents": "cast128-ofb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -646,7 +646,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "des\tdeprecated cipher",
+            "trigger": "des",
             "contents": "des",
             "annotation": "deprecated cipher",
             "kind": [
@@ -657,7 +657,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "des-cbc\tdeprecated cipher",
+            "trigger": "des-cbc",
             "contents": "des-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -668,7 +668,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "des-cbc-ssh1\tdeprecated cipher",
+            "trigger": "des-cbc-ssh1",
             "contents": "des-cbc-ssh1",
             "annotation": "deprecated cipher",
             "kind": [
@@ -679,7 +679,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "des-cbc@ssh.com\tdeprecated cipher",
+            "trigger": "des-cbc@ssh.com",
             "contents": "des-cbc@ssh.com",
             "annotation": "deprecated cipher",
             "kind": [
@@ -690,7 +690,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "des-cfb\tdeprecated cipher",
+            "trigger": "des-cfb",
             "contents": "des-cfb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -701,7 +701,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "des-ecb\tdeprecated cipher",
+            "trigger": "des-ecb",
             "contents": "des-ecb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -712,7 +712,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "des-ofb\tdeprecated cipher",
+            "trigger": "des-ofb",
             "contents": "des-ofb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -723,7 +723,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "grasshopper-ctr128\tdeprecated cipher",
+            "trigger": "grasshopper-ctr128",
             "contents": "grasshopper-ctr128",
             "annotation": "deprecated cipher",
             "kind": [
@@ -734,7 +734,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "idea-cbc\tdeprecated cipher",
+            "trigger": "idea-cbc",
             "contents": "idea-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -745,7 +745,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "idea-cfb\tdeprecated cipher",
+            "trigger": "idea-cfb",
             "contents": "idea-cfb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -756,7 +756,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "idea-ctr\tdeprecated cipher",
+            "trigger": "idea-ctr",
             "contents": "idea-ctr",
             "annotation": "deprecated cipher",
             "kind": [
@@ -767,7 +767,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "idea-ecb\tdeprecated cipher",
+            "trigger": "idea-ecb",
             "contents": "idea-ecb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -778,7 +778,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "idea-ofb\tdeprecated cipher",
+            "trigger": "idea-ofb",
             "contents": "idea-ofb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -789,7 +789,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "none\tdeprecated cipher",
+            "trigger": "none",
             "contents": "none",
             "annotation": "deprecated cipher",
             "kind": [
@@ -800,7 +800,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "rijndael-cbc@lysator.liu.se\tdeprecated cipher",
+            "trigger": "rijndael-cbc@lysator.liu.se",
             "contents": "rijndael-cbc@lysator.liu.se",
             "annotation": "deprecated cipher",
             "kind": [
@@ -811,7 +811,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "rijndael-cbc@ssh.com\tdeprecated cipher",
+            "trigger": "rijndael-cbc@ssh.com",
             "contents": "rijndael-cbc@ssh.com",
             "annotation": "deprecated cipher",
             "kind": [
@@ -822,7 +822,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "rijndael128-cbc\tdeprecated cipher",
+            "trigger": "rijndael128-cbc",
             "contents": "rijndael128-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -833,7 +833,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "rijndael192-cbc\tdeprecated cipher",
+            "trigger": "rijndael192-cbc",
             "contents": "rijndael192-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -844,7 +844,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "rijndael256-cbc\tdeprecated cipher",
+            "trigger": "rijndael256-cbc",
             "contents": "rijndael256-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -855,7 +855,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "seed-cbc@ssh.com\tdeprecated cipher",
+            "trigger": "seed-cbc@ssh.com",
             "contents": "seed-cbc@ssh.com",
             "annotation": "deprecated cipher",
             "kind": [
@@ -866,7 +866,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "seed-ctr@ssh.com\tdeprecated cipher",
+            "trigger": "seed-ctr@ssh.com",
             "contents": "seed-ctr@ssh.com",
             "annotation": "deprecated cipher",
             "kind": [
@@ -877,7 +877,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "serpent128-cbc\tdeprecated cipher",
+            "trigger": "serpent128-cbc",
             "contents": "serpent128-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -888,7 +888,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "serpent128-ctr\tdeprecated cipher",
+            "trigger": "serpent128-ctr",
             "contents": "serpent128-ctr",
             "annotation": "deprecated cipher",
             "kind": [
@@ -899,7 +899,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "serpent128-gcm@libassh.org\tdeprecated cipher",
+            "trigger": "serpent128-gcm@libassh.org",
             "contents": "serpent128-gcm@libassh.org",
             "annotation": "deprecated cipher",
             "kind": [
@@ -910,7 +910,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "serpent192-cbc\tdeprecated cipher",
+            "trigger": "serpent192-cbc",
             "contents": "serpent192-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -921,7 +921,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "serpent192-ctr\tdeprecated cipher",
+            "trigger": "serpent192-ctr",
             "contents": "serpent192-ctr",
             "annotation": "deprecated cipher",
             "kind": [
@@ -932,7 +932,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "serpent256-cbc\tdeprecated cipher",
+            "trigger": "serpent256-cbc",
             "contents": "serpent256-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -943,7 +943,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "serpent256-ctr\tdeprecated cipher",
+            "trigger": "serpent256-ctr",
             "contents": "serpent256-ctr",
             "annotation": "deprecated cipher",
             "kind": [
@@ -954,7 +954,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "serpent256-gcm@libassh.org\tdeprecated cipher",
+            "trigger": "serpent256-gcm@libassh.org",
             "contents": "serpent256-gcm@libassh.org",
             "annotation": "deprecated cipher",
             "kind": [
@@ -965,7 +965,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "twofish-cbc\tdeprecated cipher",
+            "trigger": "twofish-cbc",
             "contents": "twofish-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -976,7 +976,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "twofish-cfb\tdeprecated cipher",
+            "trigger": "twofish-cfb",
             "contents": "twofish-cfb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -987,7 +987,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "twofish-ecb\tdeprecated cipher",
+            "trigger": "twofish-ecb",
             "contents": "twofish-ecb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -998,7 +998,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "twofish-ofb\tdeprecated cipher",
+            "trigger": "twofish-ofb",
             "contents": "twofish-ofb",
             "annotation": "deprecated cipher",
             "kind": [
@@ -1009,7 +1009,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "twofish128-cbc\tdeprecated cipher",
+            "trigger": "twofish128-cbc",
             "contents": "twofish128-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -1020,7 +1020,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "twofish192-cbc\tdeprecated cipher",
+            "trigger": "twofish192-cbc",
             "contents": "twofish192-cbc",
             "annotation": "deprecated cipher",
             "kind": [
@@ -1031,7 +1031,7 @@
             "details": "Deprecated"
         },
         {
-            "trigger": "twofish256-cbc\tdeprecated cipher",
+            "trigger": "twofish256-cbc",
             "contents": "twofish256-cbc",
             "annotation": "deprecated cipher",
             "kind": [

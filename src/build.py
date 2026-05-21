@@ -145,7 +145,7 @@ def build_crypto():
 
         for item in settings['active']['items']:
             _ = completions['completions'].append({
-                'trigger': f'{item}\t{annotation}',
+                'trigger': item,
                 'contents': item,
                 'annotation': annotation,
                 'kind': default_kind,
@@ -156,7 +156,7 @@ def build_crypto():
 
         for item in settings['deprecated']['items']:
             _ = completions['completions'].append({
-                'trigger': f'{item}\tdeprecated {annotation}',
+                'trigger': item,
                 'contents': item,
                 'annotation': f'deprecated {annotation}',
                 'kind': default_kind,
