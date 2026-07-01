@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import re
 import yaml
+from yaml.representer import SafeRepresenter
 
 CompletionItem: dict[str, str | list[str]]
 CompletionMetadata: dict[str, str | list[str]]
@@ -86,6 +87,21 @@ def build_sshd_index_test():
 
 
 def build_crypto():
+
+    # Set up YAML dump style
+    class literal_str(str): pass
+
+    def change_style(style, representer):
+        def new_representer(dumper, data):
+            scalar = representer(dumper, data)
+            scalar.style = style
+            return scalar
+        return new_representer
+
+    represent_literal_str = change_style('|', SafeRepresenter.represent_str)
+    yaml.add_representer(literal_str, represent_literal_str)
+
+    # Process
     with open('crypto.yaml', 'r') as stream:
         crypto_input = yaml.load(stream, Loader=yaml.BaseLoader)
 
@@ -104,8 +120,9 @@ def build_crypto():
         'contexts': {
             'main': [
                 {'include': 'comments'},
-            ]
-        }
+            ],
+        },
+        'variables': {},
     }
 
     for domain, settings in crypto_input.items():
@@ -118,6 +135,8 @@ def build_crypto():
         active_scope: str = settings['active']['scope']
         deprec_scope: str = settings['deprecated']['scope']
 
+        domain_ = domain.replace('-', '_')
+
         test_content.append(f'\n###[ {domain + " ]":#<74}\n')
         _ = syntax_content['contexts']['main'].append({
             'match': fr'^{annotation}:',
@@ -128,20 +147,26 @@ def build_crypto():
         })
         syntax_content['contexts'][f'ssh-{domain}'] = [
             {
-                'match': fr"""\b(?:{'|'.join(
-                    re.escape(i) for i in
-                    sorted(settings['active']['items'], reverse=True)
-                )})(?=[,\s\"])""",
+                'match': fr'\b{{{{{domain_}_active}}}}(?=[,\s\"])',
                 'scope': active_scope,
             },
             {
-                'match': fr"""\b(?:{'|'.join(
-                    re.escape(i) for i in
-                    sorted(settings['deprecated']['items'], reverse=True)
-                )})(?=[,\s\"])""",
+                'match': fr'\b{{{{{domain_}_deprec}}}}(?=[,\s\"])',
                 'scope': deprec_scope,
             },
         ]
+        syntax_content['variables'][f'{domain_}_active'] = literal_str(
+            fr"""(?x:{'\n  '}{'\n| '.join(
+                re.escape(i) for i in
+                sorted(settings['active']['items'], reverse=True)
+            )}{'\n'})"""
+        )
+        syntax_content['variables'][f'{domain_}_deprec'] = literal_str(
+            fr"""(?x:{'\n  '}{'\n| '.join(
+                re.escape(i) for i in
+                sorted(settings['deprecated']['items'], reverse=True)
+            )}{'\n'})"""
+        )
 
         for item in settings['active']['items']:
             _ = completions['completions'].append({
