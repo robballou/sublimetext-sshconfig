@@ -202,6 +202,36 @@
             ]
         },
         {
+            "trigger": "mldsa-44",
+            "contents": "mldsa-44",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "mldsa-65",
+            "contents": "mldsa-65",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "mldsa-87",
+            "contents": "mldsa-87",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
             "trigger": "rsa-sha2-256",
             "contents": "rsa-sha2-256",
             "annotation": "key type",
@@ -332,6 +362,66 @@
             ]
         },
         {
+            "trigger": "ssh-mldsa-44",
+            "contents": "ssh-mldsa-44",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "ssh-mldsa-65",
+            "contents": "ssh-mldsa-65",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "ssh-mldsa-87",
+            "contents": "ssh-mldsa-87",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "ssh-mldsa44",
+            "contents": "ssh-mldsa44",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "ssh-mldsa65",
+            "contents": "ssh-mldsa65",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "ssh-mldsa87",
+            "contents": "ssh-mldsa87",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
             "trigger": "ssh-rsa",
             "contents": "ssh-rsa",
             "annotation": "key type",
@@ -394,6 +484,16 @@
         {
             "trigger": "ssh-rsa-sha512@ssh.com",
             "contents": "ssh-rsa-sha512@ssh.com",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
+            "trigger": "webauthn-sk-ecdsa-sha2-nistp256-cert-v01@openssh.com",
+            "contents": "webauthn-sk-ecdsa-sha2-nistp256-cert-v01@openssh.com",
             "annotation": "key type",
             "kind": [
                 "type",
