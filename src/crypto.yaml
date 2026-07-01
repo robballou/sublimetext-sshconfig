@@ -12,7 +12,7 @@ key-types:
       (text.authorized_keys | text.known_hosts)
         - comment
         - string
-    "
+      "
     kind: [type, k, Key type]
     annotation: key type
   active:
