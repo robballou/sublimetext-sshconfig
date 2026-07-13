@@ -160,7 +160,14 @@
             "contents": "CASignatureAlgorithms",
             "annotation": "option",
             "kind": "keyword",
-            "details": ""
+            "details": "Accepted CA key types, by preference"
+        },
+        {
+            "trigger": "casignaturealgorithms",
+            "contents": "CASignatureAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": "Accepted CA key types, by preference"
         },
         {
             "trigger": "ChallengeResponseAuthentication",

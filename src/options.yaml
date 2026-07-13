@@ -332,6 +332,7 @@
         - +append,to,list
         - -remove,from,list
         - replace,list
+    # Match is at the top
     NoHostAuthenticationForLocalhost:
       details: Let <code>localhost</code> pretend to be anyone it wants
       values:
@@ -369,9 +370,9 @@
     PreferredAuthentications:
       details: Auth methods, by preference
       values: ${0:gssapi-with-mic,hostbased,publickey,keyboard-interactive,password}
-    Protocol:
-      details: <em>Deprecated</em> Protocol is 2
-      values: ${0:2}
+    # Protocol:
+    #   details: <em>Deprecated</em> Protocol is 2
+    #   values: ${0:2}
     ProxyCommand:
       details: Run command to establish proxy
       values: ${0:/usr/bin/nc -X connect -x 192.0.2.0:8080 %h %p}
@@ -453,12 +454,12 @@
     SetEnv:
       details: Specify environment vars directly
       values: ${1:NAME}=${2:value}
+    SmartcardDevice:
     StdinNull:
       details: Prevents reading from stdin
       values:
         - 'yes'
         - 'no'
-    SmartcardDevice:
     StreamLocalBindMask:
       details: File mode <code>umask</code> when creating a forwarded port
       values: ${0:0177}
@@ -632,6 +633,12 @@
     Banner:
       details: A file containing a message for connecting users
     CASignatureAlgorithms:
+      details: Accepted CA key types, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
     ChallengeResponseAuthentication:
       details: Disable chal/resp auth, like PAM or <code>login.conf</code>
       values:
@@ -813,6 +820,7 @@
         - +append,to,list
         - -remove,from,list
         - replace,list
+    # Match is at the top
     MaxAuthTries:
       details: Max auth attempts per connection
     MaxSessions:

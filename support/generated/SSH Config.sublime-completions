@@ -1038,20 +1038,6 @@
             "details": "Auth methods, by preference"
         },
         {
-            "trigger": "Protocol",
-            "contents": "Protocol",
-            "annotation": "option",
-            "kind": "keyword",
-            "details": "<em>Deprecated</em> Protocol is 2"
-        },
-        {
-            "trigger": "protocol",
-            "contents": "Protocol ${0:2}",
-            "annotation": "option",
-            "kind": "snippet",
-            "details": "<em>Deprecated</em> Protocol is 2"
-        },
-        {
             "trigger": "ProxyCommand",
             "contents": "ProxyCommand",
             "annotation": "option",
@@ -1325,6 +1311,13 @@
             "details": "Specify environment vars directly"
         },
         {
+            "trigger": "SmartcardDevice",
+            "contents": "SmartcardDevice",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
             "trigger": "StdinNull",
             "contents": "StdinNull",
             "annotation": "option",
@@ -1337,13 +1330,6 @@
             "annotation": "option",
             "kind": "snippet",
             "details": "Prevents reading from stdin"
-        },
-        {
-            "trigger": "SmartcardDevice",
-            "contents": "SmartcardDevice",
-            "annotation": "option",
-            "kind": "keyword",
-            "details": ""
         },
         {
             "trigger": "StreamLocalBindMask",
