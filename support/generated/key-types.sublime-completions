@@ -402,6 +402,16 @@
             ]
         },
         {
+            "trigger": "ssh-mldsa44-ed25519@openssh.com",
+            "contents": "ssh-mldsa44-ed25519@openssh.com",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
             "trigger": "ssh-mldsa65",
             "contents": "ssh-mldsa65",
             "annotation": "key type",

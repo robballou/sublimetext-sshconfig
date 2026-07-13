@@ -83,6 +83,8 @@ key type: ssh-mldsa-87
 #         ^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-mldsa44
 #         ^^^^^^^^^^^ support.type.key-type.ssh.crypto
+key type: ssh-mldsa44-ed25519@openssh.com
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-mldsa65
 #         ^^^^^^^^^^^ support.type.key-type.ssh.crypto
 key type: ssh-mldsa87

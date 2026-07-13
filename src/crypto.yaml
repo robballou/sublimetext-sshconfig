@@ -58,6 +58,7 @@ key-types:
       - ssh-mldsa-65
       - ssh-mldsa-87
       - ssh-mldsa44
+      - ssh-mldsa44-ed25519@openssh.com
       - ssh-mldsa65
       - ssh-mldsa87
       - ssh-rsa

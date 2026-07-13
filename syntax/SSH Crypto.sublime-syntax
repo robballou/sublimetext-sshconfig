@@ -304,6 +304,7 @@ variables:
     | ssh\-rsa
     | ssh\-mldsa87
     | ssh\-mldsa65
+    | ssh\-mldsa44\-ed25519@openssh\.com
     | ssh\-mldsa44
     | ssh\-mldsa\-87
     | ssh\-mldsa\-65
