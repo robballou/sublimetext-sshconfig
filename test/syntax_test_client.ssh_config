@@ -280,6 +280,22 @@ Host *
 #^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
 #                 ^^^^^^ meta.mapping.value.ssh.common invalid.illegal.sshd_config
+    StrictHostKeyChecking accept-new
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                         ^^^^^^^^^^ meta.mapping.value.ssh.common constant.language.ssh_config
+    StrictHostKeyChecking off
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                         ^^^ meta.mapping.value.ssh.common constant.language.boolean.false.ssh.common
+    StrictHostKeyChecking accept-ne
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                         ^^^^^^^^^ meta.mapping.value.ssh.common - invalid - constant
+    StrictHostKeyChecking maybe
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                         ^^^^^ meta.mapping.value.ssh.common invalid.illegal.sshd_config
 
 Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/resolv.conf"
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
