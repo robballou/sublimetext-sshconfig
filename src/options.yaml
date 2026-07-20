@@ -149,6 +149,8 @@
         - 'yes'
         - 'no'
         - ask
+        - auto
+        - autoask
     ControlPath:
       details: Tokenized path to connection sharing file
       values: ${0:~/.ssh/control-%h-%p-%r}

@@ -27,6 +27,7 @@ contexts:
     - include: parameter-knownhostscommand
     - include: parameter-with-boolean-values
     - include: parameter-with-boolean-values-plus-ask
+    - include: parameter-controlmaster
     - include: parameter-generic
 
   tokens:
@@ -351,7 +352,7 @@ contexts:
     - match: |-
         (?xi:
           ^\s*
-          ( ControlMaster | StrictHostKeyChecking | UpdateHostKeys
+          ( StrictHostKeyChecking | UpdateHostKeys
           | VerifyHostKeyDNS
           )
           \b[ \t]*(=)?
@@ -364,6 +365,27 @@ contexts:
         - include: ask
         # Consume "ask" while typing as well, but unscoped
         - match: \bas?\b
+        - match: '[^"\s]+'
+          scope: invalid.illegal.sshd_config
+      push: possibly-quoted-value
+
+  parameter-controlmaster:
+    - match: |-
+        (?xi:
+          ^\s*
+          ( ControlMaster )
+          \b[ \t]*(=)?
+        )
+      captures:
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
+      with_prototype:
+        - include: boolean-with-typing
+        - include: ask
+        - match: \bauto(?:ask)?\b
+          scope: constant.language.ssh_config
+        # Consume "ask"/"auto"/"autoask" while typing as well, but unscoped
+        - match: \b(?:as?|aut?|autoas?)\b
         - match: '[^"\s]+'
           scope: invalid.illegal.sshd_config
       push: possibly-quoted-value
