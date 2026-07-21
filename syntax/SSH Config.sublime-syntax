@@ -351,9 +351,7 @@ contexts:
     - match: |-
         (?xi:
           ^\s*
-          ( ControlMaster | StrictHostKeyChecking | UpdateHostKeys
-          | VerifyHostKeyDNS
-          )
+          ( UpdateHostKeys | VerifyHostKeyDNS )
           \b[ \t]*(=)?
         )
       captures:
@@ -388,6 +386,8 @@ contexts:
     - include: boolean
     - include: any
     - include: ask
+    - match: \bauto(?:ask)?\b
+      scope: constant.language.ssh_config
     - include: tokens
     - include: wildcards
     - include: operator-exclamation
