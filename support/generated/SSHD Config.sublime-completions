@@ -759,7 +759,7 @@
         },
         {
             "trigger": "permitlisten",
-            "contents": "PermitListen \"${1:[host:]port}\"",
+            "contents": "PermitListen ${0:[host:]port}",
             "annotation": "option",
             "kind": "snippet",
             "details": "Allowlist remote (<code>-R</code>) port forwarding"
@@ -773,7 +773,7 @@
         },
         {
             "trigger": "permitopen",
-            "contents": "PermitOpen \"${1:host}:${2:port}\"",
+            "contents": "PermitOpen ${1:host}:${2:port}",
             "annotation": "option",
             "kind": "snippet",
             "details": "Allowlist local (<code>-L</code>) port forwarding"

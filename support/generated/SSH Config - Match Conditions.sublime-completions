@@ -25,7 +25,7 @@
         },
         {
             "trigger": "exec",
-            "contents": "Exec \"${1:hostname -d | ! grep -q -E '^example\\.com'}\"",
+            "contents": "Exec \"${0:hostname -d | ! grep -q -E '^example\\.com'}\"",
             "annotation": "condition",
             "kind": "snippet",
             "details": "Match if return code is 0"
@@ -43,7 +43,7 @@
         },
         {
             "trigger": "host",
-            "contents": "Host ${1:*.example.com,*.example.org}",
+            "contents": "Host ${0:*.example.com,*.example.org}",
             "annotation": "condition",
             "kind": "snippet",
             "details": "Match if <code>Host</code> in patterns"
@@ -61,7 +61,7 @@
         },
         {
             "trigger": "originalhost",
-            "contents": "OriginalHost ${1:foo,*.jump}",
+            "contents": "OriginalHost ${0:foo,*.jump}",
             "annotation": "condition",
             "kind": "snippet",
             "details": "Match if CLI-entered host in patterns"
@@ -79,7 +79,7 @@
         },
         {
             "trigger": "user",
-            "contents": "User ${1:user1,user2}",
+            "contents": "User ${0:user1,user2}",
             "annotation": "condition",
             "kind": "snippet",
             "details": "Match if target <code>User</code> in patterns"
@@ -97,7 +97,7 @@
         },
         {
             "trigger": "localuser",
-            "contents": "LocalUser ${1:user1,user2}",
+            "contents": "LocalUser ${0:user1,user2}",
             "annotation": "condition",
             "kind": "snippet",
             "details": "Match if your current user in patterns"
@@ -115,7 +115,7 @@
         },
         {
             "trigger": "localnetwork",
-            "contents": "LocalNetwork ${1:10.11.12.0/24}",
+            "contents": "LocalNetwork ${0:10.11.12.0/24}",
             "annotation": "condition",
             "kind": "snippet",
             "details": "Match if current network devices in CIDRs"
@@ -133,7 +133,7 @@
         },
         {
             "trigger": "command",
-            "contents": "Command ${1:sftp}",
+            "contents": "Command ${0:sftp}",
             "annotation": "condition",
             "kind": "snippet",
             "details": "Match <code>RemoteCommand</code> to be run"
@@ -169,7 +169,7 @@
         },
         {
             "trigger": "tagged",
-            "contents": "Tagged ${1:foo,*.jump}",
+            "contents": "Tagged ${0:foo,*.jump}",
             "annotation": "condition",
             "kind": "snippet",
             "details": "Match if <code>Tag</code> in patterns"
@@ -187,7 +187,7 @@
         },
         {
             "trigger": "version",
-            "contents": "Version ${1:OpenSSH_10.0}",
+            "contents": "Version ${0:OpenSSH_10.0}",
             "annotation": "condition",
             "kind": "snippet",
             "details": "Match version string of SSH client"

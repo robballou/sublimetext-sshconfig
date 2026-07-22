@@ -10,25 +10,25 @@
       details: Only match after hostname canonicalization
     Exec:
       details: Match if return code is 0
-      values: '"${1:hostname -d | ! grep -q -E ''^example\.com''}"'
+      values: '"${0:hostname -d | ! grep -q -E ''^example\.com''}"'
     Host:
       details: Match if <code>Host</code> in patterns
-      values: ${1:*.example.com,*.example.org}
+      values: '*.example.com,*.example.org'
     OriginalHost:
       details: Match if CLI-entered host in patterns
-      values: ${1:foo,*.jump}
+      values: foo,*.jump
     User:
       details: Match if target <code>User</code> in patterns
-      values: ${1:user1,user2}
+      values: user1,user2
     LocalUser:
       details: Match if your current user in patterns
-      values: ${1:user1,user2}
+      values: user1,user2
     LocalNetwork:
       details: Match if current network devices in CIDRs
-      values: ${1:10.11.12.0/24}
+      values: 10.11.12.0/24
     Command:
       details: Match <code>RemoteCommand</code> to be run
-      values: ${1:sftp}
+      values: sftp
     SessionType:
       details: Match <code>SessionType</code> for host
       values:
@@ -38,10 +38,10 @@
         - none
     Tagged:
       details: Match if <code>Tag</code> in patterns
-      values: ${1:foo,*.jump}
+      values: foo,*.jump
     Version:
       details: Match version string of SSH client
-      values: ${1:OpenSSH_10.0}
+      values: OpenSSH_10.0
     All:
       details: Always matches
     Final:
@@ -869,10 +869,10 @@
         - 'no'
     PermitListen:
       details: Allowlist remote (<code>-R</code>) port forwarding
-      values: '"${1:[host:]port}"'
+      values: '[host:]port'
     PermitOpen:
       details: Allowlist local (<code>-L</code>) port forwarding
-      values: '"${1:host}:${2:port}"'
+      values: '${1:host}:${2:port}'
     PermitRootLogin:
       details: Set behavior for login as <code>root</code>
       values:
