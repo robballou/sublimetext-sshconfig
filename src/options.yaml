@@ -156,7 +156,10 @@
       values: ${0:~/.ssh/control-%h-%p-%r}
     ControlPersist:
       details: Keep connection on disconnect of sessions
-      values: ${0:{ yes | no | 300 (seconds to timeout) \}}
+      values:
+        - 'yes'
+        - 'no'
+        - 300 (seconds to timeout)
     DynamicForward:
       details: Dynamic SSH or SOCKS port forwarding
       values: ${0:[address:]port}
@@ -172,7 +175,9 @@
         - 'no'
     EscapeChar:
       details: Default <code>~</code>
-      values: ${0:{ ^E | none \}}
+      values:
+        - ^E
+        - none
     ExitOnForwardFailure:
       details: Enable termination if port forwarding fails
       values:
@@ -180,7 +185,9 @@
         - 'no'
     FingerprintHash:
       details: Key hash algorithm
-      values: ${0:{ sha256 | md5 \}}
+      values:
+        - sha256
+        - md5
     ForkAfterAuthentication:
       details: Send connection to BG process
       values:
@@ -188,7 +195,11 @@
         - 'no'
     ForwardAgent:
       details: Enable forwarding ssh-agent keys to outbound ssh
-      values: ${0:{ yes | no | ~/path/to/socket | \$PATH_VAR \}}
+      values:
+        - 'yes'
+        - 'no'
+        - ~/path/to/socket
+        - \$PATH_VAR
     ForwardX11:
       details: Enable X11 forwarding
       values:
@@ -280,7 +291,11 @@
         - 'no'
     IdentityAgent:
       details: Socket to communicate with auth agent
-      values: ${0:{ SSH_AUTH_SOCK | ~/.ssh/socket/path | \$PATH_VAR | none \}}
+      values:
+        - SSH_AUTH_SOCK
+        - ~/.ssh/socket/path
+        - \$PATH_VAR
+        - none
     IdentityFile:
       details: Path to key file; Multiple allowed
       values: ${0:~/.ssh/id_rsa_%h}
@@ -292,7 +307,11 @@
       values: ${0:~/.ssh/config_*_cloud}
     IPQoS:
       details: IPv4 type-of-service or DSCP class for connections
-      values: ${0:{ af11 | af12 | ... | none \}}
+      values:
+        - af11
+        - af12
+        - ...
+        - none
     KbdInteractiveAuthentication:
       details: Disable interactive login on the CLI
       values:
@@ -742,7 +761,9 @@
       details: Path to private key file
     HostKeyAgent:
       details: Agent with keys or <code>SSH_AUTH_SOCK</code> to load from env
-      values: ${0:{ ~/path/to/socket | SSH_AUTH_SOCK \}}
+      values: 
+        - ~/path/to/socket
+        - SSH_AUTH_SOCK
     HostKeyAlgorithms:
       details: Accepted host key algm patterns, by preference
       values:
@@ -765,7 +786,11 @@
       values: ${0:/etc/ssh/sshd_config_*}
     IPQoS:
       details: IPv4 type-of-service or DSCP class for the connection
-      values: ${0:{ af11 | af12 | ... | none \}}
+      values: 
+        - af11
+        - af12
+        - ...
+        - none
     KbdInteractiveAuthentication:
       details: Allow keyboard-interactive authentication
       values:
