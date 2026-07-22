@@ -502,6 +502,93 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                                                    ^^^^^^^^^^^^^^^^^^ - constant
 #                                                                                                      ^ punctuation.definition.string.end.ssh_config - source.shell
 #                 @@@@ reference
+    RemoteCommand none
+#^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
+#   ^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                 ^^^^ meta.mapping.value.ssh_config constant.language.null.ssh.common
+    RemoteCommand "none"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
+#   ^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                 ^^^^^^ meta.mapping.value.ssh_config string.quoted.double.ssh.common
+#                 ^ punctuation.definition.string.begin.ssh.common
+#                  ^^^^ constant.language.null.ssh.common
+#                      ^ punctuation.definition.string.end.ssh.common
+    RemoteCommand echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh source.shell
+#                 ^^^^ meta.function-call.identifier.shell support.function.shell
+#                      ^^ constant.character.escape.ssh
+#                        ^^^^^^^^^^ - constant
+#                                  ^^ constant.other.placeholder.ssh
+#                                    ^^^^^^^^^^ - constant
+#                                              ^^ constant.other.placeholder.ssh
+#                                                 ^^ constant.other.placeholder.ssh
+#                                                    ^^ constant.other.placeholder.ssh
+#                                                       ^^ constant.other.placeholder.ssh
+#                                                          ^^ constant.other.placeholder.ssh
+#                                                            ^^^^ - constant
+#                                                                ^^ constant.other.placeholder.ssh
+#                                                                  ^^^^ - constant
+#                                                                      ^^ constant.other.placeholder.ssh
+#                                                                        ^^^^ - constant
+#                                                                            ^^ constant.other.placeholder.ssh
+#                                                                              ^^^^^^^ - constant
+#                                                                                     ^^ constant.other.placeholder.ssh
+#                                                                                       ^^^^^^^^^^^^^^^ - constant
+#                 @@@@ reference
+    RemoteCommand echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh source.shell
+#                 ^^^^ meta.function-call.identifier.shell support.function.shell
+#                      ^^ constant.character.escape.ssh
+#                        ^^^^^^^ - constant
+#                               ^^ constant.other.placeholder.ssh
+#                                 ^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                          ^^ constant.other.placeholder.ssh
+#                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                 @@@@ reference
+    RemoteCommand "echo %% %a %b %c %d %e %f %g %h %i %j %k %l %m %n %o %p %q %r %s %t %u %v %w %x %y %z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                 ^ punctuation.definition.string.begin.ssh_config - source.shell
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh source.shell
+#                  ^^^^ meta.function-call.identifier.shell support.function.shell
+#                       ^^ constant.character.escape.ssh
+#                         ^^^^^^^^^^ - constant
+#                                   ^^ constant.other.placeholder.ssh
+#                                     ^^^^^^^^^^ - constant
+#                                               ^^ constant.other.placeholder.ssh
+#                                                  ^^ constant.other.placeholder.ssh
+#                                                     ^^ constant.other.placeholder.ssh
+#                                                        ^^ constant.other.placeholder.ssh
+#                                                           ^^ constant.other.placeholder.ssh
+#                                                             ^^^^ - constant
+#                                                                 ^^ constant.other.placeholder.ssh
+#                                                                   ^^^^ - constant
+#                                                                       ^^ constant.other.placeholder.ssh
+#                                                                         ^^^^ - constant
+#                                                                             ^^ constant.other.placeholder.ssh
+#                                                                               ^^^^^^^ - constant
+#                                                                                      ^^ constant.other.placeholder.ssh
+#                                                                                        ^^^^^^^^^^^^^^^ - constant
+#                                                                                                       ^ punctuation.definition.string.end.ssh_config - source.shell
+#                  @@@@ reference
+    RemoteCommand "echo %% %A %B %C %D %E %F %G %H %I %J %K %L %M %N %O %P %Q %R %S %T %U %V %W %X %Y %Z"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
+#   ^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                 ^ punctuation.definition.string.begin.ssh_config - source.shell
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh_config source.shell.embedded.ssh source.shell
+#                  ^^^^ meta.function-call.identifier.shell support.function.shell
+#                       ^^ constant.character.escape.ssh
+#                         ^^^^^^^ - constant
+#                                ^^ constant.other.placeholder.ssh
+#                                  ^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                           ^^ constant.other.placeholder.ssh
+#                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ - constant
+#                                                                                                       ^ punctuation.definition.string.end.ssh_config - source.shell
+#                  @@@@ reference
     ProxyCommand none
 #^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config - meta.block meta.block
 #   ^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config

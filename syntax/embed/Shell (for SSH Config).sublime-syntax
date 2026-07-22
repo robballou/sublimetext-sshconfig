@@ -26,4 +26,4 @@ variables:
   # lazy escaping from heredoc as shell maybe indented
   no_indent: ^\s*
   tab_indent: ^\s*
-  ssh_config_character_escapes: (?:%[%CdhikLlnpru])
+  ssh_config_character_escapes: (?:%[%CdhijkLlnpru])

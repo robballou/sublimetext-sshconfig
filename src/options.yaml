@@ -434,7 +434,7 @@
       values: 2G 3h
     RemoteCommand:
       details: Run command on server after connecting
-      values: echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %u"
+      values: echo "tada! %C, %d, %h, %i, %j, %L, %l, %n, %p, %r, %u"
     RemoteForward:
       details: Forward ports (<code>-R</code>) from server to client
       values: '${1:[bind_address:]port}${2: [host:hostport]}'

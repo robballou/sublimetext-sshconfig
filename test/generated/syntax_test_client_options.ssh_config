@@ -479,9 +479,9 @@ Host example.com
  RekeyLimit 2G 3h
 #^^^^^^^^^^ meta.mapping.key keyword.other
 #           ^^^^^ meta.mapping.value - invalid
- RemoteCommand echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %u"
+ RemoteCommand echo "tada! %C, %d, %h, %i, %j, %L, %l, %n, %p, %r, %u"
 #^^^^^^^^^^^^^ meta.mapping.key keyword.other
-#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
  RequestTTY yes
 #^^^^^^^^^^ meta.mapping.key keyword.other
 #           ^^^ meta.mapping.value - invalid

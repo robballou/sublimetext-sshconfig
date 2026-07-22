@@ -1158,7 +1158,7 @@
         },
         {
             "trigger": "remotecommand",
-            "contents": "RemoteCommand ${0:echo \"tada! %C, %d, %h, %i, %l, %n, %p, %r, %u\"}",
+            "contents": "RemoteCommand ${0:echo \"tada! %C, %d, %h, %i, %j, %L, %l, %n, %p, %r, %u\"}",
             "annotation": "option",
             "kind": "snippet",
             "details": "Run command on server after connecting"

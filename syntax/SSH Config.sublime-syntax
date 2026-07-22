@@ -25,6 +25,7 @@ contexts:
     - include: parameter-proxycommand
     - include: parameter-proxyjump
     - include: parameter-knownhostscommand
+    - include: parameter-remotecommand
     - include: parameter-with-boolean-values
     - include: parameter-with-boolean-values-plus-ask
     - include: parameter-generic
@@ -314,6 +315,30 @@ contexts:
         - match: (?=\S)
           escape: (?=$)
           embed: scope:source.shell.embedded.ssh.knownhostscommand
+
+  parameter-remotecommand:
+    - match: ^\s*((?i:RemoteCommand))\b\s*(=)?
+      captures:
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
+      push:
+        - meta_content_scope: meta.mapping.value.ssh_config
+        - include: pop-nl
+        - include: none-command-values
+        - match: '"'
+          scope: string.quoted.double.ssh_config
+                 punctuation.definition.string.begin.ssh_config
+          escape: '(")|(?=$)'
+          escape_captures:
+            1: meta.mapping.value.ssh_config
+               string.quoted.double.ssh_config
+               punctuation.definition.string.end.ssh_config
+          embed_scope: string.quoted.double.ssh_config
+                       source.shell.embedded.ssh
+          embed: scope:source.shell.embedded.ssh
+        - match: (?=\S)
+          escape: (?=$)
+          embed: scope:source.shell.embedded.ssh
 
   parameter-with-boolean-values:
     - match: |-
