@@ -151,23 +151,23 @@ contexts:
       scope: constant.language.boolean.true.ssh.common
 
   none:
-    - match: \bnone\b
+    - match: \bnone{{break}}
       scope: constant.language.null.ssh.common
 
   any:
-    - match: \bany\b
+    - match: \bany{{break}}
       scope: constant.language.set.ssh.common
 
   boolean:
-    - match: \byes\b
+    - match: \byes{{break}}
       scope: constant.language.boolean.true.ssh.common
-    - match: \bno\b
+    - match: \bno{{break}}
       scope: constant.language.boolean.false.ssh.common
 
   boolean-with-typing:
     - include: boolean
     # Consume while typing as well, but unscoped
-    - match: \b(?:ye?|n)\b
+    - match: \b(?:ye?|n){{break}}
 
   log-level:
     - match: '\b(?x: QUIET | FATAL | ERROR | INFO | DEBUG[1-3]? )\b'
@@ -266,6 +266,7 @@ contexts:
 ###############################################################################
 
 variables:
+  break: (?=[,;\s]|$)
   base64_char: '[a-zA-Z0-9+/]'
   ssh_fingerprint: (?:AAAA(?:E2V|[BC]3N){{base64_char}}+={0,3})
   # ipv4_basic: (?:(?:\d{1,3}\.){3}\d{1,3})

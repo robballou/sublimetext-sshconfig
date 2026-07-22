@@ -264,6 +264,10 @@ Host *
 #^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
 #                 ^^^^^^^ meta.mapping.value.ssh.common constant.language.ssh_config
+    WarnWeakCrypto no-pq-kex
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+#   ^^^^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
+#                  ^^^^^^^^^ meta.mapping.value.ssh.common string.unquoted.ssh.common
 
 
 Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/resolv.conf"
