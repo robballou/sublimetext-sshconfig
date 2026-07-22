@@ -206,7 +206,7 @@
         },
         {
             "trigger": "channeltimeout",
-            "contents": "ChannelTimeout ${session=5m}",
+            "contents": "ChannelTimeout ${0:session=5m}",
             "annotation": "option",
             "kind": "snippet",
             "details": "TTL for active channels"

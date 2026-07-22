@@ -77,13 +77,13 @@
         - 'no'
     BindAddress:
       details: Specify source IP
-      values: ${0:192.0.2.16}
+      values: 192.0.2.16
     BindInterface:
       details: Specify source NIC
-      values: ${0:eth0}
+      values: eth0
     CanonicalDomains:
       details: List of domain suffixes
-      values: ${0:local.example.com,local.example.org}
+      values: local.example.com,local.example.org
     CanonicalizeFallbackLocal:
       details: Fallback for domain lookup failure
       values:
@@ -97,16 +97,16 @@
         - always
     CanonicalizeMaxDots:
       details: Number of <code>.</code>s to disable domain lookup
-      values: ${0:1}
+      values: 1
     CanonicalizePermittedCNAMEs:
       details: Map of allowlisted CNAMEs to follow on lookup
-      values: ${0:*.source.com,source.org:dest.org,*.local.dest.com}
+      values: '*.source.com,source.org:dest.org,*.local.dest.com'
     CASignatureAlgorithms:
       details: Permitted algms for CAs
-      values: ${0:ssh-ed25519,rsa-sha2-512}
+      values: ssh-ed25519,rsa-sha2-512
     CertificateFile:
       details: Path to user certificate
-      values: ${0:~/.ssh/pem_%h}
+      values: ~/.ssh/pem_%h
     ChallengeResponseAuthentication:
       details: Disable challenge-response auth
       values:
@@ -114,7 +114,7 @@
         - 'no'
     ChannelTimeout:
       details: TTL for active channels
-      values: ${session=5m}
+      values: session=5m
     CheckHostIP:
       details: Disable comparing IP to <code>known_hosts</code>
       values:
@@ -139,10 +139,10 @@
         - 'no'
     ConnectionAttempts:
       details: Set retry for intermittent connections
-      values: ${0:1}
+      values: 1
     ConnectTimeout:
       details: Timeout in seconds
-      values: ${0:5}
+      values: 5
     ControlMaster:
       details: Set connection sharing for multiple sessions on <code>ControlPath</code>
       values:
@@ -153,7 +153,7 @@
         - autoask
     ControlPath:
       details: Tokenized path to connection sharing file
-      values: ${0:~/.ssh/control-%h-%p-%r}
+      values: ~/.ssh/control-%h-%p-%r
     ControlPersist:
       details: Keep connection on disconnect of sessions
       values:
@@ -162,7 +162,7 @@
         - 300 (seconds to timeout)
     DynamicForward:
       details: Dynamic SSH or SOCKS port forwarding
-      values: ${0:[address:]port}
+      values: '[address:]port'
     EnableEscapeCommandLine:
       details: Enable CLI escape char <code>~C</code>
       values:
@@ -206,7 +206,7 @@
         - 'yes'
         - 'no'
     ForwardX11Timeout:
-      values: ${0:2h}
+      values: 2h
     ForwardX11Trusted:
       details: Consider the remote X11 to be "trusted"
       values:
@@ -219,7 +219,7 @@
         - 'no'
     GlobalKnownHostsFile:
       details: File(s) with global host keys
-      values: ${0:/etc/ssh/ssh_known_hosts}
+      values: /etc/ssh/ssh_known_hosts
     GSSAPIAuthentication:
       details: Enable auth with GSSAPI
       values:
@@ -280,10 +280,10 @@
         - replace,list
     HostKeyAlias:
       details: Use an alias for this host's certs
-      values: ${0:hostname}
+      values: hostname
     Hostname:
       details: Set real hostname
-      values: ${0:%h.example.com}
+      values: '%h.example.com'
     IdentitiesOnly:
       details: Suppress keys from ~/.ssh
       values:
@@ -298,13 +298,13 @@
         - none
     IdentityFile:
       details: Path to key file; Multiple allowed
-      values: ${0:~/.ssh/id_rsa_%h}
+      values: ~/.ssh/id_rsa_%h
     IgnoreUnknown:
       details: Pattern for config options to ignore
-      values: ${0:FooBar*}
+      values: FooBar*
     Include:
       details: Configuration files to inject
-      values: ${0:~/.ssh/config_*_cloud}
+      values: ~/.ssh/config_*_cloud
     IPQoS:
       details: IPv4 type-of-service or DSCP class for connections
       values:
@@ -319,7 +319,7 @@
         - 'no'
     KbdInteractiveDevices:
       details: Methods to use in keyboard-interactive auth
-      values: ${0:bsdauth,pam,skey}
+      values: bsdauth,pam,skey
     KexAlgorithms:
       details: Permitted key exchange algm patterns, by preference
       values:
@@ -329,10 +329,10 @@
         - replace,list
     KnownHostsCommand:
       details: Also get host keys by running this script
-      values: ${0:echo foo}
+      values: echo foo
     LocalCommand:
       details: Execute command locally when connection successful
-      values: ${0:echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %T, %u"}
+      values: echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %T, %u"
     LocalForward:
       details: Forward local port over <code>ssh</code> to third party
       values: ${1:[bind_address:]port} ${2:host}:${3:hostport}
@@ -345,7 +345,7 @@
         - '...'
     LogVerbose:
       details: Override <code>LogLevel</code> for certain tracebacks
-      values: ${0:kex.c:*:1000,*:kex_exchange_identification():*,packet.c:*}
+      values: kex.c:*:1000,*:kex_exchange_identification():*,packet.c:*
     MACs:
       details: Permitted message auth code algm patterns, by preference
       values:
@@ -363,7 +363,7 @@
       details: Disable host authentication when using <code>ProxyCommand</code>.
     NumberOfPasswordPrompts:
       details: Number of password attempts before deny
-      values: ${0:1}
+      values: 1
     ObscureKeystrokeTiming:
       details: Burst keystrokes and send fake packets
       values:
@@ -382,24 +382,24 @@
         - 'no'
     PermitRemoteOpen:
       details: Destinations allowed for <code>RemoteForward</code>
-      values: ${0:host:port}
+      values: host:port
     PKCS11Provider:
       details: Specify a PKCS#11 provider
     Port:
       details: Connect on this port
-      values: ${0:22}
+      values: 22
     PreferredAuthentications:
       details: Auth methods, by preference
       values: ${0:gssapi-with-mic,hostbased,publickey,keyboard-interactive,password}
     # Protocol:
     #   details: <em>Deprecated</em> Protocol is 2
-    #   values: ${0:2}
+    #   values: 2
     ProxyCommand:
       details: Run command to establish proxy
-      values: ${0:/usr/bin/nc -X connect -x 192.0.2.0:8080 %h %p}
+      values: /usr/bin/nc -X connect -x 192.0.2.0:8080 %h %p
     ProxyJump:
       details: Use <code>ssh</code> on <code>host</code> as proxy
-      values: ${0:[user@]host[:port]}
+      values: '[user@]host[:port]'
     ProxyUseFdpass:
       details: Pass a connected <code>fd</code> instead of continuing interactively
       values:
@@ -431,10 +431,10 @@
         - 'no'
     RekeyLimit:
       details: Data-length and duration before rekey
-      values: ${0:2G 3h}
+      values: 2G 3h
     RemoteCommand:
       details: Run command on server after connecting
-      values: ${0:echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %u"}
+      values: echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %u"
     RemoteForward:
       details: Forward ports (<code>-R</code>) from server to client
       values: '${1:[bind_address:]port}${2: [host:hostport]}'
@@ -459,13 +459,13 @@
       details: Path to alternative library for FIDO keys
     SendEnv:
       details: Patterns for environment vars to send to remote
-      values: ${0:LANG LC_*}
+      values: LANG LC_*
     ServerAliveCountMax:
       details: Number of check-alive messages to send before giving up
-      values: ${0:3}
+      values: 3
     ServerAliveInterval:
       details: Timeout in seconds before sending check-alive messages
-      values: ${0:300}
+      values: 300
     SessionType:
       details: Restrict activities on the remote
       values:
@@ -483,7 +483,7 @@
         - 'no'
     StreamLocalBindMask:
       details: File mode <code>umask</code> when creating a forwarded port
-      values: ${0:0177}
+      values: '0177'
     StreamLocalBindUnlink:
       details: Enable overwriting existing ports with forwarding
       values:
@@ -512,7 +512,7 @@
         - 'no'
     Tag:
       details: Label to use with <code>Match</code> later
-      values: ${0:foo}
+      values: foo
     Tunnel:
       details: Request <code>tun</code> device forwarding
       values:
@@ -522,7 +522,7 @@
         - point-to-point
     TunnelDevice:
       details: Specify <code>tun</code> devices to open on client and server
-      values: ${0:local_tun[:remote_tun]}
+      values: local_tun[:remote_tun]
     UpdateHostKeys:
       details: Update <code>known_hosts</code> after auth
       values:
@@ -534,10 +534,10 @@
     UsePrivilegePort:
     User:
       details: Set user to log in as
-      values: ${0:username}
+      values: username
     UserKnownHostsFile:
       details: Path to <code>known_hosts</code> file(s)
-      values: ${0:~/.ssh/known_hosts}
+      values: ~/.ssh/known_hosts
     VerifyHostKeyDNS:
       values:
         - 'yes'
@@ -558,7 +558,7 @@
         - 'no'
     XAuthLocation:
       details: Full pathname of the <code>xauth</code> program
-      values: ${0:/usr/X11R6/bin/xauth}
+      values: /usr/X11R6/bin/xauth
 
 'SSHD Config - Match Conditions':
   completions:
@@ -589,7 +589,7 @@
       details: Match version of SSHD server
     RDomain:
       details: Match if in the routing domain
-      values: ${0:4}
+      values: 4
     Address:
       details: Match if connecting IP in CIDRs
       values: ${1:192.0.2.0/24,2001:db8::/32}
@@ -617,7 +617,7 @@
         - 'no'
     AllowGroups:
       details: Allowlist user groups with patterns
-      values: ${0:group1,group2}
+      values: group1,group2
     AllowStreamLocalForwarding:
       details: Set <code>StreamLocal</code> (Unix-domain socket) forwarding policy
       values:
@@ -638,7 +638,7 @@
       details: Allowlist users[@hosts] with patterns
     AuthenticationMethods:
       details: 'Req''d auth methods: <code>,</code> for sequence, <code> </code> for new seq'
-      values: ${0:publickey,password publickey,keyboard-interactive}
+      values: publickey,password publickey,keyboard-interactive
     AuthorizedKeysCommand:
       details: A program to look up the user's public keys
     AuthorizedKeysCommandUser:
@@ -667,7 +667,7 @@
         - 'no'
     ChannelTimeout:
       details: How quickly to close inactive channels
-      values: ${0:session=5m}
+      values: session=5m
     ChrootDirectory:
       details: Path to <code>chroot</code> to after authentication
     Ciphers:
@@ -690,7 +690,7 @@
       details: Denylist user groups with patterns
     DenyUsers:
       details: Denylist users[@hosts] with patterns
-      values: ${0:mysql,*@evil.example.com}
+      values: mysql,*@evil.example.com
     DisableForwarding:
       details: Disables all forwarding features
     ExposeAuthInfo:
@@ -783,7 +783,7 @@
         - 'no'
     Include:
       details: Also load config from files in these patterns
-      values: ${0:/etc/ssh/sshd_config_*}
+      values: /etc/ssh/sshd_config_*
     IPQoS:
       details: IPv4 type-of-service or DSCP class for the connection
       values: 
@@ -826,7 +826,7 @@
     KeyRegenerationInterval:
     ListenAddress:
       details: Listen on these hosts/ports/IPs
-      values: ${0:{host|IP\}[:port]}
+      values: '{host|IP\}[:port]'
     LoginGraceTime:
       details: Time until server disconnects if user has not logged in
     LogLevel:
@@ -839,7 +839,7 @@
         - '...'
     LogVerbose:
       details: One or more overrides to <code>LogLevel</code>
-      values: ${0:kex.c:*:1000}
+      values: kex.c:*:1000
     MACs:
       details: Accepted message auth code algm patterns, by preference
       values:
@@ -906,7 +906,7 @@
       details: Max concurrent unauth'ed connections to <code>sshd</code> per IP
     PerSourceNetBlockSize:
       details: CIDR range for PerSource restrictions, IPv4:IPv6
-      values: ${0:32:128}
+      values: 32:128
     PerSourcePenalties:
       details: Controls penalties for suspected attacks
       values:
@@ -919,12 +919,12 @@
         - '...'
     PerSourcePenaltyExemptList:
       details: List of IPs to exempt from <code>PerSourcePenalties</code>
-      values: ${0:127.0.0.0/16}
+      values: 127.0.0.0/16
     PidFile:
       details: File for proc-ID of daemon, or <code>none</code> to skip
     Port:
       details: Port number to listen on. Multiple options permitted
-      values: ${0:22}
+      values: 22
     PrintLastLog:
       details: Print the timestamp of the last user login
       values:
@@ -969,14 +969,14 @@
         - 'no'
     RekeyLimit:
       details: Data-length and duration before re-key
-      values: ${0:2G 3h}
+      values: 2G 3h
     RequiredRSASize:
       details: Minimum RSA key size in bits
     RevokedKeys:
       details: File(s) containing revoked public keys
     RDomain:
       details: Apply explicit routing domain after auth
-      values: ${0:4}
+      values: 4
     RhostsRSAAuthentication:
     RSAAuthentication:
     SecurityKeyProvider:
@@ -984,13 +984,13 @@
     ServerKeyBits:
     SetEnv:
       details: Set one or more environment variables
-      values: ${0:NAME="VALUE"}
+      values: NAME="VALUE"
     ShowPatchLevel:
     # SshdAuthPath:  # Just for tests
     # SshSessionPath:  # Just for tests
     StreamLocalBindMask:
       details: File mode <code>umask</code> when creating a forwarded port
-      values: ${0:0177}
+      values: '0177'
     StreamLocalBindUnlink:
       details: Enable overwriting existing ports with forwarding
       values:
@@ -1003,7 +1003,7 @@
         - 'no'
     Subsystem:
       details: Configure an external subsystem (e.g. file transfer daemon)
-      values: ${0:sftp    /usr/libexec/sftp-server}
+      values: sftp    /usr/libexec/sftp-server
     SyslogFacility:
       details: Facility code used when logging <code>sshd</code> messages
       values:
@@ -1021,7 +1021,7 @@
       details: File of public keys for CAs trusted to sign user certs
     UnusedConnectionTimeout:
       details: How soon to close connections with no open channels
-      values: ${0:5m}
+      values: 5m
     UseDNS:
       details: Double check that reverse DNS matches IP
       values:
@@ -1038,7 +1038,7 @@
       details: Append text to the SSH protocol banner
     X11DisplayOffset:
       details: First display number available for X11 forwarding
-      values: ${0:10}
+      values: 10
     X11Forwarding:
       details: Toggle X11 forwarding
       values:
