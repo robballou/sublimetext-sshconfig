@@ -199,7 +199,7 @@
         - 'yes'
         - 'no'
         - ~/path/to/socket
-        - \$PATH_VAR
+        - $PATH_VAR
     ForwardX11:
       details: Enable X11 forwarding
       values:
@@ -294,7 +294,7 @@
       values:
         - SSH_AUTH_SOCK
         - ~/.ssh/socket/path
-        - \$PATH_VAR
+        - $PATH_VAR
         - none
     IdentityFile:
       details: Path to key file; Multiple allowed

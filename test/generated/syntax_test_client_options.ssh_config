@@ -185,9 +185,9 @@ Host example.com
  ForwardAgent ~/path/to/socket
 #^^^^^^^^^^^^ meta.mapping.key keyword.other
 #             ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
- ForwardAgent \$PATH_VAR
+ ForwardAgent $PATH_VAR
 #^^^^^^^^^^^^ meta.mapping.key keyword.other
-#             ^^^^^^^^^^ meta.mapping.value - invalid
+#             ^^^^^^^^^ meta.mapping.value - invalid
  ForwardX11 yes
 #^^^^^^^^^^ meta.mapping.key keyword.other
 #           ^^^ meta.mapping.value - invalid
@@ -314,9 +314,9 @@ Host example.com
  IdentityAgent ~/.ssh/socket/path
 #^^^^^^^^^^^^^ meta.mapping.key keyword.other
 #              ^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
- IdentityAgent \$PATH_VAR
+ IdentityAgent $PATH_VAR
 #^^^^^^^^^^^^^ meta.mapping.key keyword.other
-#              ^^^^^^^^^^ meta.mapping.value - invalid
+#              ^^^^^^^^^ meta.mapping.value - invalid
  IdentityAgent none
 #^^^^^^^^^^^^^ meta.mapping.key keyword.other
 #              ^^^^ meta.mapping.value - invalid

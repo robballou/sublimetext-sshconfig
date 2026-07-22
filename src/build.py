@@ -103,7 +103,9 @@ def build_ssh_options():
 
             values: str | list[str] = options['values']
             if isinstance(values, (list)):
-                value_string = f'${{0:{{ {" | ".join(values)} \\}}}}'
+                v_gen = (v.replace('}', '\\}').replace('$', '\\$')
+                         for v in values)
+                value_string = f'${{0:{{ {" | ".join(v_gen)} \\}}}}'
             elif '$' not in values:
                 value_string = f'${{0:{values}}}'
             else:
