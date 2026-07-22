@@ -1200,7 +1200,7 @@
         },
         {
             "trigger": "requiredrsasize",
-            "contents": "RequiredRSASize 2048",
+            "contents": "RequiredRSASize ${0:2048}",
             "annotation": "option",
             "kind": "snippet",
             "details": "Minimum key size in bits"

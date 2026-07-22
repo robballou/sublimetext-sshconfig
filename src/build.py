@@ -102,10 +102,13 @@ def build_ssh_options():
                 continue
 
             values: str | list[str] = options['values']
-            if isinstance(values, (str)):
-                value_string = values
-            else:
+            if isinstance(values, (list)):
                 value_string = f'${{0:{{ {" | ".join(values)} \\}}}}'
+            elif '$' not in values:
+                value_string = f'${{0:{values}}}'
+            else:
+                value_string = values
+
             _ = completions.append({
                 'trigger': keyword.lower(),
                 'contents': f'{keyword}{snippet_spacer}{value_string}',
