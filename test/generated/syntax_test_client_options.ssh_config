@@ -1,0 +1,631 @@
+# SYNTAX TEST "Packages/SSH Config/syntax/SSH Config.sublime-syntax"
+
+Host example.com
+
+ AddKeysToAgent yes
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ AddKeysToAgent no
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^ meta.mapping.value - invalid
+ AddKeysToAgent confirm
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^^^^^ meta.mapping.value - invalid
+ AddKeysToAgent ask
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ AddressFamily inet4
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^ meta.mapping.value - invalid
+ AddressFamily inet6
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^ meta.mapping.value - invalid
+ AddressFamily any
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^ meta.mapping.value - invalid
+ BatchMode yes
+#^^^^^^^^^ meta.mapping.key keyword.other
+#          ^^^ meta.mapping.value - invalid
+ BatchMode no
+#^^^^^^^^^ meta.mapping.key keyword.other
+#          ^^ meta.mapping.value - invalid
+ BindAddress 192.0.2.16
+#^^^^^^^^^^^ meta.mapping.key keyword.other
+#            ^^^^^^^^^^ meta.mapping.value - invalid
+ BindInterface eth0
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^ meta.mapping.value - invalid
+ CanonicalDomains local.example.com,local.example.org
+#^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ CanonicalizeFallbackLocal yes
+#^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                          ^^^ meta.mapping.value - invalid
+ CanonicalizeFallbackLocal no
+#^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                          ^^ meta.mapping.value - invalid
+ CanonicalizeHostname yes
+#^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                     ^^^ meta.mapping.value - invalid
+ CanonicalizeHostname no
+#^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                     ^^ meta.mapping.value - invalid
+ CanonicalizeHostname always
+#^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                     ^^^^^^ meta.mapping.value - invalid
+ CanonicalizeMaxDots 1
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                    ^ meta.mapping.value - invalid
+ CanonicalizePermittedCNAMEs *.source.com,source.org:dest.org,*.local.dest.com
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ CASignatureAlgorithms ssh-ed25519,rsa-sha2-512
+#^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                      ^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ CertificateFile ~/.ssh/pem_%h
+#^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                ^^^^^^^^^^^^^ meta.mapping.value - invalid
+ ChallengeResponseAuthentication yes
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                                ^^^ meta.mapping.value - invalid
+ ChallengeResponseAuthentication no
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                                ^^ meta.mapping.value - invalid
+ ChannelTimeout session=5m
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^^^^^^^^ meta.mapping.value - invalid
+ CheckHostIP yes
+#^^^^^^^^^^^ meta.mapping.key keyword.other
+#            ^^^ meta.mapping.value - invalid
+ CheckHostIP no
+#^^^^^^^^^^^ meta.mapping.key keyword.other
+#            ^^ meta.mapping.value - invalid
+ Ciphers ^prepend,to,list
+#^^^^^^^ meta.mapping.key keyword.other
+#        ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ Ciphers +append,to,list
+#^^^^^^^ meta.mapping.key keyword.other
+#        ^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ Ciphers -remove,from,list
+#^^^^^^^ meta.mapping.key keyword.other
+#        ^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ Ciphers replace,list
+#^^^^^^^ meta.mapping.key keyword.other
+#        ^^^^^^^^^^^^ meta.mapping.value - invalid
+ ClearAllForwardings yes
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                    ^^^ meta.mapping.value - invalid
+ ClearAllForwardings no
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                    ^^ meta.mapping.value - invalid
+ Compression yes
+#^^^^^^^^^^^ meta.mapping.key keyword.other
+#            ^^^ meta.mapping.value - invalid
+ Compression no
+#^^^^^^^^^^^ meta.mapping.key keyword.other
+#            ^^ meta.mapping.value - invalid
+ ConnectionAttempts 1
+#^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                   ^ meta.mapping.value - invalid
+ ConnectTimeout 5
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^ meta.mapping.value - invalid
+ ControlMaster yes
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^ meta.mapping.value - invalid
+ ControlMaster no
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^ meta.mapping.value - invalid
+ ControlMaster ask
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^ meta.mapping.value - invalid
+ ControlMaster auto
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^ meta.mapping.value - invalid
+ ControlMaster autoask
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^ meta.mapping.value - invalid
+ ControlPath ~/.ssh/control-%h-%p-%r
+#^^^^^^^^^^^ meta.mapping.key keyword.other
+#            ^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ ControlPersist yes
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ ControlPersist no
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^ meta.mapping.value - invalid
+ ControlPersist 300 (seconds to timeout)
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ DynamicForward [address:]port
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ EnableEscapeCommandLine yes
+#^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                        ^^^ meta.mapping.value - invalid
+ EnableEscapeCommandLine no
+#^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                        ^^ meta.mapping.value - invalid
+ EnableSSHKeysign yes
+#^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                 ^^^ meta.mapping.value - invalid
+ EnableSSHKeysign no
+#^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                 ^^ meta.mapping.value - invalid
+ EscapeChar ^E
+#^^^^^^^^^^ meta.mapping.key keyword.other
+#           ^^ meta.mapping.value - invalid
+ EscapeChar none
+#^^^^^^^^^^ meta.mapping.key keyword.other
+#           ^^^^ meta.mapping.value - invalid
+ ExitOnForwardFailure yes
+#^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                     ^^^ meta.mapping.value - invalid
+ ExitOnForwardFailure no
+#^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                     ^^ meta.mapping.value - invalid
+ FingerprintHash sha256
+#^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                ^^^^^^ meta.mapping.value - invalid
+ FingerprintHash md5
+#^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                ^^^ meta.mapping.value - invalid.illegal
+ ForkAfterAuthentication yes
+#^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                        ^^^ meta.mapping.value - invalid
+ ForkAfterAuthentication no
+#^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                        ^^ meta.mapping.value - invalid
+ ForwardAgent yes
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^ meta.mapping.value - invalid
+ ForwardAgent no
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^ meta.mapping.value - invalid
+ ForwardAgent ~/path/to/socket
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ ForwardAgent \$PATH_VAR
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^^^^^^^^ meta.mapping.value - invalid
+ ForwardX11 yes
+#^^^^^^^^^^ meta.mapping.key keyword.other
+#           ^^^ meta.mapping.value - invalid
+ ForwardX11 no
+#^^^^^^^^^^ meta.mapping.key keyword.other
+#           ^^ meta.mapping.value - invalid
+ ForwardX11Timeout 2h
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^ meta.mapping.value - invalid
+ ForwardX11Trusted yes
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^ meta.mapping.value - invalid
+ ForwardX11Trusted no
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^ meta.mapping.value - invalid
+ GatewayPorts yes
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^ meta.mapping.value - invalid
+ GatewayPorts no
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^ meta.mapping.value - invalid
+ GlobalKnownHostsFile /etc/ssh/ssh_known_hosts
+#^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ GSSAPIAuthentication yes
+#^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                     ^^^ meta.mapping.value - invalid
+ GSSAPIAuthentication no
+#^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                     ^^ meta.mapping.value - invalid
+ GSSAPIDelegateCredentials yes
+#^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                          ^^^ meta.mapping.value - invalid
+ GSSAPIDelegateCredentials no
+#^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                          ^^ meta.mapping.value - invalid
+ GSSAPIRenewalForcesRekey yes
+#^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                         ^^^ meta.mapping.value - invalid
+ GSSAPIRenewalForcesRekey no
+#^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                         ^^ meta.mapping.value - invalid
+ GSSAPITrustDns yes
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ GSSAPITrustDns no
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^ meta.mapping.value - invalid
+ GSSAPIKexAlgorithms ^prepend,to,list
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                    ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ GSSAPIKexAlgorithms +append,to,list
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                    ^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ GSSAPIKexAlgorithms -remove,from,list
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                    ^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ GSSAPIKexAlgorithms replace,list
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                    ^^^^^^^^^^^^ meta.mapping.value - invalid
+ HashKnownHosts yes
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ HashKnownHosts no
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^ meta.mapping.value - invalid
+ HostbasedAcceptedAlgorithms ^prepend,to,list
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                            ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostbasedAcceptedAlgorithms +append,to,list
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                            ^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostbasedAcceptedAlgorithms -remove,from,list
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                            ^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostbasedAcceptedAlgorithms replace,list
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                            ^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostbasedAuthentication yes
+#^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                        ^^^ meta.mapping.value - invalid
+ HostbasedAuthentication no
+#^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                        ^^ meta.mapping.value - invalid
+ HostbasedKeyTypes ^prepend,to,list
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostbasedKeyTypes +append,to,list
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostbasedKeyTypes -remove,from,list
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostbasedKeyTypes replace,list
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostKeyAlgorithms ^prepend,to,list
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostKeyAlgorithms +append,to,list
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostKeyAlgorithms -remove,from,list
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostKeyAlgorithms replace,list
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^^^^^^^^^^ meta.mapping.value - invalid
+ HostKeyAlias hostname
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^^^^^^ meta.mapping.value - invalid
+ Hostname %h.example.com
+#^^^^^^^^ meta.mapping.key keyword.declaration
+#         ^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ IdentitiesOnly yes
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ IdentitiesOnly no
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^ meta.mapping.value - invalid
+ IdentityAgent SSH_AUTH_SOCK
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^^^^^^^ meta.mapping.value - invalid
+ IdentityAgent ~/.ssh/socket/path
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ IdentityAgent \$PATH_VAR
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^^^^ meta.mapping.value - invalid
+ IdentityAgent none
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^ meta.mapping.value - invalid
+ IdentityFile ~/.ssh/id_rsa_%h
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ IgnoreUnknown FooBar*
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^ meta.mapping.value - invalid
+ Include ~/.ssh/config_*_cloud
+#^^^^^^^ meta.mapping.key keyword.other
+#        ^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ IPQoS af11
+#^^^^^ meta.mapping.key keyword.other
+#      ^^^^ meta.mapping.value - invalid
+ IPQoS af12
+#^^^^^ meta.mapping.key keyword.other
+#      ^^^^ meta.mapping.value - invalid
+ IPQoS none
+#^^^^^ meta.mapping.key keyword.other
+#      ^^^^ meta.mapping.value - invalid
+ KbdInteractiveAuthentication yes
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                             ^^^ meta.mapping.value - invalid
+ KbdInteractiveAuthentication no
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                             ^^ meta.mapping.value - invalid
+ KbdInteractiveDevices bsdauth,pam,skey
+#^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                      ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ KexAlgorithms ^prepend,to,list
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ KexAlgorithms +append,to,list
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ KexAlgorithms -remove,from,list
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ KexAlgorithms replace,list
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^^^^^^ meta.mapping.value - invalid
+ KnownHostsCommand echo foo
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^^^^^^ meta.mapping.value - invalid
+ LocalCommand echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %T, %u"
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ LogLevel QUIET
+#^^^^^^^^ meta.mapping.key keyword.other
+#         ^^^^^ meta.mapping.value - invalid
+ LogLevel FATAL
+#^^^^^^^^ meta.mapping.key keyword.other
+#         ^^^^^ meta.mapping.value - invalid
+ LogLevel ERROR
+#^^^^^^^^ meta.mapping.key keyword.other
+#         ^^^^^ meta.mapping.value - invalid
+ LogLevel INFO
+#^^^^^^^^ meta.mapping.key keyword.other
+#         ^^^^ meta.mapping.value - invalid
+ LogVerbose kex.c:*:1000,*:kex_exchange_identification():*,packet.c:*
+#^^^^^^^^^^ meta.mapping.key keyword.other
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ MACs ^prepend,to,list
+#^^^^ meta.mapping.key keyword.other
+#     ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ MACs +append,to,list
+#^^^^ meta.mapping.key keyword.other
+#     ^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ MACs -remove,from,list
+#^^^^ meta.mapping.key keyword.other
+#     ^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ MACs replace,list
+#^^^^ meta.mapping.key keyword.other
+#     ^^^^^^^^^^^^ meta.mapping.value - invalid
+ NoHostAuthenticationForLocalhost yes
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                                 ^^^ meta.mapping.value - invalid
+ NoHostAuthenticationForLocalhost no
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                                 ^^ meta.mapping.value - invalid
+ NumberOfPasswordPrompts 1
+#^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                        ^ meta.mapping.value - invalid
+ ObscureKeystrokeTiming yes
+#^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                       ^^^ meta.mapping.value - invalid
+ ObscureKeystrokeTiming no
+#^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                       ^^ meta.mapping.value - invalid
+ ObscureKeystrokeTiming interval:80
+#^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                       ^^^^^^^^^^^ meta.mapping.value - invalid
+ PasswordAuthentication yes
+#^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                       ^^^ meta.mapping.value - invalid
+ PasswordAuthentication no
+#^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                       ^^ meta.mapping.value - invalid
+ PermitLocalCommand yes
+#^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                   ^^^ meta.mapping.value - invalid
+ PermitLocalCommand no
+#^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                   ^^ meta.mapping.value - invalid
+ PermitRemoteOpen host:port
+#^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                 ^^^^^^^^^ meta.mapping.value - invalid
+ Port 22
+#^^^^ meta.mapping.key keyword.other
+#     ^^ meta.mapping.value - invalid
+ ProxyCommand /usr/bin/nc -X connect -x 192.0.2.0:8080 %h %p
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ ProxyJump [user@]host[:port]
+#^^^^^^^^^ meta.mapping.key keyword.other
+#          ^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ ProxyUseFdpass yes
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ ProxyUseFdpass no
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^ meta.mapping.value - invalid
+ PubkeyAcceptedAlgorithms ^prepend,to,list
+#^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                         ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ PubkeyAcceptedAlgorithms +append,to,list
+#^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                         ^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ PubkeyAcceptedAlgorithms -remove,from,list
+#^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                         ^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ PubkeyAcceptedAlgorithms replace,list
+#^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                         ^^^^^^^^^^^^ meta.mapping.value - invalid
+ PubkeyAcceptedKeyTypes ^prepend,to,list
+#^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                       ^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ PubkeyAcceptedKeyTypes +append,to,list
+#^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                       ^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ PubkeyAcceptedKeyTypes -remove,from,list
+#^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                       ^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ PubkeyAcceptedKeyTypes replace,list
+#^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                       ^^^^^^^^^^^^ meta.mapping.value - invalid
+ PubkeyAuthentication yes
+#^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                     ^^^ meta.mapping.value - invalid
+ PubkeyAuthentication no
+#^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                     ^^ meta.mapping.value - invalid
+ RefuseConnection yes
+#^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                 ^^^ meta.mapping.value - invalid
+ RefuseConnection no
+#^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                 ^^ meta.mapping.value - invalid
+ RekeyLimit 2G 3h
+#^^^^^^^^^^ meta.mapping.key keyword.other
+#           ^^^^^ meta.mapping.value - invalid
+ RemoteCommand echo "tada! %C, %d, %h, %i, %l, %n, %p, %r, %u"
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ RequestTTY yes
+#^^^^^^^^^^ meta.mapping.key keyword.other
+#           ^^^ meta.mapping.value - invalid
+ RequestTTY no
+#^^^^^^^^^^ meta.mapping.key keyword.other
+#           ^^ meta.mapping.value - invalid
+ RequestTTY force
+#^^^^^^^^^^ meta.mapping.key keyword.other
+#           ^^^^^ meta.mapping.value - invalid
+ RequestTTY auto
+#^^^^^^^^^^ meta.mapping.key keyword.other
+#           ^^^^ meta.mapping.value - invalid
+ RequiredRSASize 2048
+#^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                ^^^^ meta.mapping.value - invalid
+ RSAAuthentication yes
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^^ meta.mapping.value - invalid
+ RSAAuthentication no
+#^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                  ^^ meta.mapping.value - invalid
+ SendEnv LANG LC_*
+#^^^^^^^ meta.mapping.key keyword.other
+#        ^^^^^^^^^ meta.mapping.value - invalid
+ ServerAliveCountMax 3
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                    ^ meta.mapping.value - invalid
+ ServerAliveInterval 300
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                    ^^^ meta.mapping.value - invalid
+ SessionType default
+#^^^^^^^^^^^ meta.mapping.key keyword.other
+#            ^^^^^^^ meta.mapping.value - invalid
+ SessionType subsystem
+#^^^^^^^^^^^ meta.mapping.key keyword.other
+#            ^^^^^^^^^ meta.mapping.value - invalid
+ SessionType none
+#^^^^^^^^^^^ meta.mapping.key keyword.other
+#            ^^^^ meta.mapping.value - invalid
+ StdinNull yes
+#^^^^^^^^^ meta.mapping.key keyword.other
+#          ^^^ meta.mapping.value - invalid
+ StdinNull no
+#^^^^^^^^^ meta.mapping.key keyword.other
+#          ^^ meta.mapping.value - invalid
+ StreamLocalBindMask 0177
+#^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                    ^^^^ meta.mapping.value - invalid
+ StreamLocalBindUnlink yes
+#^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                      ^^^ meta.mapping.value - invalid
+ StreamLocalBindUnlink no
+#^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                      ^^ meta.mapping.value - invalid
+ StrictHostKeyChecking yes
+#^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                      ^^^ meta.mapping.value - invalid
+ StrictHostKeyChecking no
+#^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                      ^^ meta.mapping.value - invalid
+ StrictHostKeyChecking ask
+#^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                      ^^^ meta.mapping.value - invalid
+ StrictHostKeyChecking accept-new
+#^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                      ^^^^^^^^^^ meta.mapping.value - invalid
+ StrictHostKeyChecking off
+#^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                      ^^^ meta.mapping.value - invalid
+ SyslogFacility DAEMON
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^^^^ meta.mapping.value - invalid
+ SyslogFacility USER
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^^ meta.mapping.value - invalid
+ SyslogFacility AUTH
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^^ meta.mapping.value - invalid
+ SyslogFacility LOCAL0
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^^^^ meta.mapping.value - invalid
+ TCPKeepAlive yes
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^ meta.mapping.value - invalid
+ TCPKeepAlive no
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^ meta.mapping.value - invalid
+ Tag foo
+#^^^ meta.mapping.key keyword.other
+#    ^^^ meta.mapping.value - invalid
+ Tunnel yes
+#^^^^^^ meta.mapping.key keyword.other
+#       ^^^ meta.mapping.value - invalid
+ Tunnel no
+#^^^^^^ meta.mapping.key keyword.other
+#       ^^ meta.mapping.value - invalid
+ Tunnel ethernet
+#^^^^^^ meta.mapping.key keyword.other
+#       ^^^^^^^^ meta.mapping.value - invalid
+ Tunnel point-to-point
+#^^^^^^ meta.mapping.key keyword.other
+#       ^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ TunnelDevice local_tun[:remote_tun]
+#^^^^^^^^^^^^ meta.mapping.key keyword.other
+#             ^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ UpdateHostKeys yes
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ UpdateHostKeys no
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^ meta.mapping.value - invalid
+ UpdateHostKeys ask
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ User username
+#^^^^ meta.mapping.key keyword.other
+#     ^^^^^^^^ meta.mapping.value - invalid
+ UserKnownHostsFile ~/.ssh/known_hosts
+#^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                   ^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid
+ VerifyHostKeyDNS yes
+#^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                 ^^^ meta.mapping.value - invalid
+ VerifyHostKeyDNS no
+#^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                 ^^ meta.mapping.value - invalid
+ VerifyHostKeyDNS ask
+#^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#                 ^^^ meta.mapping.value - invalid
+ VisualHostKey yes
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^ meta.mapping.value - invalid
+ VisualHostKey no
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^ meta.mapping.value - invalid
+ WarnWeakCrypto yes
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ WarnWeakCrypto no-pq-kex
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^^^^^^^ meta.mapping.value - invalid
+ WarnWeakCrypto no
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^ meta.mapping.value - invalid
+ XAuthLocation /usr/X11R6/bin/xauth
+#^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#              ^^^^^^^^^^^^^^^^^^^^ meta.mapping.value - invalid

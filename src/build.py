@@ -123,6 +123,48 @@ def build_ssh_options():
             json.dump(completions_yaml, f, indent=4)
 
 
+def build_ssh_option_test():
+    with open('options.yaml', 'r') as stream:
+        ssh_options_input: dict[str, CompletionSet] = yaml.load(  # pyright: ignore[reportAssignmentType]
+            stream, Loader=yaml.BaseLoader)
+
+    test_content = [
+        f'# SYNTAX TEST "{SYNTAX_STEM}SSH Config.sublime-syntax"\n',
+        'Host example.com\n',
+    ]
+
+    for item, content in ssh_options_input['SSH Config']['items'].items():
+        if 'values' not in content:
+            continue
+        if '$' in content['values']:
+            continue
+
+        key_scope = 'meta.mapping.key keyword.other'
+        if item in {'Hostname'}:
+            key_scope = 'meta.mapping.key keyword.declaration'
+
+        value_list = content['values']
+        if isinstance(value_list, str):
+            value_list = [value_list]
+
+        for value in value_list:
+            if value in {'...'}:
+                continue
+
+            val_scope = 'meta.mapping.value - invalid'
+            if value in {'md5'}:
+                val_scope = 'meta.mapping.value - invalid.illegal'
+
+            test_content.append(f' {item} {value}')
+            test_content.append(
+                f'#{"^" * len(item)} {key_scope}')
+            test_content.append(
+                f'#{" " * len(item)} {"^" * len(value)} {val_scope}')
+
+    with open(f'{TEST_STEM}client_options.ssh_config', 'w') as test_file:
+        _ = test_file.write('\n'.join(test_content))
+
+
 def build_sshd_index_test():
     with open('options.yaml', 'r') as stream:
         ssh_options_input: dict[str, CompletionSet] = yaml.load(  # pyright: ignore[reportAssignmentType]
@@ -278,6 +320,7 @@ def build_crypto():
 
 def main():
     build_ssh_options()
+    build_ssh_option_test()
     build_sshd_index_test()
     build_crypto()
 

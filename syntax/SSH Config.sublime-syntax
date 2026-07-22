@@ -170,7 +170,7 @@ contexts:
         1: meta.mapping.key.ssh_config keyword.declaration.host.ssh_config
         2: keyword.operator.assignment.ssh_config
       push:
-        - meta_content_scope: meta.string.host.ssh_config
+        - meta_content_scope: meta.mapping.value.ssh_config meta.string.host.ssh_config
         - include: pop-nl
         - include: ip-addresses
         - match: (?=\S+)
@@ -323,7 +323,7 @@ contexts:
             (?: Pubkey | HostBased | Password | ChallengeResponse
             | KbdInteractive | (?:Rhosts)? RSA
             ) Authentication # Auth
-          | ForwardAgent | ForwardX11(?:Trusted)? | ClearAllForwardings
+          | ForwardX11(?:Trusted)? | ClearAllForwardings
           | ExitOnForwardFailure # Fwds
           | BatchMode | CanonicalizeFallbackLocal | CheckHostIP | Compression
           | EnableEscapeCommandLine | EnableSSHKeySign
