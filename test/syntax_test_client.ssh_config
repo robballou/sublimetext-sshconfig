@@ -229,17 +229,18 @@ Host *
 #                 ^ punctuation.separator.path.ssh.common
 #                  ^ - punctuation
 #                      ^ punctuation.separator.path.ssh.common
-    Ciphers "aes128-ctr,aes192-ctr,aes256-ctr"
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
+    Ciphers "+aes128-ctr,aes192-ctr,aes256-ctr"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config
-#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common string.quoted.double.ssh.common
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.value.ssh.common string.quoted.double.ssh.common
 #           ^ punctuation.definition.string.begin.ssh.common
-#            ^^^^^^^^^^ support.function.cipher
-#                      ^ punctuation.separator.sequence.ssh.common
-#                       ^^^^^^^^^^ support.function.cipher
-#                                 ^ punctuation.separator.sequence.ssh.common
-#                                  ^^^^^^^^^^ support.function.cipher
-#                                            ^ punctuation.definition.string.end.ssh.common
+#            ^ keyword.operator.arithmetic.ssh.common
+#             ^^^^^^^^^^ support.function.cipher
+#                       ^ punctuation.separator.sequence.ssh.common
+#                        ^^^^^^^^^^ support.function.cipher
+#                                  ^ punctuation.separator.sequence.ssh.common
+#                                   ^^^^^^^^^^ support.function.cipher
+#                                             ^ punctuation.definition.string.end.ssh.common
     UseKeychain yes
 #^^^^^^^^^^^^^^^^^^ meta.block.host.ssh_config
 #   ^^^^^^^^^^^ meta.mapping.key.ssh_config keyword.other.ssh_config

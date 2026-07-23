@@ -421,6 +421,7 @@ contexts:
     - include: ssh-ciphers
     - include: ssh-kex-algorithms
     - include: ssh-mac-algorithms
+    - include: crypto-list-operators
     - include: ipv6-square-bracket
     - include: ip-addresses-with-cidr
     - include: time-values
