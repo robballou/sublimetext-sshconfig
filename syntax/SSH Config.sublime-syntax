@@ -19,7 +19,7 @@ contexts:
     - include: naked-block
 
   naked-block:
-    - match: (?=\S)
+    - match: (?=^\s*\S)
       push:
         - meta_scope: meta.block.naked.ssh_config
         - include: pop-before-next-host
