@@ -115,6 +115,7 @@ contexts:
   match-body:
     - meta_content_scope: meta.block.match.sshd_config
     - include: pop-before-next-match
+    - include: comments
     - include: parameters
 
 ###[ PARAMETERS ]##############################################################

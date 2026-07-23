@@ -129,6 +129,7 @@ contexts:
   match-body:
     - meta_content_scope: meta.block.match.ssh_config
     - include: pop-before-next-host
+    - include: comments
     - include: parameters
 
 ###[ PARAMETERS ]##############################################################
