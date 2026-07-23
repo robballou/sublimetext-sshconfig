@@ -1,5 +1,5 @@
 {
-    "scope": "source.sshd_config - meta.statement - meta.mapping.value",
+    "scope": "source.sshd_config keyword - meta.statement",
     "completions": [
         {
             "trigger": "Match",

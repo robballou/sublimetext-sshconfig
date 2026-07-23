@@ -49,7 +49,7 @@
 
 'SSH Config':
   completions:
-    scope: source.ssh_config - meta.statement - meta.mapping.value - comment
+    scope: source.ssh_config keyword - meta.statement
     annotation: option
     kind: keyword
   items:
@@ -596,7 +596,7 @@
 
 'SSHD Config':
   completions:
-    scope: source.sshd_config - meta.statement - meta.mapping.value
+    scope: source.sshd_config keyword - meta.statement
     annotation: option
     kind: keyword
   items:
