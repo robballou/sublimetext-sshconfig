@@ -16,56 +16,23 @@ contexts:
     - include: comments
     - include: host-block
     - include: match
-    - include: naked-parameters
+    - include: naked-block
 
-  parameters:
-    - include: comments
-    - include: parameter-hostname
-    - include: parameter-localcommand
-    - include: parameter-proxycommand
-    - include: parameter-proxyjump
-    - include: parameter-knownhostscommand
-    - include: parameter-remotecommand
-    - include: parameter-with-boolean-values
-    - include: parameter-with-boolean-values-plus-ask
-    - include: parameter-generic
+  naked-block:
+    - match: (?=\S)
+      push:
+        - meta_scope: meta.block.naked.ssh_config
+        - include: pop-before-next-host
+        - include: comments
+        - include: parameters
+
+###[ OVERRIDES ]###############################################################
 
   tokens:
     - match: '%%'
       scope: constant.character.escape.ssh_config
     - match: '{{tokens_standard}}'
       scope: constant.other.placeholder.ssh_config
-
-  pop-before-match-parameter:
-    - include: pop-before-nl
-    - match: '(?=\s*{{match_parameters}})'
-      pop: 1
-
-  pop-before-next-host:
-    - match: '(?=^\s*(?xi: Host | Match )\b)'
-      pop: 1
-
-  naked-parameters:
-    - match: (?=\S)
-      push:
-        - meta_scope: meta.block.naked.ssh_config
-        - include: pop-before-next-host
-        - include: parameters
-
-  host-pattern:
-    - meta_content_scope: entity.name.label.host-alias.ssh_config
-    - include: punctuation-dot-sequence
-    - include: wildcards
-    - match: (?=\s|,)
-      pop: 1
-
-  host-patterns:
-    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
-    # https://man.openbsd.org/ssh_config.5#PATTERNS
-    - include: operator-exclamation
-    - include: punctuation-comma-sequence
-    - match: (?=\S)
-      push: host-pattern
 
   environment-variables:
     # https://man7.org/linux/man-pages/man5/ssh_config.5.html#ENVIRONMENT_VARIABLES
@@ -90,6 +57,7 @@ contexts:
   host-body:
     - meta_content_scope: meta.block.host.ssh_config
     - include: pop-before-next-host
+    - include: comments
     - include: parameters
 
 ###[ MATCH ]###################################################################
@@ -164,6 +132,17 @@ contexts:
     - include: parameters
 
 ###[ PARAMETERS ]##############################################################
+
+  parameters:
+    - include: parameter-hostname
+    - include: parameter-localcommand
+    - include: parameter-proxycommand
+    - include: parameter-proxyjump
+    - include: parameter-knownhostscommand
+    - include: parameter-remotecommand
+    - include: parameter-with-boolean-values
+    - include: parameter-with-boolean-values-plus-ask
+    - include: parameter-generic
 
   parameter-hostname:
     - match: ^\s*((?i:HostName))\b\s*(=)?
@@ -431,6 +410,32 @@ contexts:
     - match: \b\d+(?=[\s,"])
       scope: meta.number.integer.ssh_config
              constant.numeric.value.ssh_config
+
+###[ PROTOTYPE ]###############################################################
+
+  pop-before-match-parameter:
+    - include: pop-before-nl
+    - match: '(?=\s*{{match_parameters}})'
+      pop: 1
+
+  pop-before-next-host:
+    - match: '(?=^\s*(?xi: Host | Match )\b)'
+      pop: 1
+
+  host-pattern:
+    - meta_content_scope: entity.name.label.host-alias.ssh_config
+    - include: punctuation-dot-sequence
+    - include: wildcards
+    - match: (?=\s|,)
+      pop: 1
+
+  host-patterns:
+    # https://man7.org/linux/man-pages/man5/ssh_config.5.html#PATTERNS
+    # https://man.openbsd.org/ssh_config.5#PATTERNS
+    - include: operator-exclamation
+    - include: punctuation-comma-sequence
+    - match: (?=\S)
+      push: host-pattern
 
 ###############################################################################
 

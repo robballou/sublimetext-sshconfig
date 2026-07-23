@@ -17,16 +17,9 @@ contexts:
     - include: match
     - include: parameters
 
-  parameters:
-    - include: comments
-    - include: parameter-forcecommand
-    - include: parameter-authorizedkeyscommand
-    - include: parameter-authorizedprincipalscommand
-    - include: parameter-path-with-tokens
-    - include: parameter-routingdomain
-    - include: parameter-with-boolean-values
-    - include: parameter-generic
+###[ OVERRIDES ]###############################################################
 
+  # Override comments to add GoTo for commented keywords
   comments:
     - match: (#+)(?:\s*({{all_parameters}}))?
       captures:
@@ -51,15 +44,6 @@ contexts:
       scope: constant.character.escape.sshd_config
     - match: '%[hUu]'
       scope: constant.other.placeholder.sshd_config
-
-  pop-before-match-option:
-    - include: pop-before-nl
-    - match: '(?=\s*(?xi: all | user | group | host | (?:local)? address | localport )\b)'
-      pop: 1
-
-  pop-before-next-match:
-    - match: (?=^\s*(?i:Match)\b)
-      pop: 1
 
 ###[ MATCH ]###################################################################
 
@@ -134,6 +118,15 @@ contexts:
     - include: parameters
 
 ###[ PARAMETERS ]##############################################################
+
+  parameters:
+    - include: parameter-forcecommand
+    - include: parameter-authorizedkeyscommand
+    - include: parameter-authorizedprincipalscommand
+    - include: parameter-path-with-tokens
+    - include: parameter-routingdomain
+    - include: parameter-with-boolean-values
+    - include: parameter-generic
 
   parameter-forcecommand:
     - match: ^\s*((?i:ForceCommand))\b\s*(=)?
@@ -269,6 +262,17 @@ contexts:
     - include: numeric-values
     - match: ':'
       scope: punctuation.separator.sequence.sshd_config
+
+###[ PROTOTYPE ]###############################################################
+
+  pop-before-match-option:
+    - include: pop-before-nl
+    - match: '(?=\s*(?xi: all | user | group | host | (?:local)? address | localport )\b)'
+      pop: 1
+
+  pop-before-next-match:
+    - match: (?=^\s*(?i:Match)\b)
+      pop: 1
 
   numeric-values:
     - match: \b\d+(?=[\s,:"])
