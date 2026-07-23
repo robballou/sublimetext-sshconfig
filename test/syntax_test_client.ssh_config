@@ -289,6 +289,9 @@ Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/
 #                                                                                          ^ punctuation.definition.string.end.ssh_config - source.shell
 #          @@@@@@@@@@@@@ local-definition "Alias: *.example.com"
 #                                @@@@ reference
+    # comment
+#   ^^^^^^^^^ comment.line
+
 Match Host *.example.com Exec "! grep -q -E '^\s*search[ \t]+example\.com' /etc/resolv.conf" Canonical
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.match.ssh_config
 #^^^^ keyword.control.conditional.ssh_config
