@@ -564,6 +564,15 @@
  UsePAM no
 #^^^^^^ meta.mapping.key keyword.other
 #       ^^ meta.mapping.value - invalid
+ WarnWeakCrypto yes
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^ meta.mapping.value - invalid
+ WarnWeakCrypto no-pq-kex
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^^^^^^^^ meta.mapping.value - invalid
+ WarnWeakCrypto no
+#^^^^^^^^^^^^^^ meta.mapping.key keyword.other
+#               ^^ meta.mapping.value - invalid
  X11DisplayOffset 10
 #^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
 #                 ^^ meta.mapping.value - invalid
