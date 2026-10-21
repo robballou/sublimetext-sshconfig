@@ -593,6 +593,11 @@
 #VersionAddendum no
 #@@@@@@@@@@@@@@@ local-definition
 
+ WarnWeakCrypto no
+#@@@@@@@@@@@@@@ local-definition
+#WarnWeakCrypto no
+#@@@@@@@@@@@@@@ local-definition
+
  X11DisplayOffset no
 #@@@@@@@@@@@@@@@@ local-definition
 #X11DisplayOffset no

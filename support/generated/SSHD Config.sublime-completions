@@ -1395,6 +1395,20 @@
             "details": "Append text to the SSH protocol banner"
         },
         {
+            "trigger": "WarnWeakCrypto",
+            "contents": "WarnWeakCrypto",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": "Warn about crypto recommendations"
+        },
+        {
+            "trigger": "warnweakcrypto",
+            "contents": "WarnWeakCrypto ${0:{ yes | no-pq-kex | no \\}}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": "Warn about crypto recommendations"
+        },
+        {
             "trigger": "X11DisplayOffset",
             "contents": "X11DisplayOffset",
             "annotation": "option",

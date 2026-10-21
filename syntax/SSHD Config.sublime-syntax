@@ -347,6 +347,7 @@ variables:
       | UnusedConnectionTimeout | UseDNS | UseLogin | UsePAM
       | UsePrivilegeSeparation
       | VersionAddendum
+      | WarnWeakCrypto
       | X11DisplayOffset | X11Forwarding | X11MaxDisplays | X11UseLocalhost
       | XAuthLocation
     )\b

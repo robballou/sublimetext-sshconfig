@@ -1084,6 +1084,12 @@
     UsePrivilegeSeparation:
     VersionAddendum:
       details: Append text to the SSH protocol banner
+    WarnWeakCrypto:
+      details: Warn about crypto recommendations
+      values:
+        - 'yes'
+        - no-pq-kex
+        - 'no'
     X11DisplayOffset:
       details: First display number available for X11 forwarding
       values: 10
